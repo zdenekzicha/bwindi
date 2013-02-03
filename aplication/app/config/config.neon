@@ -16,9 +16,9 @@ common:
 			errorPresenter: Error
 
 		database:
-			dsn: 'mysql:host=localhost;dbname=test'
-			user:
-			password:
+			dsn: 'mysql:host=localhost;dbname=bwindi'
+			user: root
+			password: root
 
 		session:
 			expiration: 14 days
@@ -26,6 +26,7 @@ common:
 
 	services:
 		authenticator: Authenticator
+		kids: Kids
 		routerFactory: RouterFactory
 		router: @routerFactory::createRouter
 
