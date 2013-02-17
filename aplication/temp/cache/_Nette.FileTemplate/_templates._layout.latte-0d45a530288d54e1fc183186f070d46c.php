@@ -1,30 +1,30 @@
-<?php //netteCache[01]000357a:2:{s:4:"time";s:21:"0.93202600 1361133157";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:68:"/Users/me/Work/php/bwindy/git/aplication/app/templates/@layout.latte";i:2;i:1361127655;}i:1;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:10:"checkConst";}i:1;s:20:"NFramework::REVISION";i:2;s:30:"b7f6732 released on 2013-01-01";}}}?><?php
+<?php //netteCache[01]000357a:2:{s:4:"time";s:21:"0.27782400 1361137053";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:68:"/Users/me/Work/php/bwindy/git/aplication/app/templates/@layout.latte";i:2;i:1361137049;}i:1;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:10:"checkConst";}i:1;s:20:"NFramework::REVISION";i:2;s:30:"b7f6732 released on 2013-01-01";}}}?><?php
 
 // source file: /Users/me/Work/php/bwindy/git/aplication/app/templates/@layout.latte
 
 ?><?php
 // prolog NCoreMacros
-list($_l, $_g) = NCoreMacros::initRuntime($template, 'qmii6c1zxy')
+list($_l, $_g) = NCoreMacros::initRuntime($template, 'ffnvgyf8nt')
 ;
 // prolog NUIMacros
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lbab8e0386ed_title')) { function _lbab8e0386ed_title($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['title'][] = '_lb952a346846_title')) { function _lb952a346846_title($_l, $_args) { extract($_args)
 ?>Nette Application Skeleton<?php
 }}
 
 //
 // block head
 //
-if (!function_exists($_l->blocks['head'][] = '_lbbb31227bf3_head')) { function _lbbb31227bf3_head($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['head'][] = '_lbe0e90b29a2_head')) { function _lbe0e90b29a2_head($_l, $_args) { extract($_args)
 ;
 }}
 
 //
 // block scripts
 //
-if (!function_exists($_l->blocks['scripts'][] = '_lb550b0a183b_scripts')) { function _lb550b0a183b_scripts($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['scripts'][] = '_lb65f50788f0_scripts')) { function _lb65f50788f0_scripts($_l, $_args) { extract($_args)
 ?>	<script src="<?php echo htmlSpecialChars($basePath) ?>/js/jquery.js"></script>
 	<script src="<?php echo htmlSpecialChars($basePath) ?>/js/netteForms.js"></script>
 	<script src="<?php echo htmlSpecialChars($basePath) ?>/js/main.js"></script>
@@ -78,7 +78,7 @@ ob_start(); call_user_func(reset($_l->blocks['title']), $_l, get_defined_vars())
 <?php $iterations++; endforeach ?>
 
 	<header id='mainNavigation'>
-		<a href="<?php echo htmlSpecialChars($_control->link("Dite:")) ?>">Děti</a> |
+		<a href="<?php echo htmlSpecialChars($_control->link("Homepage:")) ?>">Děti</a> |
 		<a href="<?php echo htmlSpecialChars($_control->link("Platba:")) ?>">Platby</a> | 
 		<a href="<?php echo htmlSpecialChars($_control->link("Sponzor:")) ?>">Sponzoři</a> |
 		<a href="<?php echo htmlSpecialChars($_control->link("Skola:")) ?>">Školy</a> |

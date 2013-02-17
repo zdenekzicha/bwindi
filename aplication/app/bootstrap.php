@@ -24,6 +24,15 @@ $configurator->addConfig(dirname(__FILE__) . '/config/config.local.neon', NConfi
 $container = $configurator->createContainer();
 
 //$container->router[] = new NRoute('<presenter>/<action>[/<id>]', 'Kids:default');
-$container->router = new NSimpleRouter('Dite:default');
+//$container->router = new NSimpleRouter('Dite:default');
+
+// Setup router using mod_rewrite detection
+if (function_exists('apache_get_modules') && in_array('mod_rewrite', apache_get_modules())) {
+	$container->router[] = new NRoute('index.php', 'Dite:default', NRoute::ONE_WAY);
+	$container->router[] = new NRoute('<presenter>/<action>[/<id>]', 'Dite:default');
+
+} else {
+	$container->router = new NSimpleRouter('Dite:default');
+}
 
 return $container;

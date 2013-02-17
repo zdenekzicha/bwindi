@@ -3,7 +3,7 @@
 /**
  * Dite presenter.
  */
-class ditePresenter extends BasePresenter
+class homepagePresenter extends BasePresenter
 {
 
 	private $deti;
