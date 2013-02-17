@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset=utf-8>
+	<meta name="viewport" content="width=620">
+	<title>Bwindy: Platby</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+	<link rel="stylesheet" href="css/userweb.css" />
+</head>
+<body>
+	<section id="page" class="payment">
+		<header>
+			<a href="index.html">Děti</a> |
+			<a href="platby.html">Platby</a> | 
+			<a href="sponzori.html">Sponzoři</a> |
+			<a href="skoly.html">Školy</a> |
+			<a href="benefity.html">Benefity</a>
+		</header>
+		<h1>Platby</h1>
+		<form class="form-search">
+			<p>
+				<select>
+	  				<option>Vs</option>
+	  				<option>Ss</option>
+	  				<option>Číslo účtu</option>	 
+	 				<option>Sponzor</option>
+				</select>
+	  			<input type="text" class="input-xlarge">
+	  			<button type="submit" class="btn">Vyhledat</button>
+	  		</p>
+	  		<div class="group">
+		  		<div class="left">
+		  			<select class="span2">
+		  				<option>Typ platby</option>
+		  				<option>Školné</option>
+		  				<option>Koza</option>
+		  				<option>Matrace</option>
+		  				<option>Solární lampa</option>
+					</select>
+		  		</div>
+		  		<div class="left">
+		  			<select class="span2">
+		  				<option>Rok</option>
+		  				<option>2013</option>
+		  				<option>2012</option>
+		  				<option>2011</option>
+					</select>
+		  		</div>
+		  	</div>
+		</form>
+		<table class="table table-striped">
+			<tr>
+				<th>Datum</th>
+				<th>Typ platby</th>
+				<th>Rok</th>
+				<th>Částka</th>			
+				<th>VS</th>
+				<th>SS</th>
+				<th>Číslo účtu</th>
+				<th>Sponzor</th>
+				<th>Poznámka</th>
+				<th></th>
+			</tr>
+			<tr>
+				<td>23.11.2012</td>
+				<td>Koza</td>
+				<td>2012</td>
+				<td>1 000 Kč</td>	
+				<td>1061</td>		
+				<td>5043</td>
+				<td>389224001/5500</td>
+				<td><a href="sponzori.html">Buček Jiří</a></td>
+				<td></td>
+				<td><a href="platba-detail.html" title="detail"><i class="icon-pencil"></i></a></td>
+			</tr>
+			<tr>
+				<td>8.10.2012</td>
+				<td>Školné</td>
+				<td>2013</td>
+				<td>9 800 Kč</td>	
+				<td>1061</td>		
+				<td>5043</td>
+				<td>389224001/5500</td>
+				<td><a href="sponzori.html">Buček Jiří</a></td>
+				<td></td>
+				<td><a href="platba-detail.html" title="detail"><i class="icon-pencil"></i></a></td>
+			</tr>
+		</table>
+		<button type="submit" class="btn btn-success">Přidat platbu</button>
+	</section>
+</body>
+</html>
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset=utf-8>
+	<meta name="viewport" content="width=620">
+	<title>Bwindy: Detail platby</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+	<link rel="stylesheet" href="css/userweb.css" />
+</head>
+<body>
+	<section id="page" class="detailSponsor detail">
+		<header>
+			<a href="index.html">Děti</a> |
+			<a href="platby.html">Platby</a> | 
+			<a href="sponzori.html">Sponzoři</a> |
+			<a href="skoly.html">Školy</a> |
+			<a href="benefity.html">Benefity</a>
+		</header>
+		<h1>Ptlatba: VS:1061 SS:5043</h1>
+		<a href="platby.html">Zpět na seznam plateb</a>
+		<form action="editace_detail.php" class="form-search">
+			<p>
+				<label>Datum platby:</label><input type="input" name="jmeno" value="23.11.2012" />
+			</p>
+			<p>
+				<label>Typ platby</label>
+				<select class="span3">
+		  			<option>školné</option>
+		  			<option>koza</option>
+		  			<option>matrace</option>
+		  			<option>solární lampa</option>
+				</select>
+			</p>
+			<p>
+				<label>Platné na rok:</label>
+				<select class="span3">
+		  			<option>2013</option>
+		  			<option selected="selected">2012</option>
+		  			<option>2011</option>
+		  			<option>2010</option>
+				</select>
+			</p>
+			<p>
+				<label>Částka:</label>
+				<input type="input" name="narozeni" value="1000" />
+			</p>
+			<p>
+				<label>VS:</label>
+				<input type="input" name="narozeni" value="1061" />
+				<input type="input" name="narozeni" value="Abel Byamugisha" disabled="disabled" />
+			</p>
+			<p>
+				<label>SS:</label>
+				<input type="input" name="narozeni" value="5043" />
+				<input type="input" name="narozeni" value="Buček Jiří" disabled="disabled" />
+			</p>
+			<p>
+				<label>Číslo účtu:</label>
+				<input type="input" name="narozeni" value="389224001/5500" />
+			</p>
+			<p>
+				<label>Poznámka:</label>
+				<input type="input" name="narozeni" value="" class="input-xxlarge" />
+			</p>
+			<button type="submit" class="btn btn-success">Upravit</button>
+		</form>
+	</section>
+</body>
+</html>
+
