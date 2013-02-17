@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset=utf-8>
+	<meta name="viewport" content="width=620">
+	<title>Bwindy: Detail dítě</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+	<link rel="stylesheet" href="css/userweb.css" />
+</head>
+<body>
+	<section id="page" class="detailChild detail">
+		<header>
+			<a href="index.html">Děti</a> |
+			<a href="platby.html">Platby</a> | 
+			<a href="sponzori.html">Sponzoři</a> |
+			<a href="skoly.html">Školy</a> |
+			<a href="benefity.html">Benefity</a>
+		</header>
+		<h1>Dítě: Abel Byamugisha</h1>
+		<a href="index.html">Zpět na seznam dětí</a>
+		<form action="editace_detail.php" class="form-search">
+			<p>
+				<label>Jméno:</label><input type="input" name="jmeno" value="Abel Byamugisha" />
+			</p>
+			<p>
+				<label>Pohlaví:</label>
+				<select class="span2">
+		  			<option>muž</option>
+		  			<option>žena</option>
+				</select>
+			</p>
+			<p>
+				<label>Datum narození:</label><input type="input" name="narozeni" value="1991" />
+			</p>
+			<p>
+				<label>Aktualní škola:</label>
+				<input type="text" value="Trinity college S4" disabled="disabled" />
+				<a href="skolne.html">upravit školné</a>
+			</p>
+			<p>
+				<label>Školné 2013:</label>9 800 Kč
+			</p>
+			<p>
+				<label>Školné 2013 zaplaceno:</label>4 800 Kč
+			</p>
+			<p>
+				<label>Sourozenci v projektu:</label>
+				<table>
+					<tr>
+						<td>Barbra Akamo</td><td><a href="#"><i class="icon-remove"></i></a></td>
+					</tr>
+					<tr>
+						<td><a href="#"><i class="icon-plus"></i> Přidat další</a></td><td></td>
+					</tr>
+				</table>
+			</p>
+			<!--
+			<p>
+				<label>Příběh::</label>
+				<textarea name="pribeh" cols="30" rows="12">Abel má tři bratry a dvě sestry. Matka zemřela dávno a otec se později dvakrát oženil a nestará se. Abel žije u tety, která je vdaná a má 5 svých dětí. Mají domek a kousek půdy.  </textarea>
+			</p>
+			-->
+			<p>
+				<label>Školní výsledky:</label>
+				<textarea name="sdeleni" cols="60" rows="3">Školní výsledky 2012 - 3. skupina (nejslabší)</textarea>
+			</p>
+			
+			<p>
+				<label>Variabilní symbol:</label>
+				<input type="input" name="vsymbol" value="1061" />
+			</p>
+			<p>
+				<label>Specifický symbol:</label>
+				<input type="input" name="ssymbol" value="5043" /> 
+			</p>
+			<p>
+				<label>Naše poznámka:</label>
+				<textarea name="poznamka" cols="100" rows="20">
+					matrace - zakoupena 2007
+					chtel dvě kozy na Vanoce 2009, ale protoze byly vysoke ceny, koupil jen dve slepice
+					22nd out 122. Average 58.0
+					He is proving to be better. I think he will do better at senior four.
+					1.2.2011 - Jirka poslal 1.500 na nakup kozy a pokud bude nutne zakoupit neco na internat, pise, ze mu ukradli veci - zkontrolovat
+					16.3. 2011 - koupili jsme dve kozy a nahradili veci na internat 
+ 				</textarea>
+			</p>
+			<p>
+				<label>Status:</label>
+				<select class="span2">
+		  			<option>neadoptovaný</option>
+		  			<option>má zájemce</option>
+		  			<option selected="selected">adopotavený</option>
+		  			<option>vyřezený</option>
+				</select>
+				<input type="input" name="ssymbol" value="5043" />
+				<input type="input" name="ssymbol" value="Buček Jiří" disabled="disabled" /> 
+			</p>
+			<p>
+				<label>Má fotku:</label>
+				<select class="span2">
+		  			<option>ano</option>
+		  			<option>ne</option>
+				</select> 
+			</p>
+			<p>
+				<label>Vystavit na webu:</label>
+				<select class="span2">
+		  			<option>ano</option>
+		  			<option>ne</option>
+				</select> 
+			</p>
+			<button type="submit" class="btn btn-success">Upravit</button>
+		</form>
+	</section>
+</body>
+</html>
+
