@@ -16,7 +16,7 @@ common:
 			errorPresenter: Error
 
 		database:
-			dsn: 'mysql:host=localhost;dbname=bwindy1'
+			dsn: 'mysql:host=localhost;dbname=bwindy'
 			user: 'root'	
 
 	services:
