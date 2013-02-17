@@ -20,6 +20,10 @@ $configurator->createRobotLoader()
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(dirname(__FILE__) . '/config/config.neon');
 $configurator->addConfig(dirname(__FILE__) . '/config/config.local.neon', NConfigurator::NONE); // none section
+
 $container = $configurator->createContainer();
+
+//$container->router[] = new NRoute('<presenter>/<action>[/<id>]', 'Kids:default');
+$container->router = new NSimpleRouter('Dite:default');
 
 return $container;

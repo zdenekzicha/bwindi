@@ -2,13 +2,6 @@
 
 {block content}
 	<section id="page">
-		<header>
-			<a href="index.html">Děti</a> |
-			<a href="platby.html">Platby</a> | 
-			<a href="sponzori.html">Sponzoři</a> |
-			<a href="skoly.html">Školy</a> |
-			<a href="benefity.html">Benefity</a>
-		</header>
 		<h1>Děti</h1>
 		<form class="form-search">
 			<p>
@@ -52,38 +45,44 @@
 		  		</div>
 		  	</div>
 		</form>
-		
+
 		<table class="table table-striped">
 			<tr>
 				<th>VS</th>
 				<th>Jméno</th>
 				<th>Pohlaví</th>				
 				<th>Škola</th>
-				<th>Školné 2013</th>
-				<th>Status</th>
 				<th>Na webu</th>
-				<th>Fotka</th>
 				<th>Sponzor</th>
 				<th></th>
 				<th></th>
 				<th></th>
 				<th></th>
 			</tr>
-			{foreach $kids as $kid}
+			{foreach $deti as $dite}
 				<tr>
-					<td>{$kid->vs}</td>
-					<td>{$kid->name}</td>				
-					<td>{$kid->sex ? 'muž' : 'žena'}</td>
-					<td>{$kid->school}</td>
-					<td>{$kid->paymentsPaied}/ {$kid->paymentsAll}</td>
-					<td>{$kid->status ? 'adoptované' : 'neadoptované'}</td>
-					<td>{$kid->web ? 'vystavené' : 'nevystavené'}</td>
-					<td>{$kid->foto ? 'foto OK' : 'Nemá foto'}</td>
-					<td><a href="sponzori.html">{$kid->sponzor}</a></td>
-					<td><a href="skolne.html">školné</a></td>
-					<td><a href="platby.html">platby</a></td>
-					<td><a href="benefit.html">benefit</a></td>
-					<td><a href="dite-detail.html" title="detail"><i class="icon-pencil"></i></a></td>
+					<td>{$dite->vsym}</td>
+					<td>{$dite->jmeno}</td>
+					{if $dite->pohlavi == M}
+						<td>muž</td>
+					{else}
+						<td>žena</td>
+					{/if}				
+					<td>{$dite->skolaNazev}</td>
+					{if $dite->vystavene == 1}
+						<td>zobrazené</td>
+					{else}
+						<td></td>
+					{/if}
+					{if $dite->sponzor}
+						<td><a href="#">{$dite->sponzor}</a></td>
+					{else}
+						<td></td>
+					{/if}
+					<td><a href="#">školné</a></td>
+					<td><a href="#">platby</a></td>
+					<td><a href="#">benefit</a></td>
+					<td><a href="#" title="detail"><i class="icon-pencil"></i></a></td>					
 				</tr>
 			{/foreach}
 		</table>

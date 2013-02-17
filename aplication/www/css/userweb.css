@@ -6,7 +6,7 @@
 #page 							{ width: 1200px; margin: 0 auto; padding: 20px; }
 .left							{ float:left; margin-right: 10px; }
 
-header							{ padding: 10px 0 10px; }
+header							{ width: 1200px; margin: 0 auto; padding: 10px 0 10px; }
 form							{ padding: 20px 0 20px; }
 
 .detail h1						{ padding-bottom: 20px; }
