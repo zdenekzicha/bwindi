@@ -1,23 +1,23 @@
-<?php //netteCache[01]000366a:2:{s:4:"time";s:21:"0.77743900 1361137028";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:77:"/Users/me/Work/php/bwindy/git/aplication/app/templates/homepage/default.latte";i:2;i:1361136789;}i:1;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:10:"checkConst";}i:1;s:20:"NFramework::REVISION";i:2;s:30:"b7f6732 released on 2013-01-01";}}}?><?php
+<?php //netteCache[01]000366a:2:{s:4:"time";s:21:"0.17070500 1361140478";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:77:"/Users/me/Work/php/bwindy/git/aplication/app/templates/homepage/default.latte";i:2;i:1361140468;}i:1;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:10:"checkConst";}i:1;s:20:"NFramework::REVISION";i:2;s:30:"b7f6732 released on 2013-01-01";}}}?><?php
 
 // source file: /Users/me/Work/php/bwindy/git/aplication/app/templates/homepage/default.latte
 
 ?><?php
 // prolog NCoreMacros
-list($_l, $_g) = NCoreMacros::initRuntime($template, 'w6epazrtkp')
+list($_l, $_g) = NCoreMacros::initRuntime($template, '0d1j6qr9g1')
 ;
 // prolog NUIMacros
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lbdea4d70675_title')) { function _lbdea4d70675_title($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['title'][] = '_lbe7d81365c6_title')) { function _lbe7d81365c6_title($_l, $_args) { extract($_args)
 ?> Bwindi - děti<?php
 }}
 
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lbacd458cda2_content')) { function _lbacd458cda2_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lb489ab69ece_content')) { function _lb489ab69ece_content($_l, $_args) { extract($_args)
 ?>	<section id="page">
 		<h1>Děti</h1>
 		<form action="" method="get" class="form-search">
@@ -86,12 +86,12 @@ if (!function_exists($_l->blocks['content'][] = '_lbacd458cda2_content')) { func
 						<td>žena</td>
 <?php endif ?>
 					<td><?php echo NTemplateHelpers::escapeHtml($dite->skolaNazev, ENT_NOQUOTES) ?></td>
-<?php if ($dite->vystavene == 1): ?>
+<?php if ($dite->vystavene): ?>
 						<td>zobrazené</td>
 <?php else: ?>
 						<td></td>
-<?php endif ;if ($dite->sponzor): ?>
-						<td><a href="#"><?php echo NTemplateHelpers::escapeHtml($dite->sponzor, ENT_NOQUOTES) ?></a></td>
+<?php endif ;if ($dite->jmenoSponzor): ?>
+						<td><a href="#"><?php echo NTemplateHelpers::escapeHtml($dite->jmenoSponzor, ENT_NOQUOTES) ?></a></td>
 <?php else: ?>
 						<td></td>
 <?php endif ?>

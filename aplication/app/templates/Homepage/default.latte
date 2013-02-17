@@ -69,13 +69,13 @@
 						<td>žena</td>
 					{/if}				
 					<td>{$dite->skolaNazev}</td>
-					{if $dite->vystavene == 1}
+					{if $dite->vystavene}
 						<td>zobrazené</td>
 					{else}
 						<td></td>
 					{/if}
-					{if $dite->sponzor}
-						<td><a href="#">{$dite->sponzor}</a></td>
+					{if $dite->jmenoSponzor}
+						<td><a href="#">{$dite->jmenoSponzor}</a></td>
 					{else}
 						<td></td>
 					{/if}
