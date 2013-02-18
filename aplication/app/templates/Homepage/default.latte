@@ -5,12 +5,12 @@
 		<h1>Děti</h1>
 		<form action="" method="get" class="form-search">
 			<p>
-				<select>
-	  				<option>Jméno</option>
-	  				<option>Vs</option>	 
-	 				<option>Sponzor</option>
+				<select name="filtrSelect">
+	  				<option value="jmeno" {if $filterSelect == 'jmeno'}selected="selected"{/if}>Jméno</option>
+	  				<option value="vsym" {if $filterSelect == 'vsym'}selected="selected"{/if}>Vs</option>	 
+	 				<option value="jmenoSponzor" {if $filterSelect == 'jmenoSponzor'}selected="selected"{/if}>Sponzor</option>
 				</select>
-	  			<input type="text" class="input-xlarge">
+	  			<input type="text" name="filtrText" class="input-xlarge" value="{$filtrText}" />
 	  			<button type="submit" class="btn">Vyhledat</button>
 	  		</p>
 	  		<div class="group">
@@ -33,18 +33,19 @@
 		  		<div class="left">
 		  			<select class="span2" name="pohlavi">
 		  				<option value="">Pohlaví</option>
-		  				<option value="M">muž</option>
-		  				<option value="F">žena</option>
+		  				<option value="M" {if $filterPohlavi == 'M'}selected="selected"{/if}>muž</option>
+		  				<option value="F" {if $filterPohlavi == 'F'}selected="selected"{/if}>žena</option>
 					</select>
 		  		</div>
 		  		<div class="left">
-		  			<input  type="checkbox" /> <label>vystavené</label>
+		  			<input  type="checkbox" name="filtrWeb" value="1" {if $filtrWeb}checked="checked"{/if} /> <label>vystavené</label>
 		  		</div>
 		  		<div class="left">
 		  			<input  type="checkbox" /> <label>školné zapalcané</label>
 		  		</div>
 		  	</div>
 		</form>
+		
 
 		<table class="table table-striped">
 			<tr>

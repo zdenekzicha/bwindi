@@ -1,33 +1,34 @@
-<?php //netteCache[01]000366a:2:{s:4:"time";s:21:"0.17070500 1361140478";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:77:"/Users/me/Work/php/bwindy/git/aplication/app/templates/homepage/default.latte";i:2;i:1361140468;}i:1;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:10:"checkConst";}i:1;s:20:"NFramework::REVISION";i:2;s:30:"b7f6732 released on 2013-01-01";}}}?><?php
+<?php //netteCache[01]000366a:2:{s:4:"time";s:21:"0.38788000 1361223785";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:77:"/Users/me/Work/php/bwindy/git/aplication/app/templates/homepage/default.latte";i:2;i:1361223782;}i:1;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:10:"checkConst";}i:1;s:20:"NFramework::REVISION";i:2;s:30:"b7f6732 released on 2013-01-01";}}}?><?php
 
 // source file: /Users/me/Work/php/bwindy/git/aplication/app/templates/homepage/default.latte
 
 ?><?php
 // prolog NCoreMacros
-list($_l, $_g) = NCoreMacros::initRuntime($template, '0d1j6qr9g1')
+list($_l, $_g) = NCoreMacros::initRuntime($template, 'ns600s6u0q')
 ;
 // prolog NUIMacros
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lbe7d81365c6_title')) { function _lbe7d81365c6_title($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['title'][] = '_lb45df1231b3_title')) { function _lb45df1231b3_title($_l, $_args) { extract($_args)
 ?> Bwindi - děti<?php
 }}
 
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb489ab69ece_content')) { function _lb489ab69ece_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lb991242c4b5_content')) { function _lb991242c4b5_content($_l, $_args) { extract($_args)
 ?>	<section id="page">
 		<h1>Děti</h1>
 		<form action="" method="get" class="form-search">
 			<p>
-				<select>
-	  				<option>Jméno</option>
-	  				<option>Vs</option>	 
-	 				<option>Sponzor</option>
+				<select name="filtrSelect">
+	  				<option value="jmeno" <?php if ($filterSelect == 'jmeno'): ?>selected="selected"<?php endif ?>>Jméno</option>
+	  				<option value="vsym" <?php if ($filterSelect == 'vsym'): ?>selected="selected"<?php endif ?>>Vs</option>	 
+	 				<option value="jmenoSponzor" <?php if ($filterSelect == 'jmenoSponzor'): ?>
+selected="selected"<?php endif ?>>Sponzor</option>
 				</select>
-	  			<input type="text" class="input-xlarge" />
+	  			<input type="text" name="filtrText" class="input-xlarge" value="<?php echo htmlSpecialChars($filtrText) ?>" />
 	  			<button type="submit" class="btn">Vyhledat</button>
 	  		</p>
 	  		<div class="group">
@@ -50,18 +51,20 @@ if (!function_exists($_l->blocks['content'][] = '_lb489ab69ece_content')) { func
 		  		<div class="left">
 		  			<select class="span2" name="pohlavi">
 		  				<option value="">Pohlaví</option>
-		  				<option value="M">muž</option>
-		  				<option value="F">žena</option>
+		  				<option value="M" <?php if ($filterPohlavi == 'M'): ?>selected="selected"<?php endif ?>>muž</option>
+		  				<option value="F" <?php if ($filterPohlavi == 'F'): ?>selected="selected"<?php endif ?>>žena</option>
 					</select>
 		  		</div>
 		  		<div class="left">
-		  			<input  type="checkbox" /> <label>vystavené</label>
+		  			<input  type="checkbox" name="filtrWeb" value="1" <?php if ($filtrWeb): ?>
+checked="checked"<?php endif ?> /> <label>vystavené</label>
 		  		</div>
 		  		<div class="left">
 		  			<input  type="checkbox" /> <label>školné zapalcané</label>
 		  		</div>
 		  	</div>
 		</form>
+		
 
 		<table class="table table-striped">
 			<tr>
