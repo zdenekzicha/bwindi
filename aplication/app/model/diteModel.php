@@ -22,7 +22,7 @@ class DiteModel extends Model
 		$this->getDb()->query('CREATE VIEW detiPohled as SELECT view1.*, sponzor.jmeno as jmenoSponzor from view1 LEFT JOIN sponzor ON view1.relaceIdSponzor=sponzor.idSponzor');
 
 		*/
-		$this->getDb()->query('DROP VIEW if exists view, view1, detiPohled');
+		$this->getDb()->query('DROP VIEW if exists detiPohled');
 		$this->getDb()->query('CREATE VIEW detiPohled as SELECT d.*, s.jmeno AS jmenoSponzor, sk.nazev AS skolaNazev FROM dite AS d, sponzor AS s, skola as sk, relaceditesponzor AS r WHERE (d.idDite = r.diteIdDite AND r.sponzorIdSponzor = s.idSponzor) AND d.skolaIdSkola = idSkola');
 
 		//return $this->getDb()->table('detiPohled');
