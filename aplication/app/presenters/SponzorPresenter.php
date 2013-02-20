@@ -13,7 +13,7 @@ class sponzorPresenter extends BasePresenter
 
 	public function renderDefault()
 	{
-		$this->template->sponzori = $this->sponzori->findAll();
+		$this->template->sponzori = $this->sponzori->zobrazSponzory();
 	}
 
 }

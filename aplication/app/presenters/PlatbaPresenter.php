@@ -13,7 +13,7 @@ class platbaPresenter extends BasePresenter
 
 	public function renderDefault()
 	{
-		$this->template->platby = $this->platby->findAll();
+		$this->template->platby = $this->platby->zobrazPlatby();
 	}
 
 }

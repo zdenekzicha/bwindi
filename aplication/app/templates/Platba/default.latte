@@ -3,5 +3,67 @@
 {block content}
 	<section id="page">
 		<h1>Platby</h1>
+		<form class="form-search">
+			<p>
+				<select>
+	  				<option>Vs</option>
+	  				<option>Ss</option>
+	  				<option>Číslo účtu</option>	 
+	 				<option>Sponzor</option>
+				</select>
+	  			<input type="text" class="input-xlarge">
+	  			<button type="submit" class="btn">Vyhledat</button>
+	  		</p>
+	  		<div class="group">
+		  		<div class="left">
+		  			<select class="span2">
+		  				<option>Typ platby</option>
+		  				<option>Školné</option>
+		  				<option>Koza</option>
+		  				<option>Matrace</option>
+		  				<option>Solární lampa</option>
+					</select>
+		  		</div>
+		  		<div class="left">
+		  			<select class="span2">
+		  				<option>Rok</option>
+		  				<option>2013</option>
+		  				<option>2012</option>
+		  				<option>2011</option>
+					</select>
+		  		</div>
+		  	</div>
+		</form>
+		<table class="table table-striped">
+			<tr>
+				<th>id</th>
+				<th>Datum</th>
+				<th>Typ platby</th>
+				<th>Rok</th>
+				<th>Částka</th>			
+				<th>VS</th>
+				<th>SS</th>
+				<th>Číslo účtu</th>
+				<th>Sponzor</th>
+				<th>Poznámka</th>
+				<th></th>
+			</tr>
+			{foreach $platby as $platba}
+				<tr>
+					<td>{$platba->idPlatba}</td>
+					<td>{$platba->date}</td>
+					<td>{$platba->benefitNazev}</td>
+					<td>{$platba->rok}</td>
+					<td>{$platba->castka} Kč</td>	
+					<td>{$platba->diteVsym}</td>		
+					<td>{$platba->sponzorVsym}</td>
+					<td>{$platba->ucet}</td>
+					<td><a href="#">{$platba->sponzorJmeno}</a></td>
+					<td>{$platba->poznamka}</td>
+					<td><a href="#" title="detail"><i class="icon-pencil"></i></a></td>
+				</tr>
+			{/foreach}
+		</table>
+		<button type="submit" class="btn btn-success">Přidat platbu</button>
 	</section>
 {/block}

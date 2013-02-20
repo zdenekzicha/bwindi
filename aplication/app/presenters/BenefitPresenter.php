@@ -13,7 +13,7 @@ class benefitPresenter extends BasePresenter
 
 	public function renderDefault()
 	{
-		$this->template->benefity = $this->benefity->findAll();
+		$this->template->benefity = $this->benefity->zobrazBenefity();
 	}
 
 }
