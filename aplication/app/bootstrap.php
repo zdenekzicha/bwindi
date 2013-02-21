@@ -28,11 +28,11 @@ $container = $configurator->createContainer();
 
 // Setup router using mod_rewrite detection
 if (function_exists('apache_get_modules') && in_array('mod_rewrite', apache_get_modules())) {
-	$container->router[] = new NRoute('index.php', 'Dite:default', NRoute::ONE_WAY);
-	$container->router[] = new NRoute('<presenter>/<action>[/<id>]', 'Dite:default');
+	$container->router[] = new NRoute('index.php', 'Homepage:default', NRoute::ONE_WAY);
+	$container->router[] = new NRoute('<presenter>/<action>[/<id>]', 'Homepage:default');
 
 } else {
-	$container->router = new NSimpleRouter('Dite:default');
+	$container->router = new NSimpleRouter('Homepage:default');
 }
 
 return $container;
