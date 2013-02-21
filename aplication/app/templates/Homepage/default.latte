@@ -6,93 +6,97 @@
 		<form action="" method="get" class="form-search">
 			<p>
 				<select name="filtrSelect">
-	  				<option value="jmeno" {if $filterSelect == 'jmeno'}selected="selected"{/if}>Jméno</option>
-	  				<option value="vsym" {if $filterSelect == 'vsym'}selected="selected"{/if}>Vs</option>	 
-	 				<option value="jmenoSponzor" {if $filterSelect == 'jmenoSponzor'}selected="selected"{/if}>Sponzor</option>
+	  				<option value="jmeno" {if $filtrSelect == 'jmeno'}selected="selected"{/if}>Jméno</option>
+	  				<option value="vsym" {if $filtrSelect == 'vsym'}selected="selected"{/if}>Vs</option>	 
+	 				<option value="jmenoSponzor" {if $filtrSelect == 'jmenoSponzor'}selected="selected"{/if}>Sponzor</option>
 				</select>
 	  			<input type="text" name="filtrText" class="input-xlarge" value="{$filtrText}" />
 	  			<button type="submit" class="btn">Vyhledat</button>
 	  		</p>
 	  		<div class="group">
 		  		<div class="left">
-		  			<select class="span2">
-		  				<option>Škola</option>
-		  				<option>Trinity college</option>
-		  				<option>Kabale - seminář</option>
+		  			<select class="span2" name="filtrSkola">
+		  				<option value="0">škola</option>
+		  				{foreach $skoly as $skola}
+		  					<option value="{$skola->idSkola}" {if $filtrSkola == $skola->idSkola}selected="selected"{/if} >{$skola->nazev}</option>
+		  				{/foreach}
 					</select>
 		  		</div>
+		  		<!--
 		  		<div class="left">
 		  			<select class="span2">
-		  				<option>Status</option>
+		  				<option>status</option>
 		  				<option>neadoptovaný</option>
 		  				<option>má zájemce</option>
 		  				<option>adopotavený</option>
 		  				<option>vyřezený</option>
 					</select>
 		  		</div>
+		  		-->
 		  		<div class="left">
-		  			<select class="span2" name="pohlavi">
-		  				<option value="">Pohlaví</option>
-		  				<option value="M" {if $filterPohlavi == 'M'}selected="selected"{/if}>muž</option>
-		  				<option value="F" {if $filterPohlavi == 'F'}selected="selected"{/if}>žena</option>
+		  			<select class="span2" name="filtrPohlavi">
+		  				<option value="">pohlaví</option>
+		  				<option value="M" {if $filtrPohlavi == 'M'}selected="selected"{/if}>muž</option>
+		  				<option value="F" {if $filtrPohlavi == 'F'}selected="selected"{/if}>žena</option>
 					</select>
 		  		</div>
 		  		<div class="left">
 		  			<input  type="checkbox" name="filtrWeb" value="1" {if $filtrWeb}checked="checked"{/if} /> <label>vystavené</label>
 		  		</div>
+		  		<!--
 		  		<div class="left">
 		  			<input  type="checkbox" /> <label>školné zapalcané</label>
 		  		</div>
+		  		-->
 		  	</div>
 		</form>
 		
-
-		<table class="table table-striped">
-			<tr>
-				<th>VS</th>
-				<th>Jméno</th>
-				<th>Pohlaví</th>				
-				<th>Škola</th>
-				<th>Na webu</th>
-				<th>Sponzor</th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-			</tr>
-			{foreach $deti as $dite}
+		{if count($deti)}
+			<table class="table table-striped">
 				<tr>
-					<td>{$dite->vsym}</td>
-					<td>{$dite->jmeno}</td>
-					{if $dite->pohlavi == M}
-						<td>muž</td>
-					{else}
-						<td>žena</td>
-					{/if}				
-					<td>{$dite->skolaNazev}</td>
-					{if $dite->vystavene}
-						<td>zobrazené</td>
-					{else}
-						<td></td>
-					{/if}
-					{if $dite->jmenoSponzor}
-						<td><a href="#">{$dite->jmenoSponzor}</a></td>
-					{else}
-						<td></td>
-					{/if}
-					<td><a href="#">školné</a></td>
-					<td><a href="#">platby</a></td>
-					<td><a href="#">benefit</a></td>
-					<td><a href="#" title="detail"><i class="icon-pencil"></i></a></td>					
+					<th>VS</th>
+					<th>Jméno</th>
+					<th>Pohlaví</th>				
+					<th>Škola</th>
+					<th>Na webu</th>
+					<th>Sponzor</th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
 				</tr>
-			{/foreach}
-		</table>
+				{foreach $deti as $dite}
+					<tr>
+						<td>{$dite->vsym}</td>
+						<td>{$dite->jmeno}</td>
+						{if $dite->pohlavi == M}
+							<td>muž</td>
+						{else}
+							<td>žena</td>
+						{/if}				
+						<td>{$dite->skolaNazev}</td>
+						{if $dite->vystavene}
+							<td>zobrazené</td>
+						{else}
+							<td></td>
+						{/if}
+						{if $dite->jmenoSponzor}
+							<td><a a n:href="Sponzor:default filtrSelect => jmeno, filtrText => $dite->jmenoSponzor">{$dite->jmenoSponzor}</a></td>
+						{else}
+							<td></td>
+						{/if}
+						<td><a href="#">školné</a></td>
+						<td><a href="#">platby</a></td>
+						<td><a href="#">benefit</a></td>
+						<td><a href="#" title="detail"><i class="icon-pencil"></i></a></td>					
+					</tr>
+				{/foreach}
+			</table>
+		{else}
+			<div id="noResults"><strong>Bohužel, nic jsme nenašli</strong></div>
+		{/if}
+
 		<button type="submit" class="btn btn-success">Přidat dítě</button>
-		<div id="notes">
-			<p>vše co se týče školy se vztahuje k aktualnimu roku</p>
-			<p>má smysl evidovat jestli má fotku?</p>
-			<p>má smysl evidovat jestli je vystavený?</p>
-		</div>
 	</section>
 
 {/block}

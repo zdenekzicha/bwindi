@@ -5,15 +5,12 @@
 		<h1>Sponzoři</h1>
 		<form class="form-search">
 			<p>
-				<select>
-	  				<option>Vs</option>
-	  				<option>Ss</option>
-	  				<option>Číslo účtu</option>	 
-	 				<option>Sponzor</option>
-	 				<option>Email</option>
-	 				<option>Telefon</option>
+				<select name="filtrSelect">
+	  				<option value="ssym" {if $filtrSelect == 'ssym'}selected="selected"{/if}>Ss</option> 
+	 				<option value="jmeno" {if $filtrSelect == 'jmeno'}selected="selected"{/if}>Sponzor</option>
+	 				<option value="mail" {if $filtrSelect == 'mail'}selected="selected"{/if}>Email</option>
 				</select>
-	  			<input type="text" class="input-xlarge">
+	  			<input type="text" name="filtrText" value="{$filtrText}" class="input-xlarge">
 	  			<button type="submit" class="btn">Vyhledat</button>
 	  		</p>
 	  		<div class="group">
@@ -64,7 +61,7 @@
 					<td>{$sponzor->mesto}</td>	
 					<td>{$sponzor->mail}</td>		
 					<td>{$sponzor->telefon}</td>
-					<td><a href="#">{$sponzor->diteJmeno}</a></td>
+					<td><a n:href="Homepage:default filtrSelect => jmeno, filtrText => $sponzor->diteJmeno">{$sponzor->diteJmeno}</a></td>
 					<td></td>
 					<td><a href="platby.html">platby</a></td>
 					<td><a href="#" title="detail"><i class="icon-pencil"></i></a></td>

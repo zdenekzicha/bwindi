@@ -6,12 +6,12 @@
 class sponzorModel extends Model
 {
 
-	public function zobrazSponzory()
+	public function zobrazSponzory($filtr)
 	{
 
 		$this->getDb()->query('DROP VIEW if exists sponzoriPohled');
 		$this->getDb()->query('CREATE VIEW sponzoriPohled as SELECT s.*, d.jmeno AS diteJmeno FROM sponzor AS s, dite AS d, relaceditesponzor AS r WHERE s.idSponzor = r.sponzorIdSponzor AND r.diteIdDite = d.idDite');
 
-		return $this->getDb()->table('sponzoriPohled');
+		return $this->getDb()->table('sponzoriPohled')->where($filtr);
 	}
 }

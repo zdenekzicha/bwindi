@@ -7,25 +7,32 @@ class homepagePresenter extends BasePresenter
 {
 
 	private $deti;
+	private $skola;
 	private $filter;
 	private $test;
 
-	private $filterPohlavi;
-	private $filtrSelect;
-	private $filtrText;
-	private $filtrWeb;
+	public $filtrPohlavi;
+	public $filtrSelect;
+	public $filtrText;
+	public $filtrWeb;
+	public $filtrSkola;
 
 	protected function startup()
 	{
 	    parent::startup();
 	    $this->deti = $this->context->diteModel;
+	    $this->skola = $this->context->skolaModel;
 	}
 
-	public function actionDefault($id,$pohlavi,$filtrSelect,$filtrText,$filtrWeb)
+	public function actionDefault($id,$filtrPohlavi,$filtrSelect,$filtrText,$filtrWeb,$filtrSkola)
 	{	
     	$this->filter = array();
-		if(isset($pohlavi)) {
-			array_push($this->filter, array('pohlavi' => $pohlavi));
+		if(isset($filtrPohlavi)) {
+			array_push($this->filter, array('pohlavi' => $filtrPohlavi));
+		}
+
+		if(isset($filtrSkola) && $filtrSkola != 0) {
+			array_push($this->filter, array('skolaId' => $filtrSkola));
 		}
 
 		if(isset($filtrText)) {
@@ -36,20 +43,23 @@ class homepagePresenter extends BasePresenter
 			array_push($this->filter, array('vystavene' => 1));
 		}
 
-		$this->filterPohlavi = $pohlavi;
+		$this->filtrPohlavi = $filtrPohlavi;
 		$this->filtrSelect = $filtrSelect;
 		$this->filtrText = $filtrText;
 		$this->filtrWeb = $filtrWeb;
+		$this->filtrSkola = $filtrSkola;
 	}
 
 	public function renderDefault()
 	{
 
-		$this->template->filterPohlavi = $this->filterPohlavi;
-		$this->template->filterSelect = $this->filtrSelect;
+		$this->template->filtrPohlavi = $this->filtrPohlavi;
+		$this->template->filtrSelect = $this->filtrSelect;
 		$this->template->filtrText = $this->filtrText;
 		$this->template->filtrWeb = $this->filtrWeb;
+		$this->template->filtrSkola = $this->filtrSkola;
 		$this->template->deti = $this->deti->zobrazDeti($this->filter);
+		$this->template->skoly = $this->skola->findAll();
 	}
 
 	/*
