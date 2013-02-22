@@ -60,6 +60,7 @@ class homepagePresenter extends BasePresenter
 		$this->template->filtrSkola = $this->filtrSkola;
 		$this->template->deti = $this->deti->zobrazDeti($this->filter);
 		$this->template->skoly = $this->skola->findAll();
+		$this->template->sponzori = $this->deti->vratSponzory();
 	}
 
 	/*

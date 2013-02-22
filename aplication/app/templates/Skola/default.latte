@@ -3,5 +3,20 @@
 {block content}
 	<section id="page">
 		<h1>Školy</h1>
+		<table class="table table-striped">
+			<tr>
+				<th>Název školy</th>
+				<th>Částka na rok</th>
+				<th></th>
+			</tr>
+			{foreach $skoly as $skola}
+			<tr>
+				<td>{$skola->nazev}</td>
+				<td>{$skola->castka}</td>
+				<td><a href="#" title="detail"><i class="icon-pencil"></i></a></td>
+			</tr>
+			{/foreach}
+		</table>
+		<button type="submit" class="btn btn-success">Přidat školu</button>
 	</section>
 {/block}

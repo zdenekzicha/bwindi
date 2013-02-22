@@ -1,30 +1,30 @@
-<?php //netteCache[01]000346a:2:{s:4:"time";s:21:"0.67687000 1361465117";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:57:"C:\wamp\www\bwindi\aplication\app\templates\@layout.latte";i:2;i:1361395939;}i:1;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:10:"checkConst";}i:1;s:20:"NFramework::REVISION";i:2;s:30:"b7f6732 released on 2013-01-01";}}}?><?php
+<?php //netteCache[01]000346a:2:{s:4:"time";s:21:"0.76562500 1361569176";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:57:"C:\wamp\www\bwindi\aplication\app\templates\@layout.latte";i:2;i:1361569077;}i:1;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:10:"checkConst";}i:1;s:20:"NFramework::REVISION";i:2;s:30:"b7f6732 released on 2013-01-01";}}}?><?php
 
 // source file: C:\wamp\www\bwindi\aplication\app\templates\@layout.latte
 
 ?><?php
 // prolog NCoreMacros
-list($_l, $_g) = NCoreMacros::initRuntime($template, 'ale3w2y9cd')
+list($_l, $_g) = NCoreMacros::initRuntime($template, 'zgdy5nc5zv')
 ;
 // prolog NUIMacros
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lbad05217a39_title')) { function _lbad05217a39_title($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['title'][] = '_lbeb03db9393_title')) { function _lbeb03db9393_title($_l, $_args) { extract($_args)
 ?>Nette Application Skeleton<?php
 }}
 
 //
 // block head
 //
-if (!function_exists($_l->blocks['head'][] = '_lbba6d9b9eea_head')) { function _lbba6d9b9eea_head($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['head'][] = '_lb159697041b_head')) { function _lb159697041b_head($_l, $_args) { extract($_args)
 ;
 }}
 
 //
 // block scripts
 //
-if (!function_exists($_l->blocks['scripts'][] = '_lb6fe62be242_scripts')) { function _lb6fe62be242_scripts($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['scripts'][] = '_lbe025c3d040_scripts')) { function _lbe025c3d040_scripts($_l, $_args) { extract($_args)
 ?>	<script src="<?php echo htmlSpecialChars($basePath) ?>/js/jquery.js"></script>
 	<script src="<?php echo htmlSpecialChars($basePath) ?>/js/netteForms.js"></script>
 	<script src="<?php echo htmlSpecialChars($basePath) ?>/js/main.js"></script>
