@@ -5,15 +5,16 @@
 		<h1>Platby</h1>
 		<form class="form-search">
 			<p>
-				<select>
-	  				<option>Vs</option>
-	  				<option>Ss</option>
-	  				<option>Číslo účtu</option>	 
-	 				<option>Sponzor</option>
+				<select name="filtrSelect">
+	  				<option value="diteVsym" {if $filtrSelect == 'diteVsym'}selected="selected"{/if}>Vs</option> 
+	  				<option value="sponzorVsym" {if $filtrSelect == 'sponzorVsym'}selected="selected"{/if}>Ss</option> 
+	 				<option value="ucet" {if $filtrSelect == 'ucet'}selected="selected"{/if}>Číslo účtu</option>
+	 				<option value="sponzorJmeno" {if $filtrSelect == 'sponzorJmeno'}selected="selected"{/if}>Sponzor</option>
 				</select>
-	  			<input type="text" class="input-xlarge">
+	  			<input type="text" name="filtrText" value="{$filtrText}" class="input-xlarge">
 	  			<button type="submit" class="btn">Vyhledat</button>
 	  		</p>
+	  		<!--
 	  		<div class="group">
 		  		<div class="left">
 		  			<select class="span2">
@@ -24,15 +25,17 @@
 		  				<option>Solární lampa</option>
 					</select>
 		  		</div>
+		  		-->
 		  		<div class="left">
-		  			<select class="span2">
+		  			<select name="filtrRok" class="span2">
 		  				<option>Rok</option>
-		  				<option>2013</option>
-		  				<option>2012</option>
-		  				<option>2011</option>
+		  				{foreach $roky as $rok}
+		  					<option value="{$rok->rok}" {if $filtrRok == $rok->rok}selected="selected"{/if}>{$rok->rok}</option>
+		  				{/foreach}
 					</select>
 		  		</div>
 		  	</div>
+
 		</form>
 		<table class="table table-striped">
 			<tr>
@@ -58,7 +61,7 @@
 					<td>{$platba->diteVsym}</td>		
 					<td>{$platba->sponzorVsym}</td>
 					<td>{$platba->ucet}</td>
-					<td><a href="#">{$platba->sponzorJmeno}</a></td>
+					<td><a n:href="Sponzor:default filtrSelect => jmeno, filtrText => $platba->sponzorJmeno">{$platba->sponzorJmeno}</a></td>
 					<td>{$platba->poznamka}</td>
 					<td><a href="#" title="detail"><i class="icon-pencil"></i></a></td>
 				</tr>

@@ -13,32 +13,9 @@
 	  			<input type="text" name="filtrText" value="{$filtrText}" class="input-xlarge">
 	  			<button type="submit" class="btn">Vyhledat</button>
 	  		</p>
-	  		<div class="group">
-		  		<div class="left">
-		  			<select class="span2">
-		  				<option>Typ platby</option>
-		  				<option>Školné</option>
-		  				<option>Koza</option>
-		  				<option>Matrace</option>
-		  				<option>Solární lampa</option>
-					</select>
-		  		</div>
-		  		<div class="left">
-		  			<select class="span2">
-		  				<option>Rok</option>
-		  				<option>2013</option>
-		  				<option>2012</option>
-		  				<option>2011</option>
-					</select>
-		  		</div>
-		  		<div class="left">
-		  			<input type="checkbox" /> má dítě
-		  		</div>
-		  	</div>
 		</form>
 		<table class="table table-striped">
 			<tr>
-				<th>Id</th>
 				<th>SS</th>
 				<th>Jméno</th>
 				<th>Ulice a č.p.:</th>
@@ -53,7 +30,6 @@
 			</tr>
 			{foreach $sponzori as $sponzor}
 				<tr>
-					<td>{$sponzor->idSponzor}</td>
 					<td>{$sponzor->ssym}</td>
 					<td>{$sponzor->jmeno}</td>
 					<td>{$sponzor->ulice}</td>
@@ -72,7 +48,7 @@
 						{/foreach}
 					</td>
 					<td></td>
-					<td><a href="platby.html">platby</a></td>
+					<td><a <a n:href="Platba:default filtrSelect => sponzorVsym, filtrText => $sponzor->ssym">platby</a></td>
 					<td><a href="#" title="detail"><i class="icon-pencil"></i></a></td>
 				</tr>
 			{/foreach}
