@@ -4,6 +4,7 @@ class sponzorPresenter extends BasePresenter
 {
 
 	private $sponzori;
+	private $deti;
 	private $filtr;
 
 	public $filtrSelect;
@@ -13,6 +14,7 @@ class sponzorPresenter extends BasePresenter
 	{
 	    parent::startup();
 	    $this->sponzori = $this->context->sponzorModel;
+	    $this->deti = $this->context->diteModel;
 	}
 
 	public function actionDefault($filtrSelect,$filtrText) {
@@ -29,6 +31,7 @@ class sponzorPresenter extends BasePresenter
 	public function renderDefault()
 	{
 		$this->template->sponzori = $this->sponzori->zobrazSponzory($this->filtr);
+		$this->template->deti = $this->deti->zobrazAdoptovaneDeti();
 
 		$this->template->filtrSelect = $this->filtrSelect;
 		$this->template->filtrText = $this->filtrText;

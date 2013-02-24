@@ -81,15 +81,15 @@
 							<td></td>
 						{/if}
 						<td>
-					{var $oddelovac=0}
-    			{for $i = 0; $i < count($sponzori); ++$i} 
-    				{if $sponzori[$i]->diteIdDite == $dite->idDite}
-              {if $oddelovac > 0}&nbsp;|&nbsp;{/if}
-              <a href="#">{$sponzori[$i]->jmeno}</a>{var $oddelovac++}
-            {/if}
-    				
-    			{/for}
-          </td>
+							{var $oddelovac=0}
+							{foreach $sponzori as $sponzor}
+								{if $sponzor->diteIdDite == $dite->idDite}
+									{if $oddelovac > 0}&nbsp;|&nbsp;{/if}
+									<a n:href="Sponzor:default filtrSelect => jmeno, filtrText => $sponzor->jmeno">{$sponzor->jmeno}</a>
+									{var $oddelovac++}
+								{/if}
+							{/foreach}
+          				</td>
 						<td><a href="#">školné</a></td>
 						<td><a href="#">platby</a></td>
 						<td><a href="#">benefit</a></td>

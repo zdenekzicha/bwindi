@@ -28,4 +28,10 @@ class DiteModel extends Model
 		return $this->getDb()->table('detiPohled')->where($filter);
 	}
 
+	//metoda, ktera zobrazuje adoptovane deti
+	public function zobrazAdoptovaneDeti()
+	{
+    	return $this->db->fetchAll('SELECT * FROM relaceditesponzor AS r , dite AS d WHERE r.diteiddite = d.iddite');
+	}
+
 }
