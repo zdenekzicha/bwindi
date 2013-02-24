@@ -14,4 +14,8 @@ class sponzorModel extends Model
 
 		return $this->getDb()->table('sponzoriPohled')->where($filtr);
 	}
+	public function vratVsechnySponzory()
+	{
+    	return $this->db->fetchAll('SELECT * FROM relaceditesponzor AS r , sponzor AS s WHERE r.sponzoridsponzor = s.idsponzor');
+	}
 }

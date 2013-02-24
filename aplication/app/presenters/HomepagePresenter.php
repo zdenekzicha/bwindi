@@ -8,6 +8,7 @@ class homepagePresenter extends BasePresenter
 
 	private $deti;
 	private $skola;
+	private $sponzori;
 	private $filter;
 	private $test;
 
@@ -21,6 +22,7 @@ class homepagePresenter extends BasePresenter
 	{
 	    parent::startup();
 	    $this->deti = $this->context->diteModel;
+	    $this->sponzori = $this->context->sponzorModel;
 	    $this->skola = $this->context->skolaModel;
 	}
 
@@ -60,7 +62,7 @@ class homepagePresenter extends BasePresenter
 		$this->template->filtrSkola = $this->filtrSkola;
 		$this->template->deti = $this->deti->zobrazDeti($this->filter);
 		$this->template->skoly = $this->skola->findAll();
-		$this->template->sponzori = $this->deti->vratSponzory();
+		$this->template->sponzori = $this->sponzori->vratVsechnySponzory();
 	}
 
 	/*
