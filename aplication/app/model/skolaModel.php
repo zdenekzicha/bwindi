@@ -13,4 +13,14 @@ class SkolaModel extends Model
   
   		return $this->getDb()->table('skolaPohled');
   	}
+
+  public function vytvorSkolu($nazev, $castka, $maxRok, $predpona)
+  	{
+  		$this->getDb()->exec('INSERT INTO skola', array(
+    		'nazev' => $nazev,
+    		'castka' => $castka,
+    		'maxRok' => $maxRok,
+    		'predpona' => $predpona
+		));
+  	}
 }

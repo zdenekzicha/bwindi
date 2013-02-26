@@ -1,30 +1,30 @@
-<?php //netteCache[01]000357a:2:{s:4:"time";s:21:"0.27782400 1361137053";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:68:"/Users/me/Work/php/bwindy/git/aplication/app/templates/@layout.latte";i:2;i:1361137049;}i:1;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:10:"checkConst";}i:1;s:20:"NFramework::REVISION";i:2;s:30:"b7f6732 released on 2013-01-01";}}}?><?php
+<?php //netteCache[01]000357a:2:{s:4:"time";s:21:"0.23590000 1361916614";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:68:"/Users/me/Work/php/bwindy/git/aplication/app/templates/@layout.latte";i:2;i:1361916593;}i:1;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:10:"checkConst";}i:1;s:20:"NFramework::REVISION";i:2;s:30:"b7f6732 released on 2013-01-01";}}}?><?php
 
 // source file: /Users/me/Work/php/bwindy/git/aplication/app/templates/@layout.latte
 
 ?><?php
 // prolog NCoreMacros
-list($_l, $_g) = NCoreMacros::initRuntime($template, 'ffnvgyf8nt')
+list($_l, $_g) = NCoreMacros::initRuntime($template, 'njbqjetmxa')
 ;
 // prolog NUIMacros
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lb952a346846_title')) { function _lb952a346846_title($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['title'][] = '_lb71719e1e55_title')) { function _lb71719e1e55_title($_l, $_args) { extract($_args)
 ?>Nette Application Skeleton<?php
 }}
 
 //
 // block head
 //
-if (!function_exists($_l->blocks['head'][] = '_lbe0e90b29a2_head')) { function _lbe0e90b29a2_head($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['head'][] = '_lba7e25a1e27_head')) { function _lba7e25a1e27_head($_l, $_args) { extract($_args)
 ;
 }}
 
 //
 // block scripts
 //
-if (!function_exists($_l->blocks['scripts'][] = '_lb65f50788f0_scripts')) { function _lb65f50788f0_scripts($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['scripts'][] = '_lb7027637f27_scripts')) { function _lb7027637f27_scripts($_l, $_args) { extract($_args)
 ?>	<script src="<?php echo htmlSpecialChars($basePath) ?>/js/jquery.js"></script>
 	<script src="<?php echo htmlSpecialChars($basePath) ?>/js/netteForms.js"></script>
 	<script src="<?php echo htmlSpecialChars($basePath) ?>/js/main.js"></script>
@@ -73,7 +73,7 @@ ob_start(); call_user_func(reset($_l->blocks['title']), $_l, get_defined_vars())
 <body>
 	<script> document.body.className+=' js' </script>
 
-<?php $iterations = 0; foreach ($flashes as $flash): ?>	<div class="flash <?php echo htmlSpecialChars($flash->type) ?>
+<?php $iterations = 0; foreach ($flashes as $flash): ?>	<div class="alert alert-<?php echo htmlSpecialChars($flash->type) ?>
 "><?php echo NTemplateHelpers::escapeHtml($flash->message, ENT_NOQUOTES) ?></div>
 <?php $iterations++; endforeach ?>
 

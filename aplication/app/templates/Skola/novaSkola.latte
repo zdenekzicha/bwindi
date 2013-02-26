@@ -1,0 +1,17 @@
+{block title} Vytvořit novou školu {/block}
+
+{block content}
+	<section id="page">	
+		<h1>Vytvořit novou školu</h1>
+		{form novaSkolaForm}
+	        <div class="skola-form">
+	            {control $form errors}
+	            {label nazev}Název:{/label} {input nazev size => 30, autofocus => true}
+	            {label predpona}Typ školy:{/label} {input predpona size => 30, autofocus => true}
+	            {label castka}Školné:{/label} {input castka size => 30, autofocus => true}
+	            {label maxRok}Počet ročníků:{/label} {input maxRok size => 30, autofocus => true }            
+	            {input create}
+	        </div>
+		{/form}
+	</section>
+{/block}

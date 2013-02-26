@@ -1,23 +1,23 @@
-<?php //netteCache[01]000366a:2:{s:4:"time";s:21:"0.36518600 1361482800";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:77:"/Users/me/Work/php/bwindy/git/aplication/app/templates/homepage/default.latte";i:2;i:1361482797;}i:1;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:10:"checkConst";}i:1;s:20:"NFramework::REVISION";i:2;s:30:"b7f6732 released on 2013-01-01";}}}?><?php
+<?php //netteCache[01]000366a:2:{s:4:"time";s:21:"0.93446600 1361913167";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:77:"/Users/me/Work/php/bwindy/git/aplication/app/templates/homepage/default.latte";i:2;i:1361818104;}i:1;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:10:"checkConst";}i:1;s:20:"NFramework::REVISION";i:2;s:30:"b7f6732 released on 2013-01-01";}}}?><?php
 
 // source file: /Users/me/Work/php/bwindy/git/aplication/app/templates/homepage/default.latte
 
 ?><?php
 // prolog NCoreMacros
-list($_l, $_g) = NCoreMacros::initRuntime($template, 'ilofjok3gy')
+list($_l, $_g) = NCoreMacros::initRuntime($template, 'o6cbdf4r1a')
 ;
 // prolog NUIMacros
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lbac66624893_title')) { function _lbac66624893_title($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['title'][] = '_lb113ffbd093_title')) { function _lb113ffbd093_title($_l, $_args) { extract($_args)
 ?> Bwindi - děti<?php
 }}
 
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb169fe1be20_content')) { function _lb169fe1be20_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lbf0593302c4_content')) { function _lbf0593302c4_content($_l, $_args) { extract($_args)
 ?>	<section id="page">
 		<h1>Děti</h1>
 		<form action="" method="get" class="form-search">
@@ -99,14 +99,18 @@ checked="checked"<?php endif ?> /> <label>vystavené</label>
 							<td>zobrazené</td>
 <?php else: ?>
 							<td></td>
-<?php endif ;if ($dite->jmenoSponzor): ?>
-							<td><a a href="<?php echo htmlSpecialChars($_control->link("Sponzor:default", array('filtrSelect' => 'jmeno', 'filtrText' => $dite->jmenoSponzor))) ?>
-"><?php echo NTemplateHelpers::escapeHtml($dite->jmenoSponzor, ENT_NOQUOTES) ?></a></td>
-<?php else: ?>
-							<td></td>
 <?php endif ?>
+						<td>
+<?php $oddelovac=0 ;$iterations = 0; foreach ($sponzori as $sponzor): if ($sponzor->diteIdDite == $dite->idDite): ?>
+									<?php if ($oddelovac > 0): ?>&nbsp;|&nbsp;<?php endif ?>
+
+									<a href="<?php echo htmlSpecialChars($_control->link("Sponzor:default", array('filtrSelect' => 'jmeno', 'filtrText' => $sponzor->jmeno))) ?>
+"><?php echo NTemplateHelpers::escapeHtml($sponzor->jmeno, ENT_NOQUOTES) ?></a>
+<?php $oddelovac++ ;endif ;$iterations++; endforeach ?>
+          				</td>
 						<td><a href="#">školné</a></td>
-						<td><a href="#">platby</a></td>
+						<td><a <a href="<?php echo htmlSpecialChars($_control->link("Platba:default", array('filtrSelect' => 'diteVsym', 'filtrText' => $dite->vsym))) ?>
+">platby</a></td>
 						<td><a href="#">benefit</a></td>
 						<td><a href="#" title="detail"><i class="icon-pencil"></i></a></td>					
 					</tr>
