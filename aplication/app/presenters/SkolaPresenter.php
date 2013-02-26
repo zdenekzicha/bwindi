@@ -19,8 +19,6 @@ class skolaPresenter extends BasePresenter
 	// vytvori formular pro pridani skoly
 	protected function createComponentNovaSkolaForm()
 	{
-	    //$userPairs = $this->userRepository->findAll()->fetchPairs('id', 'name');
-
 	    $form = new NAppForm;
 	    $form->addText('nazev', 'Název:', 40, 100)->addRule(NAppForm::FILLED, 'Je nutné zadat název školy.');
 	    $form->addText('castka', 'Školné:', 40, 100)->addRule(NAppForm::FILLED, 'Je nutné zadat školné.');
