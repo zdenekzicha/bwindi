@@ -34,4 +34,26 @@ class DiteModel extends Model
     	return $this->db->fetchAll('SELECT * FROM relaceditesponzor AS r , dite AS d WHERE r.diteiddite = d.iddite');
 	}
 
+	public function zobrazVsechnyDeti()
+	{
+    	return $this->db->fetchAll('SELECT * FROM dite');
+	}
+
+	public function vytvorDite($form)
+  	{			
+  	
+  		try{
+			
+			$this->getTable()->insert($form);
+			 
+	        return true;
+
+	    } catch (Exception $e) {
+	        
+	        return false;
+
+	    }
+
+  	}
+
 }

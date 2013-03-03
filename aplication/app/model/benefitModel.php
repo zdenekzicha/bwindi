@@ -14,4 +14,15 @@ class BenefitModel extends Model
 
 		return $this->getDb()->table('benefityPohled');
 	}
+
+	public function vytvorBenefit($form)
+  	{
+  		try {
+  			$this->getTable()->insert($form);
+  			return true;		
+  		} catch (Exception $e) {
+  			return false;
+  		}
+      
+  	}
 }

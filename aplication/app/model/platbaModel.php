@@ -20,4 +20,21 @@ class PlatbaModel extends Model
 	{
     	return $this->db->fetchAll('SELECT rok FROM platba GROUP BY rok');
 	}
+
+	public function vytvorPlatbu($form)
+  	{			
+  	
+  		try{
+			
+			$this->getTable()->insert($form);
+			 
+	        return true;
+
+	    } catch (Exception $e) {
+	        
+	        return false;
+
+	    }
+
+  	}
 }

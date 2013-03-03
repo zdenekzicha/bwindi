@@ -32,7 +32,7 @@ class skolaPresenter extends BasePresenter
 	// ulozi do databaze novou skolu
 	public function novaSkolaFormSubmitted(NAppForm $form)
 	{	
-    	$this->skoly->vytvorSkolu($form->values->nazev, $form->values->castka, $form->values->maxRok, $form->values->predpona);
+    	$this->skoly->vytvorSkolu($form->values);
     	$this->flashMessage('Nová škola přidána.', 'success');
     	$this->redirect('Skola:default');
 	}

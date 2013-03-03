@@ -66,23 +66,43 @@ class homepagePresenter extends BasePresenter
 		$this->template->sponzori = $this->sponzori->zobrazAktivniSponzory();
 	}
 
-	/*
-	protected function createComponentFilterForm()
+	// vytvori formular pro pridani ditete
+	protected function createComponentNoveDiteForm()
 	{
-		$form = new NAppForm;
-	    $form->addText('text', 'Úkol:', 40, 100)->addRule(NAppForm::FILLED, 'Je nutné zadat text úkolu.');
-	    $form->addSubmit('create', 'Vytvořit');
-	    $form->onSuccess[] = $this->filterFormSubmitted;
+ 
+		$skoly = $this->skola->findAll();
+		$skolySelect = array();
+
+		foreach ($skoly as $key => $value) {
+			$skolySelect[$value['idSkola']] = $value['nazev'];
+		}
+		
+	    $form = new NAppForm;
+	    $form->addText('jmeno', 'Jméno:', 40, 255)->addRule(NAppForm::FILLED, 'Je nutné zadat jméno dítěte.');
+	    $form->addSelect('pohlavi', 'Pohlaví:', array('M' => 'muž', 'F' => 'žena'))->setPrompt('Zvolte pohlaví')->addRule(NAppForm::FILLED, 'Je nutné zadat pohlaví dítěte.');
+	    $form->addText('datumNarozeni', 'Datum narození:', 5, 4);
+	    $form->addText('vsym', 'Variabilní symbol:', 10, 10)->addRule(NAppForm::PATTERN, 'Variabilní symbol musí být číslo.', '([0-9]\s*)');	    
+	    $form->addText('rocnik', 'Ročník:', 10, 10)->addRule(NAppForm::PATTERN, 'Ročník musí být číslo.', '([0-9]\s*)');
+	    $form->addCheckbox('vystavene','Vystavené na webu');
+	    $form->addHidden('aktivniZaznam')->setValue('1');
+	    $form->addHidden('datumVzniku')->setValue(date("Y-m-d H:i:s"));
+	    $form->addSelect('skolaIdSkola', 'Škola:', $skolySelect)->setPrompt('Zvolte školu');
+	    $form->addSubmit('create', 'Přidat dítě');
+	    $form->onSuccess[] = $this->noveDiteFormSubmitted;
 	    return $form;
 	}
 
-	public function filterFormSubmitted(NAppForm $form)
-	{
-    	//$this->taskRepository->createTask($this->list->id, $form->values->text, $form->values->userId);
-    	//$this->flashMessage('Úkol přidán.', 'success');
-    	$this->redirect('this');
+	// ulozi do databaze nove dite
+	public function noveDiteFormSubmitted(NAppForm $form)
+	{	
+		
+    	if($this->deti->vytvorDite($form->values)){
+    		$this->flashMessage('Přidali jste nové dítě.', 'success');
+    		$this->redirect('Homepage:default');
+    	}else{
+    		$this->flashMessage('Neřidali jste nové dítě.', 'fail');
+    	}
 	}
-	*/
 
 }
 

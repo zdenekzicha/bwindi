@@ -5,6 +5,9 @@ class platbaPresenter extends BasePresenter
 
 	private $platby;
 	private $filtr;
+	private $dite;
+	private $sponzori;
+	private $benefity;
 
 	public $filtrSelect;
 	public $filtrText;
@@ -14,6 +17,9 @@ class platbaPresenter extends BasePresenter
 	{
 	    parent::startup();
 	    $this->platby = $this->context->platbaModel;
+	    $this->dite = $this->context->diteModel;
+	    $this->sponzori = $this->context->sponzorModel;
+	    $this->benefity = $this->context->benefitModel;
 	}
 
 	public function actionDefault($filtrSelect,$filtrText,$filtrRok) {
@@ -43,6 +49,57 @@ class platbaPresenter extends BasePresenter
 		$this->template->filtrText = $this->filtrText;
 		$this->template->filtrRok = $this->filtrRok;
 	
+	}
+
+	// vytvori formular pro pridani platby
+	protected function createComponentNovaPlatbaForm()
+	{
+ 
+		$deti = $this->dite->zobrazVsechnyDeti();
+		$detiSelect = array();
+
+		foreach ($deti as $key => $value) {
+			$detiSelect[$value['idDite']] = $value['jmeno'];
+		}
+
+		$sponzori = $this->sponzori->zobrazVsechnySponzory();
+		$sponzoriSelect = array();
+
+		foreach ($sponzori as $key => $value) {
+			$sponzoriSelect[$value['idSponzor']] = $value['jmeno'];
+		}
+
+		$benefity = $this->benefity->zobrazBenefity();
+		$benefitySelect = array();
+
+		foreach ($benefity as $key => $value) {
+			$benefitySelect[$value['idBenefit']] = $value['nazev'];
+		}
+		
+	    $form = new NAppForm;
+	    $form->addText('datum', 'Datum:', 40, 255);
+	    $form->addText('castka', 'Částka:', 5, 4);
+	    $form->addText('ucet', 'Účet:', 10, 255);
+	    $form->addText('poznamka', 'Poznamka:', 10, 255);
+	    $form->addText('rok', 'Rok:', 5, 4);
+	    $form->addSelect('diteIdDite', 'Dítě:', $detiSelect)->setPrompt('Zvolte dítě')->addRule(NAppForm::FILLED, 'Je nutné zadat dítě.');
+	    $form->addSelect('sponzorIdSponzor', 'Sponzor:', $sponzoriSelect)->setPrompt('Zvolte sponzora')->addRule(NAppForm::FILLED, 'Je nutné zadat sponzora.');
+		$form->addSelect('benefitIdBenefit', 'Benefit:', $benefitySelect)->setPrompt('Zvolte benefit')->addRule(NAppForm::FILLED, 'Je nutné zadat benefit.');
+	    $form->addSubmit('create', 'Přidat platbu');
+	    $form->onSuccess[] = $this->NovaPlatbaFormSubmitted;
+	    return $form;
+	}
+
+	// ulozi do databaze nove platby
+	public function NovaPlatbaFormSubmitted(NAppForm $form)
+	{	
+		
+    	if($this->platby->vytvorPlatbu($form->values)){
+    		$this->flashMessage('Přidali jste novou platbu.', 'success');
+    		$this->redirect('Platba:default');
+    	}else{
+    		$this->flashMessage('Nepřidali jste novou platbu.', 'fail');
+    	}
 	}
 
 }
