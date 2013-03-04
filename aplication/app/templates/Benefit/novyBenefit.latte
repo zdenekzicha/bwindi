@@ -1,0 +1,16 @@
+{block title} Vytvořit novou školu {/block}
+
+{block content}
+	<section id="page">	
+		<h1>Vytvořit novou školu</h1>
+		{form novyBenefitForm}
+	        <div class="skola-form">
+	            {control $form errors}
+	            {label nazev /} {input nazev}
+	            {label castka /} {input castka}
+	            {input aktivniZaznam}
+	            {input create}
+	        </div>
+		{/form}
+	</section>
+{/block}

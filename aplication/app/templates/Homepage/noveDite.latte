@@ -1,0 +1,25 @@
+{block title} Přidat nové dítě {/block}
+
+{block content}
+	<section id="page">	
+		<h1>Přidat nové dítě</h1>
+		{form noveDiteForm}
+	        <div class="skola-form">
+				{control $form errors}
+	            {label jmeno /} {input jmeno}
+	            {label pohlavi /} {input pohlavi}
+	            {label datumNarozeni /} {input datumNarozeni}
+	            {label vsym /} {input vsym}
+	            
+	            
+	            {label skolaIdSkola /} {input skolaIdSkola}
+	        	{label rocnik /} {input rocnik}
+	        	{label vystavene /} {input vystavene}
+	        	{input aktivniZaznam}
+	        	{input datumVzniku}
+	            
+	            {input create}
+	        </div>
+		{/form}
+	</section>
+{/block}
