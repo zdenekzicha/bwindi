@@ -39,7 +39,8 @@
 		</form>
 		<table class="table table-striped">
 			<tr>
-				<th>id</th>
+				<th>Dítě</th>
+				<th>Sponzor</th>
 				<th>Datum</th>
 				<th>Typ platby</th>
 				<th>Rok</th>
@@ -47,13 +48,13 @@
 				<th>VS</th>
 				<th>SS</th>
 				<th>Číslo účtu</th>
-				<th>Sponzor</th>
 				<th>Poznámka</th>
 				<th></th>
 			</tr>
 			{foreach $platby as $platba}
 				<tr>
-					<td>{$platba->idPlatba}</td>
+					<td>{$platba->diteJmeno}</td>
+					<td><a n:href="Sponzor:default filtrSelect => jmeno, filtrText => $platba->sponzorJmeno">{$platba->sponzorJmeno}</a></td>
 					<td>{$platba->date}</td>
 					<td>{$platba->benefitNazev}</td>
 					<td>{$platba->rok}</td>
@@ -61,7 +62,6 @@
 					<td>{$platba->diteVsym}</td>		
 					<td>{$platba->sponzorVsym}</td>
 					<td>{$platba->ucet}</td>
-					<td><a n:href="Sponzor:default filtrSelect => jmeno, filtrText => $platba->sponzorJmeno">{$platba->sponzorJmeno}</a></td>
 					<td>{$platba->poznamka}</td>
 					<td><a href="#" title="detail"><i class="icon-pencil"></i></a></td>
 				</tr>
