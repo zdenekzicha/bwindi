@@ -27,6 +27,7 @@ common:
 		sponzorModel: SponzorModel
 		platbaModel: PlatbaModel
 		benefitModel: BenefitModel
+		diteBenefitModel: DiteBenefitModel
 		routerFactory: RouterFactory
 		router: @routerFactory::createRouter
 

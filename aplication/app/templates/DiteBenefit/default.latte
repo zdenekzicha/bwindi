@@ -1,0 +1,31 @@
+{block title}Benefity{/block}
+
+{block content}
+	<section id="page">
+		<h1>Benefity - {$jmenoDitete}</h1>
+		<table class="table table-striped">
+			<tr>
+				<th>Název</th>
+				<th>Rok</th>
+				<th>Aktivní</th>
+				<th>Zaplaceno</th>
+				<th>V platbách</th>
+				<th>Bilance</th>
+				<th>Poznámka</th>
+				<th></th>
+			</tr>
+			{foreach $relace as $zaznam}
+			<tr>
+				<td>{$zaznam->nazev}</td>
+				<td>{$zaznam->rok}</td>
+				<td>{$zaznam->aktivniZaznam}</td>
+				<td>{$zaznam->zaplacenaCastka}</td>
+				<td>{$zaznam->sumaZaplaceno}</td>
+				<td>{$zaznam->bilance}</td>
+				<td>{$zaznam->poznamka}</td>
+				<td><a href="#" title="detail"><i class="icon-edit"></i></a></td>
+			</tr>
+			{/foreach}
+		</table>
+	</section>
+{/block}
