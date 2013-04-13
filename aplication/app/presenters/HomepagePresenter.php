@@ -52,6 +52,52 @@ class homepagePresenter extends BasePresenter
 		$this->filtrSkola = $filtrSkola;
 	}
 
+	public function actionEdit($id)
+	{	
+    	
+    	$data = $this->deti->zobrazDite($id);
+
+    	
+
+    	$form = $this->getComponent('noveDiteForm');
+
+    	$form->setDefaults(array(
+    			'jmeno' => $data[$id]['jmeno'],
+                'pohlavi' => $data[$id]['pohlavi'],
+                'datumNarozeni' => $data[$id]['datumNarozeni'],
+                'vsym' => $data[$id]['vsym'],
+                'rocnik' => $data[$id]['rocnik'],
+                'vystavene' => $data[$id]['vystavene'],
+                'skolaIdSkola' => $data[$id]['skolaIdSkola'],
+                'aktivniZaznam' => $data[$id]['aktivniZaznam']
+
+     	));
+
+     	$form->addHidden('idDite')->setValue($id);
+
+	    $form["create"]->caption = 'Editovat dítě';
+		$form->onSuccess = array(array($this, 'editDiteFormSubmitted')); // nové nastavení
+
+		$this->template->action = "edit";
+		$this->setView('noveDite');
+
+
+	}
+
+	public function actionSmazat($id)
+	{	
+    	
+    	if($this->deti->smazatDite($id)){
+    		$this->flashMessage('Smazali jste dítě.', 'success');
+    		$this->redirect('Homepage:default');
+    	}else{
+    		$this->flashMessage('Toto dítě má v systému další záznamy. Jedná se buď o platby, benefity a nebo je spojeno s nějakým sponzorem. Pokud chcete toto dítě smazat musíte napřed odstranit tyto záznamy.', 'fail');
+    		$this->redirect('Homepage:default');
+    	}
+
+
+	}
+
 	public function renderDefault()
 	{
 
@@ -81,14 +127,14 @@ class homepagePresenter extends BasePresenter
 	    $form->addText('jmeno', 'Jméno:', 40, 255)->addRule(NAppForm::FILLED, 'Je nutné zadat jméno dítěte.');
 	    $form->addSelect('pohlavi', 'Pohlaví:', array('M' => 'muž', 'F' => 'žena'))->setPrompt('Zvolte pohlaví')->addRule(NAppForm::FILLED, 'Je nutné zadat pohlaví dítěte.');
 	    $form->addText('datumNarozeni', 'Datum narození:', 5, 4);
-	    $form->addText('vsym', 'Variabilní symbol:', 10, 10)->addRule(NAppForm::PATTERN, 'Variabilní symbol musí být číslo.', '([0-9]\s*)');	    
-	    $form->addText('rocnik', 'Ročník:', 10, 10)->addRule(NAppForm::PATTERN, 'Ročník musí být číslo.', '([0-9]\s*)');
+	    $form->addText('vsym', 'Variabilní symbol:', 10, 10)->addRule(NAppForm::INTEGER, 'Variabilní symbol musí být číslo.');	    
+	    $form->addText('rocnik', 'Ročník:', 10, 10)->addRule(NAppForm::INTEGER, 'Ročník musí být číslo.');
 	    $form->addCheckbox('vystavene','Vystavené na webu');
 	    $form->addHidden('aktivniZaznam')->setValue('1');
 	    $form->addHidden('datumVzniku')->setValue(date("Y-m-d H:i:s"));
 	    $form->addSelect('skolaIdSkola', 'Škola:', $skolySelect)->setPrompt('Zvolte školu');
 	    $form->addSubmit('create', 'Přidat dítě');
-	    $form->onSuccess[] = $this->noveDiteFormSubmitted;
+	    $form->onSuccess[] = array($this, 'noveDiteFormSubmitted');
 	    return $form;
 	}
 
@@ -100,7 +146,19 @@ class homepagePresenter extends BasePresenter
     		$this->flashMessage('Přidali jste nové dítě.', 'success');
     		$this->redirect('Homepage:default');
     	}else{
-    		$this->flashMessage('Neřidali jste nové dítě.', 'fail');
+    		$this->flashMessage('Nepřidali jste nové dítě.', 'fail');
+    	}
+	}
+
+	// edituje v databazi dite
+	public function editDiteFormSubmitted(NAppForm $form)
+	{	
+		
+    	if($this->deti->editovatDite($form->values)){
+    		$this->flashMessage('Editace dítěte je hotová.', 'success');
+    		$this->redirect('Homepage:default');
+    	}else{
+    		$this->flashMessage('Nepodařilo se editovat dítě.', 'fail');
     	}
 	}
 
