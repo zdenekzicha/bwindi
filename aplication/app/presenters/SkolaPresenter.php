@@ -46,7 +46,7 @@ class skolaPresenter extends BasePresenter
     		$this->flashMessage('Smazali jste školu.', 'success');
     		$this->redirect('Skola:default');
     	}else{
-    		$this->flashMessage('Tato škola je přiřazená k některému dítěti. Aby šla škola smazat nesmí být přiřazena k žádnému dítěti.', 'fail');
+    		$this->flashMessage('Tato škola je přiřazená k některému dítěti. Aby šla škola smazat, nesmí být přiřazena k žádnému dítěti.', 'fail');
     		$this->redirect('Skola:default');
     	}
 

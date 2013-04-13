@@ -91,7 +91,7 @@ class homepagePresenter extends BasePresenter
     		$this->flashMessage('Smazali jste dítě.', 'success');
     		$this->redirect('Homepage:default');
     	}else{
-    		$this->flashMessage('Toto dítě má v systému další záznamy. Jedná se buď o platby, benefity a nebo je spojeno s nějakým sponzorem. Pokud chcete toto dítě smazat musíte napřed odstranit tyto záznamy.', 'fail');
+    		$this->flashMessage('Toto dítě má v systému další záznamy. Jedná se buď o platby, benefity a nebo je spojeno s nějakým sponzorem. Pokud chcete toto dítě smazat, musíte napřed odstranit tyto záznamy.', 'fail');
     		$this->redirect('Homepage:default');
     	}
 
