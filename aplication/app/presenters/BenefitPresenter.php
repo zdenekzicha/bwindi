@@ -11,6 +11,47 @@ class benefitPresenter extends BasePresenter
 	    $this->benefity = $this->context->benefitModel;
 	}
 
+		public function actionEdit($id)
+	{	
+    	
+    	$data = $this->benefity->zobrazBenefit($id);
+
+    	
+
+    	$form = $this->getComponent('novyBenefitForm');
+
+    	$form->setDefaults(array(
+    			'nazev' => $data[$id]['nazev'],
+                'castka' => $data[$id]['castka'],
+                'aktivniZaznam' => $data[$id]['aktivniZaznam']
+
+     	));
+
+     	$form->addHidden('idBenefit')->setValue($id);
+
+	    $form["create"]->caption = 'Editovat Benefit';
+		$form->onSuccess = array(array($this, 'editBenefitFormSubmitted')); // nové nastavení
+
+		$this->template->action = "edit";
+		$this->setView('novyBenefit');
+
+
+	}
+
+	public function actionSmazat($id)
+	{	
+    	
+    	if($this->benefity->smazatBenefit($id)){
+    		$this->flashMessage('Smazali jste Benefit.', 'success');
+    		$this->redirect('Benefit:default');
+    	}else{
+    		$this->flashMessage('Tento benefit je nastaven u některé z plateb. Aby šel benefit smazat, musíte jej napřed odebrat ze všech plateb.', 'fail');
+    		$this->redirect('Benefit:default');
+    	}
+
+
+	}
+
 	public function renderDefault()
 	{
 		$this->template->benefity = $this->benefity->zobrazBenefity();
@@ -37,6 +78,17 @@ class benefitPresenter extends BasePresenter
     		$this->redirect('Benefit:default');
     	}else{
     		$this->flashMessage('Nepřidali jste nový benefit.', 'fail');
+    	}
+	}
+
+	public function editBenefitFormSubmitted(NAppForm $form)
+	{	
+		
+    	if($this->benefity->editovatBenefit($form->values)){
+    		$this->flashMessage('Editace benefitu je hotová.', 'success');
+    		$this->redirect('Benefit:default');
+    	}else{
+    		$this->flashMessage('Nepodařilo se editovat benefit.', 'fail');
     	}
 	}
 

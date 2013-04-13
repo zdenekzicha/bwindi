@@ -1,8 +1,8 @@
-{block title} Vytvořit novou školu {/block}
+{block title} {ifset $action}Editovat údaje o benefitu{else}Vytvořit nový benefit{/ifset} {/block}
 
 {block content}
 	<section id="page">	
-		<h1>Vytvořit novou školu</h1>
+		<h1>{ifset $action}Editovat údaje o benefitu{else}Vytvořit nový benefit{/ifset}</h1>
 		{form novyBenefitForm}
 	        <div class="skola-form">
 	            {control $form errors}

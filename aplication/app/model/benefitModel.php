@@ -15,6 +15,11 @@ class BenefitModel extends Model
 		return $this->getDb()->table('benefityPohled');
 	}
 
+  public function zobrazBenefit($id)
+  {
+      return $this->findAll()->where("idBenefit", $id);
+  }
+
 	public function vytvorBenefit($form)
   	{
   		try {
@@ -25,4 +30,37 @@ class BenefitModel extends Model
   		}
       
   	}
+
+  public function editovatBenefit($form)
+    {     
+    
+      try{
+          $this->getTable()->where('idBenefit', $form["idBenefit"])->update($form);   
+       
+          return true;
+
+      } catch (Exception $e) {
+          
+          return false;
+
+      }
+
+    }
+
+  public function smazatBenefit($id)
+    {
+
+      try{
+      
+          $this->getTable()->where('idBenefit', $id)->delete();
+       
+          return true;
+
+      } catch (Exception $e) {
+          
+          return false;
+
+      }
+
+    }
 }
