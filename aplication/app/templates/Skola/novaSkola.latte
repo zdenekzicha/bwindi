@@ -1,15 +1,15 @@
-{block title} Vytvořit novou školu {/block}
+{block title} {ifset $action}Editovat údaje o škole{else}Vytvořit novou školu{/ifset} {/block}
 
 {block content}
 	<section id="page">	
-		<h1>Vytvořit novou školu</h1>
+		<h1>{ifset $action}Editovat údaje o škole{else}Vytvořit novou školu{/ifset}</h1>
 		{form novaSkolaForm}
 	        <div class="skola-form">
 	            {control $form errors}
-	            {label nazev}Název:{/label} {input nazev size => 30, autofocus => true}
-	            {label predpona}Typ školy:{/label} {input predpona size => 30, autofocus => true}
-	            {label castka}Školné:{/label} {input castka size => 30, autofocus => true}
-	            {label maxRok}Počet ročníků:{/label} {input maxRok size => 30, autofocus => true }            
+	            {label nazev /} {input nazev}
+	            {label predpona /}{input predpona}
+	            {label castka /}{input castka}
+	            {label maxRok /}{input maxRok}
 	            {input create}
 	        </div>
 		{/form}
