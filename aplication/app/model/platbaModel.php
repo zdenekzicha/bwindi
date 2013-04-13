@@ -21,6 +21,11 @@ class PlatbaModel extends Model
     	return $this->db->fetchAll('SELECT rok FROM platba GROUP BY rok');
 	}
 
+	public function zobrazPlatbu($id)
+	{
+    	return $this->findAll()->where("idPlatba", $id);
+	}
+
 	public function vytvorPlatbu($form)
   	{			
   	
@@ -37,4 +42,39 @@ class PlatbaModel extends Model
 	    }
 
   	}
+
+  	  	public function editovatPlatbu($form)
+  	{			
+  	
+  		try{
+			$this->getTable()->where('idPlatba', $form["idPlatba"])->update($form);		
+			 
+	        return true;
+
+	    } catch (Exception $e) {
+	        
+	        return false;
+
+	    }
+
+  	}
+
+  	public function smazatPlatbu($id)
+  	{
+
+  		try{
+			
+			$this->getTable()->where('idPlatba', $id)->delete();
+			 
+	        return true;
+
+	    } catch (Exception $e) {
+	        
+	        return false;
+
+	    }
+
+  	}
+
+
 }

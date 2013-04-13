@@ -50,6 +50,7 @@
 				<th>Číslo účtu</th>
 				<th>Poznámka</th>
 				<th></th>
+				<th></th>
 			</tr>
 			{foreach $platby as $platba}
 				<tr>
@@ -63,7 +64,8 @@
 					<td>{$platba->sponzorVsym}</td>
 					<td>{$platba->ucet}</td>
 					<td>{$platba->poznamka}</td>
-					<td><a href="#" title="detail"><i class="icon-pencil"></i></a></td>
+					<td><a n:href="Platba:edit id=>$platba->idPlatba" title="detail"><i class="icon-pencil"></i></a></td>
+					<td><a n:href="Platba:smazat id=>$platba->idPlatba" title="smazat"><i class="icon-trash"></i></a></td>
 				</tr>
 			{/foreach}
 		</table>

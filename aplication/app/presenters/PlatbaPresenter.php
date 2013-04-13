@@ -40,6 +40,52 @@ class platbaPresenter extends BasePresenter
 		$this->filtrRok = $filtrRok;
 	}
 
+		public function actionEdit($id)
+	{	
+    	
+    	$data = $this->platby->zobrazPlatbu($id);
+
+    	$form = $this->getComponent('novaPlatbaForm');
+
+    	$date = new DateTime($data[$id]['datum']);
+
+    	$form->setDefaults(array(
+    			'datum' => $date->format('d.m.Y'),
+                'castka' => $data[$id]['castka'],
+                'ucet' => $data[$id]['ucet'],
+                'poznamka' => $data[$id]['poznamka'],
+                'rok' => $data[$id]['rok'],
+                'diteIdDite' => $data[$id]['diteIdDite'],
+                'sponzorIdSponzor' => $data[$id]['sponzorIdSponzor'],
+                'benefitIdBenefit' => $data[$id]['benefitIdBenefit']
+
+     	));
+
+     	$form->addHidden('idPlatba')->setValue($id);
+
+	    $form["create"]->caption = 'Editovat platbu';
+		$form->onSuccess = array(array($this, 'editPlatbaFormSubmitted')); // nové nastavení
+
+		$this->template->action = "edit";
+		$this->setView('novaPlatba');
+
+
+	}
+
+	public function actionSmazat($id)
+	{	
+    	
+    	if($this->platby->smazatPlatbu($id)){
+    		$this->flashMessage('Smazali jste platbu', 'success');
+    		$this->redirect('Platba:default');
+    	}else{
+    		$this->flashMessage('Platbu se nepodařilo smazat.', 'fail');
+    		$this->redirect('Platba:default');
+    	}
+
+
+	}
+
 	public function renderDefault()
 	{
 		$this->template->platby = $this->platby->zobrazPlatby($this->filtr);
@@ -99,6 +145,17 @@ class platbaPresenter extends BasePresenter
     		$this->redirect('Platba:default');
     	}else{
     		$this->flashMessage('Nepřidali jste novou platbu.', 'fail');
+    	}
+	}
+
+	public function editPlatbaFormSubmitted(NAppForm $form)
+	{	
+		
+    	if($this->platby->editovatPlatbu($form->values)){
+    		$this->flashMessage('Editace platby je hotová.', 'success');
+    		$this->redirect('Platba:default');
+    	}else{
+    		$this->flashMessage('Nepodařilo se editovat platbu.', 'fail');
     	}
 	}
 

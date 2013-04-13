@@ -1,8 +1,8 @@
-{block title} Přidat nové platby {/block}
+{block title} {ifset $action}Editovat údaje o platbě{else}Přidat nové platby{/ifset} {/block}
 
 {block content}
 	<section id="page">	
-		<h1>Přidat nové platby</h1>
+		<h1>{ifset $action}Editovat údaje o platbě{else}Přidat nové platby{/ifset}</h1>
 		{form novaPlatbaForm}
 	        <div class="skola-form">
 				{control $form errors}
