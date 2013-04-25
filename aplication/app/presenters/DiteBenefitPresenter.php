@@ -4,6 +4,7 @@ class diteBenefitPresenter extends BasePresenter
 {
 
 	private $relace;
+  private $platby;
 	public $diteJmeno;
 	public $filtrText;
   public function actionDefault($diteJmeno, $filtrText) {
@@ -14,11 +15,13 @@ class diteBenefitPresenter extends BasePresenter
 	{
 	    parent::startup();
 	    $this->relace = $this->context->diteBenefitModel;
+	    $this->platby = $this->context->platbaModel;
 	}
 
 	public function renderDefault()
 	{
 		$this->template->relace = $this->relace->zobrazRelace($this->filtrText);
+		$this->template->zbyvajiciPenize = $this->platby->zbyvajiciPenize($this->filtrText);
 	}
 
 

@@ -16,8 +16,9 @@ common:
 			errorPresenter: Error
 
 		database:
-			dsn: 'mysql:host=localhost;dbname=bwindy'
+			dsn: 'mysql:host=127.0.0.1;dbname=bwindy'
 			user: 'root'	
+			
 
 	services:
 		authenticator: Authenticator

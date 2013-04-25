@@ -8,15 +8,14 @@ class DiteBenefitModel extends Model
 
 	public function zobrazRelace($diteIdDite)
 	{
-		return $this->getDb()->query("SELECT *,(r.zaplacenaCastka-p.sumaZaplaceno) as bilance FROM relaceDiteBenefit as r 
+		return $this->getDb()->query("SELECT *,(p.sumaZaplaceno-r.zaplacenaCastka) as bilance FROM relaceDiteBenefit as r 
         left join benefit as b on r.benefitIdBenefit=b.idBenefit  
         left join (SELECT `diteIdDite`,`benefitIdBenefit`,rok as rokPlatby,sum(castka) as sumaZaplaceno FROM `platba` 
         where diteiddite=$diteIdDite group by `benefitIdBenefit`,`diteIdDite`,`rok`
-        ORDER BY diteIdDite) as p on r.diteIdDite=p.diteIdDite AND r.benefitIdBenefit=p.benefitIdBenefit
+        ORDER BY diteIdDite) as p on r.diteIdDite=p.diteIdDite AND r.benefitIdBenefit=p.benefitIdBenefit AND r.rok=p.rokPlatby
         where r.diteiddite=$diteIdDite 
         order by r.datumVzniku"); 
                 
 	}
-
 	
 }
