@@ -1,0 +1,58 @@
+{block title} Sponzoři {/block}
+
+{block content}
+	<section id="page">
+		<h1>Sponzoři</h1>
+		<form class="form-search">
+			<p>
+				<select name="filtrSelect">
+	  				<option value="ssym" {if $filtrSelect == 'ssym'}selected="selected"{/if}>Ss</option> 
+	 				<option value="jmeno" {if $filtrSelect == 'jmeno'}selected="selected"{/if}>Sponzor</option>
+	 				<option value="mail" {if $filtrSelect == 'mail'}selected="selected"{/if}>Email</option>
+				</select>
+	  			<input type="text" name="filtrText" value="{$filtrText}" class="input-xlarge">
+	  			<button type="submit" class="btn">Vyhledat</button>
+	  		</p>
+		</form>
+		<table class="table table-striped">
+			<tr>
+				<th>SS</th>
+				<th>Jméno</th>
+				<th>Ulice a č.p.:</th>
+				<th>PSČ</th>
+				<th>Město</th>			
+				<th>Email</th>
+				<th>Telefon</th>
+				<th>Sponzoruje</th>
+				<th>Poznámka</th>
+				<th>Platby</th>
+				<th></th>
+			</tr>
+			{foreach $sponzori as $sponzor}
+				<tr>
+					<td>{$sponzor->ssym}</td>
+					<td>{$sponzor->jmeno}</td>
+					<td>{$sponzor->ulice}</td>
+					<td>{$sponzor->psc}</td>
+					<td>{$sponzor->mesto}</td>	
+					<td>{$sponzor->mail}</td>		
+					<td>{$sponzor->telefon}</td>
+					<td>
+						{var $oddelovac=0}
+						{foreach $deti as $dite}
+							{if $dite->sponzorIdSponzor == $sponzor->idSponzor}
+								{if $oddelovac > 0}&nbsp;|&nbsp;{/if}
+								<a n:href="Homepage:default filtrSelect => jmeno, filtrText => $dite->jmeno">{$dite->jmeno}</a>
+								{var $oddelovac++}
+							{/if}
+						{/foreach}
+					</td>
+					<td></td>
+					<td><a <a n:href="Platba:default filtrSelect => sponzorVsym, filtrText => $sponzor->ssym">platby</a></td>
+					<td><a href="#" title="detail"><i class="icon-pencil"></i></a></td>
+				</tr>
+			{/foreach}
+		</table>
+		<a n:href="Sponzor:novySponzor">Přidat sponzora</a>
+	</section>
+{/block}

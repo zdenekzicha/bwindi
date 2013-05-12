@@ -1,0 +1,74 @@
+{block title} Platby {/block}
+
+{block content}
+	<section id="page">
+		<h1>Platby</h1>
+		<form class="form-search">
+			<p>
+				<select name="filtrSelect">
+	  				<option value="diteVsym" {if $filtrSelect == 'diteVsym'}selected="selected"{/if}>Vs</option> 
+	  				<option value="sponzorVsym" {if $filtrSelect == 'sponzorVsym'}selected="selected"{/if}>Ss</option> 
+	 				<option value="ucet" {if $filtrSelect == 'ucet'}selected="selected"{/if}>Číslo účtu</option>
+	 				<option value="sponzorJmeno" {if $filtrSelect == 'sponzorJmeno'}selected="selected"{/if}>Sponzor</option>
+				</select>
+	  			<input type="text" name="filtrText" value="{$filtrText}" class="input-xlarge">
+	  			<button type="submit" class="btn">Vyhledat</button>
+	  		</p>
+	  		<!--
+	  		<div class="group">
+		  		<div class="left">
+		  			<select class="span2">
+		  				<option>Typ platby</option>
+		  				<option>Školné</option>
+		  				<option>Koza</option>
+		  				<option>Matrace</option>
+		  				<option>Solární lampa</option>
+					</select>
+		  		</div>
+		  		-->
+		  		<div class="left">
+		  			<select name="filtrRok" class="span2">
+		  				<option>Rok</option>
+		  				{foreach $roky as $rok}
+		  					<option value="{$rok->rok}" {if $filtrRok == $rok->rok}selected="selected"{/if}>{$rok->rok}</option>
+		  				{/foreach}
+					</select>
+		  		</div>
+		  	</div>
+
+		</form>
+		<a n:href="Platba:novaPlatba">Přidat platbu</a>
+		<table class="table table-striped">
+			<tr>
+				<th>Dítě</th>
+				<th>Sponzor</th>
+				<th>Datum</th>
+				<th>Typ platby</th>
+				<th>Rok</th>
+				<th>Částka</th>			
+				<th>VS</th>
+				<th>SS</th>
+				<th>Číslo účtu</th>
+				<th>Poznámka</th>
+				<th></th>
+				<th></th>
+			</tr>
+			{foreach $platby as $platba}
+				<tr>
+					<td>{$platba->diteJmeno}</td>
+					<td><a n:href="Sponzor:default filtrSelect => jmeno, filtrText => $platba->sponzorJmeno">{$platba->sponzorJmeno}</a></td>
+					<td>{$platba->date}</td>
+					<td>{$platba->benefitNazev}</td>
+					<td>{$platba->rok}</td>
+					<td>{$platba->castka} Kč</td>	
+					<td>{$platba->diteVsym}</td>		
+					<td>{$platba->sponzorVsym}</td>
+					<td>{$platba->ucet}</td>
+					<td>{$platba->poznamka}</td>
+					<td><a n:href="Platba:edit id=>$platba->idPlatba" title="detail"><i class="icon-pencil"></i></a></td>
+					<td><a n:href="Platba:smazat id=>$platba->idPlatba" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat údaje o platbě od {$platba->sponzorJmeno}?'))return false;"><i class="icon-trash"></i></a></td>
+				</tr>
+			{/foreach}
+		</table>
+	</section>
+{/block}

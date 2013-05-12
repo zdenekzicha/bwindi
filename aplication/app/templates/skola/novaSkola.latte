@@ -1,0 +1,17 @@
+{block title} {ifset $action}Editovat údaje o škole{else}Vytvořit novou školu{/ifset} {/block}
+
+{block content}
+	<section id="page">	
+		<h1>{ifset $action}Editovat údaje o škole{else}Vytvořit novou školu{/ifset}</h1>
+		{form novaSkolaForm}
+	        <div class="skola-form">
+	            {control $form errors}
+	            {label nazev /} {input nazev}
+	            {label predpona /}{input predpona}
+	            {label castka /}{input castka}
+	            {label maxRok /}{input maxRok}
+	            {input create}
+	        </div>
+		{/form}
+	</section>
+{/block}

@@ -1,0 +1,22 @@
+{block title} {ifset $action}Editovat údaje o platbě{else}Přidat nové platby{/ifset} {/block}
+
+{block content}
+	<section id="page">	
+		<h1>{ifset $action}Editovat údaje o platbě{else}Přidat nové platby{/ifset}</h1>
+		{form novaPlatbaForm}
+	        <div class="skola-form">
+				{control $form errors}
+	            {label sponzorIdSponzor /} {input sponzorIdSponzor}
+	            {label diteIdDite /} {input diteIdDite}
+	            {label benefitIdBenefit /} {input benefitIdBenefit}
+	            {label castka /} {input castka}
+	            {label datum /} {input datum}
+	            {label ucet /} {input ucet}
+	            {label rok /} {input rok}
+	            {label poznamka /} {input poznamka}
+	            
+	            {input create}
+	        </div>
+		{/form}
+	</section>
+{/block}
