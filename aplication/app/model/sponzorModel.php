@@ -10,7 +10,7 @@ class sponzorModel extends Model
 	{
 
 		$this->getDb()->query('DROP VIEW if exists sponzoriPohled');
-		$this->getDb()->query('CREATE VIEW sponzoriPohled as SELECT s.*, d.jmeno AS diteJmeno FROM sponzor AS s LEFT JOIN (dite AS d, relaceditesponzor AS r) ON (s.idSponzor = r.sponzorIdSponzor AND r.diteIdDite = d.idDite) GROUP BY s.idSponzor');
+		$this->getDb()->query('CREATE VIEW sponzoriPohled as SELECT s.*, d.jmeno AS diteJmeno FROM sponzor AS s LEFT JOIN (dite AS d, relaceditesponzor AS r) ON (s.idSponzor = r.sponzorIdSponzor AND r.diteIdDite = d.idDite AND r.aktivniZaznam = 1) GROUP BY s.idSponzor');
 
 		return $this->getDb()->table('sponzoriPohled')->where($filtr);
 	}
@@ -30,32 +30,55 @@ class sponzorModel extends Model
   	{			
   	
   		try{
-			$dite = $form->idDite;
-	        unset($form->idDite);
-	        
-			$this->getDb()->exec('SET TRANSACTION ISOLATION LEVEL SERIALIZABLE');
-			$this->getDb()->beginTransaction();
-
-
-			$this->getTable()->insert($form);
-
-	        if(isset($dite)){
-	        	$idSponzor = $this->getTable()->max("idSponzor");
-			
-				$query = "INSERT INTO relaceditesponzor VALUES(0,".$idSponzor.",".$dite.",1,NOW(),null)";
-				$this->getDb()->exec($query);
-	        }
-
-	        $this->getDb()->commit();
-	        
+        	$this->getTable()->insert($form);
 	        return true;
 
-	    } catch (Exception $e) {
-	        $this->getDb()->rollback();
-	        
-	        return false;
+	      } catch (Exception $e) {
+	          
+	          return false;
 
-	    }
+	      }
 
   	}
+
+  	  public function zobrazSponzora($id)
+    {
+        return $this->findAll()->where("idSponzor", $id);
+    }
+
+
+  	  public function editovatSponzora($form)
+    {     
+    
+      try{
+          $this->getTable()->where('idSponzor', $form["idSponzor"])->update($form);   
+       
+          return true;
+
+      } catch (Exception $e) {
+          
+          return false;
+
+      }
+
+    }
+
+  public function smazatSponzora($id)
+    {
+
+      try{
+      
+          $this->getTable()->where('idSponzor', $id)->delete();
+       
+          return true;
+
+      } catch (Exception $e) {
+          
+          return false;
+
+      }
+
+    }
+
+
 }
