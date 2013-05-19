@@ -41,9 +41,28 @@ class sponzorModel extends Model
 
   	}
 
+  	public function vytvorAdopci($form)
+  	{			
+  		try{
+        	$this->db->table('relaceditesponzor')->insert($form);
+	        return true;
+
+	      } catch (Exception $e) {
+	          
+	          return false;
+
+	      }
+
+  	}
+
   	  public function zobrazSponzora($id)
     {
         return $this->findAll()->where("idSponzor", $id);
+    }
+
+     public function zobrazAdopce($id)
+    {
+        return $this->db->fetchAll('SELECT d.jmeno, d.idDite, r.idRelaceDiteSponzor FROM relaceditesponzor AS r, dite AS d WHERE r.aktivniZaznam = 1  AND r.diteIdDite = d.idDite AND r.sponzoridsponzor = '. $id .'');
     }
 
 
@@ -77,6 +96,23 @@ class sponzorModel extends Model
           return false;
 
       }
+     }
+
+      public function smazatAdopce($id)
+    {
+
+      try{
+      
+          $this->db->table('relaceditesponzor')->where('idRelaceDiteSponzor', $id)->delete();
+       
+          return true;
+
+      } catch (Exception $e) {
+          
+          return false;
+
+      }
+      
 
     }
 

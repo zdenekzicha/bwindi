@@ -1,0 +1,30 @@
+{block title} Adoptované děti {/block}
+
+{block content}
+	<section id="page">	
+		<h1>{$sponzor}</h1>
+		<h3>má adoptované tyto děti</h3>
+		<table>
+		{foreach $adopce as $adopt}
+			<tr>
+				<td>
+					<a n:href="Homepage:edit id=>$adopt->idDite">{$adopt->jmeno}</a>
+				</td>
+				<td>
+					<a n:href="Sponzor:smazatAdopce id=>$adopt->idRelaceDiteSponzor, idSponzor=>$idSponzor" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat {$adopt->jmeno} z adoptovaných?'))return false;"><i class="icon-trash"></i></a><br/>
+				</td>
+			</tr>
+		{/foreach}
+		</table>
+		<h3>přiřadit další adoptované dítě</h3>
+		{form novaAdopceForm}
+	        <div class="skola-form">
+				{control $form errors}
+	            
+	            {input diteIdDite}
+	        	
+	            {input create}
+	        </div>
+		{/form}
+	</section>
+{/block}

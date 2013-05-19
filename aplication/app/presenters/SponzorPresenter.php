@@ -17,7 +17,7 @@ class sponzorPresenter extends BasePresenter
 	    $this->deti = $this->context->diteModel;
 	}
 
-		public function actionEdit($id)
+	public function actionEdit($id)
 	{	
     	
     	$data = $this->sponzori->zobrazSponzora($id);
@@ -46,6 +46,55 @@ class sponzorPresenter extends BasePresenter
 
 
 	}
+
+	public function actionAdopce($id)
+	{	
+		$sponzor = $this->sponzori->zobrazSponzora($id);
+    	
+    	$this->template->sponzor = $sponzor[$id]['jmeno'];
+    	$this->template->idSponzor = $sponzor[$id]['idSponzor'];
+    	$this->template->adopce = $this->sponzori->zobrazAdopce($id);
+
+    	$form = $this->getComponent('novaAdopceForm');
+
+    	$form->addHidden('sponzorIdSponzor')->setValue($sponzor[$id]['idSponzor']);
+
+	}
+
+	protected function createComponentNovaAdopceForm()
+	{
+ 
+		$deti = $this->deti->zobrazVsechnyDeti();
+		$detiSelect = array();
+
+		foreach ($deti as $key => $value) {
+			$detiSelect[$value['idDite']] = $value['jmeno'];
+		}
+		
+	    $form = new NAppForm;
+	    $form->addSelect('diteIdDite', 'Dítě:', $detiSelect)->setPrompt('Zvolte dítě');
+	    $form->addSubmit('create', 'Přidat dítě');
+	    $form->addHidden('aktivniZaznam')->setValue('1');
+	    $form->addHidden('datumVzniku')->setValue(date("Y-m-d H:i:s"));
+	    $form->onSuccess[] = $this->novaAdopceFormSubmitted;
+	    return $form;
+	}
+
+	public function actionSmazatAdopce($id, $idSponzor)
+	{	
+    	
+    	if($this->sponzori->smazatAdopce($id)){
+    		$this->flashMessage('Smazali jste dítě.', 'success');
+    		$this->redirect('Sponzor:adopce', $idSponzor);
+    	}else{
+    		$this->flashMessage('Dítě se nepodařilo smazat.', 'fail');
+    		$this->redirect('Sponzor:adopce', $idSponzor);
+    	}
+
+
+	}
+
+
 
 	public function actionSmazat($id)
 	{	
@@ -81,7 +130,6 @@ class sponzorPresenter extends BasePresenter
 		$this->template->filtrText = $this->filtrText;
 	}
 
-	// vytvori formular pro pridani sponzora
 	protected function createComponentNovySponzorForm()
 	{
  
@@ -117,6 +165,18 @@ class sponzorPresenter extends BasePresenter
     		$this->redirect('Sponzor:default');
     	}else{
     		$this->flashMessage('Nepřidali jste nového sponzora.', 'fail');
+    	}
+	}
+
+	public function novaAdopceFormSubmitted(NAppForm $form)
+	{	
+		$values = $form->getValues();
+    
+    	if($this->sponzori->vytvorAdopci($form->values)){
+    		$this->flashMessage('Přidali jste dítě k tomuto sponzorovi.', 'success');
+    		$this->redirect('Sponzor:adopce', $values["sponzorIdSponzor"]);
+    	}else{
+    		$this->flashMessage('Dítě se nepodařilo přidat.', 'fail');
     	}
 	}
 
