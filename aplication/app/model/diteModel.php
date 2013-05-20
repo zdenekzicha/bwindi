@@ -44,6 +44,11 @@ class DiteModel extends Model
     	return $this->findAll()->where("idDite", $id);
 	}
 
+	 public function zobrazSourozence($id)
+    {
+        return $this->db->fetchAll('SELECT d.jmeno, d.idDite, r.idSourozenzi FROM sourozenzi AS r, dite AS d WHERE r.diteIdDite2 = d.idDite AND r.diteIdDite1 = '. $id .'');
+    }
+
 	public function vytvorDite($form)
   	{			
   	
@@ -58,6 +63,20 @@ class DiteModel extends Model
 	        return false;
 
 	    }
+
+  	}
+
+  	public function vytvorSourozence($form)
+  	{			
+  		try{
+        	$this->db->table('sourozenzi')->insert($form);
+	        return true;
+
+	      } catch (Exception $e) {
+	          
+	          return false;
+
+	      }
 
   	}
 
@@ -83,6 +102,23 @@ class DiteModel extends Model
   		try{
 			
 			$this->getTable()->where('idDite', $id)->delete();
+			 
+	        return true;
+
+	    } catch (Exception $e) {
+	        
+	        return false;
+
+	    }
+
+  	}
+
+  	  	public function smazatSourozence($id)
+  	{
+
+  		try{
+			
+			$this->db->table('sourozenzi')->where('idSourozenzi', $id)->delete();
 			 
 	        return true;
 

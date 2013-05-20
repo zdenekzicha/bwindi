@@ -98,6 +98,54 @@ class homepagePresenter extends BasePresenter
 
 	}
 
+	public function actionSourozenci($id)
+	{	
+		$dite = $this->deti->zobrazDite($id);
+    	
+    	$this->template->diteS = $dite[$id]['jmeno'];
+    	$this->template->idDite = $dite[$id]['idDite'];
+    	$this->template->sourozenci = $this->deti->zobrazSourozence($id);
+
+    	$form = $this->getComponent('novySourozenecForm');
+
+    	$form->addHidden('diteIdDite1')->setValue($dite[$id]['idDite']);
+
+	}
+
+	protected function createComponentNovySourozenecForm()
+	{
+ 
+		$deti = $this->deti->zobrazVsechnyDeti();
+		$detiSelect = array();
+
+		foreach ($deti as $key => $value) {
+			$detiSelect[$value['idDite']] = $value['jmeno'];
+		}
+		
+	    $form = new NAppForm;
+	    $form->addSelect('diteIdDite2', 'Dítě:', $detiSelect)->setPrompt('Zvolte dítě');
+	    $form->addSubmit('create', 'Přidat sourozence');
+	    $form->onSuccess[] = $this->novySourozenecFormSubmitted;
+	    return $form;
+	}
+
+		public function actionSmazatSourozence($id, $idDite)
+	{	
+    	
+    	if($this->deti->smazatSourozence($id)){
+    		$this->flashMessage('Smazali jste dítě.', 'success');
+    		$this->redirect('Homepage:sourozenci', $idDite);
+    	}else{
+    		$this->flashMessage('Dítě se nepodařilo smazat.', 'fail');
+    		$this->redirect('Homepage:sourozenci', $idDite);
+    	}
+
+
+	}
+
+
+
+
 	public function renderDefault()
 	{
 
@@ -147,6 +195,18 @@ class homepagePresenter extends BasePresenter
     		$this->redirect('Homepage:default');
     	}else{
     		$this->flashMessage('Nepřidali jste nové dítě.', 'fail');
+    	}
+	}
+
+	public function novySourozenecFormSubmitted(NAppForm $form)
+	{	
+		$values = $form->getValues();
+    
+    	if($this->deti->vytvorSourozence($form->values)){
+    		$this->flashMessage('Přidali jste sourozence k tomuto dítěti.', 'success');
+    		$this->redirect('Homepage:sourozenci', $values["diteIdDite1"]);
+    	}else{
+    		$this->flashMessage('Dítě se nepodařilo přidat.', 'fail');
     	}
 	}
 

@@ -1,0 +1,30 @@
+{block title} Sourozenci{/block}
+
+{block content}
+	<section id="page">	
+		<h1>{$diteS}</h1>
+		<h3>má tyto sourozence </h3>
+		<table>
+		{foreach $sourozenci as $sourozenec}
+			<tr>
+				<td>
+					<a n:href="Homepage:edit id=>$sourozenec->idDite">{$sourozenec->jmeno}</a>
+				</td>
+				<td>
+					<a n:href="Homepage:smazatSourozence id=>$sourozenec->idSourozenzi, idDite=>$idDite" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat {$sourozenec->jmeno}?'))return false;"><i class="icon-trash"></i></a><br/>
+				</td>
+			</tr>
+		{/foreach}
+		</table>
+		<h3>přiřadit další sourozence</h3>
+		{form novySourozenecForm}
+	        <div class="skola-form">
+				{control $form errors}
+	            
+	            {input diteIdDite2}
+	        	
+	            {input create}
+	        </div>
+		{/form}
+	</section>
+{/block}
