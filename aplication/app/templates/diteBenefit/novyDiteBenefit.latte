@@ -1,0 +1,18 @@
+{block title} {ifset $action}Editovat údaje o benefitu{else}Přidat nový benefit{/ifset} {/block}
+
+{block content}
+	<section id="page">	
+		<h1>{ifset $action}Editovat údaje o benefitu{else}Přidat nový benefit{/ifset}</h1>
+		{form novyDiteBenefitForm}
+	        <div class="skola-form">
+	            {control $form errors}
+	            {label diteIdDite /} {input diteIdDite}
+	            {label benefitIdBenefit /} {input benefitIdBenefit}
+	            {label zaplacenaCastka /} {input zaplacenaCastka}
+	            {label rok /} {input rok}
+	            {label poznamka /} {input poznamka}<BR/>
+	            {input create}
+	        </div>
+		{/form}
+	</section>
+{/block}

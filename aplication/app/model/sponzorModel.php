@@ -22,7 +22,7 @@ class sponzorModel extends Model
 
 	public function zobrazVsechnySponzory()
 	{
-    	return $this->db->fetchAll('SELECT * FROM sponzor');
+    	return $this->db->fetchAll('SELECT * FROM sponzor ORDER BY jmeno ');
 	}
 
 

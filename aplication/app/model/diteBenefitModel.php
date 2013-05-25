@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Provádí operace nad tabulkou deti
+ * 
  */
 class DiteBenefitModel extends Model
 {
@@ -14,10 +14,26 @@ class DiteBenefitModel extends Model
         where diteiddite=$diteIdDite group by `benefitIdBenefit`,`diteIdDite`,`rok`
         ORDER BY diteIdDite) as p on r.diteIdDite=p.diteIdDite AND r.benefitIdBenefit=p.benefitIdBenefit AND r.rok=p.rokPlatby
         where r.diteiddite=$diteIdDite 
-        order by r.datumVzniku"); 
+        order by r.datumVzniku DESC"); 
         
                 
 	}
+	
+	public function vytvorDiteBenefit($form)
+  	{			
+  	
+  		try{
+			
+			$this->db->table('relaceDiteBenefit')->insert($form);
+			 
+	        return true;
+
+	    } catch (Exception $e) {
+	        
+	        return false;
+
+	    }
+	  }
 	
 	
 }
