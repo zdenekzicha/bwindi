@@ -15,7 +15,10 @@ class DiteBenefitModel extends Model
         ORDER BY diteIdDite) as p on r.diteIdDite=p.diteIdDite AND r.benefitIdBenefit=p.benefitIdBenefit AND r.rok=p.rokPlatby
         where r.diteiddite=$diteIdDite 
         order by r.datumVzniku"); 
+        
                 
 	}
 	
+	
 }
+

@@ -32,20 +32,14 @@
 			<tr>
 				<th>Název</th>
 				<th>Rok</th>
-				<th>Zaplaceno</th>
-				<th>V platbách</th>
-				<th>Bilance</th>
-				<th></th>
+				<th>Zbývající peníze</th>
 			</tr>
 			{foreach $zbyvajiciPenize as $zaznam}
   			{if $zaznam->bilance}
           <tr>
-    				<td>{$zaznam->nazev}</td>
-    				<td>{$zaznam->rokPlatby}</td>
-    				<td>{$zaznam->zaplacenaCastka}</td>
-    				<td>{$zaznam->sumaZaplaceno}</td>
+    				<td>{$zaznam->benefit}</td>
+    				<td>{$zaznam->rok}</td>
     				<td>{$zaznam->bilance}</td>
-    				<td><a href="#" title="detail"><i class="icon-edit"></i></a></td>
     			</tr>
   			{/if}
 			{/foreach}
