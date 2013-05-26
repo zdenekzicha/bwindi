@@ -1,0 +1,19 @@
+{block title}Školné{/block}
+
+{block content}
+	<section id="page">
+		<h1>Školné - {$jmenoDitete}</h1>
+		<table class="table table-striped">
+			<tr>
+				<th>Rok</th>
+				<th>Součet školného v platbách</th>
+			</tr>
+			{foreach $penizeSkolne as $zaznam}
+          <tr>
+    				<td>{$zaznam->rok}</td>
+    				<td>{$zaznam->rocniSoucet}{if $zaznam->pocetPlateb>1} (v {$zaznam->pocetPlateb} platbách)	{/if}</td>
+    			</tr>
+			{/foreach}
+		</table>
+	</section>
+{/block}

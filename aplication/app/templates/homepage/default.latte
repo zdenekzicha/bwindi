@@ -91,7 +91,7 @@
 								{/if}
 							{/foreach}
           				</td>
-						<td><a href="#">školné</a></td>
+						<td><a n:href="Skolne:default idDite => $dite->idDite, jmenoDite => $dite->jmeno">školné</a></td>
 						<td><a n:href="Homepage:sourozenci id=>$dite->idDite" title="detail">sourozenci</a></td>	
 						<td><a n:href="Platba:default filtrSelect => diteVsym, filtrText => $dite->vsym">platby</a></td>
 						<td><a n:href="diteBenefit:default filtrSelect => idDite, filtrText => $dite->idDite, diteJmeno => $dite->jmeno">benefity</a></td>

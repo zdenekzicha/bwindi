@@ -54,6 +54,15 @@ WHERE bilance>0
 ORDER by rok DESC
 "); 
     }
+    
+    public function penizeSkolne($diteIdDite)
+  	{
+    return $this->getDb()->query("SELECT *, sum(castka) as rocniSoucet, count(castka) as pocetPlateb FROM platba
+WHERE benefitIdBenefit = 0 AND diteIdDite = $diteIdDite
+GROUP BY rok
+ORDER by rok DESC
+"); 
+    }
 
   	  	public function editovatPlatbu($form)
   	{			
