@@ -113,7 +113,7 @@ class DiteModel extends Model
 
   	}
 
-  	  	public function smazatSourozence($id)
+  	public function smazatSourozence($id)
   	{
 
   		try{
@@ -126,9 +126,14 @@ class DiteModel extends Model
 	        
 	        return false;
 
-	    }
+	    }	    
+	}
+
+  	public function zobrazDetiKAdopci()
+  	{
+
+  		return $this->db->fetchAll('SELECT * FROM dite AS d LEFT JOIN relaceditesponzor AS r ON d.iddite = r.diteiddite WHERE r.diteiddite IS null AND d.vystavene = 1');
 
   	}
-
 
 }

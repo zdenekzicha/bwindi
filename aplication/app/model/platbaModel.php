@@ -48,7 +48,7 @@ class PlatbaModel extends Model
     return $this->getDb()->query("SELECT nazev as benefit, bilance, rokPlatby as rok FROM
 	(SELECT nazev,rokPlatby,(p.sumaObdrzeno - ifnull(r.sumaZaplaceno, 0)) as bilance FROM (
         	SELECT `diteIdDite`,`benefitIdBenefit`,`rok` as rokPlatby,sum(castka) as sumaObdrzeno FROM `platba` where diteiddite=$diteIdDite and benefitIdBenefit != 1 group by `benefitIdBenefit`,`diteIdDite`,`rok` ORDER BY diteIdDite) as p 
-	left join (SELECT benefitIdBenefit as rbenefitIdBenefit, diteIdDite, rok, sum(zaplacenaCastka) as sumaZaplaceno from relaceDiteBenefit group by `benefitIdBenefit`,`diteIdDite`,`rok`) as r on 	r.diteIdDite=p.diteIdDite and r.rok = p.rokPlatby and r.rbenefitIdBenefit = p.benefitIdBenefit 
+	left join (SELECT benefitIdBenefit as rbenefitIdBenefit, diteIdDite, rok, sum(zaplacenaCastka) as sumaZaplaceno from relaceditebenefit group by `benefitIdBenefit`,`diteIdDite`,`rok`) as r on 	r.diteIdDite=p.diteIdDite and r.rok = p.rokPlatby and r.rbenefitIdBenefit = p.benefitIdBenefit 
 left join benefit as b on p.benefitIdBenefit=b.idBenefit)as vysledek
 WHERE bilance>0
 ORDER by rok DESC

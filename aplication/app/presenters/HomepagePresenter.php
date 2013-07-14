@@ -144,8 +144,6 @@ class homepagePresenter extends BasePresenter
 	}
 
 
-
-
 	public function renderDefault()
 	{
 
@@ -220,6 +218,16 @@ class homepagePresenter extends BasePresenter
     	}else{
     		$this->flashMessage('Nepodařilo se editovat dítě.', 'fail');
     	}
+	}
+
+	public function actionApiDetiKAdpopci()
+	{	
+
+    	$this->template->data = $this->deti->zobrazDetiKAdopci();
+
+		$this->setView('apiTemplate');
+
+
 	}
 
 }

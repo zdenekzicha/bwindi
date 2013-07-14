@@ -11,7 +11,7 @@
 			{foreach $penizeSkolne as $zaznam}
           <tr>
     				<td>{$zaznam->rok}</td>
-    				<td>{$zaznam->rocniSoucet}{if $zaznam->pocetPlateb>1} (ve {$zaznam->pocetPlateb} platbách)	{/if}</td>
+    				<td>{$zaznam->rocniSoucet}{if $zaznam->pocetPlateb>1} (v {$zaznam->pocetPlateb} platbách)	{/if}</td>
     			</tr>
 			{/foreach}
 		</table>
