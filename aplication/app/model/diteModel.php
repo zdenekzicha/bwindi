@@ -136,4 +136,9 @@ class DiteModel extends Model
 
   	}
 
+  	public function zobrazDiteApi($id)
+	{
+    	return $this->db->fetchAll('SELECT * FROM dite WHERE idDite = '.$id.'');
+	}
+
 }

@@ -11,10 +11,26 @@ class apiPresenter extends BasePresenter
 	    $this->deti = $this->context->diteModel;
 	}
 
-	public function actionApiDetiKAdpopci()
+	public function actionDetiKAdpopci()
 	{	
 
 		$this->payload->data = $this->deti->zobrazDetiKAdopci();
+    	$this->sendPayload();
+
+	}
+
+	public function actionAdoptovaneDeti()
+	{	
+
+		$this->payload->data = $this->deti->zobrazAdoptovaneDeti();
+    	$this->sendPayload();
+
+	}
+
+	public function actionDetailDite($id)
+	{	
+		
+		$this->payload->data = $this->deti->zobrazDiteApi($id);
     	$this->sendPayload();
 
 	}
