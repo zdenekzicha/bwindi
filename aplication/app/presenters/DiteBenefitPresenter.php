@@ -18,7 +18,7 @@ class diteBenefitPresenter extends BasePresenter
 	protected function startup()
 	{
 	    parent::startup();
-	    $this->relace = $this->context->diteBenefitModel;
+	    $this->relace = $this->context->relaceDiteBenefitModel;
 	    $this->platby = $this->context->platbaModel;
 	    $this->dite = $this->context->diteModel;
 	    $this->sponzori = $this->context->sponzorModel;
@@ -31,6 +31,32 @@ class diteBenefitPresenter extends BasePresenter
 		$this->template->relace = $this->relace->zobrazRelace($this->filtrText);
 		$this->template->zbyvajiciPenize = $this->platby->zbyvajiciPenize($this->filtrText);
 		
+	}
+	
+	public function actionEdit($id)
+	{	
+    	
+    	$data = $this->relace->zobrazDiteBenefit($id);
+
+    	$form = $this->getComponent('novyDiteBenefitForm');
+            
+    	$form->setDefaults(array(
+                'diteIdDite' => $data[$id]['diteIdDite'],
+                'benefitIdBenefit' => $data[$id]['benefitIdBenefit'],
+                'zaplacenaCastka' => $data[$id]['zaplacenaCastka'],
+                'rok' => $data[$id]['rok'],
+                'poznamka' => $data[$id]['poznamka']
+     	));
+
+     	$form->addHidden('idRelaceDiteBenefit')->setValue($id);
+
+	    $form["create"]->caption = 'Editovat benefit';
+		$form->onSuccess = array(array($this, 'editDiteBenefitFormSubmitted')); // nové nastavení
+
+		$this->template->action = "edit";
+		$this->setView('novyDiteBenefit');
+    
+
 	}
 	
 	// vytvori formular pro pridani benefitu
@@ -59,7 +85,7 @@ class diteBenefitPresenter extends BasePresenter
 		}
 		
 	    $form = new NAppForm;
-	    $form->addText('zaplacenaCastka', 'Zaplacená částka:', 5, 4);
+	    $form->addText('zaplacenaCastka', 'Zaplacená částka:');
 	    $form->addText('rok', 'Rok:', 5, 4);
 	    $form->addText('poznamka', 'Poznamka:', 10, 255);
 	    $form->addSelect('diteIdDite', 'Dítě:', $detiSelect)->setPrompt('Zvolte dítě')->addRule(NAppForm::FILLED, 'Je nutné zadat dítě.');
@@ -84,13 +110,16 @@ class diteBenefitPresenter extends BasePresenter
 	public function editDiteBenefitFormSubmitted(NAppForm $form)
 	{	
 		
-    	if($this->relace->editovatBenefit($form->values)){
+    	if($this->relace->editovatDiteBenefit($form->values)){
     		$this->flashMessage('Editace benefitu je hotová.', 'success');
-    		$this->redirect('Benefit:default');
+    		$this->redirect('this',array('id' => $form->values->idRelaceDiteBenefit));
+        //$this->redirect("diteBenefit:edit");
     	}else{
     		$this->flashMessage('Nepodařilo se editovat benefit.', 'fail');
     	}
 	}
+	
+	
 
 }
 

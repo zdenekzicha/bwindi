@@ -10,7 +10,7 @@ class BenefitModel extends Model
 	{
 
 		$this->getDb()->query('DROP VIEW if exists benefityPohled');
-		$this->getDb()->query('CREATE VIEW benefityPohled as SELECT * FROM benefit');
+		$this->getDb()->query('CREATE VIEW benefityPohled as SELECT * FROM benefit order by nazev');
 
 		return $this->getDb()->table('benefityPohled');
 	}

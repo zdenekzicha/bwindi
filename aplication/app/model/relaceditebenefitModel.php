@@ -3,7 +3,7 @@
 /**
  * 
  */
-class DiteBenefitModel extends Model
+class RelaceDiteBenefitModel extends Model
 {
 
 	public function zobrazRelace($diteIdDite)
@@ -35,6 +35,26 @@ class DiteBenefitModel extends Model
 	    }
 	  }
 	
+  public function zobrazDiteBenefit($id)
+  	{
+      	return $this->findAll()->where("idRelaceDiteBenefit", $id);
+  	}
+  	
+	public function editovatDiteBenefit($form)
+  	{			
+  	
+  		try{
+			$this->getTable()->where('idRelaceDiteBenefit', $form["idRelaceDiteBenefit"])->update($form);		
+			 
+	        return true;
+
+	    } catch (Exception $e) {
+	        
+	        return false;
+
+	    }
+
+  	}
 	
 }
 
