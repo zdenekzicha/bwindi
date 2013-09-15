@@ -26,6 +26,10 @@
 .flexslider .slides img { position: relative; top: -170px; width: 100%; display: block; /*max-width: 1500px;*/ margin: 0 auto; }
 .flex-pauseplay span {text-transform: capitalize;}
 
+@media all and (min-width:1400px) {
+	.flexslider .slides img { top: -380px; } 
+}
+
 /* Clearfix for the .slides element */
 .slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;} 
 html[xmlns] .slides {display: block;} 

@@ -31,7 +31,8 @@ class DiteModel extends Model
 	//metoda, ktera zobrazuje adoptovane deti
 	public function zobrazAdoptovaneDeti()
 	{
-    	return $this->db->fetchAll('SELECT * FROM relaceditesponzor AS r , dite AS d WHERE r.diteiddite = d.iddite');
+    	return $this->db->fetchAll('SELECT * FROM relaceditesponzor AS r , dite AS d WHERE r.diteIdDite = d.idDite');
+
 	}
 
 	public function zobrazVsechnyDeti()
@@ -179,8 +180,7 @@ class DiteModel extends Model
   	public function zobrazDetiKAdopci()
   	{
 
-  		return $this->db->fetchAll('SELECT * FROM dite AS d LEFT JOIN relaceditesponzor AS r ON d.iddite = r.diteiddite WHERE r.diteiddite IS null AND d.vystavene = 1');
-
+  		return $this->db->fetchAll('SELECT * FROM dite AS d LEFT JOIN relaceditesponzor AS r ON d.iddite != r.diteiddite WHERE r.diteiddite IS null AND d.vystavene = 1');
   	}
 
   	public function zobrazDiteApi($id)

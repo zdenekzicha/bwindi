@@ -29,18 +29,19 @@ if($_GET["s"] == "profil"){
 	$smarty->display('diteProfil.tpl');
 
 
-}elseif ($_GET["s"] == "adoptovanedeti") {
+}else if ($_GET["page_id"] == "94") {
 	
-	$smarty->assign("data",jsonToArray('http://localhost:8888/Bwindy/sandbox/www/api/adoptovanedeti', null));
+	$smarty->assign("data",jsonToArray('http://bwindi.petrsiller.cz/?presenter=json&action=adoptovaneDeti', null));
 
-	$smarty->display('index.tpl');
+	$smarty->display('adoptovaneDeti.tpl');
 
 }else {
-	//echo jsonToArray('http://bwindi.petrsiller.cz/?presenter=homepage');
 
-	$smarty->assign("data",jsonToArray('http://bwindi.petrsiller.cz/?presenter=json&action=detiAdobce', null));
+	$smarty->assign("data",jsonToArray('http://bwindi.petrsiller.cz/?presenter=json&action=detiAdopce', null));
 
-	$smarty->display('detiAdobce.tpl');
+	$smarty->display('detiAdopce.tpl');
 }
+
+
 
 ?>

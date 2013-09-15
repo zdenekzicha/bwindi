@@ -16,9 +16,40 @@ class jsonPresenter extends BasePresenter
 
 
 	/*
-	 * Vypise adoptovane deti	
+	 * Vypise deti k adobci	
 	*/
-	public function actionDetiAdobce()
+	public function actionDetiAdopce()
+	{
+
+		$this->payload->data = array();
+		$list = $this->deti->zobrazDetiKAdopci();
+		$i = 0;		
+
+		foreach ($list as $item) {
+
+			// zobrazime pouze jmeno
+			$name = explode(" ", $item['jmeno']);
+
+			$data = array(
+				"id" => $item['idDite'], 
+				"jmeno" => $name[0]
+			);
+			
+            $this->payload->data[$i] = $data;
+            $i++;
+        }
+     
+
+        $this->sendPayload();
+        $this->terminate(); // ukončí presenter
+
+	}
+
+
+	/*
+	 * Vypise adoptovaných deti	
+	*/
+	public function actionAdoptovaneDeti()
 	{
 
 		$this->payload->data = array();

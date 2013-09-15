@@ -95,7 +95,20 @@ h1.site-title a{
 
 /*** ESSENTIAL STYLES ***/
 
-.main-navigation 								{ max-width: 1000px; margin: 0 auto; border-bottom: 1px solid #ccc; font-size: 18px;  }
+.main-navigation 										{ position: relative; max-width: 1000px; height: 120px; margin: 0 auto 50px; font-size: 18px;  }
+.main-navigation .sf-menu								{ border-bottom: 1px solid #ccc; }
+.main-navigation .sub-menu								{ display: none; position: absolute; left: 0; top: 80px; width: 100%; margin: 0; padding-bottom: 20px; border-bottom: 1px solid #ccc; }
+.main-navigation .current-menu-item a 					{ color: #997653; }
+.main-navigation .current-menu-item ul a				{ color: #4CB63D; }
+.main-navigation .current-menu-item	.sub-menu,
+.main-navigation .current-menu-ancestor	.sub-menu		{ display: inline; }
+.main-navigation .current-menu-ancestor a 				{ color: #997653; }
+.main-navigation .current-menu-ancestor ul a			{ color: #4CB63D; }
+.main-navigation .current-menu-ancestor .current-menu-item a 					{ color: #997653; }
+
+
+.home .main-navigation 									{ height: auto; margin: 0 auto 25px; }
+
 
 /*
 .sf-menu, .sf-menu * {
@@ -667,7 +680,7 @@ textarea#comment {
 
 
 #articlePage 						{ width: 600px; margin: 0 auto; }
-#articlePage h1 					{ text-align: left; }
+#articlePage h1 					{ text-align: center; }
 
 
 
