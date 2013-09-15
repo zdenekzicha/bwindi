@@ -1,1 +1,0 @@
-Zde budou SQL scripty, ze kterych pujde vytvorit databaze.

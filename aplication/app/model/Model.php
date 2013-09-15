@@ -6,7 +6,6 @@ class Model extends NObject
 {
 	/** @var NConnection */
 	private $database;
-
 	public function __construct(NConnection $database)
 	{
 		$this->database = $database;

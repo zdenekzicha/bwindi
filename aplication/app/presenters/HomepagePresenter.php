@@ -56,8 +56,8 @@ class homepagePresenter extends BasePresenter
 	{	
     	
     	$data = $this->deti->zobrazDite($id);
-
-    	
+      
+      $this->template->profilovaFotkaUrl = $this->deti->sestavUrlProfiloveFotky(unserialize($data[$id]['profilovaUrlSerializovana']), "Small");
 
     	$form = $this->getComponent('noveDiteForm');
 
@@ -156,6 +156,7 @@ class homepagePresenter extends BasePresenter
 		$this->template->deti = $this->deti->zobrazDeti($this->filter);
 		$this->template->skoly = $this->skola->findAll();
 		$this->template->sponzori = $this->sponzori->zobrazAktivniSponzory();
+     
 	}
 
 	// vytvori formular pro pridani ditete
@@ -175,6 +176,7 @@ class homepagePresenter extends BasePresenter
 	    $form->addText('datumNarozeni', 'Datum narození:', 5, 4);
 	    $form->addText('vsym', 'Variabilní symbol:', 10, 10)->addRule(NAppForm::INTEGER, 'Variabilní symbol musí být číslo.');	    
 	    $form->addText('rocnik', 'Ročník:', 10, 10)->addRule(NAppForm::INTEGER, 'Ročník musí být číslo.');
+	    $form->addUpload('profilovasoubor', 'Nahraj novou fotku');
 	    $form->addCheckbox('vystavene','Vystavené na webu');
 	    $form->addHidden('aktivniZaznam')->setValue('1');
 	    $form->addHidden('datumVzniku')->setValue(date("Y-m-d H:i:s"));

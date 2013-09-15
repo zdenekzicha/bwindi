@@ -5,19 +5,21 @@
 		<h1>{ifset $action}Editovat údaje o dítěti{else}Přidat nové dítě{/ifset}</h1>
 		{form noveDiteForm}
 	        <div class="skola-form">
-				{control $form errors}
-	            {label jmeno /} {input jmeno}
+				      {control $form errors}
+	            {label jmeno /}{input jmeno}
 	            {label pohlavi /} {input pohlavi}
 	            {label datumNarozeni /} {input datumNarozeni}
 	            {label vsym /} {input vsym}
-	            
-	            
 	            {label skolaIdSkola /} {input skolaIdSkola}
 	        	{label rocnik /} {input rocnik}
 	        	{label vystavene /} {input vystavene}
+	        	<br/>
+	        	<img src={$profilovaFotkaUrl}>
+	        	{input profilovasoubor}
+	        	
 	        	{input aktivniZaznam}
 	        	{input datumVzniku}
-	            
+	        	<br/>
 	            {input create}
 	        </div>
 		{/form}
