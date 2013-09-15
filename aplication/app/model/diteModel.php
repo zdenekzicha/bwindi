@@ -81,11 +81,28 @@ class DiteModel extends Model
   	}
 
   	public function editovatDite($form)
-  	{			
-  	
+  	{	
+      
+  	  
+      	  
   		try{
+  		/*  Flickr magic*/     
+      if($form['profilovasoubor']->getError()!=4){ //Provede se jen kdyz je nahrana fotka.
+        if ($form['profilovasoubor']->getError() > 0){
+          echo "Chyba při nahrávání fotky fotky: ".$this->codeToMessage($form['profilovasoubor']->getError())."<br>";
+          return false;
+          }
+        else{
+          require_once("../libs/flickr.php");
+          $flickrId = $flickr->sync_upload($form['profilovasoubor']->getTemporaryFile(), $form['jmeno'], '', 'Profilova fotka, '.$form['jmeno'].', Bwindi Orphans'.$form["idDite"], 0);
+          $form['profilovaFotka']=$flickrId;
+          $fotoInfo = $flickr->photos_getInfo($flickrId);
+          $form['profilovaUrlSerializovana'] = serialize($fotoInfo['photo']);
+          }
+      }	
+      /*  Flickr magic - konec*/ 
+  		unset($form['profilovasoubor']); // Mazu docasnej soubor, aby proslo ulozeni do DB
 			$this->getTable()->where('idDite', $form["idDite"])->update($form);		
-			 
 	        return true;
 
 	    } catch (Exception $e) {
@@ -95,11 +112,37 @@ class DiteModel extends Model
 	    }
 
   	}
+  	
+  	public function sestavUrlProfiloveFotky ($photo, $size = "Medium") {
+			//receives an array (can use the individual photo data returned
+			//from an API call) and returns a URL (doesn't mean that the
+			//file size exists)
+			$sizes = array(
+				"square" => "_s",
+				"thumbnail" => "_t",
+				"small" => "_m",
+				"medium" => "",
+				"medium_640" => "_z",
+				"large" => "_b",
+				"original" => "_o"
+			);
+			
+			$size = strtolower($size);
+			if (!array_key_exists($size, $sizes)) {
+				$size = "medium";
+			}
+			
+			if ($size == "original") {
+				$url = "http://farm" . $photo['farm'] . ".static.flickr.com/" . $photo['server'] . "/" . $photo['id'] . "_" . $photo['originalsecret'] . "_o" . "." . $photo['originalformat'];
+			} else {
+				$url = "http://farm" . $photo['farm'] . ".static.flickr.com/" . $photo['server'] . "/" . $photo['id'] . "_" . $photo['secret'] . $sizes[$size] . ".jpg";
+			}
+			return $url;
+		}
 
   	public function smazatDite($id)
   	{
-
-  		try{
+        		try{
 			
 			$this->getTable()->where('idDite', $id)->delete();
 			 
@@ -140,5 +183,37 @@ class DiteModel extends Model
 	{
     	return $this->db->fetchAll('SELECT * FROM dite WHERE idDite = '.$id.'');
 	}
+	
+	  public function codeToMessage($code)
+    {
+        switch ($code) {
+            case UPLOAD_ERR_INI_SIZE:
+                $message = "The uploaded file exceeds the upload_max_filesize directive in php.ini";
+                break;
+            case UPLOAD_ERR_FORM_SIZE:
+                $message = "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form";
+                break;
+            case UPLOAD_ERR_PARTIAL:
+                $message = "The uploaded file was only partially uploaded";
+                break;
+            case UPLOAD_ERR_NO_FILE:
+                $message = "No file was uploaded";
+                break;
+            case UPLOAD_ERR_NO_TMP_DIR:
+                $message = "Missing a temporary folder";
+                break;
+            case UPLOAD_ERR_CANT_WRITE:
+                $message = "Failed to write file to disk";
+                break;
+            case UPLOAD_ERR_EXTENSION:
+                $message = "File upload stopped by extension";
+                break;
+
+            default:
+                $message = "Unknown upload error";
+                break;
+        }
+        return $message;
+    } 
 
 }
