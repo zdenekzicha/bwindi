@@ -237,8 +237,7 @@ class DiteModel extends Model
 
   	public function zobrazDetiKAdopci()
   	{
-
-  		return $this->db->fetchAll('SELECT * FROM dite AS d LEFT JOIN relaceditesponzor AS r ON d.iddite != r.diteiddite WHERE r.diteiddite IS null AND d.vystavene = 1');
+  		return $this->db->fetchAll('SELECT * FROM dite as d LEFT JOIN relaceditesponzor as r ON r.diteIdDite = d.idDite WHERE r.diteIdDite IS NULL AND d.vystavene = 1');
   	}
 	
 	  public function codeToMessage($code)
