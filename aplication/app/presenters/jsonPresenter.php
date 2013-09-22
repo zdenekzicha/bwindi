@@ -79,7 +79,7 @@ class jsonPresenter extends BasePresenter
 	public function actionProfil($id)
 	{	
     	
-		$list = $this->deti->zobrazDite($id);
+		$list = $this->deti->zobrazDiteApi($id);
 
 		foreach ($list as $item) {
 
@@ -104,8 +104,6 @@ class jsonPresenter extends BasePresenter
 	public function actionTimeline($id)
 	{	
 		$list = $this->deti->zobrazTimeline($id);
-
-		$data = array();
 
 		foreach ($list as $item) {
 

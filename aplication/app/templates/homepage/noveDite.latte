@@ -14,7 +14,9 @@
 	        	{label rocnik /} {input rocnik}
 	        	{label vystavene /} {input vystavene}
 	        	<br/>
-	        	<img src={$profilovaFotkaUrl}>
+	        	{ifset $action}
+	        		<img src={$profilovaFotkaUrl}>
+	        	{/ifset}
 	        	{input profilovasoubor}
 	        	
 	        	{input aktivniZaznam}

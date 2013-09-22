@@ -37,6 +37,7 @@ class apiPresenter extends BasePresenter
 
 	public function actionTimeline($id)
 	{
+		//print_r($this->deti->zobrazTimeline($id));
 		$this->payload->data = $this->deti->zobrazTimeline($id);
     	$this->sendPayload();
 

@@ -282,16 +282,6 @@ class homepagePresenter extends BasePresenter
     	}
 	}
 
-	public function actionApiDetiKAdpopci()
-	{	
-
-    	$this->template->data = $this->deti->zobrazDetiKAdopci();
-
-		$this->setView('apiTemplate');
-
-
-	}
-
 }
 
 ?>

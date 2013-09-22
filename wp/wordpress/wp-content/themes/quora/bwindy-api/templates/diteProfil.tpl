@@ -22,11 +22,13 @@
 			<p>{$dite.bio}</p>
 	<div id="timeline">
 		{foreach from=$timeline key=key item=item}
-			<div class="start">{$item.rok}</div>
-			<div class="note">
-				{if $item.foto != ''}<img src="{$item.foto}">{/if} 
-				<p>{$item.text}</p>
-			</div>
+			{foreach from=$item key=key1 item=item1}
+				<div class="start">{$item1.rok}</div>
+				<div class="note">
+					{if $item1.foto != ''}<img src="{$item1.foto}">{/if} 
+					<p>{$item1.text}</p>
+				</div>
+			{/foreach}
 		{/foreach}
 		
 	</div>
