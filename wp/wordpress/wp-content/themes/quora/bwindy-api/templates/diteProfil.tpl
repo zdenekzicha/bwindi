@@ -21,10 +21,14 @@
 			<h3>Chodím do Buhoma {$dite.skola}, 3 ročník <br /> je mi 19 let</h3>
 			<p>{$dite.bio}</p>
 	<div id="timeline">
-		<div class="start">2013</div>
-		<div class="note">Narodila se mi sestřička, je překrásná. Sice doma bude míň místa, ale určitě se nějak vlezeme.</div>
-		<div class="note">Druhý ročník mám úspěšně za sebou. Děkuji všem sponzorům, kteří mi pomohli.</div>
-		<div class="note"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/gallery1.jpg" alt="" class="galleryPhoto" /></div>
+		{foreach from=$timeline key=key item=item}
+			<div class="start">{$item.rok}</div>
+			<div class="note">
+				{if $item.foto != ''}<img src="{$item.foto}">{/if} 
+				<p>{$item.text}</p>
+			</div>
+		{/foreach}
+		
 	</div>
 		</div>
 	</div>

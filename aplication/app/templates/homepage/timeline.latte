@@ -1,0 +1,43 @@
+{block title} Bwindi - děti {/block}
+
+{block content}
+	<section id="page">
+		<h1>{$diteS}</h1>
+		
+		{if count($timeline)}
+			<table class="table table-striped">
+				<tr>
+					<th>Rok</th>
+					<th>Text</th>
+					<th>Foto</th>				
+					<th></th>
+				</tr>
+				{foreach $timeline as $item}
+					<tr>
+						<td>{$item->rok}</td>
+						<td>{$item->text}</td>
+						<td>
+							{if $item->fotoUrlSerializovana != '' }
+								<img src={$item->foto}>
+							{/if}
+						</td>
+						<!--<td><a n:href="Homepage:timeline id=>idDite" title="detail"><i class="icon-pencil"></i></a></td>-->
+						<td><a n:href="Homepage:SmazatTimeline id=>$item->id,idDite=>$idDite" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat údaje o {$diteS}?'))return false;"><i class="icon-trash"></i></a></td>
+					</tr>
+				{/foreach}
+			</table>
+		{else}
+			<div id="noResults"><strong>Bohužel, nic jsme nenašli</strong></div>
+		{/if}
+		<h2>Přidat další záznam</h2>
+		<div class="skola-form">
+			{form novyTimelineForm}
+				{label rok /}{input rok}
+				{label text /}{input text}
+				{label foto /}{input foto}
+				{input create}
+			{/form}
+		</div>
+	</section>
+
+{/block}

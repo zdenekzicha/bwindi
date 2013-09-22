@@ -100,6 +100,30 @@ class jsonPresenter extends BasePresenter
         $this->terminate(); // ukončí presenter
 
 	}
+
+	public function actionTimeline($id)
+	{	
+		$list = $this->deti->zobrazTimeline($id);
+
+		$data = array();
+
+		foreach ($list as $item) {
+
+			$this->payload->data[] = array(
+				"id" => $item['id'], 
+				"idDite" => $item['idDite'],
+				"rok" => $item['rok'],
+				"text" => $item['text'],
+				"foto" => $item['foto']
+			);
+		
+        }     
+
+        $this->sendPayload();
+        $this->terminate(); // ukončí presenter
+
+	}
+
 }
 
 ?>

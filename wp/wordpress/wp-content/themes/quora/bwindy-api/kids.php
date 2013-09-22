@@ -25,6 +25,7 @@ function jsonToArray($link,$id){
 if($_GET["s"] == "profil"){
 
 	$smarty->assign("data",jsonToArray('http://bwindi.petrsiller.cz/?presenter=json&action=profil&id='.$_GET["idDite"], null));
+	$smarty->assign("timeline",jsonToArray('http://bwindi.petrsiller.cz/?presenter=json&action=timeline&id='.$_GET["idDite"], null));
 
 	$smarty->display('diteProfil.tpl');
 

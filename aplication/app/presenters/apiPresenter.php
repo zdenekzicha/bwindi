@@ -34,6 +34,13 @@ class apiPresenter extends BasePresenter
     	$this->sendPayload();
 
 	}
+
+	public function actionTimeline($id)
+	{
+		$this->payload->data = $this->deti->zobrazTimeline($id);
+    	$this->sendPayload();
+
+	}
 }
 
 ?>

@@ -129,7 +129,7 @@ class homepagePresenter extends BasePresenter
 	    return $form;
 	}
 
-		public function actionSmazatSourozence($id, $idDite)
+	public function actionSmazatSourozence($id, $idDite)
 	{	
     	
     	if($this->deti->smazatSourozence($id)){
@@ -141,6 +141,66 @@ class homepagePresenter extends BasePresenter
     	}
 
 
+	}
+
+	public function actionTimeline($id){
+		$dite = $this->deti->zobrazDite($id);
+    	
+    	$this->template->diteS = $dite[$id]['jmeno'];
+    	$this->template->idDite = $dite[$id]['idDite'];
+    	
+    	$this->template->timeline = $this->deti->zobrazTimeline($id);
+
+    	$form = $this->getComponent('novyTimelineForm');
+
+    	$form->addHidden('diteIdDite')->setValue($dite[$id]['idDite']);
+    	$form->addHidden('jmeno')->setValue($dite[$id]['jmeno']);
+	}
+
+	public function actionSmazatTimeline($id, $idDite)
+	{	
+    	
+    	if($this->deti->smazatTimeline($id)){
+    		$this->flashMessage('Smazali jste záznam.', 'success');
+    		$this->redirect('Homepage:timeline', $idDite);
+    	}else{
+    		$this->flashMessage('Záznam se nepodařilo smazat.', 'fail');
+    		$this->redirect('Homepage:timeline', $idDite);
+    	}
+
+
+	}
+
+
+	protected function createComponentNovyTimelineForm()
+	{
+ 
+		$deti = $this->deti->zobrazVsechnyDeti();
+		$detiSelect = array();
+
+		foreach ($deti as $key => $value) {
+			$detiSelect[$value['idDite']] = $value['jmeno'];
+		}
+		
+	    $form = new NAppForm;
+	    $form->addText('text', 'Text:', 40, 255);
+	    $form->addText('rok', 'Rok:', 40, 255);
+	    $form->addUpload('foto', 'Fotka:');
+	    $form->addSubmit('create', 'Přidat záznam');
+	    $form->onSuccess[] = $this->novyTimelineFormSubmitted;
+	    return $form;
+	}
+
+	public function novyTimelineFormSubmitted(NAppForm $form)
+	{	
+		$values = $form->getValues();
+    
+    	if($this->deti->vytvorTimeline($form->values)){
+    		$this->flashMessage('Přidali jste záznam do timeline.', 'success');
+    		$this->redirect('Homepage:timeline', $values["diteIdDite"]);
+    	}else{
+    		$this->flashMessage('Nepodařilo se přidat záznam.', 'fail');
+    	}
 	}
 
 

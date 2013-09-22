@@ -42,17 +42,73 @@ class DiteModel extends Model
 
 	public function zobrazDite($id)
 	{
-    	$this->getDb()->query('DROP VIEW if exists detiPohled');
-    	$this->getDb()->query('CREATE VIEW detiPohled as SELECT d.*, s.jmeno AS jmenoSponzor, sk.nazev AS skolaNazev, sk.idSkola AS skolaId FROM dite AS d LEFT JOIN (sponzor AS s, skola as sk, relaceditesponzor AS r) ON ((d.idDite = r.diteIdDite AND r.sponzorIdSponzor = s.idSponzor) AND d.skolaIdSkola = idSkola) GROUP BY d.idDite ORDER BY d.jmeno');
+		return $this->findAll()->where("idDite", $id);
+
+		//nevim proc jsi tuto funkci peto prepsal, ale prestala mi fungovat vsude v administraci
+
+    	//$this->getDb()->query('DROP VIEW if exists detiPohled');
+    	//$this->getDb()->query('CREATE VIEW detiPohled as SELECT d.*, s.jmeno AS jmenoSponzor, sk.nazev AS skolaNazev, sk.idSkola AS skolaId FROM dite AS d LEFT JOIN (sponzor AS s, skola as sk, relaceditesponzor AS r) ON ((d.idDite = r.diteIdDite AND r.sponzorIdSponzor = s.idSponzor) AND d.skolaIdSkola = idSkola) GROUP BY d.idDite ORDER BY d.jmeno');
 		//return $this->getDb()->table('detiPohled');
-		return $this->getDb()->table('detiPohled')->where("idDite", $id);
-    	
+		//return $this->getDb()->table('detiPohled')->where("idDite", $id);
 	}
 
 	 public function zobrazSourozence($id)
     {
         return $this->db->fetchAll('SELECT d.jmeno, d.idDite, r.idSourozenzi FROM sourozenzi AS r, dite AS d WHERE r.diteIdDite2 = d.idDite AND r.diteIdDite1 = '. $id .'');
     }
+
+    public function zobrazTimeline($id){
+    	return $this->db->table('timeline')->where("diteIdDite", $id)->order('rok');
+    }
+
+    public function vytvorTimeline($form)
+  	{
+		
+
+		
+	try{
+	  	
+	  		/*  Flickr magic*/
+	  	if($form['foto']->getError()!=4){ //Provede se jen kdyz je nahrana fotka.
+	      if ($form['foto']->getError() > 0){
+	          echo "Chyba při nahrávání fotky fotky: ".$this->codeToMessage($form['foto']->getError())."<br>";
+	          return false;
+	          }
+	        else{
+	          require_once("../libs/flickr.php");
+	          $flickrId = $flickr->sync_upload($form['foto']->getTemporaryFile(), $form['jmeno'], '', 'Timeline, '.$form['jmeno'].', Bwindi Orphans'.$form["diteIdDite"], 0);
+	          $form['foto']=$flickrId;
+	          $fotoInfo = $flickr->photos_getInfo($flickrId);
+	          $form['fotoUrlSerializovana'] = serialize($fotoInfo['photo']);
+	          $form['foto'] = $this->sestavUrlProfiloveFotky($fotoInfo['photo'], "Small");
+	          }
+	      }	
+      		/*  Flickr magic - konec*/ 
+  			unset($form['jmeno']);
+			$this->db->table('timeline')->insert($form);	
+	        return true;
+
+	    } catch (Exception $e) {
+	        
+	        return false;
+	    }
+  	}
+
+  	public function smazatTimeline($id)
+  	{
+        		try{
+			
+			$this->db->table('timeline')->where('id', $id)->delete();
+			 
+	        return true;
+
+	    } catch (Exception $e) {
+	        
+	        return false;
+
+	    }
+
+  	}
 
 	public function vytvorDite($form)
   	{			
