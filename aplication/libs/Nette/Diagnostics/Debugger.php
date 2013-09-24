@@ -255,6 +255,7 @@ final class NDebugger
 		}
 
 		// php configuration
+		
 		if (function_exists('ini_set')) {
 			//ini_set('display_errors', !self::$productionMode); // or 'stderr'
 			//ini_set('html_errors', FALSE);
