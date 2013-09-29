@@ -8,9 +8,16 @@
 			{foreach from=$value key=myId item=i}
   				<div class="children">
 					<div class="bubble">
-						<a href="?page_id=48&idDite={$i.id}&s=profil"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/portrait.jpg" alt="" />
+						<a href="?page_id=48&idDite={$i.id}&s=profil">
+							{if $i.fotka}
+								<img src="{$i.fotka}" alt="" />
+							{else}
+								<img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/portrait.jpg" alt="" />
+							{/if}
+						</a>
 					</div>
-					<span>{$i.jmeno}</span></a>
+					<span>{$i.jmeno}</span>
+					<span>{$i.fotka}</span>
 				</div>
 			{/foreach}
 

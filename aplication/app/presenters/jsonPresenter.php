@@ -14,6 +14,22 @@ class jsonPresenter extends BasePresenter
 	    $this->deti = $this->context->diteModel;
 	}
 
+	/* vrati url fotky
+	 * @param {string} - seralizovana url fotky
+	 * @returns {string} - url fotky
+	*/
+	private function _getPhotoUrl($photo) {
+
+		if($photo) {
+			$photoUrl = unserialize($photo);
+			$profilePhoto = $this->deti->sestavUrlProfiloveFotky($photoUrl);
+		}
+		else {
+			$profilePhoto = null;
+		}
+
+		return $profilePhoto;
+	}
 
 	/*
 	 * Vypise deti k adobci	
@@ -23,16 +39,20 @@ class jsonPresenter extends BasePresenter
 
 		$this->payload->data = array();
 		$list = $this->deti->zobrazDetiKAdopci();
-		$i = 0;		
+		$i = 0;	
 
 		foreach ($list as $item) {
 
 			// zobrazime pouze jmeno
 			$name = explode(" ", $item['jmeno']);
 
+			// dostaneme url na profilovou fotku
+			$profilePhoto = $this->_getPhotoUrl($item['profilovaUrlSerializovana']);
+
 			$data = array(
 				"id" => $item['idDite'], 
-				"jmeno" => $name[0]
+				"jmeno" => $name[0],
+				"fotka" => $profilePhoto
 			);
 			
             $this->payload->data[$i] = $data;
@@ -61,9 +81,14 @@ class jsonPresenter extends BasePresenter
 			// zobrazime pouze jmeno
 			$name = explode(" ", $item['jmeno']);
 
+			// dostaneme url na profilovou fotku
+			$profilePhoto = $this->_getPhotoUrl($item['profilovaUrlSerializovana']);
+
 			$data = array(
-				"id" => $item['idDite'], 
-				"jmeno" => $name[0]
+				"id" => $item['idDite'],
+				"vystavene" => $item['vystavene'], 
+				"jmeno" => $name[0],
+				"fotka" => $profilePhoto
 			);
 			
             $this->payload->data[$i] = $data;
@@ -85,13 +110,16 @@ class jsonPresenter extends BasePresenter
 
 			$bio = "Ahoj jmenuji se Agnes, ale všichni mi říkají Agii. Bydlím s mámou, mladší sestrou a bratrancem v malém domku, který se nám podařilo opravit díky vaší pomoci. Tatá mi umřel když mi bylo 14 a moc mi chybí. Máme pracuje na poli, takže když nejsem ve škole, snažím se jí pomáhat.";
 
+			$profilePhoto = $this->_getPhotoUrl($item['profilovaUrlSerializovana']);
+
 			$this->payload->data = array(
 				"id" => $item['idDite'], 
 				"jmeno" => $item['jmeno'],
 				"bio" => $bio,
 				"narozeni" => $item['datumNarozeni'],
 				"pohlavi" => $item['pohlavi'],
-				"skola" => $item['skolaNazev']	
+				"skola" => $item['skolaNazev'],
+				"fotka" => $profilePhoto	
 			);
 		
         }     

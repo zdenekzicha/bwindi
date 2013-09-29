@@ -650,9 +650,9 @@ textarea#comment {
 /* childrens list */
 #childrens 							{ max-width: 880px; margin: 0 auto; padding: 30px 0; }
 #childrens .children 				{ float: left; width: 200px; margin: 10px; } 
-#childrens .children .bubble 		{ border-radius: 50%; overflow: hidden; border: 6px solid #e9e2cb; }
+#childrens .children .bubble 		{ width: 200px; height: 200px; border-radius: 50%; overflow: hidden; border: 6px solid #e9e2cb; }
 #childrens .children span 			{ display: block; text-align: center; }
-#childrens .children img 			{ width: 200px; }
+#childrens .children img 			{ width: 200px; min-height: 200px; }
 
 /* children profile */
 #profile							{ margin: 0 auto; width: 820px; padding: 20px 0 0; font-family: Lato, sans-serif; } 

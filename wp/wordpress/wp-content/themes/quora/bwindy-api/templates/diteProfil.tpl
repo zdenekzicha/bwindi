@@ -2,7 +2,14 @@
 {foreach from=$data key=myId item=dite}
 	<div id="profile">
 		<div id="left">
-	<div class="photo bubble"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/portrait.jpg" alt="" /></div><a href="#" id="helpMe">Pomůžeš mi</a>
+	<div class="photo bubble">
+		{if $dite.fotka}
+			<img src="{$dite.fotka}" alt="" />
+		{else}
+			<img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/portrait.jpg" alt="" />
+		{/if}
+	</div>
+	<a href="#" id="helpMe">Pomůžeš mi</a>
 	<h4>Co potřebuji</h4>
 	<table>
 	<tr><th>Školné</th><td>8 500 Kč</td></tr>
