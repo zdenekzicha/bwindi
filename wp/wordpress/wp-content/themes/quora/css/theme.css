@@ -648,11 +648,14 @@ textarea#comment {
 #mainPage #actions a:hover 			{ background: #d2484e; }
 
 /* childrens list */
-#childrens 							{ max-width: 880px; margin: 0 auto; padding: 30px 0; }
+#childrens 							{ max-width: 880px; margin: 0 auto; padding: 0; }
+#childrens p 						{ width: 600px; margin: 0 auto; padding-bottom: 30px; }
 #childrens .children 				{ float: left; width: 200px; margin: 10px; } 
 #childrens .children .bubble 		{ width: 200px; height: 200px; border-radius: 50%; overflow: hidden; border: 6px solid #e9e2cb; }
 #childrens .children span 			{ display: block; text-align: center; }
 #childrens .children img 			{ width: 200px; min-height: 200px; }
+#childrens .noShow 					{ display: none; }
+#childrens .showMoreChildren 		{ clear: both; display: block; position: relative; top: 40px; width: 200px; margin: 15px auto 0; padding: 15px 0; background: #4CB63D; color: #fff; border-radius: 5px; text-align: center; }
 
 /* children profile */
 #profile							{ margin: 0 auto; width: 820px; padding: 20px 0 0; font-family: Lato, sans-serif; } 

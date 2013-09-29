@@ -4,9 +4,10 @@
 		„Adoptovat“ děti, znamená financovat jejich vzdělání a podílet se na celkovém zlepšení jejich životní situace. Na podpoře jednoho dítěte se může podílet kolektivy, rodiny nebo skupiny přátel.
 	</p>
 
+
 		{foreach from=$data key=myId item=value}
-			{foreach from=$value key=myId item=i}
-  				<div class="children">
+			{foreach from=$value key=myId item=i name="kids"} 
+  				<div class="children {if $smarty.foreach.kids.index > 11}noShow{/if}">
 					<div class="bubble">
 						<a href="?page_id=48&idDite={$i.id}&s=profil">
 							{if $i.fotka}
@@ -17,14 +18,45 @@
 						</a>
 					</div>
 					<span>{$i.jmeno}</span>
-					<span>{$i.fotka}</span>
 				</div>
+
+
 			{/foreach}
+
+			{if $value|@count > 10}
+				<a href="#" class="showMoreChildren">Další děti</a>
+				<script>					
+					jQuery( document ).ready(function() {
+						jQuery("#childrens .showMoreChildren").click(function(e) {
+							e.preventDefault();
+							
+						    var childrens = jQuery("#childrens .noShow");
+							console.log(childrens);
+
+							for(var i = 0; i < childrens.length; i++) {
+								childrens.eq(i).removeClass('noShow');
+								if(i == 11) {
+									break;
+								}
+							}
+
+							if(jQuery("#childrens .noShow").length == 0) {
+								jQuery(this).remove();
+							}
+						});
+					});				
+				</script>
+			{/if} 
 
 			{if empty($value)}
 				<h3>Momentálně mají všechny děti svého sponzora</h3>
 			{/if}
 		{/foreach}
+		
+
+		{if count($data) > 10 }
+			
+		{/if}
 
 
 
