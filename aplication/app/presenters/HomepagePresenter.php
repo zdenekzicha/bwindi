@@ -273,13 +273,15 @@ class homepagePresenter extends BasePresenter
 	// edituje v databazi dite
 	public function editDiteFormSubmitted(NAppForm $form)
 	{	
-		
+		//$this->flashMessage('Editace dítěte je hotová.', 'success');
+	
     	if($this->deti->editovatDite($form->values)){
     		$this->flashMessage('Editace dítěte je hotová.', 'success');
     		$this->redirect('Homepage:default');
     	}else{
     		$this->flashMessage('Nepodařilo se editovat dítě.', 'fail');
     	}
+
 	}
 
 }

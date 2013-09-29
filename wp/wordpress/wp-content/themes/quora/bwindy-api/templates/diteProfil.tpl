@@ -23,14 +23,13 @@
 	<div id="timeline">
 		{foreach from=$timeline key=key item=item}
 			{foreach from=$item key=key1 item=item1}
-				<div class="start">{$item1.rok}</div>
+   				<div class="start">{$item1.rok}</div>
 				<div class="note">
 					{if $item1.foto != ''}<img src="{$item1.foto}">{/if} 
 					<p>{$item1.text}</p>
 				</div>
 			{/foreach}
-		{/foreach}
-		
+		{/foreach}		
 	</div>
 		</div>
 	</div>
