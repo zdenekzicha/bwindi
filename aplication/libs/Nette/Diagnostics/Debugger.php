@@ -251,15 +251,15 @@ final class NDebugger
 			self::$logDirectory = defined('APP_DIR') ? APP_DIR . '/../log' : getcwd() . '/log';
 		}
 		if (self::$logDirectory) {
-			ini_set('error_log', self::$logDirectory . '/php_error.log');
+			//ini_set('error_log', self::$logDirectory . '/php_error.log');
 		}
 
 		// php configuration
 		
 		if (function_exists('ini_set')) {
-			ini_set('display_errors', !self::$productionMode); // or 'stderr'
-			ini_set('html_errors', FALSE);
-			ini_set('log_errors', FALSE);
+			//ini_set('display_errors', !self::$productionMode); // or 'stderr'
+			//ini_set('html_errors', FALSE);
+			//ini_set('log_errors', FALSE);
 
 		} elseif (ini_get('display_errors') != !self::$productionMode && ini_get('display_errors') !== (self::$productionMode ? 'stderr' : 'stdout')) { // intentionally ==
 			echo __METHOD__ . "() error: Unable to set 'display_errors' because function ini_set() is disabled.\n";
