@@ -27,17 +27,46 @@
 			<h1>{$dite.jmeno}</h1>
 			<h3>Chodím do Buhoma {$dite.skola}, 3 ročník <br /> je mi 19 let</h3>
 			<p>{$dite.bio}</p>
-	<div id="timeline">
-		{foreach from=$timeline key=key item=item}
-			{foreach from=$item key=key1 item=item1}
-   				<div class="start">{$item1.rok}</div>
-				<div class="note">
-					{if $item1.foto != ''}<img src="{$item1.foto}">{/if} 
-					<p>{$item1.text}</p>
-				</div>
-			{/foreach}
-		{/foreach}		
-	</div>
+
+			<div id="timeline">
+				{foreach from=$timeline key=key item=item name=item}
+					{foreach from=$item key=key1 item=item1 name=item1}
+		   				<div {if $smarty.foreach.item1.index != 0}class="noShow"{/if}>
+			   				{foreach from=$item1 key=key2 item=item2 name=item2}		   				
+				   				{if $smarty.foreach.item2.index == 0}
+									<div class="start">{$item2.rok}</div>
+				   				{/if}
+								<div class="note">
+									{if $item2.foto != ''}<img src="{$item2.foto}">{/if} 
+									{if $item2.text != ''}<p>{$item2.text}</p>{/if}
+								</div>
+							{/foreach}
+						</div>
+					{/foreach}
+
+					<a href="#" class="showMore">Předchozí rok</a>
+					<script>					
+						jQuery( document ).ready(function() {
+							jQuery("#timeline .showMore").click(function(e) {
+								e.preventDefault();
+								
+							    var part = jQuery("#timeline .noShow");
+
+								for(var i = 0; i < part.length; i++) {
+									part.eq(i).removeClass('noShow');
+									window.scrollBy(0,50);
+									break;
+								}
+
+								if(jQuery("#timeline .noShow").length == 0) {
+									jQuery(this).remove();
+								}
+							});
+						});				
+					</script>
+
+				{/foreach}		
+			</div>
 		</div>
 	</div>
 {/foreach}

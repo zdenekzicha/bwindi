@@ -658,7 +658,7 @@ textarea#comment {
 #childrens .showMoreChildren 		{ clear: both; display: block; position: relative; top: 40px; width: 200px; margin: 15px auto 0; padding: 15px 0; background: #4CB63D; color: #fff; border-radius: 5px; text-align: center; }
 
 /* children profile */
-#profile							{ margin: 0 auto; width: 820px; padding: 20px 0 0; font-family: Lato, sans-serif; } 
+#profile							{ margin: -80px auto 0; width: 820px; padding: 20px 0 0; font-family: Lato, sans-serif; } 
 #profile #left 						{ float: left; width: 300px; margin-right: 50px; }
 
 #profile #left h4 					{ padding: 10px 0; margin: 0 auto; width: 250px; border-bottom: 1px solid #ccc;  }
@@ -674,12 +674,16 @@ textarea#comment {
 #profile .photo						{ width: 250px; height: 250px; margin: 0 auto 20px; }
 #profile h1 						{ margin-top: 10px;  padding: 0 0 20px; text-align: left; }
 #profile h3 						{ padding: 0 0 20px 0; margin: 0; }
-#profile #helpMe					{ display: block; width: 200px; margin: 0 auto; background: #4CB63D; color: #fff; font-size: 20px; padding: 15px 0; text-align: center; border-radius: 5px; }
+#profile #helpMe					{ display: block; width: 200px; margin: 0 auto 30px; background: #4CB63D; color: #fff; font-size: 20px; padding: 15px 0; text-align: center; border-radius: 5px; }
 
 #profile #timeline 					{ background: url(../images/timelineBorder.png) 50% 0 repeat-y;}
 #profile #timeline .start			{ margin: 0 auto 20px; padding: 10px; width: 100px; background: url(../images/paperTexture.jpg); text-align: center;  }
+#profile #timeline .noShow 			{ display: none; }
 #profile #timeline .note			{ padding: 15px; margin-bottom: 20px; background: #fff; border: 1px solid #ccc; border-radius: 8px; color: #997653; }
+#profile #timeline .note p 			{ margin: 5px 0 0; text-align: center; }
+#profile #timeline .note img 		{ width: 100%; }
 #profile #timeline .galleryPhoto	{ width: 100%; }
+#profile #timeline .showMore 		{ display: block; width: 200px; margin: 15px auto 30px; padding: 15px 0; background: #4CB63D; color: #fff; border-radius: 5px; text-align: center; }
 
 
 #articlePage 						{ width: 600px; margin: 0 auto; }

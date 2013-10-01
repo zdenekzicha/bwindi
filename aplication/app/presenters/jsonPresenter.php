@@ -18,11 +18,11 @@ class jsonPresenter extends BasePresenter
 	 * @param {string} - seralizovana url fotky
 	 * @returns {string} - url fotky
 	*/
-	private function _getPhotoUrl($photo) {
+	private function _getPhotoUrl($photo, $size = "Medium") {
 
 		if($photo) {
 			$photoUrl = unserialize($photo);
-			$profilePhoto = $this->deti->sestavUrlProfiloveFotky($photoUrl);
+			$profilePhoto = $this->deti->sestavUrlProfiloveFotky($photoUrl, $size);
 		}
 		else {
 			$profilePhoto = null;
@@ -133,17 +133,38 @@ class jsonPresenter extends BasePresenter
 	{	
 		$list = $this->deti->zobrazTimeline($id);
 
+		$container = array();
+
+		// grupujeme data v timeline podle roku
 		foreach ($list as $item) {
 
-			$this->payload->data[] = array(
+			$photo = $this->_getPhotoUrl($item['fotoUrlSerializovana'],'large');
+			
+			$note = array(
 				"id" => $item['id'], 
 				"idDite" => $item['idDite'],
 				"rok" => $item['rok'],
 				"text" => $item['text'],
-				"foto" => $item['foto']
+				"foto" => $photo
 			);
+			
+			if($year == $item['rok']) {
+				$container[] = $note;
+			}
+			else {
+				if(!empty($container)) {
+					$this->payload->data[] = $container;
+				}
+				$year = $item['rok'];				
+				$container = array();
+				$container[] = $note;
+			}
 		
-        }     
+        }   
+
+        if(!empty($container)) {
+        	$this->payload->data[] = $container;
+        }
 
         $this->sendPayload();
         $this->terminate(); // ukončí presenter
