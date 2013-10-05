@@ -63,6 +63,7 @@ class homepagePresenter extends BasePresenter
 
     	$form->setDefaults(array(
     			'jmeno' => $data[$id]['jmeno'],
+    			'bio' => $data[$id]['bio'],
                 'pohlavi' => $data[$id]['pohlavi'],
                 'datumNarozeni' => $data[$id]['datumNarozeni'],
                 'vsym' => $data[$id]['vsym'],
@@ -234,6 +235,7 @@ class homepagePresenter extends BasePresenter
 	    $form->addText('jmeno', 'Jméno:', 40, 255)->addRule(NAppForm::FILLED, 'Je nutné zadat jméno dítěte.');
 	    $form->addSelect('pohlavi', 'Pohlaví:', array('M' => 'muž', 'F' => 'žena'))->setPrompt('Zvolte pohlaví')->addRule(NAppForm::FILLED, 'Je nutné zadat pohlaví dítěte.');
 	    $form->addText('datumNarozeni', 'Datum narození:', 5, 4);
+	    $form->addTextArea('bio', 'Bio', 80, 7);
 	    $form->addText('vsym', 'Variabilní symbol:', 10, 10)->addRule(NAppForm::INTEGER, 'Variabilní symbol musí být číslo.');	    
 	    $form->addText('rocnik', 'Ročník:', 10, 10)->addRule(NAppForm::INTEGER, 'Ročník musí být číslo.');
 	    $form->addUpload('profilovasoubor', 'Nahraj novou fotku');

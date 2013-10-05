@@ -108,14 +108,12 @@ class jsonPresenter extends BasePresenter
 
 		foreach ($list as $item) {
 
-			$bio = "Ahoj jmenuji se Agnes, ale všichni mi říkají Agii. Bydlím s mámou, mladší sestrou a bratrancem v malém domku, který se nám podařilo opravit díky vaší pomoci. Tatá mi umřel když mi bylo 14 a moc mi chybí. Máme pracuje na poli, takže když nejsem ve škole, snažím se jí pomáhat.";
-
 			$profilePhoto = $this->_getPhotoUrl($item['profilovaUrlSerializovana']);
 
 			$this->payload->data = array(
 				"id" => $item['idDite'], 
 				"jmeno" => $item['jmeno'],
-				"bio" => $bio,
+				"bio" => $item['bio'],
 				"narozeni" => $item['datumNarozeni'],
 				"pohlavi" => $item['pohlavi'],
 				"skola" => $item['skolaNazev'],
