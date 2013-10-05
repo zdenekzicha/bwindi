@@ -16,16 +16,16 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'wordpress');
+define('DB_NAME', 'petrsillercz04');
 
 /** MySQL database username */
-define('DB_USER', 'root');
+define('DB_USER', 'petrsillercz004');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'root');
+define('DB_PASSWORD', 'bwindiweb');
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define('DB_HOST', '127.0.0.1');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
@@ -42,14 +42,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'kAx:_{h,slw Sq9I_BiYJ3D +p=x)}zh/gH~)h!{h`NNyKg|V_ {o4Q)8Du,Fd@,');
-define('SECURE_AUTH_KEY',  'QAUNqi]M.[yh!4~Egl}kyeJ%*lTGmO&L2+a(f7z+z11HCc-IJ7tVHfUs@Xl+{Z6@');
-define('LOGGED_IN_KEY',    '3Vuug+*rswjKw,BtKaTR8e!{0F|]=0ZLbbEh@-3V/tl{JE{.)=a&lPaEaL< 4te(');
-define('NONCE_KEY',        'cQh9|7r.+xKe1ow)^+8%r`o**DU-=03dCew~iLH+U({996%;wW8SC<r-((!B-@1B');
-define('AUTH_SALT',        ')@,!%d;i@{_:wdWyWhkCQ5S zH&]x$Rqs,SuwD|x)?qldG/Y?--MeSPb$*oW|f~R');
-define('SECURE_AUTH_SALT', '0(xUFqK@Jpm=V}B([JKm1.+]U{I|se1]Abi,1&qD5%&coId> D)%RwRs7`#wJS0G');
-define('LOGGED_IN_SALT',   'B_[d0Qr%+p8=mX^fVOot|#c28l<>=5hER-L.6@8=^2m5[R|@(X1`-lLm5mnha9+s');
-define('NONCE_SALT',       '8 (T1_0~fz^2?wj32sQT!6OyBLVm!&Z]9:.p|`--{@BB4pdvi)?+V4CDX%`?Ye)n');
+define('AUTH_KEY',         'put your unique phrase here');
+define('SECURE_AUTH_KEY',  'put your unique phrase here');
+define('LOGGED_IN_KEY',    'put your unique phrase here');
+define('NONCE_KEY',        'put your unique phrase here');
+define('AUTH_SALT',        'put your unique phrase here');
+define('SECURE_AUTH_SALT', 'put your unique phrase here');
+define('LOGGED_IN_SALT',   'put your unique phrase here');
+define('NONCE_SALT',       'put your unique phrase here');
 
 /**#@-*/
 
@@ -69,7 +69,7 @@ $table_prefix  = 'wp_';
  * de_DE.mo to wp-content/languages and set WPLANG to 'de_DE' to enable German
  * language support.
  */
-define('WPLANG', '');
+define('WPLANG', 'cs_CZ');
 
 /**
  * For developers: WordPress debugging mode.

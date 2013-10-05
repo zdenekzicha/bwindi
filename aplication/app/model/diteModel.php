@@ -235,6 +235,16 @@ class DiteModel extends Model
 	    }	    
 	}
 
+	public function vratVek($narozeni){
+		$vek = intval(date('Y') - $narozeni);
+
+		if($vek < 100){
+			return $vek;
+		}else{
+			return 0;
+		}
+	}
+
   	public function zobrazDetiKAdopci()
   	{
   		return $this->db->fetchAll('SELECT * FROM dite as d LEFT JOIN relaceditesponzor as r ON r.diteIdDite = d.idDite WHERE r.diteIdDite IS NULL AND d.vystavene = 1');

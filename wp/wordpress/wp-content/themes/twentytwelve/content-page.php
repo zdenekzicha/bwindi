@@ -14,7 +14,7 @@
 		</header>
 
 		<div class="entry-content">
-			<?php if(get_the_ID() == 5){ require("bwindy-api/kids.php"); }else{the_content();} ?>
+			<?php the_content(); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'twentytwelve' ), 'after' => '</div>' ) ); ?>
 		</div><!-- .entry-content -->
 		<footer class="entry-meta">

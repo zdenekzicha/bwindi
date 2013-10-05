@@ -25,7 +25,7 @@
 	</div>
 		<div id="right">
 			<h1>{$dite.jmeno}</h1>
-			<h3>Chodím do Buhoma {$dite.skola}, 3 ročník <br /> je mi 19 let</h3>
+			<h3>Chodím do Buhoma {$dite.skola}, {if $dite.rocnik != ''}{$dite.rocnik} ročník{/if} {if $dite.vek != 0}<br /> je mi {$dite.vek} let{/if}</h3>
 			<p>{$dite.bio}</p>
 
 			<div id="timeline">

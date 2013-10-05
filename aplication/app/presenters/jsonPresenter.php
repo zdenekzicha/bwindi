@@ -114,6 +114,8 @@ class jsonPresenter extends BasePresenter
 				"id" => $item['idDite'], 
 				"jmeno" => $item['jmeno'],
 				"bio" => $item['bio'],
+				"rocnik" => $item['rocnik'],
+				"vek" => $this->deti->vratVek($item['datumNarozeni']),
 				"narozeni" => $item['datumNarozeni'],
 				"pohlavi" => $item['pohlavi'],
 				"skola" => $item['skolaNazev'],
