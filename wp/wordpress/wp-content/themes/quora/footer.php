@@ -20,7 +20,11 @@
 			</div>
 		<?php endif; ?>
 	</div>
-
+	<div id="sponsors">
+		<a href="#"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/livingstone.png" /></a>
+		<a href="#"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/nadaceDivokeHusy.png" /></a>
+		<a href="#"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/agenturaPelhrimov.png" /></a>
+	</div>
 	<footer id="colophon" class="site-footer" role="contentinfo"></footer><!-- #colophon .site-footer -->
 </div><!-- #page .hfeed .site -->
 
