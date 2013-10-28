@@ -1,6 +1,6 @@
 
 {foreach from=$data key=myId item=dite}
-	<div id="profile">
+	<div id="profile" class="twoColumnsLayout group">
 		<div id="left">
 	<div class="photo bubble">
 		{if $dite.fotka}
@@ -9,7 +9,7 @@
 			<img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/portrait.jpg" alt="" />
 		{/if}
 	</div>
-	<a href="#" id="helpMe">Pomůžeš mi</a>
+	<a href="/?page_id=119&idDite={$dite.id}" id="helpMe">Pomůžeš mi?</a>
 	<h4>Co potřebuji</h4>
 	<table>
 	<tr><th>Školné</th><td>8 500 Kč</td></tr>
