@@ -45,6 +45,11 @@ class DiteModel extends Model
 		return $this->findAll()->where("idDite", $id);
 	}
 
+	public function existujeSponzor($id)
+	{
+		return $this->db->fetchAll('SELECT idRelaceDiteSponzor FROM  relaceditesponzor WHERE diteIdDite ='.$id.' and aktivniZaznam = 1');
+	}
+
 	public function zobrazDiteApi($id)
 	{
 		

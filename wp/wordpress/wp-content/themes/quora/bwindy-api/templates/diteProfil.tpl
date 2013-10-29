@@ -9,24 +9,34 @@
 			<img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/portrait.jpg" alt="" />
 		{/if}
 	</div>
-	<a href="/?page_id=119&idDite={$dite.id}" id="helpMe">Pomůžeš mi?</a>
-	<h4>Co potřebuji</h4>
-	<table>
-	<tr><th>Školné</th><td>8 500 Kč</td></tr>
-	<tr><th>Boty</th><td>300 Kč</td></tr>
-	<tr><th>Koza</th><td>1 200 Kč</td></tr>
-	<tr><th>Lucerna</th><td>200 Kč</td></tr>
-	</table>
+	{if $dite.sponzor}
+		<div id="helpMe" class="disable">Už mám sponzora</div>
+	{else}
+		<a href="/?page_id=119&idDite={$dite.id}" id="helpMe">Pomůžeš mi?</a>
+	{/if}
+	<!--
+		<h4>Co potřebuji</h4>
+		<table>
+		<tr><th>Školné</th><td>8 500 Kč</td></tr>
+		<tr><th>Boty</th><td>300 Kč</td></tr>
+		<tr><th>Koza</th><td>1 200 Kč</td></tr>
+		<tr><th>Lucerna</th><td>200 Kč</td></tr>
+		</table>
 
-	<h4>Co už mám</h4>
-	<table>
-	<tr><th>Matrace</th><td></td></tr>
-	</table>
+		<h4>Co už mám</h4>
+		<table>
+		<tr><th>Matrace</th><td></td></tr>
+		</table>
+	-->
 	</div>
 		<div id="right">
 			<h1>{$dite.jmeno}</h1>
-			<h3>Chodím do Buhoma {$dite.skola}, {if $dite.rocnik != ''}{$dite.rocnik} ročník{/if} {if $dite.vek != 0}<br /> je mi {$dite.vek} let{/if}</h3>
-			<p>{$dite.bio}</p>
+			{if $dite.rocnik != ''}
+				<h3>Chodím do Buhoma {$dite.skola}, {if $dite.rocnik != ''}{$dite.rocnik} ročník{/if} {if $dite.vek != 0}<br /> je mi {$dite.vek} let{/if}</h3>
+			{/if}
+			{if $dite.rocnik != ''}
+				<p>{$dite.bio}</p>
+			{/if}
 
 			<div id="timeline">
 				{foreach from=$timeline key=key item=item name=item}

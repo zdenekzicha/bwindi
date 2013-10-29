@@ -369,8 +369,8 @@ h3.bothead, h3.sidetitl{
 }
 
 .botwid ul li a:hover{
-	color: #d2484e;
-	}
+	color: #504342;
+}
 
 .botwid p{
 	padding: 5px 0px;
@@ -646,10 +646,10 @@ textarea#comment {
 #mainPage p 						{ padding: 0 100px 20px; line-height: 1.6; text-align: left; }
 #mainPage #actions 					{ width: 387px; margin: 0 auto; }
 #mainPage #actions a 				{ float: left; margin: 0 10px; padding: 20px 30px; background: #4CB63D; color: #fff; border-radius: 10px; }
-#mainPage #actions a:hover 			{ background: #d2484e; }
+#mainPage #actions a:hover 			{ background: #997653; }
 
 /* childrens list */
-#childrens 							{ max-width: 880px; margin: 0 auto; padding: 0; }
+#childrens 							{ max-width: 880px; margin: 0 auto 60px; padding: 0; }
 #childrens p 						{ width: 600px; margin: 0 auto; padding-bottom: 30px; }
 #childrens .children 				{ float: left; width: 200px; margin: 10px; } 
 #childrens .children .bubble 		{ width: 200px; height: 200px; border-radius: 50%; overflow: hidden; border: 6px solid #e9e2cb; }
@@ -657,13 +657,15 @@ textarea#comment {
 #childrens .children img 			{ width: 200px; min-height: 200px; }
 #childrens .noShow 					{ display: none; }
 #childrens .showMoreChildren 		{ clear: both; display: block; position: relative; top: 40px; width: 200px; margin: 15px auto 0; padding: 15px 0; background: #4CB63D; color: #fff; border-radius: 5px; text-align: center; }
+#childrens .showMoreChildren:hover	{ background: #997653; }
 
 /* children profile */
 .twoColumnsLayout 					{ font-family: Lato, sans-serif; margin: -80px auto 0; width: 820px; padding: 20px 0 0; }
 .twoColumnsLayout #left 			{ float: left; width: 300px; margin-right: 50px; }
 .twoColumnsLayout #left h4 			{ padding: 10px 0; margin: 0 auto; width: 250px; border-bottom: 1px solid #ccc; }
+.twoColumnsLayout #right 			{ float: left; width: 450px; }
 .twoColumnsLayout #right h4			{ float: left; width: 470px; }
-.twoColumnsLayout h1				{ margin-top: 10px;  padding: 0 0 20px; }
+.twoColumnsLayout h1				{ margin-top: 10px;  padding: 0 0 20px !important; }
 .twoColumnsLayout h3				{ padding: 0 0 20px 0; margin: 0; }
 
 #profile h1 						{ text-align: left; }
@@ -676,15 +678,18 @@ textarea#comment {
 #profile #left tr:last-child td		{ border: none; }
 #profile .photo						{ width: 250px; height: 250px; margin: 0 auto 20px; } .photo						{ width: 250px; height: 250px; margin: 0 auto 20px; }
 #profile #helpMe					{ display: block; width: 200px; margin: 0 auto 30px; background: #4CB63D; color: #fff; font-size: 20px; padding: 15px 0; text-align: center; border-radius: 5px; }
+#profile a#helpMe:hover 			{ background: #997653; }
+#profile #helpMe.disable			{ background: #f4f0e5; color: #666; }
 
 #profile #timeline 					{ background: url(../images/timelineBorder.png) 50% 0 repeat-y;}
-#profile #timeline .start			{ margin: 0 auto 20px; padding: 10px; width: 100px; background: url(../images/paperTexture.jpg); text-align: center;  }
+#profile #timeline .start			{ margin: 0 auto 20px; padding: 10px; width: 100px; background: #fff; text-align: center;  }
 #profile #timeline .noShow 			{ display: none; }
 #profile #timeline .note			{ padding: 15px; margin-bottom: 20px; background: #fff; border: 1px solid #ccc; border-radius: 8px; color: #997653; }
 #profile #timeline .note p 			{ margin: 5px 0 0; text-align: center; }
 #profile #timeline .note img 		{ width: 100%; }
 #profile #timeline .galleryPhoto	{ width: 100%; }
 #profile #timeline .showMore 		{ display: block; width: 200px; margin: 15px auto 30px; padding: 15px 0; background: #4CB63D; color: #fff; border-radius: 5px; text-align: center; }
+#profile #timeline .showMore:hover  { background: #997653; }
 
 /* adoption form */
 #formAdoption h1 					{ padding: 0 0 60px; }
@@ -696,6 +701,7 @@ textarea#comment {
 #formAdoption form .require			{ padding-left: 5px; font-size: 20px; cursor: help; }
 #formAdoption .errorMsg				{ display: none; margin-left: 140px; padding: 5px 38px 0 0; font-size: 13px; color: #ec0000; }
 #formAdoption #send 				{ width: 290px; margin-left: 140px; padding: 15px 0; background: #4CB63D; border: 0; color: #fff; font-size: 20px; border-radius: 5px; outline: none; }
+#formAdoption #send:hover 			{ background: #997653; }
 #formAdoption .error input			{ border: 1px solid #ec0000; }
 #formAdoption .error .errorMsg		{ display: block; }
 
@@ -729,7 +735,10 @@ textarea#comment {
 #thanksForAdoption h1 				{ padding-bottom: 20px; }
 #thanksForAdoption p 				{ width: 500px; margin: 0 auto; line-height: 1.5; }
 #thanksForAdoption p span 			{ color: #707070; }
-#thanksForAdoption i 				{ display: block; padding-top: 10px; }			
+#thanksForAdoption i 				{ display: block; padding-top: 10px; }		
+
+/* podpora */
+#post-9 							{ margin: -40px 0 0 0;}
 
 
 

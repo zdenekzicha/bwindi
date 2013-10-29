@@ -103,9 +103,15 @@ class jsonPresenter extends BasePresenter
 
 	public function actionProfil($id)
 	{	
-    	
-		$list = $this->deti->zobrazDiteApi($id);
+    			
+		// zjistime zda mame sponzora
+		$sponsor = false;
+		$sponsorData = $this->deti->existujeSponzor($id);
+		if($sponsorData) {
+			$sponsor = true;
+		}
 
+		$list = $this->deti->zobrazDiteApi($id);
 		foreach ($list as $item) {
 
 			$profilePhoto = $this->_getPhotoUrl($item['profilovaUrlSerializovana']);
@@ -119,7 +125,8 @@ class jsonPresenter extends BasePresenter
 				"narozeni" => $item['datumNarozeni'],
 				"pohlavi" => $item['pohlavi'],
 				"skola" => $item['skolaNazev'],
-				"fotka" => $profilePhoto	
+				"fotka" => $profilePhoto,
+				"sponzor" => $sponsor	
 			);
 		
         }     
