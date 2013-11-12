@@ -12,7 +12,7 @@ body {
 
 /* Titles */
 h1 												{ font-family: Lato, sans-serif; font-size: 40px; color: #504342; }
-p 												{ color: #997653; }
+p 												{ color: #666; }
 
 a,
 a:link,
@@ -311,7 +311,8 @@ h3.bothead, h3.sidetitl{
 	
 .botwid{
 	padding:10px 0px;
-	color: #997653;
+	/*color: #997653;*/
+	color: #666;
 	list-style:none;
 	width: auto !important;
 	float:left;
@@ -643,7 +644,7 @@ textarea#comment {
 /* Main page */
 #mainPage 							{ max-width: 1000px; margin: 0 auto; padding: 20px 0; text-align: center; font-size: 17px; }
 #mainPage h1 						{ font-size: 50px; margin: 20px 20px 10px; }
-#mainPage p 						{ padding: 0 100px 20px; line-height: 1.6; text-align: left; }
+#mainPage p 						{ padding: 0 100px 20px; line-height: 1.6; text-align: center; }
 #mainPage #actions 					{ width: 387px; margin: 0 auto; }
 #mainPage #actions a 				{ float: left; margin: 0 10px; padding: 20px 30px; background: #4CB63D; color: #fff; border-radius: 10px; }
 #mainPage #actions a:hover 			{ background: #997653; }

@@ -31,12 +31,8 @@
 	</div>
 		<div id="right">
 			<h1>{$dite.jmeno}</h1>
-			{if $dite.rocnik != ''}
-				<h3>Chodím do Buhoma {$dite.skola}, {if $dite.rocnik != ''}{$dite.rocnik} ročník{/if} {if $dite.vek != 0}<br /> je mi {$dite.vek} let{/if}</h3>
-			{/if}
-			{if $dite.rocnik != ''}
-				<p>{$dite.bio}</p>
-			{/if}
+			<h3>Chodím do Buhoma {$dite.skola}, {if $dite.rocnik != ''}{$dite.rocnik} ročník{/if} {if $dite.vek != 0}<br /> je mi {$dite.vek} let{/if}</h3>
+			<p>{$dite.bio}</p>
 
 			<div id="timeline">
 				{foreach from=$timeline key=key item=item name=item}

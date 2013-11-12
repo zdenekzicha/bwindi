@@ -10,6 +10,6 @@
 		</div>
 		<h1>Děkujeme</h1>
 		<p>Moc vám děkujeme za snahu pomoci dětěm z Bwindi orphans. Během následujících dnů vás kontaktujeme přes email <span>{$item.email}</span> a zdělíme vám všechny informace potřebné k adopci.</p>
-		<i>Tým Bwindi orphans a {$item.jmeno}</i>
+		<i>Tým bwindi orphans a {$item.jmeno}</i>
 	</div>
 {/foreach}

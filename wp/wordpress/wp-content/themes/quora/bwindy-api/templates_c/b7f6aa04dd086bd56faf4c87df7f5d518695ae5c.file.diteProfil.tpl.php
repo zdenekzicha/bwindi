@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2013-10-05 12:13:36
+<?php /* Smarty version Smarty-3.1.14, created on 2013-10-28 12:51:30
          compiled from "/home/www/petrsiller.cz/www/bwindiweb.petrsiller.cz/wp-content/themes/quora/bwindy-api/templates/diteProfil.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14216871055235b792141278-83308971%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b7f6aa04dd086bd56faf4c87df7f5d518695ae5c' => 
     array (
       0 => '/home/www/petrsiller.cz/www/bwindiweb.petrsiller.cz/wp-content/themes/quora/bwindy-api/templates/diteProfil.tpl',
-      1 => 1380975214,
+      1 => 1382964685,
       2 => 'file',
     ),
   ),
@@ -36,7 +36,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['dite']->key => $_smarty_tpl->tpl_vars
 $_smarty_tpl->tpl_vars['dite']->_loop = true;
  $_smarty_tpl->tpl_vars['myId']->value = $_smarty_tpl->tpl_vars['dite']->key;
 ?>
-	<div id="profile">
+	<div id="profile" class="twoColumnsLayout group">
 		<div id="left">
 	<div class="photo bubble">
 		<?php if ($_smarty_tpl->tpl_vars['dite']->value['fotka']){?>
@@ -46,19 +46,26 @@ $_smarty_tpl->tpl_vars['dite']->_loop = true;
 			<img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/portrait.jpg" alt="" />
 		<?php }?>
 	</div>
-	<a href="#" id="helpMe">Pomůžeš mi</a>
-	<h4>Co potřebuji</h4>
-	<table>
-	<tr><th>Školné</th><td>8 500 Kč</td></tr>
-	<tr><th>Boty</th><td>300 Kč</td></tr>
-	<tr><th>Koza</th><td>1 200 Kč</td></tr>
-	<tr><th>Lucerna</th><td>200 Kč</td></tr>
-	</table>
+	<?php if ($_smarty_tpl->tpl_vars['dite']->value['sponzor']){?>
+		<div id="helpMe" class="disable">Už mám sponzora</div>
+	<?php }else{ ?>
+		<a href="/?page_id=119&idDite=<?php echo $_smarty_tpl->tpl_vars['dite']->value['id'];?>
+" id="helpMe">Pomůžeš mi?</a>
+	<?php }?>
+	<!--
+		<h4>Co potřebuji</h4>
+		<table>
+		<tr><th>Školné</th><td>8 500 Kč</td></tr>
+		<tr><th>Boty</th><td>300 Kč</td></tr>
+		<tr><th>Koza</th><td>1 200 Kč</td></tr>
+		<tr><th>Lucerna</th><td>200 Kč</td></tr>
+		</table>
 
-	<h4>Co už mám</h4>
-	<table>
-	<tr><th>Matrace</th><td></td></tr>
-	</table>
+		<h4>Co už mám</h4>
+		<table>
+		<tr><th>Matrace</th><td></td></tr>
+		</table>
+	-->
 	</div>
 		<div id="right">
 			<h1><?php echo $_smarty_tpl->tpl_vars['dite']->value['jmeno'];?>
