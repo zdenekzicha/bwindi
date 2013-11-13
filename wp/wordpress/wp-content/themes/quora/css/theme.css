@@ -210,18 +210,11 @@ h1.site-title a{
 /* Articles */
 
 .page-header{
-	background: #d2d2d2;
 	display: block;
 	overflow: hidden;
-	color: #fff;
+	color: #504342;
 	padding-bottom: 20px;
 	text-align: center;
-}
-
-h1.page-title{
-	color: #fff;
-	margin: 20px 0px 0px 0px;
-	
 }
 
 .page-header p{
@@ -639,7 +632,7 @@ textarea#comment {
 .bubble img 						{ width: 100%; }
 
 /* General page */
-#primary h1 						{ text-align: center; padding-bottom: 40px; }
+#primary h1 						{ text-align: center; padding-bottom: 40px; line-height: 1.5; }
 
 /* Main page */
 #mainPage 							{ max-width: 1000px; margin: 0 auto; padding: 20px 0; text-align: center; font-size: 17px; }
@@ -723,12 +716,12 @@ textarea#comment {
 #contacts 							{ margin-top: -40px; max-width: 900px; }
 #contacts .teamMember				{ float: left; width: 280px; font-size: 18px; margin: 0 10px 50px; text-align: center; }
 #contacts .teamMember .bubble 		{ width: 200px; margin: 0 auto; height: 200px; }
-#contacts .teamMember h3 			{ display: block; margin: 20px 0 10px; padding-bottom: 3px; border-bottom: 1px solid #cab7a4;  font-weight: normal; color: #504342; font-size: 18px; }
+#contacts .teamMember h3 			{ display: block; margin: 20px 0 10px; padding-bottom: 3px; font-weight: normal; color: #504342; font-size: 18px; }
 #contacts .teamMember .title 		{ margin-bottom: 5px; color: #997653; }
 #contacts .teamMember a 			{ font-size: 14px; }
 
 /* sponsors */
-#sponsors 							{ clear: both; max-width: 1000px; margin: 50px auto 0; padding: 10px; border-top: 1px solid #ccc; text-align: center; }
+#sponsors 							{ clear: both; max-width: 1000px; margin: 90px auto 0; padding: 10px; border-top: 1px solid #ccc; text-align: center; }
 #sponsors img 						{ padding: 0 10px; }
 
 /* dekujeme za adopci */
@@ -741,7 +734,11 @@ textarea#comment {
 /* podpora */
 #post-9 							{ margin: -40px 0 0 0;}
 
-
+/* blog archiv */
+.single-post #main 					{ margin: -40px 0 0 0; }
+.single-post .entry-content 		{ width: 600px; margin: 0 auto; }
+.single-post .entry-content h1 		{ font-size: 30px; }
+.single-post p 						{ line-height: 1.6; }
 
 
 

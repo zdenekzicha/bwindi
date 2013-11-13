@@ -11,11 +11,13 @@ get_header(); ?>
 
 		<div id="primary" class="content-area">
 			<div id="content" class="site-content" role="main">
+			<!--
 			<header class="page-header">
 				<div class="wrap">
-					<h1 class="page-title">Our Blog </h1>
+					<h1 class="page-title">Aktuálně</h1>
 				</div>
 			</header>
+			-->
 			<?php while ( have_posts() ) : the_post(); ?>
 
 
@@ -24,8 +26,10 @@ get_header(); ?>
 				
 				<?php
 					// If comments are open or we have at least one comment, load up the comment template
+					/*
 					if ( comments_open() || '0' != get_comments_number() )
 						comments_template( '', true );
+					*/
 				?>
 
 			<?php endwhile; // end of the loop. ?>
