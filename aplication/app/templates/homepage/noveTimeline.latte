@@ -1,0 +1,19 @@
+{block title} Bwindi - děti {/block}
+
+{block content}
+	<section id="page">
+		<h2>Přidat další záznam k {$diteS}</h2>
+		<div class="skola-form">
+			{form novyTimelineForm}
+				{label rok /}{input rok}
+				{label poradi /}{input poradi}
+				{label text /}{input text}
+				{if $action != 'edit'}
+					{label foto /}{input foto}
+				{/if}
+				<div>
+				{input create}
+				</div>
+			{/form}
+		</div>
+{/block}

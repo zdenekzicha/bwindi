@@ -64,7 +64,11 @@ class DiteModel extends Model
     }
 
     public function zobrazTimeline($id){
-    	return $this->db->table('timeline')->where("diteIdDite", $id)->order('id DESC') ;
+    	return $this->db->table('timeline')->where("diteIdDite", $id)->order('rok DESC, poradi, id') ;
+    }
+
+    public function zobrazTimelineItem($id){
+    	return $this->db->table('timeline')->where("id", $id);
     }
 
     public function vytvorTimeline($form)
@@ -115,6 +119,25 @@ class DiteModel extends Model
 	    }
 
   	}
+
+  	public function editujTimeline($form)
+    {     
+
+    unset($form['foto']);
+    //$this->db->table('timeline')->where('id', $form["id"])->update($form);
+    $this->db->exec('UPDATE timeline SET ? WHERE id=?', $form, $form["id"]); 
+      try{
+      //    $this->db->table('timeline')->where('id', $form["id"])->update($form);   
+       
+          return true;
+
+      } catch (Exception $e) {
+          
+          return false;
+
+      }
+
+    }
 
 	public function vytvorDite($form)
   	{			

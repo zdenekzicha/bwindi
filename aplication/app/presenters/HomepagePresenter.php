@@ -151,11 +151,6 @@ class homepagePresenter extends BasePresenter
     	$this->template->idDite = $dite[$id]['idDite'];
     	
     	$this->template->timeline = $this->deti->zobrazTimeline($id);
-
-    	$form = $this->getComponent('novyTimelineForm');
-
-    	$form->addHidden('diteIdDite')->setValue($dite[$id]['idDite']);
-    	$form->addHidden('jmeno')->setValue($dite[$id]['jmeno']);
 	}
 
 	public function actionSmazatTimeline($id, $idDite)
@@ -172,20 +167,65 @@ class homepagePresenter extends BasePresenter
 
 	}
 
+	public function actionNoveTimeline($id){
+		$dite = $this->deti->zobrazDite($id);
+    	
+    	$this->template->diteS = $dite[$id]['jmeno'];
+    	$this->template->idDite = $dite[$id]['idDite'];
+
+    	$form = $this->getComponent('novyTimelineForm');
+
+    	$form->addHidden('diteIdDite')->setValue($dite[$id]['idDite']);
+    	$form->addHidden('jmeno')->setValue($dite[$id]['jmeno']);
+
+    	$this->template->action = "new";
+
+	}
+
+	public function actionEditTimeline($id, $idDite){
+		$dite = $this->deti->zobrazDite($idDite);
+    	
+    	$this->template->diteS = $dite[$idDite]['jmeno'];
+    	$this->template->idDite = $dite[$idDite]['idDite'];
+
+    	$data = $this->deti->zobrazTimelineItem($id);
+
+    	$form = $this->getComponent('novyTimelineForm');
+
+    	$form->addHidden('diteIdDite')->setValue($dite[$idDite]['idDite']);
+    	//$form->addHidden('jmeno')->setValue($dite[$idDite]['jmeno']);
+
+    	//$form->addHidden('foto')->setValue($data[$id]['foto']);
+    	$form->addHidden('fotoUrlSerializovana')->setValue($data[$id]['fotoUrlSerializovana']);
+    	
+    	$form->setDefaults(array(
+    			'text' => $data[$id]['text'],
+    			'rok' => $data[$id]['rok'],
+                'poradi' => $data[$id]['poradi'],
+                'foto' => $data[$id]['foto']
+     	));
+
+     	$form->addHidden('id')->setValue($id);
+
+	    $form["create"]->caption = 'Editovat záznam';
+		$form->onSuccess = array(array($this, 'editTimelineFormSubmitted')); // nové nastavení
+
+		$this->template->action = "edit";
+		$this->setView('noveTimeline');
+
+
+
+
+	}
+
 
 	protected function createComponentNovyTimelineForm()
 	{
- 
-		$deti = $this->deti->zobrazVsechnyDeti();
-		$detiSelect = array();
-
-		foreach ($deti as $key => $value) {
-			$detiSelect[$value['idDite']] = $value['jmeno'];
-		}
 		
 	    $form = new NAppForm;
 	    $form->addText('text', 'Text:', 40, 255);
 	    $form->addText('rok', 'Rok:', 40, 255);
+	    $form->addText('poradi', 'Pořadí:', 40, 255);
 	    $form->addUpload('foto', 'Fotka:');
 	    $form->addSubmit('create', 'Přidat záznam');
 	    $form->onSuccess[] = $this->novyTimelineFormSubmitted;
@@ -201,6 +241,18 @@ class homepagePresenter extends BasePresenter
     		$this->redirect('Homepage:timeline', $values["diteIdDite"]);
     	}else{
     		$this->flashMessage('Nepodařilo se přidat záznam.', 'fail');
+    	}
+	}
+
+	public function editTimelineFormSubmitted(NAppForm $form)
+	{	
+		$values = $form->getValues();
+    
+    	if($this->deti->editujTimeline($form->values)){
+    		$this->flashMessage('Editace proběhla úspěšně.', 'success');
+    		$this->redirect('Homepage:timeline', $values["diteIdDite"]);
+    	}else{
+    		$this->flashMessage('Nepodařilo se záznam editovat.', 'fail');
     	}
 	}
 
