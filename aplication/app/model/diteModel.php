@@ -122,12 +122,32 @@ class DiteModel extends Model
 
   	public function editujTimeline($form)
     {     
-
-    unset($form['foto']);
-    //$this->db->table('timeline')->where('id', $form["id"])->update($form);
-    $this->db->exec('UPDATE timeline SET ? WHERE id=?', $form, $form["id"]); 
+    
       try{
-      //    $this->db->table('timeline')->where('id', $form["id"])->update($form);   
+
+      		if($form['foto']->getError()!=4){ //Provede se jen kdyz je nahrana fotka.
+		      if ($form['foto']->getError() > 0){
+		          echo "Chyba při nahrávání fotky fotky: ".$this->codeToMessage($form['foto']->getError())."<br>";
+		          return false;
+		          }
+		        else{
+		          require_once("../libs/flickr.php");
+		          $flickrId = $flickr->sync_upload($form['foto']->getTemporaryFile(), $form['jmeno'], '', 'Timeline, '.$form['jmeno'].', Bwindi Orphans'.$form["diteIdDite"], 0);
+		          $form['foto']=$flickrId;
+		          $fotoInfo = $flickr->photos_getInfo($flickrId);
+		          $form['fotoUrlSerializovana'] = serialize($fotoInfo['photo']);
+		          $form['foto'] = $this->sestavUrlProfiloveFotky($fotoInfo['photo'], "Small");
+		          }
+		      }else{
+		      	if ($form['fotoUrlSerializovana'] != '') {
+		      		unset($form['foto']);
+		      	}
+
+		      }
+      		
+      		unset($form['jmeno']);
+
+      		$this->db->exec('UPDATE timeline SET ? WHERE id=?', $form, $form["id"]); 
        
           return true;
 

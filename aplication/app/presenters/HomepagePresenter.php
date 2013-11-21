@@ -193,7 +193,7 @@ class homepagePresenter extends BasePresenter
     	$form = $this->getComponent('novyTimelineForm');
 
     	$form->addHidden('diteIdDite')->setValue($dite[$idDite]['idDite']);
-    	//$form->addHidden('jmeno')->setValue($dite[$idDite]['jmeno']);
+    	$form->addHidden('jmeno')->setValue($dite[$idDite]['jmeno']);
 
     	//$form->addHidden('foto')->setValue($data[$id]['foto']);
     	$form->addHidden('fotoUrlSerializovana')->setValue($data[$id]['fotoUrlSerializovana']);
