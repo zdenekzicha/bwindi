@@ -1,0 +1,695 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,900);
+@import url(http://fonts.googleapis.com/css?family=Bitter:400,700);
+
+body { 
+	background: #fff;
+}
+
+/* -------- Obecné styly -------- */
+h1  {
+	font-family: Lato, sans-serif; 
+	font-size: 40px; 
+	color: #504342;
+}
+
+p { color: #666; }
+
+a {
+	color: #4CB63D;
+
+	&:link { color: #4CB63D;}
+	&:visited { color: #4CB63D; }
+}
+
+.bubble { 
+	border-radius: 50%;
+	border: 6px solid #e9e2cb;
+	overflow: hidden;
+
+	img { 
+		width: 100%;
+	}
+}
+
+/* -------- Hlavicka -------- */
+#greenLine {
+	height: 50px;
+	background: #569756;
+	margin: 0 auto;
+	opacity: 0.8;
+	visibility: hidden;
+}
+
+
+
+#mainLogo {
+	width: 100%;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	text-align: center; 
+	z-index: 1; 
+
+	img { 
+		width: 150px;
+	}
+}
+
+.home #mainLogo { 
+	position: absolute; 
+	top: 12px; 
+	padding-top: 0px;
+
+	img { 
+		width: 200px;
+	}
+}
+
+#masthead { 
+	border-top: 0px !important;
+}
+
+
+/* -------- Banner na hlavní stránce -------- */
+
+#wideslider {
+	padding: 0px;
+	margin: 0px;
+	border:none;
+	overflow:hidden;
+
+	ul li{
+		position: relative;
+		max-height: 380px;
+		background: none;
+	}
+}
+
+/* -------- Navigace -------- */
+
+.main-navigation { 
+	position: relative;
+	max-width: 1000px;
+	height: 120px; 
+	margin: 0 auto 50px;
+	font-size: 18px;
+
+	.sf-menu { 
+		border-bottom: 1px solid #ccc;
+	}
+
+	.sub-menu { 
+		display: none;
+		position: absolute;
+		left: 0;
+		top: 80px;
+		width: 100%;
+		margin: 0;
+		padding-bottom: 20px;
+		border-bottom: 1px solid #ccc;
+	}
+
+	.current-menu-item { 
+		a { color: #997653; }
+		
+		ul a {
+	 		color: #4CB63D;
+		}
+
+		.sub-menu { 
+			display: inline;
+		}
+
+		.sub-menu { 
+			display: inline;
+		}
+	}
+
+	.current-menu-ancestor {
+		.sub-menu { 
+			display: inline;
+		}
+
+		a { 
+			color: #997653;
+		}
+
+		ul a { 
+			color: #4CB63D;
+		}
+
+		.current-menu-item a {
+			color: #997653;
+		}
+	}
+ 
+}
+
+.home .main-navigation { 
+	height: auto; 
+	margin: 0 auto 25px;
+}
+
+.sf-menu {
+	text-align: center;
+	padding: 20px 0;
+	margin: 0;
+
+	li {
+		display: inline;
+		padding: 17px;
+	}
+}
+
+
+
+/* -------- Blog archiv na hp -------- */
+
+#bottom{
+	padding: 20px 0px 40px 0px;
+
+	ul{
+		margin:0px 0px;
+		padding:0px;
+	}
+
+	h3.bothead, h3.sidetitl{
+	    font-size: 20px;
+	    margin-bottom: 10px;
+	    padding: 10px 0px;
+		color: #818181;
+		margin-left: 130px;
+	}
+
+	.botwid {
+		padding:10px 0px;
+		/*color: #997653;*/
+		color: #666;
+		list-style:none;
+		width: auto !important;
+		float:left;
+
+		ul {
+			list-style-type: none;
+			margin:  0px;
+			padding: 0px 0px 0px 0px;
+
+			li{
+				display: block;
+				position: relative;
+				min-height: 50px;	
+				margin: 2px;
+				padding: 20px 20px 20px 130px;
+			    border-top: 1px dotted #ccc;
+			    list-style-type: none;	
+				overflow: hidden;
+
+				.post-date { 
+					position: absolute;
+					top: 29px;
+					left: 20px;
+					color: #504342;
+					font-family: 'Bitter', sans-serif;
+					font-size: 20px;
+					width: 65px;
+					text-align: right;
+					line-height: 1;
+
+					span {
+						font-size: 15px;
+					}
+				}
+
+				a {
+					text-decoration: none;
+					padding: 0px 0px 7px 0px;
+					display:block;
+					font-size: 25px;
+
+					&:hover {
+						color: #504342;
+					}
+				}
+			}
+		}
+
+		p {
+			padding: 5px 0px;
+			margin:0;
+			line-height:150%;
+		}
+		
+
+	}
+}
+
+/* -------- Hlavní stránka -------- */
+#primary h1 {
+	text-align: center;
+	padding-bottom: 40px;
+	line-height: 1.5;
+}
+
+#mainPage {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 20px 0;
+	text-align: center;
+	font-size: 17px;
+
+	h1 {
+		font-size: 50px;
+		margin: 20px 20px 10px;
+	}
+
+	p { 
+		padding: 0 100px 20px;
+		line-height: 1.6;
+		text-align: center;
+	}
+
+	#actions {
+		width: 387px;
+		margin: 0 auto;
+
+		a { 
+			float: left;
+			margin: 0 10px;
+			padding: 20px 30px;
+			background: #4CB63D;
+			color: #fff;
+			border-radius: 10px;
+
+			&:hover {
+				background: #997653;
+			}
+		}
+	}	
+}
+
+/* -------- Blog post -------- */
+.single-post {
+    p {
+        line-height: 1.6;
+    }
+    .entry-content {
+        width: 600px;
+        margin: 0 auto;
+        h1 {
+            font-size: 30px;
+        }
+    }
+    #main {
+        margin: -40px 0 0 0;
+    }
+}
+
+/* -------- Děkujeme za adopci -------- */
+#thanksForAdoption {
+    margin: -40px auto 0;
+    text-align: center;
+    p {
+        width: 500px;
+        margin: 0 auto;
+        line-height: 1.5;
+        span {
+            color: #707070;
+        }
+    }
+    i {
+        display: block;
+        padding-top: 10px;
+    }
+    h1 {
+        padding-bottom: 20px;
+    }
+}
+
+/* -------- Profil dítěte -------- */
+#profile {
+
+	&.twoColumnsLayout {
+	    font-family: Lato, sans-serif;
+	    margin: -80px auto 0;
+	    width: 820px;
+	    padding: 20px 0 0;
+	    h3 {
+	        padding: 0 0 20px 0;
+	        margin: 0;
+	    }
+	    
+	    #right {
+	        float: left;
+	        width: 450px;
+	        h4 {
+	            float: left;
+	            width: 470px;
+	        }
+	    }
+	    
+	    h1 {
+	        margin-top: 10px;
+	        padding: 0 0 20px !important;
+	    }
+	    
+	    #left {
+	        float: left;
+	        width: 300px;
+	        margin-right: 50px;
+	        
+	        h4 {
+	            padding: 10px 0;
+	            margin: 0 auto;
+	            width: 250px;
+	            border-bottom: 1px solid #ccc;
+	        }
+
+	        th, td {
+	    		padding: 10px;
+	    		border-bottom: 1px solid #ccc;
+	    	}
+
+	    	th {
+	            text-align: left;
+	            font-weight: normal;
+	        }
+
+	    	td {
+	            text-align: right;
+	        }
+
+	    	tr:last-child th,#profile #left tr:last-child td {
+	    		border: none;
+	    	}
+       
+	        table {
+	            margin: 0 auto 20px;
+	            width: 250px;
+	        }
+       
+    	}
+	}
+
+	a#helpMe:hover {
+        background: #997653;
+    }
+    
+    #helpMe.disable {
+        background: #f4f0e5;
+        color: #666;
+    }
+
+    #timeline {
+        background: url(../images/timelineBorder.png) 50% 0 repeat-y;
+        
+        .showMore {
+            display: block;
+            width: 200px;
+            margin: 15px auto 30px;
+            padding: 15px 0;
+            background: #4CB63D;
+            color: #fff;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .note {
+            padding: 15px;
+            margin-bottom: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            color: #997653;
+            img {
+                width: 100%;
+            }
+            p {
+                margin: 5px 0 0;
+                text-align: center;
+            }
+        }
+        
+        .start {
+            margin: 0 auto 20px;
+            padding: 10px;
+            width: 100px;
+            background: #fff;
+            text-align: center;
+        }
+        
+        .noShow {
+            display: none;
+        }
+        
+        .showMore:hover {
+            background: #997653;
+        }
+        
+        .galleryPhoto {
+            width: 100%;
+        }
+    }
+    
+    .photo {
+        width: 250px;
+        height: 250px;
+        margin: 0 auto 20px;
+    }
+    
+    h1 {
+        text-align: left;
+    }
+    
+    #helpMe {
+        display: block;
+        width: 200px;
+        margin: 0 auto 30px;
+        background: #4CB63D;
+        color: #fff;
+        font-size: 20px;
+        padding: 15px 0;
+        text-align: center;
+        border-radius: 5px;
+    }
+}
+
+/* -------- Kontakty -------- */
+#contacts {
+    margin: -40px auto 0;
+    max-width: 900px;
+    
+    .teamMember {
+        float: left;
+        width: 280px;
+        font-size: 18px;
+        margin: 0 10px 50px;
+        text-align: center;
+        
+        h3 {
+            display: block;
+            margin: 20px 0 10px;
+            padding-bottom: 3px;
+            font-weight: normal;
+            color: #504342;
+            font-size: 18px;
+        }
+        
+        a {
+            font-size: 14px;
+        }
+        
+        .bubble {
+            width: 200px;
+            margin: 0 auto;
+            height: 200px;
+        }
+        
+        .title {
+            margin-bottom: 5px;
+            color: #997653;
+        }
+    }
+}
+
+/* -------- Ostatní textové stránky -------- */
+#articlePage {
+    width: 600px;
+    margin: 0 auto;
+    ul {
+        margin: 0 0 10px 0;
+        list-style-type: none;
+        li {
+            line-height: 1.5;
+        }
+    }
+    .wide {
+        width: 100%;
+    }
+    p {
+        line-height: 1.5;
+        a {
+            text-decoration: underline;
+        }
+    }
+    .dotted {
+        li {
+            color: #997653;
+            padding: 10px 0 10px 50px;
+            background: url(../images/dot.png) 10px 50% no-repeat;
+        }
+    }
+    h1 {
+        text-align: center;
+    }
+    h2 {
+        color: #504342;
+    }
+}
+
+/* -------- Sponzori v paticce -------- */
+#sponsors {
+    clear: both;
+    max-width: 1000px;
+    margin: 90px auto 0;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    text-align: center;
+	
+	img {
+        padding: 0 10px;
+    }
+}
+/*
+.photo {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 20px;
+}
+*/
+
+/* -------- Formluar pro adopci -------- */
+#formAdoption {
+    .errorMsg {
+        display: none;
+        margin-left: 140px;
+        padding: 5px 38px 0 0;
+        font-size: 13px;
+        color: #ec0000;
+    }
+    #send {
+        width: 290px;
+        margin-left: 140px;
+        padding: 15px 0;
+        background: #4CB63D;
+        border: 0;
+        color: #fff;
+        font-size: 20px;
+        border-radius: 5px;
+        outline: none;
+    }
+    #send:hover {
+        background: #997653;
+    }
+    .error {
+        .errorMsg {
+            display: block;
+        }
+        input {
+            border: 1px solid #ec0000;
+        }
+    }
+    form {
+        margin-top: 25px;
+        label {
+            float: left;
+            width: 130px;
+            margin-right: 10px;
+            padding-top: 7px;
+            text-align: right;
+        }
+        .require {
+            padding-left: 5px;
+            font-size: 20px;
+            cursor: help;
+        }
+        textarea {
+            height: 100px;
+            width: 275px;
+            padding: 7px;
+            background: #fcf8f5;
+            border-radius: 5px;
+        }
+        .text {
+            width: 270px;
+            background: #fcf8f5;
+            border-radius: 5px;
+        }
+    }
+    .photo {
+        width: 250px;
+        height: 250px;
+        margin: 0 auto 20px;
+    }
+    h1 {
+        padding: 0 0 60px;
+    }
+}
+
+/* -------- Výpis dětí -------- */
+#childrens {
+    max-width: 880px;
+    margin: 0 auto 60px;
+    padding: 0;
+    .showMoreChildren {
+        clear: both;
+        display: block;
+        position: relative;
+        top: 40px;
+        width: 200px;
+        margin: 15px auto 0;
+        padding: 15px 0;
+        background: #4CB63D;
+        color: #fff;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .children {
+        float: left;
+        width: 200px;
+        margin: 10px;
+        img {
+            width: 200px;
+            min-height: 200px;
+        }
+        .bubble {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid #e9e2cb;
+        }
+        span {
+            display: block;
+            text-align: center;
+        }
+    }
+    .noShow {
+        display: none;
+    }
+    .showMoreChildren:hover {
+        background: #997653;
+    }
+    p {
+        width: 600px;
+        margin: 0 auto;
+        padding-bottom: 30px;
+    }
+}
+
+/* -------- Wordpress hacks :) -------- */
+#post-9 { margin: -40px 0 0 0; }
+
+
+
+
+
+
