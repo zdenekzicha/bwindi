@@ -57,7 +57,7 @@ class homepagePresenter extends BasePresenter
     	
     	$data = $this->deti->zobrazDite($id);
       
-      $this->template->profilovaFotkaUrl = $this->deti->sestavUrlProfiloveFotky(unserialize($data[$id]['profilovaUrlSerializovana']), "Small");
+      	$this->template->profilovaFotka = $data[$id]['profilovaFotka'];
 
     	$form = $this->getComponent('noveDiteForm');
 
@@ -177,6 +177,8 @@ class homepagePresenter extends BasePresenter
 
     	$form->addHidden('diteIdDite')->setValue($dite[$id]['idDite']);
     	$form->addHidden('jmeno')->setValue($dite[$id]['jmeno']);
+
+    	$form['rok']->setValue(date("Y"));
 
     	$this->template->action = "new";
 

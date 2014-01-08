@@ -14,23 +14,6 @@ class jsonPresenter extends BasePresenter
 	    $this->deti = $this->context->diteModel;
 	}
 
-	/* vrati url fotky
-	 * @param {string} - seralizovana url fotky
-	 * @returns {string} - url fotky
-	*/
-	private function _getPhotoUrl($photo, $size = "Medium") {
-
-		if($photo) {
-			$photoUrl = unserialize($photo);
-			$profilePhoto = $this->deti->sestavUrlProfiloveFotky($photoUrl, $size);
-		}
-		else {
-			$profilePhoto = null;
-		}
-
-		return $profilePhoto;
-	}
-
 	/*
 	 * Vypise deti k adobci	
 	*/
@@ -47,7 +30,7 @@ class jsonPresenter extends BasePresenter
 			$name = explode(" ", $item['jmeno']);
 
 			// dostaneme url na profilovou fotku
-			$profilePhoto = $this->_getPhotoUrl($item['profilovaUrlSerializovana']);
+			$profilePhoto = $item['profilovaFotka'];//$this->_getPhotoUrl($item['profilovaUrlSerializovana']);
 
 			$data = array(
 				"id" => $item['idDite'], 
@@ -82,7 +65,7 @@ class jsonPresenter extends BasePresenter
 			$name = explode(" ", $item['jmeno']);
 
 			// dostaneme url na profilovou fotku
-			$profilePhoto = $this->_getPhotoUrl($item['profilovaUrlSerializovana']);
+			$profilePhoto = $profilePhoto = $item['profilovaFotka'];
 
 			$data = array(
 				"id" => $item['idDite'],
@@ -114,7 +97,7 @@ class jsonPresenter extends BasePresenter
 		$list = $this->deti->zobrazDiteApi($id);
 		foreach ($list as $item) {
 
-			$profilePhoto = $this->_getPhotoUrl($item['profilovaUrlSerializovana']);
+			$profilePhoto = $item['profilovaFotka'];
 
 			$this->payload->data = array(
 				"id" => $item['idDite'], 
@@ -145,7 +128,7 @@ class jsonPresenter extends BasePresenter
 		// grupujeme data v timeline podle roku
 		foreach ($list as $item) {
 
-			$photo = $this->_getPhotoUrl($item['fotoUrlSerializovana'],'large');
+			$photo = $item['foto'];
 			
 			$note = array(
 				"id" => $item['id'], 
