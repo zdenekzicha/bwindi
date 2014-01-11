@@ -1,39 +1,17 @@
-/*
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700,900);
+
 @import url(http://fonts.googleapis.com/css?family=Bitter:400,700);
-*/
-
-/* -------- Obecné styly -------- */
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,p,blockquote,th,td {  
-  margin:0; 
-  padding:0; 
-}
-
-html, body {
-  height: 100%;
-}
-
 body {
-  background: #f4ebd3;
-  font-size: 17px;
-  font-family: Helvetica, Lato, Arial, sans-serif;
+  background: #fff;
 }
-
-.group:after                  {clear:both; content:"."; display:block; height:0; visibility:hidden; }
-* html .group                 {height:1%; }
-
-h1 {  
-  font-size: 3.375em;
+/* -------- Obecné styly -------- */
+h1 {
+  font-family: Lato, sans-serif;
+  font-size: 40px;
   color: #504342;
-  font-weight: bold;
-  line-height: 1em;
-  margin: 1em 0;
 }
 p {
   color: #666;
-  line-height: 1.5em;
-  margin-top: 1.5em;
-  margin-bottom: 1.5em; 
 }
 a {
   color: #4CB63D;
@@ -52,24 +30,14 @@ a:visited {
 .bubble img {
   width: 100%;
 }
-
-#page {
-  min-height: 100%;
-  /* stejny jako vyska paticky */
-  margin-bottom: -140px;
-}
-
-#page:after {
-  content: "";
-  display: block;
-}
-
-#page:after {
-  /* .push must be the same height as footer */
-  height: 140px; 
-}
-
 /* -------- Hlavicka -------- */
+#greenLine {
+  height: 50px;
+  background: #569756;
+  margin: 0 auto;
+  opacity: 0.8;
+  visibility: hidden;
+}
 #mainLogo {
   width: 100%;
   padding-bottom: 20px;
@@ -97,33 +65,22 @@ a:visited {
   margin: 0px;
   border: none;
   overflow: hidden;
-  /* breakpoint pro velke rozliseni */
-  max-width: 2200px;
 }
 #wideslider ul li {
   position: relative;
   max-height: 380px;
   background: none;
 }
-
-@media all and (min-width:1400px) {
-   #wideslider ul li { max-height: 500px; }
-   flexslider .slides img { top: -480px; } 
-}
-
-@media all and (min-width:1600px) {
-  #wideslider ul li { max-height: 500px; }
-  .flexslider .slides img { top: -380px; } 
-}
 /* -------- Navigace -------- */
 .main-navigation {
   position: relative;
   max-width: 1000px;
   height: 120px;
-  margin: 0 auto;
+  margin: 0 auto 50px;
+  font-size: 18px;
 }
 .main-navigation .sf-menu {
-  border-bottom: 1px dotted #ccc;
+  border-bottom: 1px solid #ccc;
 }
 .main-navigation .sub-menu {
   display: none;
@@ -135,7 +92,12 @@ a:visited {
   padding-bottom: 20px;
   border-bottom: 1px solid #ccc;
 }
-
+.main-navigation .current-menu-item a {
+  color: #997653;
+}
+.main-navigation .current-menu-item ul a {
+  color: #4CB63D;
+}
 .main-navigation .current-menu-item .sub-menu {
   display: inline;
 }
@@ -145,10 +107,18 @@ a:visited {
 .main-navigation .current-menu-ancestor .sub-menu {
   display: inline;
 }
-
+.main-navigation .current-menu-ancestor a {
+  color: #997653;
+}
+.main-navigation .current-menu-ancestor ul a {
+  color: #4CB63D;
+}
+.main-navigation .current-menu-ancestor .current-menu-item a {
+  color: #997653;
+}
 .home .main-navigation {
   height: auto;
-  margin: 0 auto 0;
+  margin: 0 auto 25px;
 }
 .sf-menu {
   text-align: center;
@@ -161,7 +131,7 @@ a:visited {
 }
 /* -------- Blog archiv na hp -------- */
 #bottom {
-  padding: 0px;
+  padding: 20px 0px 40px 0px;
 }
 #bottom ul {
   margin: 0px 0px;
@@ -169,47 +139,58 @@ a:visited {
 }
 #bottom h3.bothead,
 #bottom h3.sidetitl {
-  margin: 1em 20px 0;
+  font-size: 20px;
+  margin-bottom: 10px;
   padding: 10px 0px;
-  font-size: 2.25em;
-  text-align: center;
   color: #818181;
+  margin-left: 130px;
 }
 #bottom .botwid {
-  display: block;
+  padding: 10px 0px;
+  /*color: #997653;*/
+
   color: #666;
   list-style: none;
   width: auto !important;
-  float: none;
+  float: left;
 }
 #bottom .botwid ul {
   list-style-type: none;
-  text-align: center;
+  margin: 0px;
+  padding: 0px 0px 0px 0px;
 }
 #bottom .botwid ul li {
   display: block;
   position: relative;
-  border-bottom: 1px dotted #ccc;
+  min-height: 50px;
+  margin: 2px;
+  padding: 20px 20px 20px 130px;
+  border-top: 1px dotted #ccc;
+  list-style-type: none;
+  overflow: hidden;
 }
 #bottom .botwid ul li .post-date {
   position: absolute;
-  width: 100%;
-  font-size: 0.8em;
-  bottom: 1em;
-  display: block;
-  color: #818181;
+  top: 29px;
+  left: 20px;
+  color: #504342;
+  font-family: 'Bitter', sans-serif;
+  font-size: 20px;
+  width: 65px;
+  text-align: right;
+  line-height: 1;
 }
-
+#bottom .botwid ul li .post-date span {
+  font-size: 15px;
+}
 #bottom .botwid ul li a {
-  display: block;
-  font-size: 2.25em;
-  line-height: 1em;
-  padding: 1em 0;
   text-decoration: none;
+  padding: 0px 0px 7px 0px;
+  display: block;
+  font-size: 25px;
 }
 #bottom .botwid ul li a:hover {
   color: #504342;
-  background: #eadec5;
 }
 #bottom .botwid p {
   padding: 5px 0px;
@@ -219,33 +200,33 @@ a:visited {
 /* -------- Hlavní stránka -------- */
 #primary h1 {
   text-align: center;
+  padding-bottom: 40px;
+  line-height: 1.5;
 }
-
-#mainPage .perex {
-  font-size: 1.5em;
-}
-
 #mainPage {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 20px 0;
   text-align: center;
+  font-size: 17px;
 }
 #mainPage h1 {
+  font-size: 50px;
   margin: 20px 20px 10px;
 }
 #mainPage p {
-  padding: 0 100px 0px;
+  padding: 0 100px 20px;
+  line-height: 1.6;
   text-align: center;
 }
 #mainPage #actions {
-  width: 300px;
+  width: 387px;
   margin: 0 auto;
 }
 #mainPage #actions a {
   float: left;
-  width: 130px;
   margin: 0 10px;
-  padding: 20px 0;
+  padding: 20px 30px;
   background: #4CB63D;
   color: #fff;
   border-radius: 10px;
@@ -262,7 +243,7 @@ a:visited {
   margin: 0 auto;
 }
 .single-post .entry-content h1 {
-
+  font-size: 30px;
 }
 .single-post #main {
   margin: -40px 0 0 0;
@@ -406,6 +387,7 @@ a:visited {
   margin: 0 auto 30px;
   background: #4CB63D;
   color: #fff;
+  font-size: 20px;
   padding: 15px 0;
   text-align: center;
   border-radius: 5px;
@@ -418,6 +400,7 @@ a:visited {
 #contacts .teamMember {
   float: left;
   width: 280px;
+  font-size: 18px;
   margin: 0 10px 50px;
   text-align: center;
 }
@@ -427,9 +410,10 @@ a:visited {
   padding-bottom: 3px;
   font-weight: normal;
   color: #504342;
+  font-size: 18px;
 }
 #contacts .teamMember a {
-
+  font-size: 14px;
 }
 #contacts .teamMember .bubble {
   width: 200px;
@@ -475,19 +459,12 @@ a:visited {
 /* -------- Sponzori v paticce -------- */
 #sponsors {
   clear: both;
-  border: 1px dotted #ccc;
+  max-width: 1000px;
+  margin: 90px auto 0;
+  padding: 10px;
+  border-top: 1px solid #ccc;
   text-align: center;
-  height: 140px;
 }
-
-.home #sponsors {
-  border: 0px;
-}
-
-#sponsors div {
-  padding: 20px 0 10px;
-}
-
 #sponsors img {
   padding: 0 10px;
 }
@@ -565,7 +542,7 @@ a:visited {
 #childrens {
   max-width: 880px;
   margin: 0 auto 60px;
-  padding: 0 0 30px 0;
+  padding: 0;
 }
 #childrens .showMoreChildren {
   clear: both;

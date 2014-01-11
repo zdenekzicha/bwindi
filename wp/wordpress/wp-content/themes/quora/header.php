@@ -47,7 +47,6 @@
 	<div id="mainLogo">
 		<a href="/"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/logo1.png" alt="" /></a>
 	</div>
-	<?php if (is_front_page()) : ?><div id="greenLine"></div><?php endif; ?>
 	<header id="masthead" class="site-header cf" role="banner">
 	
 	<!--

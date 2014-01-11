@@ -20,13 +20,15 @@
 			</div>
 		</div>
 	<?php endif; ?>
-	<div id="sponsors">
-		<a href="#"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/livingstone.png" /></a>
-		<a href="#"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/nadaceDivokeHusy.png" /></a>
-		<a href="#"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/agenturaPelhrimov.png" /></a>
-	</div>
-	<footer id="colophon" class="site-footer" role="contentinfo"></footer><!-- #colophon .site-footer -->
 </div><!-- #page .hfeed .site -->
+<footer id="sponsors">
+	<div>
+		<a href="#"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/livingstone1.png" /></a>
+		<a href="#"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/nadaceDivokeHusy1.png" /></a>
+		<a href="#"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/agenturaPelhrimov1.png" /></a>
+	</div>
+</footer>
+
 
 <?php wp_footer(); ?>
 

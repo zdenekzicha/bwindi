@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2013-09-29 16:20:32
+<?php /* Smarty version Smarty-3.1.14, created on 2014-01-01 20:38:14
          compiled from "/home/www/petrsiller.cz/www/bwindiweb.petrsiller.cz/wp-content/themes/quora/bwindy-api/templates/detiAdopce.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:30329803152360d6e90d9b3-08439554%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ee988c6950f1526f9d40f9acc12d614b54ce4ada' => 
     array (
       0 => '/home/www/petrsiller.cz/www/bwindiweb.petrsiller.cz/wp-content/themes/quora/bwindy-api/templates/detiAdopce.tpl',
-      1 => 1380471542,
+      1 => 1388608341,
       2 => 'file',
     ),
   ),
