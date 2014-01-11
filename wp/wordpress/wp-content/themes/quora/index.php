@@ -45,21 +45,5 @@ get_header(); ?>
 		</ul>
 	</div>
 	-->
-<div id="mainPage" class="group">
-	<h1>Snažíme se zlepšit život dětem v Ugandě xx</h1>
-	<p>
-		Prostřednictvím adopce na dálku se staráme o sirotky ve dvou ugandských oblastech. 
-		Adoptivní rodiče z ČR platí dětem školní docházku, uniformy, stravu a základní lékařskou péči.
-	</p>
-	<p>
-		Podporujeme snahu rodin našich dětí o vylepšení jejich životní úrovně - kupujeme tradiční 
-		výrobky a poskytujeme malé půjčky do začátku drobného podnikání. Snažíme se dětem poskytnout dobrý základ a věříme, že jim 
-		pomůže postavit se na vlastní nohy.
-	</p>
-	<div id="actions">
-		<a href="#">Více o adopci</a>
-		<a href="#">Děti k adopci</a>
-	</div>
-</div>		
 
 <?php get_footer(); ?>
