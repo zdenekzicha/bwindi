@@ -1,15 +1,15 @@
-{block title} {ifset $action}Editovat údaje o benefitu{else}Vytvořit nový benefit{/ifset} {/block}
+{block title} {ifset $action}Editovat údaje o účelu platby{else}Vytvořit nový účel platby{/ifset} {/block}
 
 {block content}
 	<section id="page">	
-		<h1>{ifset $action}Editovat údaje o benefitu{else}Vytvořit nový benefit{/ifset}</h1>
+		<h1>{ifset $action}Editovat údaje o benefitu{else}Vytvořit nový účel platby{/ifset}</h1>
 		{form novyBenefitForm}
 	        <div class="skola-form">
 	            {control $form errors}
 	            {label nazev /} {input nazev}
 	            {label castka /} {input castka}
 	            {input aktivniZaznam}
-	            {input create}
+	            {input create class=>"btn btn-primary btn-offset"}
 	        </div>
 		{/form}
 	</section>

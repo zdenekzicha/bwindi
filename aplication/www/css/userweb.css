@@ -7,7 +7,7 @@
 .left							{ float:left; margin-right: 10px; }
 
 header							{ width: 1200px; margin: 0 auto; padding: 10px 0 10px; }
-form							{ padding: 20px 0 20px; }
+form							{ padding: 0px 0 0; }
 
 .detail h1						{ padding-bottom: 20px; }
 .detail label					{ float:left; width: 200px; margin-right: 10px; }
@@ -17,4 +17,14 @@ form							{ padding: 20px 0 20px; }
 
 #notes							{ padding-top: 30px; }
 
+.btn-offset						{ margin: 15px 0 30px; }
+input.btn-offset				{ margin: 10px 0; display: block; }
+.icon-offset					{ margin: 0px 5px 0 0; }
+
 #noResults						{ padding: 0 0 40px; }
+
+#mainNavigation .btn-small 		{ background: none; }
+.big-name						{ font-size: 18px; }
+.no-space						{ padding: 0; }
+
+/*.inline 						{ display: inline; }*/

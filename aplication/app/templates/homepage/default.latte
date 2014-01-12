@@ -3,6 +3,7 @@
 {block content}
 	<section id="page">
 		<h1>Děti</h1>
+		<a n:href="Homepage:noveDite" class="btn btn-success btn-offset"><i class="glyphicon glyphicon-plus icon-offset"></i>Přidat dítě</a>
 		<form action="" method="get" class="form-search">
 			<p>
 				<select name="filtrSelect">
@@ -11,7 +12,7 @@
 	 				<option value="jmenoSponzor" {if $filtrSelect == 'jmenoSponzor'}selected="selected"{/if}>Sponzor</option>
 				</select>
 	  			<input type="text" name="filtrText" class="input-xlarge" value="{$filtrText}" />
-	  			<button type="submit" class="btn">Vyhledat</button>
+	  			<button type="submit" class="btn btn-inverse">Vyhledat</button>
 	  		</p>
 	  		<div class="group">
 		  		<div class="left">
@@ -61,11 +62,6 @@
 					<th>Na webu</th>
 					<th>Sponzor</th>
 					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
 				</tr>
 				{foreach $deti as $dite}
 					<tr>
@@ -92,12 +88,16 @@
 								{/if}
 							{/foreach}
           				</td>
-						<td><a n:href="Skolne:default idDite => $dite->idDite, jmenoDite => $dite->jmeno">školné</a></td>
-						<td><a n:href="Homepage:sourozenci id=>$dite->idDite" title="detail">sourozenci</a></td>
-						<td><a n:href="Homepage:timeline id=>$dite->idDite" title="detail">timeline</a></td>
-						<td><a n:href="Platba:default filtrSelect => diteVsym, filtrText => $dite->vsym">platby</a></td>
-						<td><a n:href="diteBenefit:default filtrSelect => idDite, filtrText => $dite->idDite, diteJmeno => $dite->jmeno">benefity</a></td>
-						<td><a n:href="Homepage:edit id=>$dite->idDite" title="detail"><i class="icon-pencil"></i></a></td>	
+						<td>
+							<div class="btn-group">
+								<a n:href="Skolne:default idDite => $dite->idDite, jmenoDite => $dite->jmeno" class="btn btn-default">školné</a>
+								<a n:href="Homepage:sourozenci id=>$dite->idDite" title="detail" class="btn btn-default">sourozenci</a>
+								<a n:href="Homepage:timeline id=>$dite->idDite" title="detail" class="btn btn-default">timeline</a>
+								<a n:href="Platba:default filtrSelect => diteVsym, filtrText => $dite->vsym" class="btn btn-default">platby</a>
+								<a n:href="diteBenefit:default filtrSelect => idDite, filtrText => $dite->idDite, diteJmeno => $dite->jmeno" class="btn btn-default">benefity</a>
+								<a n:href="Homepage:edit id=>$dite->idDite" title="detail" class="btn btn-warning"><i class="icon-pencil"></i></a>
+							</div>
+						</td>	
 						<!--<td><a n:href="Homepage:smazat id=>$dite->idDite" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat údaje o {$dite->jmeno}?'))return false;"><i class="icon-trash"></i></a></td>-->					
 					</tr>
 				{/foreach}
@@ -105,7 +105,6 @@
 		{else}
 			<div id="noResults"><strong>Bohužel, nic jsme nenašli</strong></div>
 		{/if}
-		<a n:href="Homepage:noveDite">Přidat dítě</a>
 	</section>
 
 {/block}

@@ -120,7 +120,7 @@ class homepagePresenter extends BasePresenter
 		$detiSelect = array();
 
 		foreach ($deti as $key => $value) {
-			$detiSelect[$value['idDite']] = $value['jmeno'];
+			$detiSelect[$value['idDite']] = $value['vsym']." - ".$value['jmeno'];
 		}
 		
 	    $form = new NAppForm;

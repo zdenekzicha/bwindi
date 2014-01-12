@@ -13,17 +13,17 @@
 	            {label vsym /} {input vsym}
 	            {label skolaIdSkola /} {input skolaIdSkola}
 	        	{label rocnik /} {input rocnik}
-	        	{label vystavene /} {input vystavene}
+	        	{label vystavene class=>"inline" /} {input vystavene}
 	        	<br/>
 	        	{ifset $action}
-	        		<img src={$profilovaFotka}>
+	        		<img src={$profilovaFotka} width="220" />
 	        	{/ifset}
 	        	{input profilovasoubor}
 	        	
 	        	{input aktivniZaznam}
 	        	{input datumVzniku}
 	        	<br/>
-	            {input create}
+	            {input create class=>"btn btn-primary btn-offset"}
 	        </div>
 		{/form}
 	</section>

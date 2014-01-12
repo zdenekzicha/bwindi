@@ -2,7 +2,9 @@
 
 {block content}
 	<section id="page">
-		<h1>{$diteS}</h1>
+		<h1>Timeline - {$diteS}</h1>
+
+		<a n:href="Homepage:noveTimeline id=>$idDite" class="btn btn-success btn-offset"><i class="glyphicon glyphicon-plus icon-offset"></i>Přidat záznam</a>
 		
 		{if count($timeline)}
 			<table class="table table-striped">
@@ -12,7 +14,6 @@
 					<th>Text</th>
 					<th>Foto</th>				
 					<th></th>
-					<th></th>
 				</tr>
 				{foreach $timeline as $item}
 					<tr>
@@ -21,18 +22,21 @@
 						<td>{$item->text}</td>
 						<td>
 							{if $item->fotoUrlSerializovana != '' }
-								<img src={$item->foto}>
+								<img src={$item->foto} width="200" />
 							{/if}
 						</td>
-						<td><a n:href="Homepage:EditTimeline id=>$item->id,idDite=>$idDite" title="detail"><i class="icon-pencil"></i></a></td>
-						<td><a n:href="Homepage:SmazatTimeline id=>$item->id,idDite=>$idDite" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat údaje o {$diteS}?'))return false;"><i class="icon-trash"></i></a></td>
+						<td>
+							<div class="btn-group">
+								<a n:href="Homepage:EditTimeline id=>$item->id,idDite=>$idDite" title="detail" class="btn btn-warning"><i class="icon-pencil"></i></a>
+								<a n:href="Homepage:SmazatTimeline id=>$item->id,idDite=>$idDite" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat údaje o {$diteS}?'))return false;" class="btn btn-warning"><i class="icon-trash"></i></a>
+							</div>
+						</td>
 					</tr>
 				{/foreach}
 			</table>
 		{else}
 			<div id="noResults"><strong>Bohužel, nic jsme nenašli</strong></div>
 		{/if}
-		<a n:href="Homepage:noveTimeline id=>$idDite">Přidat záznam</a>
 
 	</section>
 

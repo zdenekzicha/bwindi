@@ -3,7 +3,7 @@
 {block content}
 	<section id="page">
 		<h1>Sponzoři</h1>
-		<a n:href="Sponzor:novySponzor">Přidat sponzora</a>
+		<a n:href="Sponzor:novySponzor" class="btn btn-success btn-offset"><i class="glyphicon glyphicon-plus icon-offset"></i>Přidat sponzora</a>
 		<form class="form-search">
 			<p>
 				<select name="filtrSelect">
@@ -12,7 +12,7 @@
 	 				<option value="mail" {if $filtrSelect == 'mail'}selected="selected"{/if}>Email</option>
 				</select>
 	  			<input type="text" name="filtrText" value="{$filtrText}" class="input-xlarge">
-	  			<button type="submit" class="btn">Vyhledat</button>
+	  			<button type="submit" class="btn btn-inverse">Vyhledat</button>
 	  		</p>
 		</form>
 		<table class="table table-striped">
@@ -24,9 +24,6 @@
 				<th>Město</th>			
 				<th>Email</th>
 				<th>Telefon</th>
-				<th>Sponzoruje</th>
-				<th>Poznámka</th>
-				<th>Platby</th>
 				<th></th>
 			</tr>
 			{foreach $sponzori as $sponzor}
@@ -39,19 +36,12 @@
 					<td>{$sponzor->mail}</td>		
 					<td>{$sponzor->telefon}</td>
 					<td>
-						{var $oddelovac=0}
-						{foreach $deti as $dite}
-							{if $dite->sponzorIdSponzor == $sponzor->idSponzor}
-								{if $oddelovac > 0}&nbsp;|&nbsp;{/if}
-								<a n:href="Homepage:default filtrSelect => jmeno, filtrText => $dite->jmeno">{$dite->jmeno}</a>
-								{var $oddelovac++}
-							{/if}
-						{/foreach}
-						<a n:href="Sponzor:adopce id=>$sponzor->idSponzor" title="adoptované děti"><i class="icon-edit"></i></a>
+						<div class="btn-group">
+							<a n:href="Sponzor:adopce id=>$sponzor->idSponzor" title="adoptované děti" class="btn btn-default">sponzorovane děti</a>
+							<a <a n:href="Platba:default filtrSelect => sponzorVsym, filtrText => $sponzor->ssym" class="btn btn-default">platby</a>
+							<a n:href="Sponzor:edit id=>$sponzor->idSponzor" title="detail" class="btn btn-warning"><i class="icon-pencil"></i></a>
+						</div>
 					</td>
-					<td></td>
-					<td><a <a n:href="Platba:default filtrSelect => sponzorVsym, filtrText => $sponzor->ssym">platby</a></td>
-					<td><a n:href="Sponzor:edit id=>$sponzor->idSponzor" title="detail"><i class="icon-pencil"></i></a></td>
 				</tr>
 			{/foreach}
 		</table>

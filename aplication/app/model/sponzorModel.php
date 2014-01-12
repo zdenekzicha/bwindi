@@ -62,9 +62,13 @@ class sponzorModel extends Model
 
      public function zobrazAdopce($id)
     {
-        return $this->db->fetchAll('SELECT d.jmeno, d.idDite, r.idRelaceDiteSponzor FROM relaceditesponzor AS r, dite AS d WHERE r.aktivniZaznam = 1  AND r.diteIdDite = d.idDite AND r.sponzoridsponzor = '. $id .'');
+        return $this->db->fetchAll('SELECT d.jmeno, d.idDite, r.idRelaceDiteSponzor, DATE_FORMAT(r.datumVzniku,"%d.%m.%Y") AS datumVzniku FROM relaceditesponzor AS r, dite AS d WHERE r.aktivniZaznam = 1  AND r.diteIdDite = d.idDite AND r.sponzoridsponzor = '. $id .'');
     }
 
+    public function zobrazNeaktivniAdopce($id)
+    {
+        return $this->db->fetchAll('SELECT d.jmeno, d.idDite, r.idRelaceDiteSponzor, DATE_FORMAT(r.datumVzniku,"%d.%m.%Y") AS datumVzniku, DATE_FORMAT(r.datumZaniku,"%d.%m.%Y") AS datumZaniku FROM relaceditesponzor AS r, dite AS d WHERE r.aktivniZaznam = 0  AND r.diteIdDite = d.idDite AND r.sponzoridsponzor = '. $id .'');
+    }
 
   	  public function editovatSponzora($form)
     {     
@@ -103,7 +107,25 @@ class sponzorModel extends Model
 
       try{
       
-          $this->db->table('relaceditesponzor')->where('idRelaceDiteSponzor', $id)->delete();
+          $this->getDb()->query('UPDATE relaceditesponzor SET aktivniZaznam = 0, datumZaniku = NOW() WHERE idRelaceDiteSponzor = '.$id.'');
+       
+          return true;
+
+      } catch (Exception $e) {
+          
+          return false;
+
+      }
+      
+
+    }
+
+    public function obnovAdopce($id)
+    {
+
+      try{
+      
+          $this->getDb()->query('UPDATE relaceditesponzor SET aktivniZaznam = 1, datumZaniku = null, datumVzniku = NOW() WHERE idRelaceDiteSponzor = '.$id.'');
        
           return true;
 

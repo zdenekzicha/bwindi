@@ -3,6 +3,7 @@
 {block content}
 	<section id="page">
 		<h1>Školy</h1>
+		<a n:href="Skola:novaSkola" class="btn btn-success btn-offset"><i class="glyphicon glyphicon-plus icon-offset"></i>Vytvořit školu</a>
 		<table class="table table-striped">
 			<tr>
 				<th>Název školy</th>
@@ -14,12 +15,11 @@
 			<tr>
 				<td>{$skola->nazev}</td>
 				<td>{$skola->castka}</td>
-				<td><a n:href="Skola:edit id=>$skola->idSkola" title="detail"><i class="icon-pencil"></i></a></td>
+				<td><a n:href="Skola:edit id=>$skola->idSkola" title="detail" class="btn btn-warning"><i class="icon-pencil"></i></a></td>
 				<!--<td><a n:href="Skola:smazat id=>$skola->idSkola" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat údaje o {$skola->nazev}?'))return false;"><i class="icon-trash"></i></a></td>-->
 			</tr>
 			{/foreach}
 		</table>
-		<a n:href="Skola:novaSkola">Vytvořit školu</a>
 		
 	</section>
 {/block}

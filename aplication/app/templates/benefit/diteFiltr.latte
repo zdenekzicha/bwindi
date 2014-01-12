@@ -3,6 +3,7 @@
 {block content}
 	<section id="page">
 		<h1>Seznam benefitů</h1>
+		<a n:href="Benefit:novyBenefit" class="btn btn-success btn-offset"><i class="glyphicon glyphicon-plus icon-offset"></i>Přidat benefit</a>
 		<table class="table table-striped">
 			<tr>
 				<th>Id</th>
@@ -15,10 +16,9 @@
 				<td>{$benefit->idBenefit}</td>
 				<td>{$benefit->nazev}</td>
 				<td>{$benefit->castka}</td>
-				<td><a href="#" title="detail"><i class="icon-remove"></i></a></td>
+				<td><a href="#" title="detail" class="btn btn-warning"><i class="icon-remove"></i></a></td>
 			</tr>
 			{/foreach}
 		</table>
-		<a n:href="Benefit:novyBenefit">Přidat benefit</a>
 	</section>
 {/block}

@@ -1,8 +1,8 @@
-{block title} Přidat nového sponzora {/block}
+{block title} {ifset $action}Editovat sponzora{else}Přidat nového sponzora{/ifset} {/block}
 
 {block content}
 	<section id="page">	
-		<h1>Přidat nového sponzora</h1>
+		<h1>{ifset $action}Editovat sponzora{else}Přidat nového sponzora{/ifset}</h1>
 		{form novySponzorForm}
 	        <div class="skola-form">
 				{control $form errors}
@@ -16,7 +16,7 @@
 	        	{input aktivniZaznam}
 	        	{input datumVzniku}
 	            
-	            {input create}
+	            {input create class=>"btn btn-primary btn-offset"}
 	        </div>
 		{/form}
 	</section>

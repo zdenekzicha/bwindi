@@ -1,30 +1,51 @@
-{block title} Adoptované děti {/block}
+{block title} Sponzorované děti {/block}
 
 {block content}
 	<section id="page">	
 		<h1>{$sponzor}</h1>
-		<h3>má adoptované tyto děti</h3>
+		<h3>sponzoruje tyto děti</h3>
 		<table>
 		{foreach $adopce as $adopt}
 			<tr>
 				<td>
-					<a n:href="Homepage:edit id=>$adopt->idDite">{$adopt->jmeno}</a>
+					<a n:href="Homepage:edit id=>$adopt->idDite" class="big-name">{$adopt->jmeno}</a>
 				</td>
 				<td>
-					<a n:href="Sponzor:smazatAdopce id=>$adopt->idRelaceDiteSponzor, idSponzor=>$idSponzor" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat {$adopt->jmeno} z adoptovaných?'))return false;"><i class="icon-trash"></i></a><br/>
+					od {$adopt->datumVzniku}
+				</td>
+				<td>
+					<a n:href="Sponzor:smazatAdopce id=>$adopt->idRelaceDiteSponzor, idSponzor=>$idSponzor" title="ukončit sponzorství" onclick="if(!confirm('Opravdu si přejete ukončit sponzorství u dítěte {$adopt->jmeno}?'))return false;" class="btn btn-warning"><i class="icon-trash"></i></a><br/>
 				</td>
 			</tr>
 		{/foreach}
 		</table>
-		<h3>přiřadit další adoptované dítě</h3>
-		{form novaAdopceForm}
+
+		<h3>přiřadit další sponzorované dítě</h3>
+		{form novaAdopceForm class=>"no-space"}
 	        <div class="skola-form">
 				{control $form errors}
 	            
 	            {input diteIdDite}
 	        	
-	            {input create}
+	            {input create class=>"btn btn-primary btn-offset"}
 	        </div>
 		{/form}
+
+		<h3>tyto děti v minulosti sponzoroval</h3>
+		<table>
+		{foreach $adopceNeaktivni as $adoptNeaktivni}
+			<tr>
+				<td>
+					<a n:href="Homepage:edit id=>$adopt->idDite" class="big-name">{$adoptNeaktivni->jmeno}</a>
+				</td>
+				<td>
+					od {$adoptNeaktivni->datumVzniku} do {$adoptNeaktivni->datumZaniku}
+				</td>
+				<td>
+					<a n:href="Sponzor:obnovitAdopce id=>$adoptNeaktivni->idRelaceDiteSponzor, idSponzor=>$idSponzor" title="obnovit sponzorství" onclick="if(!confirm('Opravdu si přejete obnovit sponzorství u dítěte {$adoptNeaktivni->jmeno}?'))return false;"><i class="icon-refresh" class="btn btn-warning"></i></a><br/>
+				</td>
+			</tr>
+		{/foreach}
+		</table>
 	</section>
 {/block}

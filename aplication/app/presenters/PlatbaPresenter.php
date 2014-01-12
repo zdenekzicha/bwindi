@@ -105,14 +105,14 @@ class platbaPresenter extends BasePresenter
 		$detiSelect = array();
 
 		foreach ($deti as $key => $value) {
-			$detiSelect[$value['idDite']] = $value['jmeno'];
+			$detiSelect[$value['idDite']] = $value['vsym']." - ".$value['jmeno'];
 		}
 
 		$sponzori = $this->sponzori->zobrazVsechnySponzory();
 		$sponzoriSelect = array();
 
 		foreach ($sponzori as $key => $value) {
-			$sponzoriSelect[$value['idSponzor']] = $value['jmeno'];
+			$sponzoriSelect[$value['idSponzor']] = $value['ssym']." - ".$value['jmeno'];
 		}
 
 		$benefity = $this->benefity->zobrazBenefity();
@@ -133,6 +133,10 @@ class platbaPresenter extends BasePresenter
 		$form->addSelect('benefitIdBenefit', 'Benefit:', $benefitySelect)->setPrompt('Zvolte benefit')->addRule(NAppForm::FILLED, 'Je nutné zadat benefit.');
 	    $form->addSubmit('create', 'Přidat platbu');
 	    $form->onSuccess[] = $this->NovaPlatbaFormSubmitted;
+
+	    $form['datum']->setValue(date("j.n.Y"));
+	    $form['rok']->setValue(date("Y"));
+
 	    return $form;
 	}
 

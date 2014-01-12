@@ -16,9 +16,9 @@ common:
 			errorPresenter: Error
 
 		database:
-			dsn: 'mysql:host=127.0.0.1;dbname=bwindy'
-			user: 'root'	
-			
+			dsn: 'mysql:host=127.0.0.1;dbname=petrsillercz03'
+			user: 'petrsillercz003'
+			password: 'bwindi123'	
 
 	services:
 		authenticator: Authenticator
@@ -26,9 +26,9 @@ common:
 		diteModel: DiteModel
 		skolaModel: SkolaModel
 		sponzorModel: SponzorModel
-		relaceDiteBenefitModel: RelaceDiteBenefitModel
 		platbaModel: PlatbaModel
 		benefitModel: BenefitModel
+		relaceDiteBenefitModel: RelaceDiteBenefitModel
 		routerFactory: RouterFactory
 		router: @routerFactory::createRouter
 

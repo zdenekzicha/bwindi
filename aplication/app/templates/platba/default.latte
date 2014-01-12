@@ -3,7 +3,8 @@
 {block content}
 	<section id="page">
 		<h1>Platby</h1>
-		<form class="form-search">
+		<a n:href="Platba:novaPlatba" class="btn btn-success btn-offset"><i class="glyphicon glyphicon-plus icon-offset"></i>Přidat platbu</a>
+		<form class="form-search group">
 			<p>
 				<select name="filtrSelect">
 	  				<option value="diteVsym" {if $filtrSelect == 'diteVsym'}selected="selected"{/if}>Vs</option> 
@@ -12,7 +13,7 @@
 	 				<option value="sponzorJmeno" {if $filtrSelect == 'sponzorJmeno'}selected="selected"{/if}>Sponzor</option>
 				</select>
 	  			<input type="text" name="filtrText" value="{$filtrText}" class="input-xlarge">
-	  			<button type="submit" class="btn">Vyhledat</button>
+	  			<button type="submit" class="btn btn-inverse">Vyhledat</button>
 	  		</p>
 	  		<!--
 	  		<div class="group">
@@ -37,7 +38,7 @@
 		  	</div>
 
 		</form>
-		<a n:href="Platba:novaPlatba">Přidat platbu</a>
+		
 		<table class="table table-striped">
 			<tr>
 				<th>Dítě</th>
@@ -55,7 +56,7 @@
 			</tr>
 			{foreach $platby as $platba}
 				<tr>
-					<td>{$platba->diteJmeno}</td>
+					<td><a n:href="Homepage:default filtrSelect => jmeno, filtrText => $platba->diteJmeno">{$platba->diteJmeno}</td>
 					<td><a n:href="Sponzor:default filtrSelect => jmeno, filtrText => $platba->sponzorJmeno">{$platba->sponzorJmeno}</a></td>
 					<td>{$platba->date}</td>
 					<td>{$platba->benefitNazev}</td>
@@ -65,7 +66,7 @@
 					<td>{$platba->sponzorVsym}</td>
 					<td>{$platba->ucet}</td>
 					<td>{$platba->poznamka}</td>
-					<td><a n:href="Platba:edit id=>$platba->idPlatba" title="detail"><i class="icon-pencil"></i></a></td>
+					<td><a n:href="Platba:edit id=>$platba->idPlatba" title="detail" class="btn btn-warning"><i class="icon-pencil"></i></a></td>
 					<!--<td><a n:href="Platba:smazat id=>$platba->idPlatba" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat údaje o platbě od {$platba->sponzorJmeno}?'))return false;"><i class="icon-trash"></i></a></td>-->
 				</tr>
 			{/foreach}

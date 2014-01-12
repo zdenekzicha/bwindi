@@ -30,7 +30,7 @@ class jsonPresenter extends BasePresenter
 			$name = explode(" ", $item['jmeno']);
 
 			// dostaneme url na profilovou fotku
-			$profilePhoto = $item['profilovaFotka'];//$this->_getPhotoUrl($item['profilovaUrlSerializovana']);
+			$profilePhoto = $item['profilovaFotka'];
 
 			$data = array(
 				"id" => $item['idDite'], 

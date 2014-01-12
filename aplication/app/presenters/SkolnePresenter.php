@@ -4,13 +4,13 @@ class skolnePresenter extends BasePresenter
 {
 
 	private $relace;
-  private $platby;
-  private $dite;
-  private $sponzori;
-  private $benefity;
+  	private $platby;
+  	private $dite;
+  	private $sponzori;
+  	private $benefity;
 	public $diteJmeno;
 	public $idDite;
-  public function actionDefault($idDite, $jmenoDite) {
+  	public function actionDefault($idDite, $jmenoDite) {
 		$this->template->jmenoDitete = $jmenoDite;
 		$this->idDite = $idDite;
 		$this->template->idDite = $idDite;
@@ -18,7 +18,6 @@ class skolnePresenter extends BasePresenter
 	protected function startup()
 	{
 	    parent::startup();
-	    $this->relace = $this->context->diteBenefitModel;
 	    $this->platby = $this->context->platbaModel;
 	    $this->dite = $this->context->diteModel;
 	    $this->sponzori = $this->context->sponzorModel;

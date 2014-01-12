@@ -1,12 +1,13 @@
-{block title} Benefity {/block}
+{block title} Účely plateb{/block}
 
 {block content}
 	<section id="page">
-		<h1>Seznam benefitů</h1>
+		<h1>Seznam účelů plateb</h1>
+		<a n:href="Benefit:novyBenefit" class="btn btn-success btn-offset"><i class="glyphicon glyphicon-plus icon-offset"></i>Přidat účel platby</a>
 		<table class="table table-striped">
 			<tr>
 				<th>Id</th>
-				<th>Název benefitu</th>
+				<th>Název účelu</th>
 				<th>Cena</th>
 				<th></th>
 				<!--<th></th>-->
@@ -21,6 +22,5 @@
 			</tr>
 			{/foreach}
 		</table>
-		<a n:href="Benefit:novyBenefit">Přidat benefit</a>
 	</section>
 {/block}

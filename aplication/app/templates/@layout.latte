@@ -15,6 +15,7 @@
 
 	<title>{block title|striptags|upper}Nette Application Skeleton{/block}</title>
 
+	
 	<link rel="stylesheet" href="{$basePath}/css/bootstrap.css" />
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/userweb.css">
 	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
@@ -28,16 +29,20 @@
 	<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type}">{$flash->message}</div>
 
 	<header id='mainNavigation'>
-		<a href="{link Homepage:}">Děti</a> |
-		<a href="{link Platba:}">Platby</a> | 
-		<a href="{link Sponzor:}">Sponzoři</a> |
-		<a href="{link Skola:}">Školy</a> |
-		<a href="{link Benefit:}">Benefity</a> |
-		<a href="#">Sestavy</a>
+		<div class="btn-group">
+			<a href="{link Homepage:}" class="btn btn-info btn-large">Děti</a>
+			<a href="{link Sponzor:}" class="btn btn-info btn-large">Sponzoři</a>
+			<a href="{link Platba:}" class="btn btn-info btn-large">Platby</a> 
+		</div>
+		<div class="btn-group">
+			<a href="{link Skola:}" class="btn btn-default btn-small">Školy</a>
+			<a href="{link Benefit:}" class="btn btn-default btn-small">Benefity</a>
+		</div>
 	</header>
 	{include #content}
 
 	{block scripts}
+
 	<script src="{$basePath}/js/jquery.js"></script>
 	<script src="{$basePath}/js/netteForms.js"></script>
 	<script src="{$basePath}/js/main.js"></script>

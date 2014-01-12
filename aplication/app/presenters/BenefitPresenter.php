@@ -29,7 +29,7 @@ class benefitPresenter extends BasePresenter
 
      	$form->addHidden('idBenefit')->setValue($id);
 
-	    $form["create"]->caption = 'Editovat Benefit';
+	    $form["create"]->caption = 'Editovat účel';
 		$form->onSuccess = array(array($this, 'editBenefitFormSubmitted')); // nové nastavení
 
 		$this->template->action = "edit";
@@ -42,10 +42,10 @@ class benefitPresenter extends BasePresenter
 	{	
     	
     	if($this->benefity->smazatBenefit($id)){
-    		$this->flashMessage('Smazali jste Benefit.', 'success');
+    		$this->flashMessage('Smazali jste účel.', 'success');
     		$this->redirect('Benefit:default');
     	}else{
-    		$this->flashMessage('Tento benefit je nastaven u některé z plateb. Aby šel benefit smazat, musíte jej napřed odebrat ze všech plateb.', 'fail');
+    		$this->flashMessage('Tento účel je nastaven u některé z plateb. Aby šel účel smazat, musíte jej napřed odebrat ze všech plateb.', 'fail');
     		$this->redirect('Benefit:default');
     	}
 
@@ -62,10 +62,10 @@ class benefitPresenter extends BasePresenter
 	protected function createComponentNovyBenefitForm()
 	{
 	    $form = new NAppForm;
-	    $form->addText('nazev', 'Název:', 40, 100)->addRule(NAppForm::FILLED, 'Je nutné zadat název benefitu.');
+	    $form->addText('nazev', 'Název:', 40, 100)->addRule(NAppForm::FILLED, 'Je nutné zadat název účelu.');
 	    $form->addText('castka', 'Částka:', 40, 100)->addRule(NAppForm::FILLED, 'Je nutné zadat částku.');
 	    $form->addHidden('aktivniZaznam')->setValue('1');
-	    $form->addSubmit('create', 'Přidat bebefit');
+	    $form->addSubmit('create', 'Přidat účel');
 	    $form->onSuccess[] = $this->novaNovyBenefitSubmitted;
 	    return $form;
 	}
@@ -74,10 +74,10 @@ class benefitPresenter extends BasePresenter
 	public function novaNovyBenefitSubmitted(NAppForm $form)
 	{	
     	if($this->benefity->vytvorBenefit($form->values)){
-    		$this->flashMessage('Přidali jste nový benefit.', 'success');
+    		$this->flashMessage('Přidali jste nový účel.', 'success');
     		$this->redirect('Benefit:default');
     	}else{
-    		$this->flashMessage('Nepřidali jste nový benefit.', 'fail');
+    		$this->flashMessage('Nepodařilo se vytvořit nový účel.', 'fail');
     	}
 	}
 
@@ -85,10 +85,10 @@ class benefitPresenter extends BasePresenter
 	{	
 		
     	if($this->benefity->editovatBenefit($form->values)){
-    		$this->flashMessage('Editace benefitu je hotová.', 'success');
+    		$this->flashMessage('Editace účelu je hotová.', 'success');
     		$this->redirect('Benefit:default');
     	}else{
-    		$this->flashMessage('Nepodařilo se editovat benefit.', 'fail');
+    		$this->flashMessage('Nepodařilo se editovat účel.', 'fail');
     	}
 	}
 

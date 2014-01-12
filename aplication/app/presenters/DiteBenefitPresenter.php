@@ -67,14 +67,14 @@ class diteBenefitPresenter extends BasePresenter
 		$detiSelect = array();
 
 		foreach ($deti as $key => $value) {
-			$detiSelect[$value['idDite']] = $value['jmeno'];
+			$detiSelect[$value['idDite']] = $value['vsym']." - ".$value['jmeno'];
 		}
 
 		$sponzori = $this->sponzori->zobrazVsechnySponzory();
 		$sponzoriSelect = array();
 
 		foreach ($sponzori as $key => $value) {
-			$sponzoriSelect[$value['idSponzor']] = $value['jmeno'];
+			$sponzoriSelect[$value['idSponzor']] = $value['ssym']." - ".$value['jmeno'];
 		}
 
 		$benefity = $this->benefity->zobrazBenefity();
@@ -89,7 +89,7 @@ class diteBenefitPresenter extends BasePresenter
 	    $form->addText('rok', 'Rok:', 5, 4);
 	    $form->addText('poznamka', 'Poznamka:', 10, 255);
 	    $form->addSelect('diteIdDite', 'Dítě:', $detiSelect)->setPrompt('Zvolte dítě')->addRule(NAppForm::FILLED, 'Je nutné zadat dítě.');
-		  $form->addSelect('benefitIdBenefit', 'Benefit:', $benefitySelect)->setPrompt('Zvolte benefit')->addRule(NAppForm::FILLED, 'Je nutné zadat benefit.');
+	    $form->addSelect('benefitIdBenefit', 'Benefit:', $benefitySelect)->setPrompt('Zvolte účel')->addRule(NAppForm::FILLED, 'Je nutné zadat účel.');
 	    $form->addHidden('datumVzniku')->setValue(date("Y-m-d H:i:s"));
 	    $form->addSubmit('create', 'Přidat benefit');
 	    $form->onSuccess[] = $this->novaNovyDiteBenefitSubmitted;

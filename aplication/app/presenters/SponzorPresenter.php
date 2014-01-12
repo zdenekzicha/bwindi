@@ -54,6 +54,7 @@ class sponzorPresenter extends BasePresenter
     	$this->template->sponzor = $sponzor[$id]['jmeno'];
     	$this->template->idSponzor = $sponzor[$id]['idSponzor'];
     	$this->template->adopce = $this->sponzori->zobrazAdopce($id);
+    	$this->template->adopceNeaktivni = $this->sponzori->zobrazNeaktivniAdopce($id);
 
     	$form = $this->getComponent('novaAdopceForm');
 
@@ -68,7 +69,7 @@ class sponzorPresenter extends BasePresenter
 		$detiSelect = array();
 
 		foreach ($deti as $key => $value) {
-			$detiSelect[$value['idDite']] = $value['jmeno'];
+			$detiSelect[$value['idDite']] = $value['vsym']." - ".$value['jmeno'];
 		}
 		
 	    $form = new NAppForm;
@@ -84,10 +85,24 @@ class sponzorPresenter extends BasePresenter
 	{	
     	
     	if($this->sponzori->smazatAdopce($id)){
-    		$this->flashMessage('Smazali jste dítě.', 'success');
+    		$this->flashMessage('Sponzorství ukončeno.', 'success');
     		$this->redirect('Sponzor:adopce', $idSponzor);
     	}else{
-    		$this->flashMessage('Dítě se nepodařilo smazat.', 'fail');
+    		$this->flashMessage('Nepodařilo se ukončit sponzorství.', 'fail');
+    		$this->redirect('Sponzor:adopce', $idSponzor);
+    	}
+
+
+	}
+
+	public function actionObnovitAdopce($id, $idSponzor)
+	{	
+    	
+    	if($this->sponzori->ObnovAdopce($id)){
+    		$this->flashMessage('Sponzorství obnoveno.', 'success');
+    		$this->redirect('Sponzor:adopce', $idSponzor);
+    	}else{
+    		$this->flashMessage('Nepodařilo se obnovit sponzorství.', 'fail');
     		$this->redirect('Sponzor:adopce', $idSponzor);
     	}
 
