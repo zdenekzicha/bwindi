@@ -177,6 +177,14 @@ p.perex {
   display: inline;
 }
 
+.main-navigation .current-menu-item a{
+  color: #997653;
+}
+
+.main-navigation .current-menu-item ul a{
+  color: #4cb63d;
+}
+
 .home .main-navigation {
   height: auto;
   margin: 0 auto 0;
