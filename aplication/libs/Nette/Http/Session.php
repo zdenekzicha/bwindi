@@ -449,7 +449,7 @@ class NSession extends NObject
 				if (defined('SID')) {
 					throw new InvalidStateException("Unable to set 'session.$key' to value '$value' when session has been started" . ($this->started ? "." : " by session.auto_start or session_start()."));
 				}
-				if (isset($special[$key])) {
+				/*if (isset($special[$key])) {
 					$key = "session_$key";
 					$key($value);
 
@@ -458,7 +458,7 @@ class NSession extends NObject
 
 				} elseif (!NFramework::$iAmUsingBadHost) {
 					throw new NotSupportedException('Required function ini_set() is disabled.');
-				}
+				}*/
 			}
 		}
 
