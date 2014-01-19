@@ -52,10 +52,8 @@ class DiteModel extends Model
 
 	public function zobrazDiteApi($id)
 	{
-		
-    	$this->getDb()->query('DROP VIEW if exists detiPohled');
-    	$this->getDb()->query('CREATE VIEW detiPohled as SELECT d.*, s.jmeno AS jmenoSponzor, sk.nazev AS skolaNazev, sk.idSkola AS skolaId FROM dite AS d LEFT JOIN (sponzor AS s, skola as sk, relaceditesponzor AS r) ON ((d.idDite = r.diteIdDite AND r.sponzorIdSponzor = s.idSponzor) AND d.skolaIdSkola = idSkola) GROUP BY d.idDite ORDER BY d.jmeno');
-		return $this->getDb()->table('detiPohled')->where("idDite", $id);
+		return $this->db->fetchAll('SELECT d.*, s.jmeno AS jmenoSponzor, sk.nazev AS skolaNazev, sk.idSkola AS skolaId, sk.castka AS castka FROM dite AS d LEFT JOIN (sponzor AS s, relaceditesponzor AS r) ON (d.idDite = r.diteIdDite AND r.sponzorIdSponzor = s.idSponzor) LEFT JOIN (skola as sk) ON (d.skolaIdSkola = idSkola) WHERE d.idDite = '.$id.' GROUP BY d.idDite ORDER BY d.jmeno ');
+		//return $this->getDb()->table('detiPohled')->where("idDite", $id);
 	}
 
 	 public function zobrazSourozence($id)

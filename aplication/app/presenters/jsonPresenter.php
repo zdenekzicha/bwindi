@@ -108,6 +108,7 @@ class jsonPresenter extends BasePresenter
 				"narozeni" => $item['datumNarozeni'],
 				"pohlavi" => $item['pohlavi'],
 				"skola" => $item['skolaNazev'],
+				"skolne" => $item['castka'],
 				"fotka" => $profilePhoto,
 				"sponzor" => $sponsor	
 			);
