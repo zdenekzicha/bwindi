@@ -36,7 +36,7 @@
 						<textarea name="note" id="sponsorNote"></textarea>
 					</p>
 					<p>
-						<input type="hidden" name="page_id" value="122" />
+						<input type="hidden" name="page_id" value="586" />
 						<input type="hidden" name="idDite" value="{$dite.id}" />
 						<input type="submit" value="Adoptovat" id="send" />
 					</p>

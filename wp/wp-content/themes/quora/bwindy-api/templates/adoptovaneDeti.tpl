@@ -1,9 +1,5 @@
 <h1>Adoptované děti</h1>
 <div id="childrens" class="group">
-	<p>
-		„Adoptovat“ děti, znamená financovat jejich vzdělání a podílet se na celkovém zlepšení jejich životní situace. Na podpoře jednoho dítěte se může podílet kolektivy, rodiny nebo skupiny přátel.
-	</p>
-
 		{foreach from=$data key=myId item=value}
 			{foreach from=$value key=myId item=i name=kids}
   				<div class="children {if $smarty.foreach.kids.index > 11}noShow{/if}">
@@ -41,7 +37,7 @@
 								jQuery(this).remove();
 							}
 						});
-					});				
+					});
 				</script>
 			{/if} 
 
@@ -50,5 +46,4 @@
 			{/if}
 
 		{/foreach}
-
 </div>

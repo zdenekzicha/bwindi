@@ -20,7 +20,7 @@ get_header(); ?>
 					<h1 class="page-title">
 						<?php
 							if ( is_category() ) {
-								printf( __( 'Category Archives: %s', 'web2feel' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+								printf(single_cat_title( '', false ));
 
 							} elseif ( is_tag() ) {
 								printf( __( 'Tag Archives: %s', 'web2feel' ), '<span>' . single_tag_title( '', false ) . '</span>' );

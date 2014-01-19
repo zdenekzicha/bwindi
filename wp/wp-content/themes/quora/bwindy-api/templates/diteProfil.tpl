@@ -14,6 +14,9 @@
 	{else}
 		<a href="/?page_id=119&idDite={$dite.id}" id="helpMe">Pomůžeš mi?</a>
 	{/if}
+	{if $dite.skolne}
+		<p>Školné pro mě na celý rok stojí <strong>{$dite.skolne} Kč</strong></p>
+	{/if}
 	<!--
 		<h4>Co potřebuji</h4>
 		<table>
@@ -31,7 +34,7 @@
 	</div>
 		<div id="right">
 			<h1>{$dite.jmeno}</h1>
-			<p class="perex">Chodím do {$dite.skola}, {if $dite.rocnik != ''}{$dite.rocnik} ročník{/if} {if $dite.vek != 0} je mi {$dite.vek} let{/if}</p>
+			<p class="perex">Chodí do {$dite.skola}, {if $dite.rocnik != ''}{$dite.rocnik} ročník{/if} {if $dite.vek != 0} je mi {$dite.vek} let{/if}</p>
 			<p>{$dite.bio}</p>
 
 			<div id="timeline">

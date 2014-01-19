@@ -26,7 +26,7 @@
 		$smarty->assign("data",jsonToArray($server.'/?presenter=json&action=profil&id='.$_GET["idDite"], null));
 		$smarty->display('formularAdopce.tpl');
 	}
-	else if ($_GET["page_id"] == "122") { // zpracovani odeslaneho formulare o adopci ditete
+	else if ($_GET["page_id"] == "586") { // zpracovani odeslaneho formulare o adopci ditete
 
 		/* ulozime si inforamce o diteti */
 		$data = jsonToArray($server.'/?presenter=json&action=profil&id='.$_GET["idDite"], null);

@@ -38,6 +38,14 @@ h2 {
   margin: 1em 0;
 }
 
+h3 {  
+  font-size: 1.5em;
+  color: #504342;
+  font-weight: bold;
+  line-height: 1em;
+  margin: 1em 0;
+}
+
 p {
   color: #666;
   line-height: 1.5em;
@@ -305,14 +313,12 @@ p.perex {
 }
 /* -------- Děkujeme za adopci -------- */
 #thanksForAdoption {
+  width: 500px;
   margin: -40px auto 0;
   text-align: center;
+  padding-bottom: 70px;
 }
-#thanksForAdoption p {
-  width: 500px;
-  margin: 0 auto;
-  line-height: 1.5;
-}
+
 #thanksForAdoption p span {
   color: #707070;
 }
@@ -320,61 +326,74 @@ p.perex {
   display: block;
   padding-top: 10px;
 }
-#thanksForAdoption h1 {
-  padding-bottom: 20px;
+
+#thanksForAdoption .bubble {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
 }
+
 /* -------- Profil dítěte -------- */
-#profile.twoColumnsLayout {
+.twoColumnsLayout {
   font-family: Lato, sans-serif;
   margin: -80px auto 0;
   width: 820px;
   padding: 20px 0 0;
 }
-#profile.twoColumnsLayout .perex {
+.twoColumnsLayout .perex {
   font-size: 1.2em;
   margin: 0.3em 0 1em;
   text-align: left;
 }
-#profile.twoColumnsLayout #right {
+.twoColumnsLayout #right {
   float: left;
   width: 450px;
 }
-#profile.twoColumnsLayout #right h4 {
+.twoColumnsLayout #right h4 {
   float: left;
   width: 470px;
 }
 
-#profile.twoColumnsLayout #left {
+.twoColumnsLayout #left {
   float: left;
   width: 300px;
   margin-right: 50px;
 }
-#profile.twoColumnsLayout #left h4 {
+.twoColumnsLayout #left h4 {
   padding: 10px 0;
   margin: 0 auto;
   width: 250px;
   border-bottom: 1px solid #ccc;
 }
-#profile.twoColumnsLayout #left th,
-#profile.twoColumnsLayout #left td {
+.twoColumnsLayout #left th,
+.twoColumnsLayout #left td {
   padding: 10px;
   border-bottom: 1px solid #ccc;
 }
-#profile.twoColumnsLayout #left th {
+.twoColumnsLayout #left th {
   text-align: left;
   font-weight: normal;
 }
-#profile.twoColumnsLayout #left td {
+.twoColumnsLayout #left td {
   text-align: right;
 }
-#profile.twoColumnsLayout #left tr:last-child th,
-#profile.twoColumnsLayout #left #profile #left tr:last-child td {
+.twoColumnsLayout #left tr:last-child th,
+.twoColumnsLayout #left #profile #left tr:last-child td {
   border: none;
 }
-#profile.twoColumnsLayout #left table {
+.twoColumnsLayout #left table {
   margin: 0 auto 20px;
   width: 250px;
 }
+
+#profile #left p {
+  text-align: center;
+}
+
+#profile #left strong {
+  display: block;
+}
+
 #profile a#helpMe:hover {
   background: #997653;
 }
@@ -535,16 +554,27 @@ p.perex {
 }
 */
 /* -------- Formluar pro adopci -------- */
+#formAdoption {
+  width: 750px;
+  padding-bottom: 70px;
+}
+
+#formAdoption #left {
+  text-align: center;
+}
+
+#formAdoption #right {
+  width: 380px;
+}
+
 #formAdoption .errorMsg {
   display: none;
-  margin-left: 140px;
-  padding: 5px 38px 0 0;
+  padding: 5px 38px 0 5px;
   font-size: 13px;
   color: #ec0000;
 }
 #formAdoption #send {
   width: 290px;
-  margin-left: 140px;
   padding: 15px 0;
   background: #4CB63D;
   border: 0;
@@ -552,6 +582,7 @@ p.perex {
   font-size: 20px;
   border-radius: 5px;
   outline: none;
+  margin-top: 0.5em;
 }
 #formAdoption #send:hover {
   background: #997653;
@@ -564,13 +595,11 @@ p.perex {
 }
 #formAdoption form {
   margin-top: 25px;
+  margin-left: 40px;
 }
 #formAdoption form label {
-  float: left;
-  width: 130px;
-  margin-right: 10px;
-  padding-top: 7px;
-  text-align: right;
+  display: block;
+  padding: 7px 0 0 5px;
 }
 #formAdoption form .require {
   padding-left: 5px;
@@ -589,14 +618,17 @@ p.perex {
   background: #fcf8f5;
   border-radius: 5px;
 }
+
+#formAdoption form p {
+  margin: 0 0 0.5em 0;
+}
+
 #formAdoption .photo {
   width: 250px;
   height: 250px;
   margin: 0 auto 20px;
 }
-#formAdoption h1 {
-  padding: 0 0 60px;
-}
+
 /* -------- Výpis dětí -------- */
 #childrens {
   max-width: 880px;
@@ -647,7 +679,63 @@ p.perex {
   margin: 0 auto;
   padding-bottom: 30px;
 }
+
+/* -------- Blog archiv :) -------- */
+.category-aktuality #main {
+  margin: -40px 0 0 0;
+}
+
+.category-aktuality p {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.category-aktuality .entry-summary {
+  display: none;
+}
+
+.category-aktuality .entry-meta,
+.category-aktuality .icon-user,
+.category-aktuality .comment {
+  display: none;
+}
+
+.category-aktuality .readmore {
+  display: none;
+}
+
+.category-aktuality .post-img {
+  display: none;
+}
+
+.category-aktuality .entry-header h1 {
+  font-size: 2.25em;
+  line-height: 1em;
+  margin: 0;
+  font-weight: normal;
+  border-bottom: 1px dotted #ccc;
+}
+
+.category-aktuality .entry-header h1:last-child {
+  border: 0px;
+}
+
+.category-aktuality .entry-header a {
+  display: block;
+  text-decoration: none;
+  padding: 1em 0;
+}
+
+.category-aktuality .entry-header a:hover {
+  color: #504342;
+  background: #eadec5;
+}
+
+
 /* -------- Wordpress hacks :) -------- */
 #post-9 {
   margin: -40px 0 0 0;
 }
+
+
