@@ -18,7 +18,7 @@
 
 	if($_GET["s"] == "profil") { // zobrazi profil ditete
 		$smarty->assign("data",jsonToArray($server.'/?presenter=json&action=profil&id='.$_GET["idDite"], null));
-		$smarty->assign("timeline",jsonToArray('http://bwindi.petrsiller.cz/?presenter=json&action=timeline&id='.$_GET["idDite"], null));
+		$smarty->assign("timeline",jsonToArray($server.'/?presenter=json&action=timeline&id='.$_GET["idDite"], null));
 		$smarty->display('diteProfil.tpl');
 
 	} 
@@ -58,8 +58,9 @@
 		$smarty->display('dekujeme.tpl');
 	}
 	else if ($_GET["page_id"] == "94") { // zobrazi vypis adoptovanych deti
-		
-		$smarty->assign("data",jsonToArray($server.'/?presenter=json&action=adoptovaneDeti', null));
+		$search = mysql_real_escape_string($_GET["search"]);
+		$smarty->assign("search", $search);
+		$smarty->assign("data",jsonToArray($server.'/?presenter=json&action=adoptovaneDeti&search='.$search, null));
 
 		$smarty->display('adoptovaneDeti.tpl');
 

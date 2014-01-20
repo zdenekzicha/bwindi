@@ -52,11 +52,11 @@ class jsonPresenter extends BasePresenter
 	/*
 	 * Vypise adoptovaných deti	
 	*/
-	public function actionAdoptovaneDeti()
+	public function actionAdoptovaneDeti($search)
 	{
 
 		$this->payload->data = array();
-		$list = $this->deti->zobrazAdoptovaneDeti();
+		$list = $this->deti->zobrazAdoptovaneDeti($search);
 		$i = 0;		
 
 		foreach ($list as $item) {

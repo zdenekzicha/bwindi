@@ -29,9 +29,9 @@ class DiteModel extends Model
 	}
 
 	//metoda, ktera zobrazuje adoptovane deti
-	public function zobrazAdoptovaneDeti()
+	public function zobrazAdoptovaneDeti($search)
 	{
-    	return $this->db->fetchAll('SELECT * FROM relaceditesponzor AS r , dite AS d WHERE r.diteIdDite = d.idDite and d.vystavene = 1');
+    	return $this->db->fetchAll('SELECT * FROM relaceditesponzor AS r , dite AS d WHERE r.diteIdDite = d.idDite AND d.vystavene = 1 AND d.jmeno LIKE ("%'.$search.'%") ORDER BY d.jmeno');
 
 	}
 
@@ -310,12 +310,12 @@ class DiteModel extends Model
 		}
 	}
 
-  	public function zobrazDetiKAdopci()
+  	public function zobrazDetiKAdopci($search)
   	{
-  		return $this->db->fetchAll('SELECT * FROM dite as d LEFT JOIN relaceditesponzor as r ON r.diteIdDite = d.idDite WHERE r.diteIdDite IS NULL AND d.vystavene = 1');
+  		return $this->db->fetchAll('SELECT * FROM dite as d LEFT JOIN relaceditesponzor as r ON r.diteIdDite = d.idDite WHERE r.diteIdDite IS NULL AND d.vystavene = 1 ORDER BY d.jmeno');
   	}
 	
-	  public function codeToMessage($code)
+	public function codeToMessage($code)
     {
         switch ($code) {
             case UPLOAD_ERR_INI_SIZE:
