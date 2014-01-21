@@ -6,6 +6,16 @@
 		return json_decode($jsondata, true);
 	}
 
+	/* osetreni vstupu a je to cislo */
+	function checkNumber($value){
+		return $id = intval(checkString($value));
+	}
+
+	/* osetreni vstupu a je to string */
+	function checkString($value){
+		return $id = mysql_real_escape_string(trim($value));
+	}
+
 	/*vrati obsah zpravy pro email ktery se posle bwindi */
 	function getMsgForBwindi($sponsor,$email,$phone,$note,$childName) {
 		$url = "http://bwindiweb.petrsiller.cz";

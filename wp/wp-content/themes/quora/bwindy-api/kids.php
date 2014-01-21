@@ -17,19 +17,22 @@
 
 
 	if($_GET["s"] == "profil") { // zobrazi profil ditete
-		$smarty->assign("data",jsonToArray($server.'/?presenter=json&action=profil&id='.$_GET["idDite"], null));
-		$smarty->assign("timeline",jsonToArray($server.'/?presenter=json&action=timeline&id='.$_GET["idDite"], null));
+		$id = checkNumber($_GET["idDite"]);
+		$smarty->assign("data",jsonToArray($server.'/?presenter=json&action=profil&id='.$id, null));
+		$smarty->assign("timeline",jsonToArray($server.'/?presenter=json&action=timeline&id='.$id, null));
 		$smarty->display('diteProfil.tpl');
 
 	} 
 	else if ($_GET["page_id"] == "119") { // zobrazi formular o adopci ditete
-		$smarty->assign("data",jsonToArray($server.'/?presenter=json&action=profil&id='.$_GET["idDite"], null));
+		$id = checkNumber($_GET["idDite"]);
+		$smarty->assign("data",jsonToArray($server.'/?presenter=json&action=profil&id='.$id, null));
 		$smarty->display('formularAdopce.tpl');
 	}
 	else if ($_GET["page_id"] == "586") { // zpracovani odeslaneho formulare o adopci ditete
 
 		/* ulozime si inforamce o diteti */
-		$data = jsonToArray($server.'/?presenter=json&action=profil&id='.$_GET["idDite"], null);
+		$id = checkNumber($_GET["idDite"]);
+		$data = jsonToArray($server.'/?presenter=json&action=profil&id='.$id, null);
 		$data['data']['email'] = $_GET["email"];
 		
 		/* posleme email bwindi o novem sponzorovi */
@@ -58,7 +61,7 @@
 		$smarty->display('dekujeme.tpl');
 	}
 	else if ($_GET["page_id"] == "94") { // zobrazi vypis adoptovanych deti
-		$search = mysql_real_escape_string($_GET["search"]);
+		$search = checkString($_GET["search"]);
 		$smarty->assign("search", $search);
 		$smarty->assign("data",jsonToArray($server.'/?presenter=json&action=adoptovaneDeti&search='.$search, null));
 
