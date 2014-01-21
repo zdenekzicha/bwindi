@@ -11,6 +11,8 @@
 	</div>
 	{if $dite.sponzor}
 		<div id="helpMe" class="disable">Už mám sponzora</div>
+	{else if $dite.rezervovane}
+		<div id="helpMe" class="disable">Má zájemce</div>
 	{else}
 		<a href="/?page_id=119&idDite={$dite.id}" id="helpMe">Pomůžeš mi?</a>
 	{/if}

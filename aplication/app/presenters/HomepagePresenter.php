@@ -76,6 +76,7 @@ class homepagePresenter extends BasePresenter
     			'bio' => $data[$id]['bio'],
                 'pohlavi' => $data[$id]['pohlavi'],
                 'datumNarozeni' => $data[$id]['datumNarozeni'],
+                'rezervovane' => $data[$id]['rezervovane'],
                 'vsym' => $data[$id]['vsym'],
                 'rocnik' => $data[$id]['rocnik'],
                 'vystavene' => $data[$id]['vystavene'],
@@ -305,6 +306,7 @@ class homepagePresenter extends BasePresenter
 	    $form->addText('rocnik', 'Ročník:', 10, 10)->addRule(NAppForm::INTEGER, 'Ročník musí být číslo.');
 	    $form->addUpload('profilovasoubor', 'Nahraj novou fotku');
 	    $form->addCheckbox('vystavene','Vystavené na webu');
+	    $form->addCheckbox('rezervovane','Má zájemce o adopci');
 	    $form->addHidden('aktivniZaznam')->setValue('1');
 	    $form->addHidden('datumVzniku')->setValue(date("Y-m-d H:i:s"));
 	    $form->addSelect('skolaIdSkola', 'Škola:', $skolySelect)->setPrompt('Zvolte školu');

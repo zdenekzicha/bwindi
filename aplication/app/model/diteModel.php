@@ -31,7 +31,7 @@ class DiteModel extends Model
 	//metoda, ktera zobrazuje adoptovane deti
 	public function zobrazAdoptovaneDeti($search)
 	{
-    	return $this->db->fetchAll('SELECT * FROM relaceditesponzor AS r , dite AS d WHERE r.diteIdDite = d.idDite AND d.vystavene = 1 AND d.jmeno LIKE ("%'.$search.'%") ORDER BY d.jmeno');
+    	return $this->db->fetchAll('SELECT * FROM relaceditesponzor AS r , dite AS d WHERE r.diteIdDite = d.idDite AND d.aktivniZaznam = 1 AND d.vystavene = 1 AND d.jmeno LIKE ("%'.$search.'%") ORDER BY d.jmeno');
 
 	}
 
@@ -74,7 +74,7 @@ class DiteModel extends Model
 		
 
 		
-	   try{
+	try{
 	  	
 	  		/*  Flickr magic*/
 	  	if($form['foto']->getError()!=4){ //Provede se jen kdyz je nahrana fotka.
@@ -84,9 +84,8 @@ class DiteModel extends Model
 	          }
 	        else{
 	          require_once("../libs/flickr.php");
-	          $flickrId = $flickr->sync_upload($form['foto']->getTemporaryFile(), $form['jmeno'], $form['text'], 'Profilova Fotka', 'Bwindi Orphans', 0);
+	          $flickrId = $flickr->sync_upload($form['foto']->getTemporaryFile(), $form['jmeno'], '', 'Timeline, '.$form['jmeno'].', Bwindi Orphans'.$form["diteIdDite"], 0);
 	          $form['flickrId']=$flickrId;
-            $flickr->photosets_addPhoto("72157639645556425",$flickrId);
 	          $fotoInfo = $flickr->photos_getInfo($flickrId);
 	          $form['fotoUrlSerializovana'] = serialize($fotoInfo['photo']);
 	          $form['foto'] = $this->sestavUrlProfiloveFotky($fotoInfo['photo']);
@@ -131,9 +130,8 @@ class DiteModel extends Model
 		          }
 		        else{
 		          require_once("../libs/flickr.php");
-		          $flickrId = $flickr->sync_upload($form['foto']->getTemporaryFile(), $form['jmeno'], $form['text'], 'BwindiOrphans '.$form['jmeno'], 0);
+		          $flickrId = $flickr->sync_upload($form['foto']->getTemporaryFile(), $form['jmeno'], '', 'Timeline, '.$form['jmeno'].', Bwindi Orphans'.$form["diteIdDite"], 0);
 		          $form['flickrId']=$flickrId;
-              $flickr->photosets_addPhoto("72157639645556425",$flickrId);
 		          $fotoInfo = $flickr->photos_getInfo($flickrId);
 		          $form['fotoUrlSerializovana'] = serialize($fotoInfo['photo']);
 		          $form['foto'] = $this->sestavUrlProfiloveFotky($fotoInfo['photo']);
@@ -172,9 +170,8 @@ class DiteModel extends Model
 		        else{
 		          
 		          require_once('../libs/flickr.php');
-		          $flickrId = $flickr->sync_upload($form['profilovasoubor']->getTemporaryFile(), '' , '' , 'Profilovka BwindiOrphans ', 0);
+		          $flickrId = $flickr->sync_upload($form['profilovasoubor']->getTemporaryFile(), $form['jmeno'], '', 'Profilova fotka, '.$form['jmeno'].', Bwindi Orphans', 0);
 		          $form['flickrId']=$flickrId;
-              $flickr->photosets_addPhoto("72157639621628666",$flickrId);
 		          $fotoInfo = $flickr->photos_getInfo($flickrId);
 		          $form['profilovaUrlSerializovana'] = serialize($fotoInfo['photo']);
 		          $form['profilovaFotka'] = $this->sestavUrlProfiloveFotky($fotoInfo['photo']);
@@ -224,9 +221,8 @@ class DiteModel extends Model
         else{
           
           require_once('../libs/flickr.php');
-          $flickrId = $flickr->sync_upload($form['profilovasoubor']->getTemporaryFile(), $form['jmeno'], $form['bio'], 'Profilovka BwindiOrphans '.$form['jmeno'], 0);
+          $flickrId = $flickr->sync_upload($form['profilovasoubor']->getTemporaryFile(), $form['jmeno'], '', 'Profilova fotka, '.$form['jmeno'].', Bwindi Orphans'.$form["idDite"], 0);
           $form['flickrId']=$flickrId;
-          $flickr->photosets_addPhoto("72157639621628666",$flickrId);
           $fotoInfo = $flickr->photos_getInfo($flickrId);
           $form['profilovaUrlSerializovana'] = serialize($fotoInfo['photo']);
           $form['profilovaFotka'] = $this->sestavUrlProfiloveFotky($fotoInfo['photo']);
@@ -316,7 +312,7 @@ class DiteModel extends Model
 
   	public function zobrazDetiKAdopci($search)
   	{
-  		return $this->db->fetchAll('SELECT * FROM dite as d LEFT JOIN relaceditesponzor as r ON r.diteIdDite = d.idDite WHERE r.diteIdDite IS NULL AND d.vystavene = 1 ORDER BY d.jmeno');
+  		return $this->db->fetchAll('SELECT * FROM dite as d LEFT JOIN relaceditesponzor as r ON r.diteIdDite = d.idDite WHERE d.aktivniZaznam = 1 AND r.diteIdDite IS NULL AND d.vystavene = 1 ORDER BY d.jmeno');
   	}
 	
 	public function codeToMessage($code)
