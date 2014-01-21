@@ -74,7 +74,7 @@ class DiteModel extends Model
 		
 
 		
-	try{
+	   try{
 	  	
 	  		/*  Flickr magic*/
 	  	if($form['foto']->getError()!=4){ //Provede se jen kdyz je nahrana fotka.
@@ -84,8 +84,9 @@ class DiteModel extends Model
 	          }
 	        else{
 	          require_once("../libs/flickr.php");
-	          $flickrId = $flickr->sync_upload($form['foto']->getTemporaryFile(), $form['jmeno'], '', 'Timeline, '.$form['jmeno'].', Bwindi Orphans'.$form["diteIdDite"], 0);
+	          $flickrId = $flickr->sync_upload($form['foto']->getTemporaryFile(), $form['jmeno'], $form['text'], 'Profilova Fotka', 'Bwindi Orphans', 0);
 	          $form['flickrId']=$flickrId;
+            $flickr->photosets_addPhoto("72157639645556425",$flickrId);
 	          $fotoInfo = $flickr->photos_getInfo($flickrId);
 	          $form['fotoUrlSerializovana'] = serialize($fotoInfo['photo']);
 	          $form['foto'] = $this->sestavUrlProfiloveFotky($fotoInfo['photo']);
@@ -130,8 +131,9 @@ class DiteModel extends Model
 		          }
 		        else{
 		          require_once("../libs/flickr.php");
-		          $flickrId = $flickr->sync_upload($form['foto']->getTemporaryFile(), $form['jmeno'], '', 'Timeline, '.$form['jmeno'].', Bwindi Orphans'.$form["diteIdDite"], 0);
+		          $flickrId = $flickr->sync_upload($form['foto']->getTemporaryFile(), $form['jmeno'], $form['text'], 'BwindiOrphans '.$form['jmeno'], 0);
 		          $form['flickrId']=$flickrId;
+              $flickr->photosets_addPhoto("72157639645556425",$flickrId);
 		          $fotoInfo = $flickr->photos_getInfo($flickrId);
 		          $form['fotoUrlSerializovana'] = serialize($fotoInfo['photo']);
 		          $form['foto'] = $this->sestavUrlProfiloveFotky($fotoInfo['photo']);
@@ -170,8 +172,9 @@ class DiteModel extends Model
 		        else{
 		          
 		          require_once('../libs/flickr.php');
-		          $flickrId = $flickr->sync_upload($form['profilovasoubor']->getTemporaryFile(), $form['jmeno'], '', 'Profilova fotka, '.$form['jmeno'].', Bwindi Orphans', 0);
+		          $flickrId = $flickr->sync_upload($form['profilovasoubor']->getTemporaryFile(), '' , '' , 'Profilovka BwindiOrphans ', 0);
 		          $form['flickrId']=$flickrId;
+              $flickr->photosets_addPhoto("72157639621628666",$flickrId);
 		          $fotoInfo = $flickr->photos_getInfo($flickrId);
 		          $form['profilovaUrlSerializovana'] = serialize($fotoInfo['photo']);
 		          $form['profilovaFotka'] = $this->sestavUrlProfiloveFotky($fotoInfo['photo']);
@@ -221,8 +224,9 @@ class DiteModel extends Model
         else{
           
           require_once('../libs/flickr.php');
-          $flickrId = $flickr->sync_upload($form['profilovasoubor']->getTemporaryFile(), $form['jmeno'], '', 'Profilova fotka, '.$form['jmeno'].', Bwindi Orphans'.$form["idDite"], 0);
+          $flickrId = $flickr->sync_upload($form['profilovasoubor']->getTemporaryFile(), $form['jmeno'], $form['bio'], 'Profilovka BwindiOrphans '.$form['jmeno'], 0);
           $form['flickrId']=$flickrId;
+          $flickr->photosets_addPhoto("72157639621628666",$flickrId);
           $fotoInfo = $flickr->photos_getInfo($flickrId);
           $form['profilovaUrlSerializovana'] = serialize($fotoInfo['photo']);
           $form['profilovaFotka'] = $this->sestavUrlProfiloveFotky($fotoInfo['photo']);
