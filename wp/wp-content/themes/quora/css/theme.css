@@ -216,11 +216,9 @@ p.perex {
   margin: 0px 0px;
   padding: 0px;
 }
-#bottom h3.bothead,
-#bottom h3.sidetitl {
-  margin: 1em 20px 0;
-  padding: 10px 0px;
-  font-size: 2.25em;
+#bottom h3.bothead {
+  margin: 1.5em 0 0.5em;
+  font-weight: normal;
   text-align: center;
   color: #818181;
 }
@@ -284,14 +282,13 @@ p.perex {
   text-align: center;
 }
 #mainPage #actions {
-  width: 300px;
+  text-align: center;
+  padding: 20px;
   margin: 0 auto 1.5em;
 }
 #mainPage #actions a {
-  float: left;
-  width: 130px;
   margin: 0 10px;
-  padding: 20px 0;
+  padding: 20px 20px;
   background: #4CB63D;
   color: #fff;
   border-radius: 10px;
@@ -494,16 +491,16 @@ p.perex {
   margin: 0 auto;
   height: 200px;
 }
+
+#contacts .teamMember .bubble img {
+  top: 0px;
+}
+
 #contacts .teamMember .title {
   margin-bottom: 5px;
   color: #997653;
 }
 /* -------- Ostatní textové stránky -------- */
-.entry-content {
-  width: 600px;
-  margin: 0 auto;
-  padding: 0 0 60px;
-}
 .entry-content ul {
   margin: 0 0 10px 0;
   list-style-type: none;
