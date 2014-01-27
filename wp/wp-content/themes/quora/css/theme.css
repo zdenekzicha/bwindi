@@ -67,11 +67,15 @@ ul {
 }
 
 li { 
-  margin: 1em 0 0;
+  line-height: 1.5em;
 }
 
 p.perex {
   font-size: 1.5em;
+}
+
+.edit-link {
+  display: none;
 }
 
 .bubble {
@@ -163,9 +167,10 @@ p.perex {
   height: 120px;
   margin: 0 auto;
 }
-.main-navigation .sf-menu {
+.main-navigation .sf-menu li {
   border-bottom: 1px dotted #ccc;
 }
+
 .main-navigation .sub-menu {
   display: none;
   position: absolute;
@@ -174,8 +179,12 @@ p.perex {
   width: 100%;
   margin: 0;
   padding-bottom: 20px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px dotted #ccc;
 }
+
+.main-navigation .sub-menu li {
+  border-bottom: 0px;
+¨}
 
 .main-navigation .current-menu-item .sub-menu {
   display: inline;
@@ -467,7 +476,7 @@ p.perex {
 }
 /* -------- Kontakty -------- */
 #contacts {
-  margin: -40px auto 0;
+  margin: 0px auto 0;
   max-width: 900px;
 }
 #contacts .teamMember {
@@ -483,9 +492,10 @@ p.perex {
   font-weight: normal;
   color: #504342;
 }
-#contacts .teamMember a {
-
+#contacts .teamMember p {
+  margin: 0 0 1.5em 0;
 }
+
 #contacts .teamMember .bubble {
   width: 200px;
   margin: 0 auto;
@@ -500,6 +510,44 @@ p.perex {
   margin-bottom: 5px;
   color: #997653;
 }
+
+#contactMap {
+  clear: both;
+  height: 585px;
+  background: url(../images/map.jpg) center 0 no-repeat;
+  border-top: 1px dotted #ccc;
+}
+
+#contactMap .content {
+  position:relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+#contactMap .content div {
+  position: relative;
+  top: 150px;
+  left: -120px;
+  width: 500px;
+  margin: 0 auto;
+  padding: 0 0 25px 0.1em;
+  background: #50c6d0;
+}
+
+#contactMap .content div ul {
+  padding: 0 20px;
+  color: #fff;
+  margin: 0;
+}
+
+#contactMap h3 {
+  padding: 1em 20px 0;
+  color: #fff;
+  font-weight: normal;
+  margin: 0;
+}
+
+
 /* -------- Ostatní textové stránky -------- */
 .entry-content ul {
   margin: 0 0 10px 0;
