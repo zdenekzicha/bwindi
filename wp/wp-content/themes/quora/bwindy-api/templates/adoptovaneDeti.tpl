@@ -4,7 +4,6 @@
 		<form action="/" method="get">
 			<input type="text" name="search" placeholder="vyhledat dítě" value="{$search}"/>
 			<input type="hidden" name="page_id" value="94" />
-			<input type="submit" value="Hledat" />
 		</form>
 	</div>
 	{foreach from=$data key=myId item=value}
@@ -50,9 +49,9 @@
 
 		{if empty($value)}
 			{if !empty($search)}
-				<h3>Nemáme žádné dítě, které se jmenuje {$search}</h3>
+				<h3 class="notice">Bohužel jsem nikoho nenašli :(</h3>
 			{else}
-				<h3>Momentálně nemáme žádné adoptované děti</h3>
+				<h3 class="notice">Momentálně nemáme žádné adoptované děti :(</h3>
 			{/if}
 		{/if}
 

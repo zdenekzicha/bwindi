@@ -682,6 +682,19 @@ p.perex {
   margin: 0 auto 60px;
   padding: 0 0 30px 0;
 }
+
+#childrens #searchForm {
+  padding-bottom: 1em;
+}
+
+#childrens #searchForm input {
+  width: 400px;
+  border-radius: 5px;
+  font-size: 17px
+}
+
+#childrens h3.notice { font-weight: normal; text-align: center; }
+
 #childrens .showMoreChildren {
   clear: both;
   display: block;

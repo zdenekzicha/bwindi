@@ -36,7 +36,14 @@
 	</div>
 		<div id="right">
 			<h1>{$dite.jmeno}</h1>
-			<p class="perex">Chodí do {$dite.skola}, {if $dite.rocnik != ''}{$dite.rocnik} ročník{/if} {if $dite.vek != 0} je mi {$dite.vek} let{/if}</p>
+			<p class="perex">
+				{if $dite.skola != ''}
+					Studuje {$dite.skola}{if $dite.rocnik != ''}, {$dite.rocnik}. ročník{/if},
+				{/if}
+				{if $dite.vek != 0}
+					je {if $dite.pohlavi == "F"}jí{else}mu{/if} {$dite.vek} let
+				{/if}
+			</p>
 			<p>{$dite.bio}</p>
 
 			<div id="timeline">
