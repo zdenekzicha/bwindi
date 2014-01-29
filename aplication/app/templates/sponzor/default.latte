@@ -4,14 +4,15 @@
 	<section id="page">
 		<h1>Sponzoři</h1>
 		<a n:href="Sponzor:novySponzor" class="btn btn-success btn-offset"><i class="glyphicon glyphicon-plus icon-offset"></i>Přidat sponzora</a>
-		<form class="form-search">
+		<form action="" method="get" class="form-search">
 			<p>
 				<select name="filtrSelect">
 	  				<option value="ssym" {if $filtrSelect == 'ssym'}selected="selected"{/if}>Ss</option> 
 	 				<option value="jmeno" {if $filtrSelect == 'jmeno'}selected="selected"{/if}>Sponzor</option>
 	 				<option value="mail" {if $filtrSelect == 'mail'}selected="selected"{/if}>Email</option>
 				</select>
-	  			<input type="text" name="filtrText" value="{$filtrText}" class="input-xlarge">
+	  			<input type="text" name="filtrText" value="{$filtrText}" class="input-xlarge" />
+	  			<input type="hidden" name="presenter" value="sponzor" />
 	  			<button type="submit" class="btn btn-inverse">Vyhledat</button>
 	  		</p>
 		</form>

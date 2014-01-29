@@ -12,7 +12,8 @@
 	 				<option value="ucet" {if $filtrSelect == 'ucet'}selected="selected"{/if}>Číslo účtu</option>
 	 				<option value="sponzorJmeno" {if $filtrSelect == 'sponzorJmeno'}selected="selected"{/if}>Sponzor</option>
 				</select>
-	  			<input type="text" name="filtrText" value="{$filtrText}" class="input-xlarge">
+	  			<input type="text" name="filtrText" value="{$filtrText}" class="input-xlarge" />
+	  			<input type="hidden" name="presenter" value="platba" />
 	  			<button type="submit" class="btn btn-inverse">Vyhledat</button>
 	  		</p>
 	  		<!--
