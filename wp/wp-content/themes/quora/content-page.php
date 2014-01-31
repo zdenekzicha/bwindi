@@ -10,7 +10,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="wrap">
 	<?php
-		if(get_the_ID() == 4 || get_the_ID() == 48 || get_the_ID() == 94 || get_the_ID() == 119 || get_the_ID() == 586) {
+		if(get_the_ID() == 4 || get_the_ID() == 48 || get_the_ID() == 94 || get_the_ID() == 119 || get_the_ID() == 586 || get_the_ID() == 11) {
 			require("bwindy-api/kids.php");
 		}
 		else {

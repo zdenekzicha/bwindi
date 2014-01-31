@@ -105,6 +105,17 @@ p.perex {
   height: 140px; 
 }
 
+article.page .entry-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+article.page .entry-content p {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+
 /* -------- Hlavicka -------- */
 #mainLogo {
   width: 100%;
@@ -310,7 +321,7 @@ p.perex {
   line-height: 1.6;
 }
 .single-post .entry-content {
-  width: 600px;
+  width: 800px;
   margin: 0 auto;
 }
 .single-post .entry-content h1 {

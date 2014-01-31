@@ -66,7 +66,9 @@
 		$smarty->assign("data",jsonToArray($server.'/?presenter=json&action=adoptovaneDeti&search='.$search, null));
 
 		$smarty->display('adoptovaneDeti.tpl');
-
+	}
+	else if ($_GET["page_id"] == "11") { // zobrazi kontakty
+		$smarty->display('kontakty.tpl');
 	}
 	else { // zobrazi vypis deti k adopci
 		$smarty->assign("data",jsonToArray($server.'/?presenter=json&action=detiAdopce', null));
