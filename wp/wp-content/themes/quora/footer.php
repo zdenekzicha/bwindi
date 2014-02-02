@@ -23,9 +23,9 @@
 </div><!-- #page .hfeed .site -->
 <footer id="sponsors">
 	<div>
-		<a href="#"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/livingstone1.png" /></a>
-		<a href="#"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/nadaceDivokeHusy1.png" /></a>
-		<a href="#"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/agenturaPelhrimov1.png" /></a>
+		<a href="http://www.livingstone.cz/"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/livingstone1.png" /></a>
+		<a href="http://www.divokehusy.cz/"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/nadaceDivokeHusy1.png" /></a>
+		<a href="http://www.dobryden.cz/"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/agenturaPelhrimov1.png" /></a>
 	</div>
 </footer>
 

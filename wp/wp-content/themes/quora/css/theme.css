@@ -447,8 +447,9 @@ article.page .entry-content p {
   width: 100%;
 }
 #profile #timeline .note p {
-  margin: 5px 0 0;
-  text-align: center;
+  margin: 0;
+  padding: 5px;
+  text-align: left;
 }
 #profile #timeline .start {
   margin: 0 auto 20px;
