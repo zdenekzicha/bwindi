@@ -9,6 +9,7 @@ class sponzorPresenter extends BasePresenter
 
 	public $filtrSelect;
 	public $filtrText;
+	public $filtrActive;
 
 	protected function startup()
 	{
@@ -33,7 +34,8 @@ class sponzorPresenter extends BasePresenter
                 'ssym' => $data[$id]['ssym'],
                 'mesto' => $data[$id]['mesto'],
                 'mail' => $data[$id]['mail'],
-                'telefon' => $data[$id]['telefon']
+                'telefon' => $data[$id]['telefon'],
+                'aktivniZaznam' => $data[$id]['aktivniZaznam']
      	));
 
      	$form->addHidden('idSponzor')->setValue($id);
@@ -125,22 +127,32 @@ class sponzorPresenter extends BasePresenter
 
 	}
 
-	public function actionDefault($filtrSelect,$filtrText) {
+	public function actionDefault($filtrSelect, $filtrText, $filtrActive) {
 
 		$this->filtr = array();
 		if(isset($filtrText)) {
 			array_push($this->filtr, array($filtrSelect => $filtrText));
 		}
 
+		if(isset($filtrActive)) {
+			array_push($this->filtr, array('aktivniZaznam' => 0));
+		}else{
+			array_push($this->filtr, array('aktivniZaznam' => 1));
+		}
+
 		$this->filtrSelect = $filtrSelect;
 		$this->filtrText = $filtrText;
+		$this->filtrActive = $filtrActive;
 	}
 
 	public function renderDefault()
 	{
+
 		$this->template->sponzori = $this->sponzori->zobrazSponzory($this->filtr);
 		$this->template->deti = $this->deti->zobrazAdoptovaneDeti('');
 
+
+		$this->template->filtrActive = $this->filtrActive;
 		$this->template->filtrSelect = $this->filtrSelect;
 		$this->template->filtrText = $this->filtrText;
 	}
@@ -163,7 +175,7 @@ class sponzorPresenter extends BasePresenter
 	    $form->addText('mesto', 'Město:', 40, 255);
 	    $form->addText('mail', 'E-mail:', 40, 255);
 	    $form->addText('telefon', 'Telefon:', 40, 255);
-	    $form->addHidden('aktivniZaznam')->setValue('1');
+	    $form->addCheckbox('aktivniZaznam','Aktivní v projektu')->setValue(1);
 	    $form->addHidden('datumVzniku')->setValue(date("Y-m-d H:i:s"));
 	    //$form->addSelect('idDite', 'Dítě:', $detiSelect)->setPrompt('Zvolte dítě');
 	    $form->addSubmit('create', 'Přidat sponzora');

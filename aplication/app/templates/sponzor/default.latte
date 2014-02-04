@@ -14,6 +14,11 @@
 	  			<input type="text" name="filtrText" value="{$filtrText}" class="input-xlarge" />
 	  			<input type="hidden" name="presenter" value="sponzor" />
 	  			<button type="submit" class="btn btn-inverse">Vyhledat</button>
+	  			<div class="group">
+		  			<div class="left">
+			  			<input  type="checkbox" name="filtrActive" value="1" {if $filtrActive}checked="checked"{/if} /> <label>vyřazení</label>
+			  		</div>
+		  		</div>
 	  		</p>
 		</form>
 		<table class="table table-striped">
