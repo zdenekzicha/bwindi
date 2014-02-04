@@ -27,4 +27,5 @@ input.btn-offset				{ margin: 10px 0; display: block; }
 .big-name						{ font-size: 18px; }
 .no-space						{ padding: 0; }
 
+.nowrap							{ white-space: nowrap; }
 /*.inline 						{ display: inline; }*/
