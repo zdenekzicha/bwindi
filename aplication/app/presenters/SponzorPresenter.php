@@ -139,7 +139,7 @@ class sponzorPresenter extends BasePresenter
 	public function renderDefault()
 	{
 		$this->template->sponzori = $this->sponzori->zobrazSponzory($this->filtr);
-		$this->template->deti = $this->deti->zobrazAdoptovaneDeti();
+		$this->template->deti = $this->deti->zobrazAdoptovaneDeti('');
 
 		$this->template->filtrSelect = $this->filtrSelect;
 		$this->template->filtrText = $this->filtrText;

@@ -11,17 +11,17 @@
 	            {label datumNarozeni /} {input datumNarozeni}
 	            {label bio /} {input bio}
 	            {label vsym /} {input vsym}
-	            {label rezervovane /} {input rezervovane}
 	            {label skolaIdSkola /} {input skolaIdSkola}
 	        	{label rocnik /} {input rocnik}
+	        	{label rezervovane /} {input rezervovane}
 	        	{label vystavene class=>"inline" /} {input vystavene}
+	        	{label aktivniZaznam /} {input aktivniZaznam}
 	        	<br/>
 	        	{ifset $action}
 	        		<img src={$profilovaFotka} width="220" />
 	        	{/ifset}
 	        	{input profilovasoubor}
 	        	
-	        	{input aktivniZaznam}
 	        	{input datumVzniku}
 	        	<br/>
 	            {input create class=>"btn btn-primary btn-offset"}

@@ -203,6 +203,8 @@ class homepagePresenter extends BasePresenter
 
     	$data = $this->deti->zobrazTimelineItem($id);
 
+    	$this->template->foto = $data[$id]['foto'];
+
     	$form = $this->getComponent('novyTimelineForm');
 
     	$form->addHidden('diteIdDite')->setValue($dite[$idDite]['idDite']);
@@ -236,7 +238,7 @@ class homepagePresenter extends BasePresenter
 	{
 		
 	    $form = new NAppForm;
-	    $form->addText('text', 'Text:', 40, 255);
+	    $form->addTextArea('text', 'Text', 80, 7);
 	    $form->addText('rok', 'Rok:', 40, 255);
 	    $form->addText('poradi', 'Pořadí:', 40, 255);
 	    $form->addUpload('foto', 'Fotka:');
@@ -303,11 +305,11 @@ class homepagePresenter extends BasePresenter
 	    $form->addText('datumNarozeni', 'Datum narození:', 5, 4);
 	    $form->addTextArea('bio', 'Bio', 80, 7);
 	    $form->addText('vsym', 'Variabilní symbol:', 10, 10)->addRule(NAppForm::INTEGER, 'Variabilní symbol musí být číslo.');	    
-	    $form->addText('rocnik', 'Ročník:', 10, 10)->addRule(NAppForm::INTEGER, 'Ročník musí být číslo.');
+	    $form->addText('rocnik', 'Ročník:', 10, 10);
 	    $form->addUpload('profilovasoubor', 'Nahraj novou fotku');
 	    $form->addCheckbox('vystavene','Vystavené na webu');
 	    $form->addCheckbox('rezervovane','Má zájemce o adopci');
-	    $form->addHidden('aktivniZaznam')->setValue('1');
+	    $form->addCheckbox('aktivniZaznam','Aktivní v projektu')->setValue(1);
 	    $form->addHidden('datumVzniku')->setValue(date("Y-m-d H:i:s"));
 	    $form->addSelect('skolaIdSkola', 'Škola:', $skolySelect)->setPrompt('Zvolte školu');
 	    $form->addSubmit('create', 'Přidat dítě');
@@ -342,11 +344,12 @@ class homepagePresenter extends BasePresenter
 	// edituje v databazi dite
 	public function editDiteFormSubmitted(NAppForm $form)
 	{	
-		//$this->flashMessage('Editace dítěte je hotová.', 'success');
+		$values = $form->getValues();
 	
     	if($this->deti->editovatDite($form->values)){
     		$this->flashMessage('Editace dítěte je hotová.', 'success');
-    		$this->redirect('Homepage:default');
+    		$this->redirect('Homepage:edit', $values["idDite"]);
+
     	}else{
     		$this->flashMessage('Nepodařilo se editovat dítě.', 'fail');
     	}

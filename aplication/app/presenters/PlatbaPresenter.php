@@ -134,6 +134,7 @@ class platbaPresenter extends BasePresenter
 	    $form->addSubmit('create', 'Přidat platbu');
 	    $form->onSuccess[] = $this->NovaPlatbaFormSubmitted;
 
+
 	    $form['datum']->setValue(date("j.n.Y"));
 	    $form['rok']->setValue(date("Y"));
 
@@ -143,6 +144,9 @@ class platbaPresenter extends BasePresenter
 	// ulozi do databaze nove platby
 	public function NovaPlatbaFormSubmitted(NAppForm $form)
 	{	
+		$values = $form->getValues();
+		$date = new DateTime($values['datum']);
+	    $form['datum']->setValue($date->format('Y-m-d'));
 		
     	if($this->platby->vytvorPlatbu($form->values)){
     		$this->flashMessage('Přidali jste novou platbu.', 'success');
@@ -154,7 +158,10 @@ class platbaPresenter extends BasePresenter
 
 	public function editPlatbaFormSubmitted(NAppForm $form)
 	{	
-		
+		$values = $form->getValues();
+		$date = new DateTime($values['datum']);
+	    $form['datum']->setValue($date->format('Y-m-d'));
+
     	if($this->platby->editovatPlatbu($form->values)){
     		$this->flashMessage('Editace platby je hotová.', 'success');
     		$this->redirect('Platba:default');

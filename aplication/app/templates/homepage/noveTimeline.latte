@@ -2,13 +2,19 @@
 
 {block content}
 	<section id="page">
-		<h2>Přidat další záznam k {$diteS}</h2>
+		<h2>{ifset $action}Editovat záznam{else}Přidat další záznam{/ifset} k {$diteS}</h2>
 		<div class="skola-form">
 			{form novyTimelineForm}
 				{label rok /}{input rok}
 				{label poradi /}{input poradi}
 				{label text /}{input text}
-				{label foto /}{input foto}
+				{label foto /}
+				{ifset $action}
+					<div class="foto">
+		        		<img src="{$foto}" width="220" />
+		        	</div>
+	        	{/ifset}
+				{input foto}
 				<div>
 				{input create class=>"btn btn-primary btn-offset"}
 				</div>
