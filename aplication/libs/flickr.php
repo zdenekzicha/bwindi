@@ -1,6 +1,8 @@
 <?php
     //echo "Knihovna flickr je pripojena";
-    require_once("../libs/phpflickr.php");
+    //$files1 = scandir("");
+    //print_r($files1);
+    require_once("../libs/phpFlickr.php");
     $flickr = new phpFlickr('dcd9fe3a305890c4a9fe2bda3167be87','649d3653904e3bd4', true);
     $flickr->setToken("72157639234385904-f768dc0738d878a7");
     if(empty($_GET['frob'])) {
