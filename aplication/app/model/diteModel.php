@@ -83,7 +83,7 @@ class DiteModel extends Model
 	          return false;
 	          }
 	        else{
-	          require_once("../../libs/flickr.php");
+	          require_once("../libs/flickr.php");
 	          $flickrId = $flickr->sync_upload($form['foto']->getTemporaryFile(), $form['jmeno'], '', 'Timeline, '.$form['jmeno'].', Bwindi Orphans'.$form["diteIdDite"], 0);
 	          $form['flickrId']=$flickrId;
 	          $fotoInfo = $flickr->photos_getInfo($flickrId);
