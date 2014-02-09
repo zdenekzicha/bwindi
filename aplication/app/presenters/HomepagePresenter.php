@@ -181,6 +181,7 @@ class homepagePresenter extends BasePresenter
 
 	public function actionNoveTimeline($id){
 		$dite = $this->deti->zobrazDite($id);
+		$max = $this->deti->maxTimelineItemOrder($id);
     	
     	$this->template->diteS = $dite[$id]['jmeno'];
     	$this->template->idDite = $dite[$id]['idDite'];
@@ -190,7 +191,10 @@ class homepagePresenter extends BasePresenter
     	$form->addHidden('diteIdDite')->setValue($dite[$id]['idDite']);
     	$form->addHidden('jmeno')->setValue($dite[$id]['jmeno']);
 
-    	$form->setDefaults(array('rok' => date("Y")));
+    	$form->setDefaults(
+    		array('rok' => date("Y"),
+    		'poradi' => ($max[0]['max'] + 1)
+    		));
 
 	}
 

@@ -65,6 +65,11 @@ class DiteModel extends Model
     	return $this->db->table('timeline')->where("diteIdDite", $id)->order('rok DESC, poradi DESC, id DESC') ;
     }
 
+    public function maxTimelineItemOrder($id){
+    	//return $this->db->table('timeline')->max('poradi')->where("id", $id);
+    	return $this->db->fetchAll('SELECT MAX(poradi) AS max FROM timeline WHERE id='.$id); 
+    }
+
     public function zobrazTimelineItem($id){
     	return $this->db->table('timeline')->where("id", $id);
     }
