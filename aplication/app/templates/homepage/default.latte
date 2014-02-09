@@ -67,7 +67,7 @@
 				{foreach $deti as $dite}
 					<tr>
 						<td>{$dite->vsym}</td>
-						<td>{$dite->jmeno}</td>
+						<td><a n:href="Homepage:edit id=>$dite->idDite">{$dite->jmeno}</a></td>
 						{if $dite->pohlavi == M}
 							<td>muž</td>
 						{else}
