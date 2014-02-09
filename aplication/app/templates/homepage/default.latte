@@ -73,7 +73,7 @@
 						{else}
 							<td>žena</td>
 						{/if}				
-						<td>{$dite->skolaNazev}</td>
+						<td><a n:href="Skola:edit id=>$dite->skolaId">{$dite->skolaNazev}</a></td>
 						{if $dite->vystavene}
 							<td>zobrazené</td>
 						{else}
