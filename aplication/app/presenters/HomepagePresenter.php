@@ -68,6 +68,7 @@ class homepagePresenter extends BasePresenter
     	$data = $this->deti->zobrazDite($id);
       
       	$this->template->profilovaFotka = $data[$id]['profilovaFotka'];
+      	$this->template->idDite = $data[$id]['idDite'];
 
     	$form = $this->getComponent('noveDiteForm');
 
