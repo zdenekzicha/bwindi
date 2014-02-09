@@ -133,7 +133,7 @@ class sponzorPresenter extends BasePresenter
 
 		$this->filtr = array();
 		if(isset($filtrText)) {
-			array_push($this->filtr, array($filtrSelect => $filtrText));
+			array_push($this->filtr, array($filtrSelect." LIKE ?" => "%".$filtrText.""));
 		}
 
 		if(isset($filtrActive)) {

@@ -26,7 +26,7 @@ class platbaPresenter extends BasePresenter
 
 		$this->filtr = array();
 		if(isset($filtrText)) {
-			array_push($this->filtr, array($filtrSelect => $filtrText));
+			array_push($this->filtr, array($filtrSelect." LIKE ?" => "%".$filtrText."%"));
 		}
 
 		// jako defaultni hodnota filteru se bere aktualni rok

@@ -39,7 +39,7 @@ class homepagePresenter extends BasePresenter
 		}
 
 		if(isset($filtrText)) {
-			array_push($this->filter, array($filtrSelect => $filtrText));
+			array_push($this->filter, array($filtrSelect." LIKE ?" => "%".$filtrText."%"));
 		}
 
 		if(isset($filtrWeb)) {
