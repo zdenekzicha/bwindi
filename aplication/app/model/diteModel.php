@@ -62,7 +62,7 @@ class DiteModel extends Model
     }
 
     public function zobrazTimeline($id){
-    	return $this->db->table('timeline')->where("diteIdDite", $id)->order('rok DESC, poradi, id DESC') ;
+    	return $this->db->table('timeline')->where("diteIdDite", $id)->order('rok DESC, poradi DESC, id DESC') ;
     }
 
     public function zobrazTimelineItem($id){
