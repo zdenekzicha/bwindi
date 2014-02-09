@@ -13,6 +13,7 @@ class sponzorModel extends Model
 		$this->getDb()->query('CREATE VIEW sponzoriPohled as SELECT s.*, d.jmeno AS diteJmeno FROM sponzor AS s LEFT JOIN (dite AS d, relaceditesponzor AS r) ON (s.idSponzor = r.sponzorIdSponzor AND r.diteIdDite = d.idDite AND r.aktivniZaznam = 1) GROUP BY s.idSponzor ORDER BY s.jmeno');
 
 		return $this->getDb()->table('sponzoriPohled')->where($filtr);
+
 	}
 	//metoda, ktera zobrazuje sponzory, kteri maji adoptovane dite
 	public function zobrazAktivniSponzory()

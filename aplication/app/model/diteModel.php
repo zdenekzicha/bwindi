@@ -31,7 +31,7 @@ class DiteModel extends Model
 	//metoda, ktera zobrazuje adoptovane deti
 	public function zobrazAdoptovaneDeti($search)
 	{
-    	return $this->db->fetchAll('SELECT * FROM relaceditesponzor AS r , dite AS d WHERE r.diteIdDite = d.idDite AND d.aktivniZaznam = 1 AND d.vystavene = 1 AND d.jmeno LIKE ("%'.$search.'%") GROUP BY d.idDite ORDER BY d.jmeno');
+    	return $this->db->fetchAll('SELECT * FROM relaceditesponzor AS r , dite AS d WHERE d.aktivniZaznam = 1 AND d.vystavene = 1 AND r.diteIdDite = d.idDite  AND d.jmeno LIKE ("%'.$search.'%") GROUP BY d.idDite ORDER BY d.jmeno');
 
 	}
 
@@ -312,7 +312,7 @@ class DiteModel extends Model
 
   	public function zobrazDetiKAdopci($search)
   	{
-  		return $this->db->fetchAll('SELECT * FROM dite as d LEFT JOIN relaceditesponzor as r ON r.diteIdDite = d.idDite WHERE d.aktivniZaznam = 1 AND r.diteIdDite IS NULL AND d.vystavene = 1 ORDER BY d.jmeno');
+  		return $this->db->fetchAll('SELECT * FROM dite as d LEFT JOIN relaceditesponzor as r ON r.diteIdDite = d.idDite WHERE d.aktivniZaznam = 1 AND d.vystavene = 1 AND r.diteIdDite IS NULL ORDER BY d.jmeno');
   	}
 	
 	public function codeToMessage($code)
