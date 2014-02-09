@@ -25,7 +25,12 @@
 		{if $value|@count > 11}
 			<a href="#" class="showMoreChildren">Další děti</a>
 			<script>
-				jQuery( document ).ready(function() {
+				jQuery("#childrens .showMoreChildren").click(showPhoto);
+			</script>
+		{/if} 
+
+		<script>
+			jQuery( document ).ready(function() {
 					function showPhoto(e) {
 						if(e) {
 							e.preventDefault();
@@ -48,12 +53,9 @@
 						}
 					}
 
-					jQuery("#childrens .showMoreChildren").click(showPhoto);
-
 					showPhoto(null);
 				});
-			</script>
-		{/if} 
+		</script>
 
 		{if empty($value)}
 			{if !empty($search)}
