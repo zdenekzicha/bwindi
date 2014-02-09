@@ -94,7 +94,7 @@
 								<a n:href="Skolne:default idDite => $dite->idDite, jmenoDite => $dite->jmeno" class="btn btn-default">školné</a>
 								<a n:href="Homepage:sourozenci id=>$dite->idDite" title="detail" class="btn btn-default">sourozenci</a>
 								<a n:href="Homepage:timeline id=>$dite->idDite" title="detail" class="btn btn-default">timeline</a>
-								<a n:href="Platba:default filtrSelect => diteVsym, filtrText => $dite->vsym" class="btn btn-default">platby</a>
+								<a n:href="Platba:default filtrSelect => diteJmeno, filtrText => $dite->jmeno" class="btn btn-default">platby</a>
 								<a n:href="diteBenefit:default filtrSelect => idDite, filtrText => $dite->idDite, diteJmeno => $dite->jmeno" class="btn btn-default">benefity</a>
 								<a n:href="Homepage:edit id=>$dite->idDite" title="detail" class="btn btn-warning"><i class="icon-pencil"></i></a>
 							</div>
