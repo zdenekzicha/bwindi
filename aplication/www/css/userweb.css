@@ -9,6 +9,8 @@
 header							{ width: 1200px; margin: 0 auto; padding: 10px 0 10px; }
 form							{ padding: 0px 0 0; }
 
+textarea						{ width: 400px; height: 200px; }
+
 .detail h1						{ padding-bottom: 20px; }
 .detail label					{ float:left; width: 200px; margin-right: 10px; }
 .detail textarea				{ width: 600px !important;}

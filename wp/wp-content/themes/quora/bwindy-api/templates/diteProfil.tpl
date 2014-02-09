@@ -44,7 +44,7 @@
 					je {if $dite.pohlavi == "F"}jí{else}mu{/if} {$dite.vek} let
 				{/if}
 			</p>
-			<p>{$dite.bio}</p>
+			<p>{$dite.bio|nl2br}</p>
 
 			<div id="timeline">
 				{foreach from=$timeline key=key item=item name=item}
@@ -56,7 +56,7 @@
 				   				{/if}
 								<div class="note">
 									{if $item2.foto != ''}<img src="" data-src="{$item2.foto}">{/if} 
-									{if $item2.text != ''}<p>{$item2.text}</p>{/if}
+									{if $item2.text != ''}<p>{$item2.text|nl2br}</p>{/if}
 								</div>
 							{/foreach}
 						</div>
