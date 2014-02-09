@@ -189,9 +189,7 @@ class homepagePresenter extends BasePresenter
     	$form->addHidden('diteIdDite')->setValue($dite[$id]['idDite']);
     	$form->addHidden('jmeno')->setValue($dite[$id]['jmeno']);
 
-    	$form['rok']->setValue(date("Y"));
-
-    	$this->template->action = "new";
+    	$form->setDefaults(array('rok' => date("Y")));
 
 	}
 
@@ -250,7 +248,7 @@ class homepagePresenter extends BasePresenter
 	public function novyTimelineFormSubmitted(NAppForm $form)
 	{	
 		$values = $form->getValues();
-    
+
     	if($this->deti->vytvorTimeline($form->values)){
     		$this->flashMessage('Přidali jste záznam do timeline.', 'success');
     		$this->redirect('Homepage:timeline', $values["diteIdDite"]);
