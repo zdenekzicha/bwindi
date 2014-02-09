@@ -23,6 +23,9 @@ textarea						{ width: 400px; height: 200px; }
 input.btn-offset				{ margin: 10px 0; display: block; }
 .icon-offset					{ margin: 0px 5px 0 0; }
 
+.checkbox						{ margin-bottom: 5px; }
+.checkbox label					{ display: inline; }
+
 #noResults						{ padding: 0 0 40px; }
 
 #mainNavigation .btn-small 		{ background: none; }

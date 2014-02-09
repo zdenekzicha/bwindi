@@ -16,9 +16,15 @@
 	            {label vsym /} {input vsym}
 	            {label skolaIdSkola /} {input skolaIdSkola}
 	        	{label rocnik /} {input rocnik}
-	        	{label rezervovane /} {input rezervovane}
-	        	{label vystavene class=>"inline" /} {input vystavene}
-	        	{label aktivniZaznam /} {input aktivniZaznam}
+	        	<div class="checkbox">
+	        		{label rezervovane /} {input rezervovane}
+	        	</div>
+	        	<div class="checkbox">
+	        		{label vystavene class=>"inline" /} {input vystavene}
+	        	</div>
+	        	<div class="checkbox">
+	        		{label aktivniZaznam /} {input aktivniZaznam}
+	        	</div>
 	        	<br/>
 	        	{ifset $action}
 	        		<img src={$profilovaFotka} width="220" />
