@@ -43,6 +43,8 @@ class sponzorPresenter extends BasePresenter
 	    $form["create"]->caption = 'Editovat sponzora';
 		$form->onSuccess = array(array($this, 'editSponzorFormSubmitted')); // nové nastaveni
 
+		$this->template->maxSsym = $this->sponzori->zobrazMaximalniSsym();
+
 		$this->template->action = "edit";
 		$this->setView('novySponzor');
 

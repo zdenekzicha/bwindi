@@ -60,6 +60,11 @@ class sponzorModel extends Model
         return $this->findAll()->where("idSponzor", $id);
     }
 
+    public function zobrazMaximalniSsym()
+    {
+        return $this->getTable()->max('ssym');
+    }
+
      public function zobrazAdopce($id)
     {
         return $this->db->fetchAll('SELECT d.jmeno, d.idDite, r.idRelaceDiteSponzor, DATE_FORMAT(r.datumVzniku,"%d.%m.%Y") AS datumVzniku FROM relaceditesponzor AS r, dite AS d WHERE r.aktivniZaznam = 1  AND r.diteIdDite = d.idDite AND r.sponzoridsponzor = '. $id .'');

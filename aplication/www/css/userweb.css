@@ -32,6 +32,8 @@ input.btn-offset				{ margin: 10px 0; display: block; }
 .big-name						{ font-size: 18px; }
 .no-space						{ padding: 0; }
 
+.nearText input					{ margin: 0; }
+
 .btn-wrap 						{ margin-bottom: 30px; }
 
 .nowrap							{ white-space: nowrap; }
