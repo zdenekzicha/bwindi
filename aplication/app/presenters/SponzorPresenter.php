@@ -51,6 +51,12 @@ class sponzorPresenter extends BasePresenter
 
 	}
 
+	public function actionNovySponzor(){
+		$form = $this->getComponent('novySponzorForm');
+		$this->template->maxSsym = $this->sponzori->zobrazMaximalniSsym();
+		$this->setView('novySponzor');
+	}
+
 	public function actionAdopce($id)
 	{	
 		$sponzor = $this->sponzori->zobrazSponzora($id);
