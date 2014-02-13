@@ -37,11 +37,17 @@
 		<div id="right">
 			<h1>{$dite.jmeno}</h1>
 			<p class="perex">
+				Jsem {if $dite.pohlavi == "F"}holka{else}kluk{/if} a je mi {$dite.vek} let. <br/>
 				{if $dite.skola != ''}
-					Studuje {$dite.skola}{if $dite.rocnik != ''}, {$dite.rocnik}. ročník{/if},
-				{/if}
-				{if $dite.vek != 0}
-					je {if $dite.pohlavi == "F"}jí{else}mu{/if} {$dite.vek} let
+					{if $dite.skolaTyp == 'z'}
+						Chodím do {if $dite.rocnik != ''}{$dite.rocnik}. třídy{/if} základní školy {$dite.skola}
+					{elseif $dite.skolaTyp == 's'}
+						Studuji {if $dite.rocnik != ''}{$dite.rocnik}. ročník{/if} střední školy {$dite.skola}
+					{elseif $dite.skolaTyp == 'u'}
+						Jsem v {if $dite.rocnik != ''}{$dite.rocnik}. ročníku{/if} na učilišti {$dite.skola}
+					{else}
+						Studuji {if $dite.rocnik != ''}{$dite.rocnik}. ročník{/if} {$dite.skola}
+					{/if}
 				{/if}
 			</p>
 			<p>{$dite.bio|nl2br}</p>
@@ -50,7 +56,7 @@
 				{foreach from=$timeline key=key item=item name=item}
 					{foreach from=$item key=key1 item=item1 name=item1}
 		   				<div class="noShow">
-			   				{foreach from=$item1 key=key2 item=item2 name=item2}		   				
+			   				{foreach from=$item1 key=key2 item=item2 name=item2}
 				   				{if $smarty.foreach.item2.index == 0}
 									<div class="start">{$item2.rok}</div>
 				   				{/if}
