@@ -24,9 +24,6 @@
 
 		{if $value|@count > 11}
 			<a href="#" class="showMoreChildren">Další děti</a>
-			<script>
-				jQuery("#childrens .showMoreChildren").click(showPhoto);
-			</script>
 		{/if} 
 
 		<script>
@@ -54,6 +51,9 @@
 					}
 
 					showPhoto(null);
+					{if $value|@count > 11}
+						jQuery("#childrens .showMoreChildren").click(showPhoto);
+					{/if} 
 				});
 		</script>
 
