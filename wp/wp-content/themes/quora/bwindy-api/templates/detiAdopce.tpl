@@ -3,7 +3,7 @@
 		{foreach from=$data key=myId item=value}
 			{foreach from=$value key=myId item=i name="kids"} 
   				<div class="children noShow">
-					<div class="bubble">
+					<div class="bubble {$i.pohlavi}">
 						<a href="?page_id=48&idDite={$i.id}&s=profil">
 							{if $i.fotka}
 							<img src="" alt="" data-src="{$i.fotka}" />
