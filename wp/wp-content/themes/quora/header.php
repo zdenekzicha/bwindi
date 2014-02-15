@@ -40,6 +40,10 @@
 <![endif]-->
 
 <?php wp_head(); ?>
+
+<script type='text/javascript' src='http://bwindiweb.petrsiller.cz/wp-includes/js/lightbox/lightbox.js'></script>
+<link rel='stylesheet' href='http://bwindiweb.petrsiller.cz/wp-includes/css/lightbox.css' type='text/css' media='all' />
+
 </head>
 
 <body <?php body_class(); ?>>
