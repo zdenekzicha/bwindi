@@ -409,10 +409,6 @@ article.page .entry-content p {
   text-align: center;
 }
 
-#profile #left strong {
-  display: block;
-}
-
 #profile a#helpMe:hover {
   background: #997653;
 }
