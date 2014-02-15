@@ -26,15 +26,12 @@ class jsonPresenter extends BasePresenter
 
 		foreach ($list as $item) {
 
-			// zobrazime pouze jmeno
-			$name = explode(" ", $item['jmeno']);
-
 			// dostaneme url na profilovou fotku
 			$profilePhoto = $item['profilovaFotka'];
 
 			$data = array(
 				"id" => $item['idDite'], 
-				"jmeno" => $name[0],
+				"jmeno" => $item['jmeno'],
 				"fotka" => $profilePhoto
 			);
 			
@@ -61,16 +58,13 @@ class jsonPresenter extends BasePresenter
 
 		foreach ($list as $item) {
 
-			// zobrazime pouze jmeno
-			$name = explode(" ", $item['jmeno']);
-
 			// dostaneme url na profilovou fotku
 			$profilePhoto = $profilePhoto = $item['profilovaFotka'];
 
 			$data = array(
 				"id" => $item['idDite'],
 				"vystavene" => $item['vystavene'], 
-				"jmeno" => $name[0],
+				"jmeno" => $item['jmeno'],
 				"fotka" => $profilePhoto
 			);
 			
