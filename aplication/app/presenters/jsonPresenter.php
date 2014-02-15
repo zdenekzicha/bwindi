@@ -29,9 +29,18 @@ class jsonPresenter extends BasePresenter
 			// dostaneme url na profilovou fotku
 			$profilePhoto = $item['profilovaFotka'];
 
+			
+			if($item['pohlavi'] == 'M') {
+				$pohlavi = 'male';
+			}
+			else {
+				$pohlavi = 'female';
+			}
+
 			$data = array(
 				"id" => $item['idDite'], 
 				"jmeno" => $item['jmeno'],
+				"pohlavi" => $pohlavi,
 				"fotka" => $profilePhoto
 			);
 			
@@ -61,10 +70,18 @@ class jsonPresenter extends BasePresenter
 			// dostaneme url na profilovou fotku
 			$profilePhoto = $profilePhoto = $item['profilovaFotka'];
 
+			if($item['pohlavi'] == 'M') {
+				$pohlavi = 'male';
+			}
+			else {
+				$pohlavi = 'female';
+			}
+
 			$data = array(
 				"id" => $item['idDite'],
 				"vystavene" => $item['vystavene'], 
 				"jmeno" => $item['jmeno'],
+				"pohlavi" => $pohlavi,
 				"fotka" => $profilePhoto
 			);
 			

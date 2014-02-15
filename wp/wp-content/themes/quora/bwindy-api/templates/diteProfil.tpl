@@ -2,7 +2,7 @@
 {foreach from=$data key=myId item=dite}
 	<div id="profile" class="twoColumnsLayout group">
 		<div id="left">
-	<div class="photo bubble">
+	<div class="photo bubble {if $dite.pohlavi == 'F'}female{else}male{/if}">
 		{if $dite.fotka}
 			<img src="{$dite.fotka}" alt="" />
 		{else}

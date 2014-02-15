@@ -80,9 +80,18 @@ p.perex {
 
 .bubble {
   border-radius: 50%;
-  border: 6px solid #e9e2cb;
+  border-width: 6px;
+  border-style: solid;
   overflow: hidden;
 }
+
+.bubble.male {
+  border-color: #b2c1da;
+}
+.bubble.female {
+  border-color: #e6b5b6;
+}
+
 .bubble img {
   position: relative;
   top: -16px;
@@ -731,10 +740,14 @@ article.page .entry-content p {
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
-  border: 6px solid #e9e2cb;
 }
+
 #childrens .children span {
   display: block;
+  padding: 0 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   text-align: center;
 }
 #childrens .noShow {
