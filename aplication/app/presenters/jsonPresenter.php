@@ -132,14 +132,15 @@ class jsonPresenter extends BasePresenter
 		// grupujeme data v timeline podle roku
 		foreach ($list as $item) {
 
-			$photo = $item['foto'];
+			$photoBig = $this->deti->sestavUrlProfiloveFotky(unserialize($item['fotoUrlSerializovana']), 'large');
 			
 			$note = array(
 				"id" => $item['id'], 
 				"idDite" => $item['idDite'],
 				"rok" => $item['rok'],
 				"text" => $item['text'],
-				"foto" => $photo
+				"foto" => $item['foto'],
+				"fotoBig" => $photoBig
 			);
 			
 			if($year == $item['rok']) {

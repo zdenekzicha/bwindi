@@ -61,7 +61,11 @@
 									<div class="start">{$item2.rok}</div>
 				   				{/if}
 								<div class="note">
-									{if $item2.foto != ''}<img src="" data-src="{$item2.foto}">{/if} 
+									{if $item2.foto != ''}
+										<a href="{$item2.fotoBig}" data-lightbox="gallery" {if $item2.text != ''}title="{$item2.text|nl2br}"{/if} >
+											<img src="" data-src="{$item2.foto}" />
+										</a>
+									{/if} 
 									{if $item2.text != ''}<p>{$item2.text|nl2br}</p>{/if}
 								</div>
 							{/foreach}
