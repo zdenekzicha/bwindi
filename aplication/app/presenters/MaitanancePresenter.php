@@ -37,14 +37,16 @@ class maitanancePresenter extends BasePresenter
 			$timelineList = $this->deti->zobrazTimeline($item['idDite']);
 			$form['diteIdDite'] = $item['idDite'];
 			foreach ($timelineList as $timelineItem) {
-				$form['id'] = $timelineItem['id'];
-				$form['foto'] = $this->deti->sestavUrlProfiloveFotky(unserialize($timelineItem['fotoUrlSerializovana']));
-				if($this->deti->editujTimeline($form)){
-					$logMessage = "OK";
-				}else{
-					$logMessage = "FAIL";
+				if($timelineItem['fotoUrlSerializovana'] != ''){
+					$form['id'] = $timelineItem['id'];
+					$form['foto'] = $this->deti->sestavUrlProfiloveFotky(unserialize($timelineItem['fotoUrlSerializovana']));
+					if($this->deti->editujTimeline($form)){
+						$logMessage = "OK";
+					}else{
+						$logMessage = "FAIL";
+					}
+					file_put_contents(dirname(__FILE__) . '/../../log/timeline-foto-'.date("Y-m-d").'.log', $log[] = $item['idDite'].":".$timelineItem["id"].":".$logMessage.":".$form['foto']."\n", FILE_APPEND);
 				}
-				file_put_contents(dirname(__FILE__) . '/../../log/timeline-foto-'.date("Y-m-d").'.log', $log[] = $item['idDite'].":".$timelineItem["id"].":".$logMessage.":".$form['foto']."\n", FILE_APPEND);
 			}
 		}
 		$this->terminate();

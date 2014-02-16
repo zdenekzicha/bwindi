@@ -18,21 +18,21 @@
 
 	if($_GET["s"] == "profil") { // zobrazi profil ditete
 		$id = checkNumber($_GET["idDite"]);
-		$smarty->assign("data",jsonToArray($server.'/?presenter=json&action=profil&id='.$id, null));
-		$smarty->assign("timeline",jsonToArray($server.'/?presenter=json&action=timeline&id='.$id, null));
+		$smarty->assign("data",jsonToArray($server.'/?presenter=Json&action=profil&id='.$id, null));
+		$smarty->assign("timeline",jsonToArray($server.'/?presenter=Json&action=timeline&id='.$id, null));
 		$smarty->display('diteProfil.tpl');
 
 	} 
 	else if ($_GET["page_id"] == "119") { // zobrazi formular o adopci ditete
 		$id = checkNumber($_GET["idDite"]);
-		$smarty->assign("data",jsonToArray($server.'/?presenter=json&action=profil&id='.$id, null));
+		$smarty->assign("data",jsonToArray($server.'/?presenter=Json&action=profil&id='.$id, null));
 		$smarty->display('formularAdopce.tpl');
 	}
 	else if ($_GET["page_id"] == "586") { // zpracovani odeslaneho formulare o adopci ditete
 
 		/* ulozime si inforamce o diteti */
 		$id = checkNumber($_GET["idDite"]);
-		$data = jsonToArray($server.'/?presenter=json&action=profil&id='.$id, null);
+		$data = jsonToArray($server.'/?presenter=Json&action=profil&id='.$id, null);
 		$data['data']['email'] = $_GET["email"];
 		
 		/* posleme email bwindi o novem sponzorovi */
@@ -63,7 +63,7 @@
 	else if ($_GET["page_id"] == "94") { // zobrazi vypis adoptovanych deti
 		$search = checkString($_GET["search"]);
 		$smarty->assign("search", $search);
-		$smarty->assign("data",jsonToArray($server.'/?presenter=json&action=adoptovaneDeti&search='.$search, null));
+		$smarty->assign("data",jsonToArray($server.'/?presenter=Json&action=adoptovaneDeti&search='.$search, null));
 
 		$smarty->display('adoptovaneDeti.tpl');
 	}
@@ -71,7 +71,7 @@
 		$smarty->display('kontakty.tpl');
 	}
 	else { // zobrazi vypis deti k adopci
-		$smarty->assign("data",jsonToArray($server.'/?presenter=json&action=detiAdopce', null));
+		$smarty->assign("data",jsonToArray($server.'/?presenter=Json&action=detiAdopce', null));
 		$smarty->display('detiAdopce.tpl');
 	}
 ?>
