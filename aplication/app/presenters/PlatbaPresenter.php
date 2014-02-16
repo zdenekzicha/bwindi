@@ -128,7 +128,7 @@ class platbaPresenter extends BasePresenter
 	    $form->addText('ucet', 'Účet:', 10, 255);
 	    $form->addText('poznamka', 'Poznamka:', 10, 255);
 	    $form->addText('rok', 'Rok:', 5, 4);
-	    $form->addSelect('diteIdDite', 'Dítě:', $detiSelect)->setPrompt('Zvolte dítě')->addRule(NAppForm::FILLED, 'Je nutné zadat dítě.');
+	    $form->addSelect('diteIdDite', 'Dítě:', $detiSelect)->setPrompt('Zvolte dítě');
 	    $form->addSelect('sponzorIdSponzor', 'Sponzor:', $sponzoriSelect)->setPrompt('Zvolte sponzora')->addRule(NAppForm::FILLED, 'Je nutné zadat sponzora.');
 		$form->addSelect('benefitIdBenefit', 'Benefit:', $benefitySelect)->setPrompt('Zvolte benefit')->addRule(NAppForm::FILLED, 'Je nutné zadat benefit.');
 	    $form->addSubmit('create', 'Přidat platbu');
