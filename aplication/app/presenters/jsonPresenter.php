@@ -21,7 +21,7 @@ class jsonPresenter extends BasePresenter
 	{
 
 		$this->payload->data = array();
-		$list = $this->deti->zobrazDetiKAdopci();
+		$list = $this->deti->zobrazDetiKAdopci('');
 		$i = 0;	
 
 		foreach ($list as $item) {

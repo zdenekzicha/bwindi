@@ -82,14 +82,14 @@ class DiteModel extends Model
 	try{
 	  	
 	  		/*  Flickr magic*/
-	  	if($form['foto']->getError()!=4){ //Provede se jen kdyz je nahrana fotka.
-	      if ($form['foto']->getError() > 0){
+	  	if($form['fotoFile']->getError()!=4){ //Provede se jen kdyz je nahrana fotka.
+	      if ($form['fotoFile']->getError() > 0){
 	          echo "Chyba při nahrávání fotky fotky: ".$this->codeToMessage($form['foto']->getError())."<br>";
 	          return false;
 	          }
 	        else{
 	          require_once("../libs/flickr.php");
-	          $flickrId = $flickr->sync_upload($form['foto']->getTemporaryFile(), $form['jmeno'], '', 'Timeline, '.$form['jmeno'].', Bwindi Orphans'.$form["diteIdDite"], 0);
+	          $flickrId = $flickr->sync_upload($form['fotoFile']->getTemporaryFile(), $form['jmeno'], '', 'Timeline, '.$form['jmeno'].', Bwindi Orphans'.$form["diteIdDite"], 0);
 	          $form['flickrId']=$flickrId;
 	          $fotoInfo = $flickr->photos_getInfo($flickrId);
 	          $form['fotoUrlSerializovana'] = serialize($fotoInfo['photo']);
@@ -98,6 +98,7 @@ class DiteModel extends Model
 	      }	
       		/*  Flickr magic - konec*/ 
   			unset($form['jmeno']);
+  			unset($form['fotoFile']);
 			$this->db->table('timeline')->insert($form);	
 	        return true;
 
@@ -128,27 +129,23 @@ class DiteModel extends Model
     
       try{
 
-      		if($form['foto']->getError()!=4){ //Provede se jen kdyz je nahrana fotka.
-		      if ($form['foto']->getError() > 0){
+      		if(isset($form['fotoFile']) && $form['fotoFile']->getError()!=4){ //Provede se jen kdyz je nahrana fotka.
+		      if ($form['fotoFile']->getError() > 0){
 		          echo "Chyba při nahrávání fotky fotky: ".$this->codeToMessage($form['foto']->getError())."<br>";
 		          return false;
 		          }
 		        else{
 		          require_once("../libs/flickr.php");
-		          $flickrId = $flickr->sync_upload($form['foto']->getTemporaryFile(), $form['jmeno'], '', 'Timeline, '.$form['jmeno'].', Bwindi Orphans'.$form["diteIdDite"], 0);
+		          $flickrId = $flickr->sync_upload($form['fotoFile']->getTemporaryFile(), $form['jmeno'], '', 'Timeline, '.$form['jmeno'].', Bwindi Orphans'.$form["diteIdDite"], 0);
 		          $form['flickrId']=$flickrId;
 		          $fotoInfo = $flickr->photos_getInfo($flickrId);
 		          $form['fotoUrlSerializovana'] = serialize($fotoInfo['photo']);
 		          $form['foto'] = $this->sestavUrlProfiloveFotky($fotoInfo['photo']);
 		          }
-		      }else{
-		      	if ($form['fotoUrlSerializovana'] != '') {
-		      		unset($form['foto']);
-		      	}
-
 		      }
       		
       		unset($form['jmeno']);
+      		unset($form['fotoFile']);
 
       		$this->db->exec('UPDATE timeline SET ? WHERE id=?', $form, $form["id"]); 
        
@@ -218,7 +215,7 @@ class DiteModel extends Model
       	  
   		try{
   		/*  Flickr magic*/     
-      if($form['profilovasoubor']->getError()!=4){ //Provede se jen kdyz je nahrana fotka.
+      if(isset($form['profilovasoubor']) && $form['profilovasoubor']->getError()!=4){ //Provede se jen kdyz je nahrana fotka.
         if ($form['profilovasoubor']->getError() > 0){
           echo "Chyba při nahrávání fotky fotky: ".$this->codeToMessage($form['profilovasoubor']->getError())."<br>";
           return false;

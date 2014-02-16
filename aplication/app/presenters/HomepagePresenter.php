@@ -220,7 +220,7 @@ class homepagePresenter extends BasePresenter
     			'text' => $data[$id]['text'],
     			'rok' => $data[$id]['rok'],
                 'poradi' => $data[$id]['poradi'],
-                'foto' => $data[$id]['foto']
+                'fotoFile' => $data[$id]['foto']
      	));
 
      	$form->addHidden('id')->setValue($id);
@@ -244,7 +244,7 @@ class homepagePresenter extends BasePresenter
 	    $form->addTextArea('text', 'Text', 80, 7);
 	    $form->addText('rok', 'Rok:', 40, 255);
 	    $form->addText('poradi', 'Pořadí:', 40, 255);
-	    $form->addUpload('foto', 'Fotka:');
+	    $form->addUpload('fotoFile', 'Fotka:');
 	    $form->addSubmit('create', 'Přidat záznam');
 	    $form->onSuccess[] = $this->novyTimelineFormSubmitted;
 	    return $form;
