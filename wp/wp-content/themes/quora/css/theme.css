@@ -266,7 +266,7 @@ article.page .entry-content p {
   display: block;
   position: relative;
   margin: 0;
-  border-bottom: 1px dotted #ccc;
+  border-top: 1px dotted #ccc;
 }
 #bottom .botwid ul li .post-date {
   position: absolute;
@@ -496,6 +496,12 @@ article.page .entry-content p {
   margin: 0px auto 0;
   max-width: 900px;
 }
+
+#contacts .contactLink {
+  font-size: 1.2em;
+  text-align: center;
+}
+
 #contacts .teamMember {
   float: left;
   width: 280px;
@@ -597,10 +603,6 @@ article.page .entry-content p {
   border: 1px dotted #ccc;
   text-align: center;
   height: 140px;
-}
-
-.home #sponsors {
-  border: 0px;
 }
 
 #sponsors div {

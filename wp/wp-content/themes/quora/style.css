@@ -113,12 +113,7 @@ p {
 ul, ol {
 	margin: 0 0 1.5em 3em;
 }
-ul {
-	list-style: disc;
-}
-ol {
-	list-style: decimal;
-}
+
 ul ul, ol ol, ul ol, ol ul {
 	margin-bottom: 0;
 	margin-left: 1.5em;
