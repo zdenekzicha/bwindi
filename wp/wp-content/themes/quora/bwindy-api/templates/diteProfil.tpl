@@ -10,7 +10,7 @@
 		{/if}
 	</div>
 	{if $dite.sponzor}
-		<div id="helpMe" class="disable">Už mám sponzora</div>
+		<div id="helpMe" class="disable">Už mám adoptivní rodiče</div>
 	{else if $dite.rezervovane}
 		<div id="helpMe" class="disable">Má zájemce</div>
 	{else}
