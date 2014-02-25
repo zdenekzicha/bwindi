@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Homescreen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+</head>
+<body>
+    <div id="page">
+            <div class="row-line clearfix">
+                <div class="search">
+                    <input ng-model="query" placeholder="Project search" class="search" />
+                </div>
+            </div>
+            <div class="row-line clearfix">
+                <div class="project critical">
+                    <strong>Project A</strong>
+                    <div class="progress clearfix">
+                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                            <span class="sr-only">60 Complete</span>
+                        </div>
+                    </div>
+                    <div class="commnets">
+                        <a href="#">New comments<span class="badge">42</span></a>
+                    </div>
+                </div>
+                <div class="project">
+                    <strong>Project B</strong>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                            <span class="sr-only">60 Complete</span>
+                        </div>
+                    </div>
+                    <div class="commnets">
+                    </div>
+                </div>
+                <div class="project last">
+                    <strong>Project C</strong>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                            <span class="sr-only">60 Complete</span>
+                        </div>
+                    </div>
+                    <div class="commnets">
+                        <a href="#">New comments<span class="badge">2</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row-line detail-line">
+            </div>
+            <div class="row-line clearfix">
+                 <div class="project">
+                    <strong>Project D</strong>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                            <span class="sr-only">60 Complete</span>
+                        </div>
+                    </div>
+                    <div class="commnets">
+                    </div>
+                </div>
+                <div class="project">
+                    <strong>Project E</strong>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                            <span class="sr-only">60 Complete</span>
+                        </div>
+                    </div>
+                    <div class="commnets">
+                        <a href="#">New comments<span class="badge">4</span></a>
+                    </div>
+                </div>
+                <div class="project last">
+                    <strong>Project F</strong>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+                            <span class="sr-only">60 Complete</span>
+                        </div>
+                    </div>
+                    <div class="commnets">
+                        <a href="#">New comments<span class="badge">30</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row-line detail-line"></div>
+            <div class="row-line clearfix">
+                <div class="project">
+                    <strong>Project G</strong>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 59%">
+                            <span class="sr-only">60 Complete</span>
+                        </div>
+                    </div>
+                    <div class="commnets">
+                        <a href="#">New comments<span class="badge">7</span></a>
+                    </div>
+                </div>
+                <div class="project">
+                    <strong>Project H</strong>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 89%">
+                            <span class="sr-only">60 Complete</span>
+                        </div>
+                    </div>
+                    <div class="commnets">
+                    </div>
+                </div>
+            </div>
+            <div class="row-line detail-line"></div>
+        </div>
+        <div id="detail" class="clearfix" style="display:none;">
+            <div class="head clearfix">
+                <h2 class="name">Project A</h2>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-primary">Action</button>
+                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">New Ticket</a></li>
+                  </ul>
+                </div>
+            </div>
+            <div class="progress clearfix">
+                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                    <span class="sr-only">60 Complete</span>
+                </div>
+            </div>
+            <div class="commnets">
+                <a href="#">New comments<span class="badge">7</span></a>
+            </div>
+            <div class="content">
+                <div class="date item left">
+                    <h3>Date</h3>
+                    <ul class="clearfix">
+                        <li><a href="#">Future<span class="badge">20</span></a></li>
+                        <li><a href="#">24h<span class="badge">5</span></a></li>
+                        <li class="btn-danger"><a href="#">Delayed<span class="badge">3</span></a></li>
+                    </ul>
+                </div>
+                <div class="state item right">
+                    <h3>State</h3>
+                    <ul class="clearfix">
+                        <li><a href="#">Drafts<span class="badge">20</span></a></li>
+                        <li><a href="#">Heads-up<span class="badge">3</span></a></li>
+                        <li><a href="#">Order<span class="badge">4</span></a></li>
+                        <li><a href="#">Progress<span class="badge">2</span></a></li>
+                        <li><a href="#">Completed<span class="badge">8</span></a></li>
+                    </ul>
+                </div>
+                <div class="flag item left">
+                    <h3>Flag</h3>
+                    <ul class="clearfix">
+                        <li><a href="#">Normal<span class="badge">2</span></a></li>
+                        <li class="btn-warning"><a href="#">Issues<span class="badge">9</span></a></li>
+                        <li class="btn-danger"><a href="#">Critical<span class="badge">5</span></a></li>
+
+                    </ul>
+                </div>
+                <div class="flag item right">
+                    <h3>Finances</h3>
+                    <ul class="clearfix">
+                        <li><a href="#">Not Published<span class="badge">12</span></a></li>
+                        <li><a href="#">No billable<span class="badge">32</span></a></li>
+                        <li><a href="#">New<span class="badge">2</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        $('.project').mouseover(function(){
+            $(this).addClass('active');
+        });
+
+        $('.project').mouseout(function(){
+            $(this).removeClass('active');
+        });
+
+        $('.project').click(function(){
+            var detail = $('#detail');
+
+            $('.project').removeClass('actived');
+            detail.parent().removeClass("active");
+            detail.hide();
+            
+            $(this).parent().next().addClass("active");
+
+            $(this).addClass('actived');
+            
+            detail.appendTo($(this).parent().next());
+            detail.show('slow');
+        });
+    </script>
+</body>
+</html>
+
+
