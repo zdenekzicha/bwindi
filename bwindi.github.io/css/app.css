@@ -1,0 +1,51 @@
+        body                                { background: #f5efe6; }
+        #page                               { width: 990px; margin: 0 auto; }
+        #page .project                      { background:#FFF; padding:10px; border-radius: 5px; border: 1px solid #CCC; width:300px; float: left; margin-right: 45px; cursor:pointer; box-shadow: 3px 3px 5px #ccc; }
+        #page .project.last                 { margin-right: 0; }
+        #page .project.critical             { background: #F2DEDE; border: 1px solid #D9534F; }
+        #page .project.critical strong      { color: #A94442; }
+        #page .project.critical a           { color: #A94442; }
+        #page .project.critical .badge      { background: #D9534F; }
+
+        #page .project.actived              { box-shadow: 1px 1px 4px #CCCCCC inset; }
+        #page .project.active               { box-shadow: 1px 1px 4px #CCCCCC inset; }
+
+        #page .project .progress            { margin: 3px 0 8px; }
+        #page #detail .commnets .badge,
+        #page .project .badge               { background: #428BCA; float: left; margin-top: 1px; margin-right: 5px; }
+        #page .project .commnets            { height: 23px; }
+        #page .project strong               { color: #333; }
+
+        #page .detail-line                  { padding-top: 30px; }
+        #page .detail-line.active           { background: #fff; color: #333; border:1px solid #ccc; border-radius: 5px; padding: 10px 30px 10px; margin:6px 0 20px; box-shadow: 3px 3px 5px #ccc; }
+        
+        #page #detail .content ul           { padding: 0; margin-top: 20px; }
+        #page #detail .content li           { list-style-type: none; float: left; width: 95px; border: 1px solid #428BCA; border-radius: 12px; text-align: center; margin-right: 15px; font-size: 16px; padding: 20px 0 0; }
+        #page #detail .content a            { padding: 20px 0 0; }
+        #page #detail .content .badge       { display: block; background: #428BCA; margin-top: 10px; font-size: 16px; border-radius: 0px 0px 10px 10px; }
+
+        #page #detail .content li.btn-warning a,
+        #page #detail .content li.btn-warning a:hover,
+        #page #detail .content li.btn-warning:hover,
+        #page #detail .content li.btn-warning .badge        { background-color: #F0AD4E; border-color: #EEA236; color: #FFFFFF; }
+
+        #page #detail .content li.btn-danger a,
+        #page #detail .content li.btn-danger a:hover,
+        #page #detail .content li.btn-danger:hover,
+        #page #detail .content li.btn-danger .badge         { background-color: #D9534F; border-color: #D43F3A; color: #FFFFFF; }
+
+        #page #detail .content .item        { margin-bottom: 30px; }
+        #page #detail .content .left        { float: left; margin-right: 45px; }
+        #page #detail .content .right       { float: left; }
+
+        #page #detail .progress             { height: 30px; }
+        
+        #page #detail h2                    { float: left; }
+        #page #detail .btn-group            { float: right; margin-top: 20px; }
+        #page #detail .head                 { margin-bottom: 10px; }
+        #page #detail .commnets             { font-size: 16px; }
+
+        #page .row-line                     {  }
+
+        #page .search                       { margin: 30px; text-align: center; }
+        #page .search input                 { width: 400px; border-radius:5px; font-size: 18px; padding: 4px; border: 2px solid #ccc; box-shadow: 3px 3px 5px #ccc; margin: 0 auto; text-align: left; }
