@@ -25,7 +25,7 @@ body {
 h1 {  
   font-size: 3.375em;
   color: #504342;
-  font-weight: bold;
+  font-weight: normal;
   line-height: 1em;
   margin: 1em 0;
 }
@@ -33,7 +33,7 @@ h1 {
 h2 {  
   font-size: 2.25em;
   color: #504342;
-  font-weight: bold;
+  font-weight: normal;
   line-height: 1em;
   margin: 1em 0;
 }
@@ -41,7 +41,7 @@ h2 {
 h3 {  
   font-size: 1.5em;
   color: #504342;
-  font-weight: bold;
+  font-weight: normal;
   line-height: 1em;
   margin: 1em 0;
 }
@@ -124,6 +124,24 @@ article.page .entry-content p {
   padding-right: 40px;
 }
 
+#actionButtons {
+  clear: both;
+  text-align: center;
+  padding: 20px;
+  margin: 0 auto 1.5em;
+}
+#actionButtons a {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 20px 20px;
+  background: #4CB63D;
+  color: #fff;
+  border-radius: 10px;
+}
+#actionButtons a:hover {
+  background: #997653;
+}
+
 
 /* -------- Hlavicka -------- */
 #mainLogo {
@@ -131,7 +149,7 @@ article.page .entry-content p {
   padding-bottom: 20px;
   padding-top: 20px;
   text-align: center;
-  z-index: 1;
+  z-index: 3;
 }
 #mainLogo img {
   width: 150px;
@@ -162,9 +180,10 @@ article.page .entry-content p {
   margin: 0px;
   border: none;
   overflow: hidden;
-  /* breakpoint pro velke rozliseni */
+  /* zarazka pro velke rozliseni */
   max-width: 2200px;
 }
+
 #wideslider ul li {
   position: relative;
   max-height: 380px;
@@ -310,6 +329,7 @@ article.page .entry-content p {
   padding: 0 100px 0px;
   text-align: center;
 }
+
 #mainPage #actions {
   text-align: center;
   padding: 20px;
@@ -817,9 +837,25 @@ article.page .entry-content p {
 }
 
 
+.articleType1 { text-align: left; }
+.articleType1 .block { clear: both; margin-bottom: 1em; }
+.articleType1 img { float: left; margin-right: 20px; }
+.articleType1 p { 
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+
 /* -------- Wordpress hacks :) -------- */
 #post-9 {
   margin: -40px 0 0 0;
 }
+
+.flexslider { position: relative; }
+.flexslider .slides { margin: 0; }
+.flexslider .slides > li {max-height: 600px;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img { position: relative; top: -170px; width: 100%; display: block; /*max-width: 1500px;*/ margin: 0 auto; z-index: 2; }
+.flexslider .slides img.blur { position: absolute; top: -170px; left: 0px; width: 100%; display: block; /*max-width: 1500px;*/ margin: 0 auto; z-index: 1;}
+
 
 

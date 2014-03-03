@@ -13,6 +13,7 @@ jQuery(document).ready(function() {
   jQuery('#wideslider').flexslider({
     animation: "slide"
   });
+
 	 
 /* Banner claaass */
 

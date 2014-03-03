@@ -43,6 +43,7 @@
 
 <script type='text/javascript' src='http://bwindiweb.petrsiller.cz/wp-includes/js/lightbox/lightbox.js'></script>
 <link rel='stylesheet' href='http://bwindiweb.petrsiller.cz/wp-includes/css/lightbox.css' type='text/css' media='all' />
+<script src="<?php echo get_template_directory_uri(); ?>/js/theme.js" type="text/javascript"></script>
 
 </head>
 
@@ -68,10 +69,15 @@
 	<div id="wideslider" class="flexslider">
 		<ul class="slides">
 		    <li>
-		      <img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/mainPhoto1.jpg" alt="" />
+		      <img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/mainPhoto1.jpg" alt="" id="headerPhoto"/>
+		      <img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/mainPhoto1Blur.jpg" alt="" class="blur" />
 		    </li>
   		</ul>
 	</div>
+	<script type="text/javascript">
+		var headerBlur = new headerBlur();
+		headerBlur.init();
+	</script>
 	<?php endif; ?>
 
 	<nav role="navigation" class="site-navigation main-navigation">
