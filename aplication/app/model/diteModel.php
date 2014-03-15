@@ -23,7 +23,7 @@ class DiteModel extends Model
 
 		*/
 		$this->getDb()->query('DROP VIEW if exists detiPohled');
-    	$this->getDb()->query('CREATE VIEW detiPohled as SELECT d.*, s.jmeno AS jmenoSponzor, sk.nazev AS skolaNazev, sk.idSkola AS skolaId FROM dite AS d LEFT JOIN (sponzor AS s, relaceditesponzor AS r) ON (d.idDite = r.diteIdDite AND r.sponzorIdSponzor = s.idSponzor) LEFT JOIN (skola as sk) ON (d.skolaIdSkola = idSkola) GROUP BY d.idDite ORDER BY d.jmeno');
+    	$this->getDb()->query('CREATE VIEW detiPohled as SELECT d.*, s.jmeno AS jmenoSponzor, sk.nazev AS skolaNazev, sk.idSkola AS skolaId FROM dite AS d LEFT JOIN (sponzor AS s, relaceditesponzor AS r) ON (r.aktivniZaznam = 1 AND d.idDite = r.diteIdDite AND r.sponzorIdSponzor = s.idSponzor) LEFT JOIN (skola as sk) ON (d.skolaIdSkola = idSkola) GROUP BY d.idDite ORDER BY d.jmeno');
 		//return $this->getDb()->table('detiPohled');
 		return $this->getDb()->table('detiPohled')->where($filter);
 	}
@@ -31,7 +31,7 @@ class DiteModel extends Model
 	//metoda, ktera zobrazuje adoptovane deti
 	public function zobrazAdoptovaneDeti($search)
 	{
-    	return $this->db->fetchAll('SELECT * FROM relaceditesponzor AS r , dite AS d WHERE d.aktivniZaznam = 1 AND d.vystavene = 1 AND r.diteIdDite = d.idDite  AND d.jmeno LIKE ("%'.$search.'%") GROUP BY d.idDite ORDER BY d.jmeno');
+    	return $this->db->fetchAll('SELECT * FROM relaceditesponzor AS r , dite AS d WHERE d.aktivniZaznam = 1 AND r.aktivniZaznam = 1 AND d.vystavene = 1 AND r.diteIdDite = d.idDite  AND d.jmeno LIKE ("%'.$search.'%") GROUP BY d.idDite ORDER BY d.jmeno');
 
 	}
 
@@ -314,7 +314,7 @@ class DiteModel extends Model
 
   	public function zobrazDetiKAdopci($search)
   	{
-  		return $this->db->fetchAll('SELECT * FROM dite as d LEFT JOIN relaceditesponzor as r ON r.diteIdDite = d.idDite WHERE d.aktivniZaznam = 1 AND d.vystavene = 1 AND r.diteIdDite IS NULL ORDER BY d.jmeno');
+  		return $this->db->fetchAll('SELECT * FROM dite as d LEFT JOIN relaceditesponzor as r ON r.diteIdDite = d.idDite WHERE d.aktivniZaznam = 1 AND d.vystavene = 1 AND (r.diteIdDite IS NULL OR r.aktivniZaznam = 0) ORDER BY d.jmeno');
   	}
 	
 	public function codeToMessage($code)
