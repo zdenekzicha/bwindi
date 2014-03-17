@@ -45,9 +45,9 @@
 
 	<div class="teamMember">
 		<div class="bubble"><img alt="" src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/kontakty/marek.jpg" /></div>
-		<h3>Marek Vacek</h3>
-		<div class="title">Správce webu</div>
-		<a href="mailto:mara@bwindiorphans.org">michal@bwindiorphans.org</a>
+		<h3>Medard Ashaba</h3>
+		<div class="title">asistent Bwindi</div>
+		<a href="mailto:mara@bwindiorphans.org">medardashaba@yahoo.com</a>
 	</div>
 
 	<div class="teamMember">
