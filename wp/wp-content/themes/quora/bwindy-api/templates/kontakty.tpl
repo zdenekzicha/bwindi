@@ -44,7 +44,7 @@
 	</div>
 
 	<div class="teamMember">
-		<div class="bubble"><img alt="" src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/kontakty/marek.jpg" /></div>
+		<div class="bubble"><img alt="" src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/kontakty/medard.jpg" /></div>
 		<h3>Medard Ashaba</h3>
 		<div class="title">asistent Bwindi</div>
 		<a href="mailto:mara@bwindiorphans.org">medardashaba@yahoo.com</a>
@@ -53,14 +53,14 @@
 	<div class="teamMember">
 		<div class="bubble"><img alt="" src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/kontakty/herbert.jpg" /></div>
 		<h3>Herbert Niwagaba</h3>
-		<div class="title">sponsorship cordinator Bwindi</div>
+		<div class="title">sponsorship coordinator Bwindi</div>
 		<a href="mailto:herbniwagaba@googlemail.com">herbniwagaba@googlemail.com</a>
 	</div>
 
 	<div class="teamMember">
 		<div class="bubble"><img alt="" src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/kontakty/moses.jpg" /></div>
 		<h3>Moses Abenyan</h3>
-		<div class="title">sponsorship cordinator Soroti</div>
+		<div class="title">sponsorship coordinator Soroti</div>
 		<a href="mailto:abenyanmoses@gmail.com">abenyanmoses@gmail.com</a>
 	</div>
 </div>
