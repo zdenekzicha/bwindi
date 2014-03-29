@@ -11,7 +11,7 @@
 
 	</div><!-- #main .site-main -->
 	<?php if (is_front_page()) : ?>
-		<div id="bottom">		
+		<div id="bottom">
 			<div class="container_12 cf">
 				<?php if ( !function_exists('dynamic_sidebar')
 				        || !dynamic_sidebar("Footer") ) : ?>  

@@ -46,6 +46,14 @@ h3 {
   margin: 1em 0;
 }
 
+h4 {  
+  font-size: 1.2em;
+  color: #504342;
+  font-weight: normal;
+  line-height: 1em;
+  margin: 1em 0;
+}
+
 p {
   color: #666;
   line-height: 1.5em;
@@ -266,9 +274,10 @@ article.page .entry-content p {
   padding: 0px;
 }
 #bottom h3.bothead {
-  margin: 1.5em 0 0.5em;
+  max-width: 800px;
+  margin: 1.5em auto 0.5em;
   font-weight: normal;
-  text-align: center;
+  text-align: left;
   color: #818181;
 }
 #bottom .botwid {
@@ -280,7 +289,6 @@ article.page .entry-content p {
 }
 #bottom .botwid ul {
   list-style-type: none;
-  text-align: center;
 }
 #bottom .botwid ul li {
   display: block;
@@ -288,18 +296,25 @@ article.page .entry-content p {
   margin: 0;
   border-top: 1px dotted #ccc;
 }
-#bottom .botwid ul li .post-date {
-  position: absolute;
-  width: 100%;
-  font-size: 0.8em;
-  bottom: 1em;
+
+#bottom .botwid ul li .wrapper {
   display: block;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#bottom .botwid ul li h3 {
+  margin: 1em 0 0.5em;
+}
+
+#bottom .botwid ul li .post-date {
+  display: block;
+  font-size: 0.8em;
   color: #818181;
 }
 
 #bottom .botwid ul li a {
   display: block;
-  font-size: 2.25em;
   line-height: 1em;
   padding: 1em 0;
   text-decoration: none;
@@ -308,10 +323,9 @@ article.page .entry-content p {
   color: #504342;
   background: #eadec5;
 }
+
 #bottom .botwid p {
-  padding: 5px 0px;
-  margin: 0;
-  line-height: 150%;
+  text-align: left;
 }
 /* -------- Hlavní stránka -------- */
 #primary h1 {
@@ -814,27 +828,31 @@ article.page .entry-content p {
   display: none;
 }
 
-.category-aktuality .entry-header h1 {
-  font-size: 2.25em;
-  line-height: 1em;
-  margin: 0;
-  font-weight: normal;
-  border-bottom: 1px dotted #ccc;
-}
-
-.category-aktuality .entry-header h1:last-child {
-  border: 0px;
+.category-aktuality .entry-header h2 {
+  text-align: left;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.3em;
 }
 
 .category-aktuality .entry-header a {
   display: block;
   text-decoration: none;
   padding: 1em 0;
+  border-top: 1px dotted #ccc;
 }
 
 .category-aktuality .entry-header a:hover {
   color: #504342;
   background: #eadec5;
+}
+
+.category-aktuality .entry-header .post-date {
+  display: block;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #818181;
 }
 
 

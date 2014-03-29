@@ -8,6 +8,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?>>
 <div class="wrap">
 
+		<!--
 		<div class="post-img">
 				<?php
 					$thumb = get_post_thumbnail_id();
@@ -19,16 +20,23 @@
 					<a href="<?php the_permalink(); ?>"><img src="<?php echo $image ?>"/></a>
 				<?php endif; ?>
 		</div>
+		-->
 
 	<header class="entry-header">
-		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'web2feel' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+		<a href="<?php the_permalink(); ?>" rel="bookmark">
+			<h2 class="entry-title">
+				<?php the_title(); ?>
+			</h2>
+			<span class="post-date"><?php echo get_the_date(); ?></span>
+			<span class="perex"><?php the_excerpt(); ?></span>
+		</a>
 
 		<?php if ( 'post' == get_post_type() ) : ?>
-		<div class="entry-meta">
-			<span class="user"> <i class="icon-user"></i> <?php the_author_posts_link(); ?></span>
-			<span class="date"> <i class="icon-calendar"></i> <?php the_time('l, F jS, Y') ?></span>
-			<span class="comment"> <i class="icon-comment"></i> <?php comments_popup_link( __( 'Leave a comment', 'web2feel' ), __( '1 Comment', 'web2feel' ), __( '% Comments', 'web2feel' ) ); ?></span>
-		</div><!-- .entry-meta -->
+			<div class="entry-meta">
+				<span class="user"> <i class="icon-user"></i> <?php the_author_posts_link(); ?></span>
+				<span class="date"> <i class="icon-calendar"></i> <?php the_time('l, F jS, Y') ?></span>
+				<span class="comment"> <i class="icon-comment"></i> <?php comments_popup_link( __( 'Leave a comment', 'web2feel' ), __( '1 Comment', 'web2feel' ), __( '% Comments', 'web2feel' ) ); ?></span>
+			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
