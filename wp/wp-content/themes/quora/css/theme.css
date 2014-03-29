@@ -42,7 +42,7 @@ h3 {
   font-size: 1.5em;
   color: #504342;
   font-weight: normal;
-  line-height: 1em;
+  line-height: 1.5em;
   margin: 1em 0;
 }
 
@@ -82,8 +82,31 @@ p.perex {
   font-size: 1.5em;
 }
 
+#actions {
+  text-align: center;
+  padding: 20px;
+  margin: 0 auto 1.5em;
+}
+#actions a {
+  margin: 0 10px;
+  padding: 20px 20px;
+  background: #4CB63D;
+  color: #fff;
+  border-radius: 10px;
+}
+#actions a:hover {
+  background: #997653;
+}
+
 .edit-link {
   display: none;
+}
+
+.cite {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  font-family: georgia;
+  font-style: italic;
 }
 
 .bubble {
@@ -124,13 +147,8 @@ p.perex {
 }
 
 article.page .entry-content {
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
-}
-
-article.page .entry-content p {
-  padding-left: 40px;
-  padding-right: 40px;
 }
 
 #actionButtons {
@@ -341,25 +359,9 @@ article.page .entry-content p {
   margin: 20px 20px 10px;
 }
 #mainPage p {
-  padding: 0 100px 0px;
   text-align: center;
 }
 
-#mainPage #actions {
-  text-align: center;
-  padding: 20px;
-  margin: 0 auto 1.5em;
-}
-#mainPage #actions a {
-  margin: 0 10px;
-  padding: 20px 20px;
-  background: #4CB63D;
-  color: #fff;
-  border-radius: 10px;
-}
-#mainPage #actions a:hover {
-  background: #997653;
-}
 /* -------- Blog post -------- */
 .single-post p {
   line-height: 1.6;
@@ -607,9 +609,21 @@ article.page .entry-content p {
 
 
 /* -------- Ostatní textové stránky -------- */
+.entry-content {
+  padding-bottom: 40px;
+}
 .entry-content ul {
-  margin: 0 0 10px 0;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  margin-left: 20px;
+  margin-right: 20px;
   list-style-type: none;
+}
+
+.entry-content ul li {
+  line-height: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .entry-content .wide {
@@ -868,8 +882,9 @@ article.page .entry-content p {
 
 
 .articleType1 { text-align: left; }
-.articleType1 .block { clear: both; margin-bottom: 1em; }
-.articleType1 img { float: left; margin-right: 20px; }
+.articleType1 .block { clear: both; margin-bottom: 3em; }
+.articleType1 img { float: left; margin-right: 20px; margin-bottom: 10px; }
+.articleType1 img.right { float: right; margin-left: 20px; margin-right: 0; }
 .articleType1 p { 
   padding-left: 0px !important;
   padding-right: 0px !important;
