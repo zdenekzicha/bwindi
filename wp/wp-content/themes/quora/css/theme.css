@@ -747,6 +747,17 @@ article.page .entry-content p {
   font-size: 17px
 }
 
+#childrens #searchForm button {
+  background: #4cb63d;
+  color: #fff;
+  border: 0;
+  padding: 8px 12px;
+  position: relative;
+  left: -9px;
+  font-size: 1em;
+  border-radius: 0 5px 5px 0;
+}
+
 #childrens h3.notice { font-weight: normal; text-align: center; }
 
 #childrens .showMoreChildren {

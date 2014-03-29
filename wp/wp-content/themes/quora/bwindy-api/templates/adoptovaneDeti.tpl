@@ -3,6 +3,7 @@
 	<div id="searchForm" style="text-align:center; margin-bottom:20px;">
 		<form action="/" method="get">
 			<input type="text" name="search" placeholder="vyhledat dítě" value="{$search}"/>
+			<button type="submit">Vyhledat</button>
 			<input type="hidden" name="page_id" value="94" />
 		</form>
 	</div>
