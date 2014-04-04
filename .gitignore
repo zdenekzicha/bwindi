@@ -1,4 +1,4 @@
 aplication/temp/cache/*
 aplication\temp\cache\*
 
-aplication/wp/sftp-config.json
+wp/sftp-config.json
