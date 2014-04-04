@@ -283,6 +283,12 @@ article.page .entry-content {
   display: inline;
   padding: 17px;
 }
+
+.home .sf-menu li {
+  font-size: 1.2em;
+}
+
+
 /* -------- Blog archiv na hp -------- */
 #bottom {
   padding: 0px;
@@ -746,9 +752,10 @@ article.page .entry-content {
 
 /* -------- Výpis dětí -------- */
 #childrens {
-  max-width: 880px;
+  max-width: 900px;
   margin: 0 auto 60px;
   padding: 0 0 30px 0;
+  text-align: center;
 }
 
 #childrens #searchForm {
@@ -788,7 +795,7 @@ article.page .entry-content {
   text-align: center;
 }
 #childrens .children {
-  float: left;
+  display: inline-block;
   width: 200px;
   margin: 10px;
 }

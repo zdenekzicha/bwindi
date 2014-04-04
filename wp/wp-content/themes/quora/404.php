@@ -14,11 +14,11 @@ get_header(); ?>
 			<article id="post-0" class="post error404 not-found">
 			<div class="wrap">
 				<header class="entry-header">
-					<h1 class="entry-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'web2feel' ); ?></h1>
+					<h1 class="entry-title">Oops! Stránku jsem nenašli :(</h1>
 				</header><!-- .entry-header -->
 
 				<div class="entry-content">
-					<p style="text-align:center;"><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'web2feel' ); ?></p>
+					<p style="text-align:center;">Vypadá to, že stránka na této adrese neexistuje. Můžete zkusti zadat jinou, nebo přejít na <a href="/">hlavní stránku</a></p>
 
 	
 
