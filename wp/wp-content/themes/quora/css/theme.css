@@ -1,64 +1,80 @@
-/*
-@import url(http://fonts.googleapis.com/css?family=Lato:400,700,900);
-@import url(http://fonts.googleapis.com/css?family=Bitter:400,700);
-*/
-
 /* -------- Obecné styly -------- */
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,p,blockquote,th,td {  
-  margin:0; 
-  padding:0; 
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
 }
-
-html, body {
+html,
+body {
   height: 100%;
 }
-
 body {
   background: #f4ebd3;
   font-size: 17px;
   font-family: Helvetica, Lato, Arial, sans-serif;
 }
-
-.group:after                  {clear:both; content:"."; display:block; height:0; visibility:hidden; }
-* html .group                 {height:1%; }
-
-h1 {  
+.group:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+* html .group {
+  height: 1%;
+}
+h1 {
   font-size: 3.375em;
   color: #504342;
   font-weight: normal;
   line-height: 1em;
   margin: 1em 0;
 }
-
-h2 {  
+h2 {
   font-size: 2.25em;
   color: #504342;
   font-weight: normal;
   line-height: 1em;
   margin: 1em 0;
 }
-
-h3 {  
+h3 {
   font-size: 1.5em;
   color: #504342;
   font-weight: normal;
   line-height: 1.5em;
   margin: 1em 0;
 }
-
-h4 {  
+h4 {
   font-size: 1.2em;
   color: #504342;
   font-weight: normal;
   line-height: 1em;
   margin: 1em 0;
 }
-
 p {
   color: #666;
   line-height: 1.5em;
   margin-top: 1.5em;
-  margin-bottom: 1.5em; 
+  margin-bottom: 1.5em;
 }
 a {
   color: #4CB63D;
@@ -69,19 +85,15 @@ a:link {
 a:visited {
   color: #4CB63D;
 }
-
-ul { 
+ul {
   margin: 1em 0;
 }
-
-li { 
+li {
   line-height: 1.5em;
 }
-
 p.perex {
   font-size: 1.5em;
 }
-
 #actions {
   text-align: center;
   padding: 20px;
@@ -97,18 +109,15 @@ p.perex {
 #actions a:hover {
   background: #997653;
 }
-
 .edit-link {
   display: none;
 }
-
 .cite {
   font-size: 1.2em;
   line-height: 1.2em;
   font-family: georgia;
   font-style: italic;
 }
-
 .bubble {
   border-radius: 50%;
   border-width: 6px;
@@ -116,41 +125,30 @@ p.perex {
   border-color: #ede1cb;
   overflow: hidden;
 }
-
+.bubble img {
+  position: relative;
+  top: -16px;
+  width: 100%;
+}
 .bubble.male {
   border-color: #b2c1da;
 }
 .bubble.female {
   border-color: #e6b5b6;
 }
-
-.bubble img {
-  position: relative;
-  top: -16px;
-  width: 100%;
-}
-
 #page {
   min-height: 100%;
-  /* stejny jako vyska paticky */
   margin-bottom: -140px;
 }
-
 #page:after {
   content: "";
   display: block;
+  height: 140px;
 }
-
-#page:after {
-  /* .push must be the same height as footer */
-  height: 140px; 
-}
-
 article.page .entry-content {
   max-width: 700px;
   margin: 0 auto;
 }
-
 #actionButtons {
   clear: both;
   text-align: center;
@@ -168,9 +166,6 @@ article.page .entry-content {
 #actionButtons a:hover {
   background: #997653;
 }
-
-
-/* -------- Hlavicka -------- */
 #mainLogo {
   width: 100%;
   padding-bottom: 20px;
@@ -189,42 +184,49 @@ article.page .entry-content {
 .home #mainLogo img {
   width: 200px;
 }
-
 .home .entry-content {
   width: auto;
 }
-
 .home .perex {
   text-align: center;
 }
-
+.home .main-navigation {
+  height: auto;
+  margin: 0 auto 0;
+}
+.home .sf-menu li {
+  font-size: 1.2em;
+}
 #masthead {
   border-top: 0px !important;
 }
-/* -------- Banner na hlavní stránce -------- */
 #wideslider {
   padding: 0px;
   margin: 0px;
   border: none;
   overflow: hidden;
-  /* zarazka pro velke rozliseni */
   max-width: 2200px;
 }
-
 #wideslider ul li {
   position: relative;
   max-height: 380px;
   background: none;
 }
-
-@media all and (min-width:1400px) {
-   #wideslider ul li { max-height: 500px; }
-   flexslider .slides img { top: -480px; } 
+@media (min-width: 1400px) {
+  #wideslider ul li {
+    max-height: 500px;
+  }
+  flexslider .slides img {
+    top: -480px;
+  }
 }
-
-@media all and (min-width:1600px) {
-  #wideslider ul li { max-height: 500px; }
-  .flexslider .slides img { top: -380px; } 
+@media (min-width: 1600px) {
+  #wideslider ul li {
+    max-height: 500px;
+  }
+  .flexslider .slides img {
+    top: -380px;
+  }
 }
 /* -------- Navigace -------- */
 .main-navigation {
@@ -236,7 +238,6 @@ article.page .entry-content {
 .main-navigation .sf-menu li {
   border-bottom: 1px dotted #ccc;
 }
-
 .main-navigation .sub-menu {
   display: none;
   position: absolute;
@@ -247,32 +248,20 @@ article.page .entry-content {
   padding-bottom: 20px;
   border-bottom: 1px dotted #ccc;
 }
-
 .main-navigation .sub-menu li {
   border-bottom: 0px;
-¨}
-
-.main-navigation .current-menu-item .sub-menu {
-  display: inline;
 }
 .main-navigation .current-menu-item .sub-menu {
   display: inline;
+}
+.main-navigation .current-menu-item a {
+  color: #997653;
+}
+.main-navigation .current-menu-item ul a {
+  color: #4cb63d;
 }
 .main-navigation .current-menu-ancestor .sub-menu {
   display: inline;
-}
-
-.main-navigation .current-menu-item a{
-  color: #997653;
-}
-
-.main-navigation .current-menu-item ul a{
-  color: #4cb63d;
-}
-
-.home .main-navigation {
-  height: auto;
-  margin: 0 auto 0;
 }
 .sf-menu {
   text-align: center;
@@ -283,13 +272,6 @@ article.page .entry-content {
   display: inline;
   padding: 17px;
 }
-
-.home .sf-menu li {
-  font-size: 1.2em;
-}
-
-
-/* -------- Blog archiv na hp -------- */
 #bottom {
   padding: 0px;
 }
@@ -320,23 +302,19 @@ article.page .entry-content {
   margin: 0;
   border-top: 1px dotted #ccc;
 }
-
 #bottom .botwid ul li .wrapper {
   display: block;
   max-width: 800px;
   margin: 0 auto;
 }
-
 #bottom .botwid ul li h3 {
   margin: 1em 0 0.5em;
 }
-
 #bottom .botwid ul li .post-date {
   display: block;
   font-size: 0.8em;
   color: #818181;
 }
-
 #bottom .botwid ul li a {
   display: block;
   line-height: 1em;
@@ -347,15 +325,12 @@ article.page .entry-content {
   color: #504342;
   background: #eadec5;
 }
-
 #bottom .botwid p {
   text-align: left;
 }
-/* -------- Hlavní stránka -------- */
 #primary h1 {
   text-align: center;
 }
-
 #mainPage {
   max-width: 1000px;
   margin: 0 auto;
@@ -367,8 +342,6 @@ article.page .entry-content {
 #mainPage p {
   text-align: center;
 }
-
-/* -------- Blog post -------- */
 .single-post p {
   line-height: 1.6;
 }
@@ -376,20 +349,15 @@ article.page .entry-content {
   width: 800px;
   margin: 0 auto;
 }
-.single-post .entry-content h1 {
-
-}
 .single-post #main {
   margin: -40px 0 0 0;
 }
-/* -------- Děkujeme za adopci -------- */
 #thanksForAdoption {
   width: 500px;
   margin: -40px auto 0;
   text-align: center;
   padding-bottom: 70px;
 }
-
 #thanksForAdoption p span {
   color: #707070;
 }
@@ -397,14 +365,11 @@ article.page .entry-content {
   display: block;
   padding-top: 10px;
 }
-
 #thanksForAdoption .bubble {
   width: 250px;
   height: 250px;
   margin: 0 auto;
 }
-
-/* -------- Profil dítěte -------- */
 .twoColumnsLayout {
   font-family: Lato, sans-serif;
   margin: -80px auto 0;
@@ -424,7 +389,6 @@ article.page .entry-content {
   float: left;
   width: 470px;
 }
-
 .twoColumnsLayout #left {
   float: left;
   width: 300px;
@@ -436,11 +400,6 @@ article.page .entry-content {
   width: 250px;
   border-bottom: 1px solid #ccc;
 }
-.twoColumnsLayout #left th,
-.twoColumnsLayout #left td {
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
 .twoColumnsLayout #left th {
   text-align: left;
   font-weight: normal;
@@ -448,19 +407,22 @@ article.page .entry-content {
 .twoColumnsLayout #left td {
   text-align: right;
 }
-.twoColumnsLayout #left tr:last-child th,
-.twoColumnsLayout #left #profile #left tr:last-child td {
-  border: none;
-}
 .twoColumnsLayout #left table {
   margin: 0 auto 20px;
   width: 250px;
 }
-
+.twoColumnsLayout #left th,
+.twoColumnsLayout #left td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.twoColumnsLayout #left tr:last-child th,
+.twoColumnsLayout #left #profile #left tr:last-child td {
+  border: none;
+}
 #profile #left p {
   text-align: center;
 }
-
 #profile a#helpMe:hover {
   background: #997653;
 }
@@ -534,17 +496,14 @@ article.page .entry-content {
   text-align: center;
   border-radius: 5px;
 }
-/* -------- Kontakty -------- */
 #contacts {
   margin: 0px auto 0;
   max-width: 900px;
 }
-
 #contacts .contactLink {
   font-size: 1.2em;
   text-align: center;
 }
-
 #contacts .teamMember {
   float: left;
   width: 280px;
@@ -561,35 +520,29 @@ article.page .entry-content {
 #contacts .teamMember p {
   margin: 0 0 1.5em 0;
 }
-
 #contacts .teamMember .bubble {
   width: 200px;
   margin: 0 auto;
   height: 200px;
 }
-
 #contacts .teamMember .bubble img {
   top: 0px;
 }
-
 #contacts .teamMember .title {
   margin-bottom: 5px;
   color: #997653;
 }
-
 #contactMap {
   clear: both;
   height: 585px;
   background: url(../images/map.jpg) center 0 no-repeat;
   border-top: 1px dotted #ccc;
 }
-
 #contactMap .content {
-  position:relative;
+  position: relative;
   max-width: 900px;
   margin: 0 auto;
 }
-
 #contactMap .content div {
   position: relative;
   top: 150px;
@@ -599,22 +552,17 @@ article.page .entry-content {
   padding: 0 0 25px 0.1em;
   background: #50c6d0;
 }
-
 #contactMap .content div ul {
   padding: 0 20px;
   color: #fff;
   margin: 0;
 }
-
 #contactMap h3 {
   padding: 1em 20px 0;
   color: #fff;
   font-weight: normal;
   margin: 0;
 }
-
-
-/* -------- Ostatní textové stránky -------- */
 .entry-content {
   padding-bottom: 40px;
 }
@@ -625,13 +573,11 @@ article.page .entry-content {
   margin-right: 20px;
   list-style-type: none;
 }
-
 .entry-content ul li {
   line-height: 1em;
   margin-top: 1em;
   margin-bottom: 1em;
 }
-
 .entry-content .wide {
   width: 100%;
 }
@@ -652,42 +598,28 @@ article.page .entry-content {
 .entry-content h2 {
   color: #504342;
 }
-/* -------- Sponzori v paticce -------- */
 #sponsors {
   clear: both;
   border: 1px dotted #ccc;
   text-align: center;
   height: 140px;
 }
-
 #sponsors div {
   padding: 20px 0 10px;
 }
-
 #sponsors img {
   padding: 0 10px;
 }
-/*
-.photo {
-    width: 250px;
-    height: 250px;
-    margin: 0 auto 20px;
-}
-*/
-/* -------- Formluar pro adopci -------- */
 #formAdoption {
   width: 750px;
   padding-bottom: 70px;
 }
-
 #formAdoption #left {
   text-align: center;
 }
-
 #formAdoption #right {
   width: 380px;
 }
-
 #formAdoption .errorMsg {
   display: none;
   padding: 5px 38px 0 5px;
@@ -739,35 +671,28 @@ article.page .entry-content {
   background: #fcf8f5;
   border-radius: 5px;
 }
-
 #formAdoption form p {
   margin: 0 0 0.5em 0;
 }
-
 #formAdoption .photo {
   width: 250px;
   height: 250px;
   margin: 0 auto 20px;
 }
-
-/* -------- Výpis dětí -------- */
 #childrens {
   max-width: 900px;
   margin: 0 auto 60px;
   padding: 0 0 30px 0;
   text-align: center;
 }
-
 #childrens #searchForm {
   padding-bottom: 1em;
 }
-
 #childrens #searchForm input {
   width: 400px;
   border-radius: 5px;
-  font-size: 17px
+  font-size: 17px;
 }
-
 #childrens #searchForm button {
   background: #4cb63d;
   color: #fff;
@@ -778,9 +703,10 @@ article.page .entry-content {
   font-size: 1em;
   border-radius: 0 5px 5px 0;
 }
-
-#childrens h3.notice { font-weight: normal; text-align: center; }
-
+#childrens h3.notice {
+  font-weight: normal;
+  text-align: center;
+}
 #childrens .showMoreChildren {
   clear: both;
   display: block;
@@ -802,7 +728,6 @@ article.page .entry-content {
 #childrens .children img {
   width: 200px;
   min-height: 200px;
-
 }
 #childrens .children .bubble {
   width: 200px;
@@ -810,7 +735,6 @@ article.page .entry-content {
   border-radius: 50%;
   overflow: hidden;
 }
-
 #childrens .children span {
   display: block;
   padding: 0 10px;
@@ -830,36 +754,23 @@ article.page .entry-content {
   margin: 0 auto;
   padding-bottom: 30px;
 }
-
-/* -------- Blog archiv :) -------- */
 .category-aktuality #main {
   margin: -40px 0 0 0;
 }
-
 .category-aktuality p {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
-
 .category-aktuality .entry-summary {
   display: none;
 }
-
-.category-aktuality .entry-meta,
-.category-aktuality .icon-user,
-.category-aktuality .comment {
-  display: none;
-}
-
 .category-aktuality .readmore {
   display: none;
 }
-
 .category-aktuality .post-img {
   display: none;
 }
-
 .category-aktuality .entry-header h2 {
   text-align: left;
   max-width: 800px;
@@ -867,47 +778,74 @@ article.page .entry-content {
   margin-right: auto;
   margin-bottom: 0.3em;
 }
-
 .category-aktuality .entry-header a {
   display: block;
   text-decoration: none;
   padding: 1em 0;
   border-top: 1px dotted #ccc;
 }
-
 .category-aktuality .entry-header a:hover {
   color: #504342;
   background: #eadec5;
 }
-
 .category-aktuality .entry-header .post-date {
   display: block;
   max-width: 800px;
   margin: 0 auto;
   color: #818181;
 }
-
-
-.articleType1 { text-align: left; }
-.articleType1 .block { clear: both; margin-bottom: 3em; }
-.articleType1 img { float: left; margin-right: 20px; margin-bottom: 10px; }
-.articleType1 img.right { float: right; margin-left: 20px; margin-right: 0; }
-.articleType1 p { 
+.category-aktuality .entry-meta,
+.category-aktuality .icon-user,
+.category-aktuality .comment {
+  display: none;
+}
+.articleType1 {
+  text-align: left;
+}
+.articleType1 .block {
+  clear: both;
+  margin-bottom: 3em;
+}
+.articleType1 img {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+.articleType1 img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right: 0;
+}
+.articleType1 p {
   padding-left: 0px !important;
   padding-right: 0px !important;
 }
-
-
-/* -------- Wordpress hacks :) -------- */
 #post-9 {
   margin: -40px 0 0 0;
 }
-
-.flexslider { position: relative; }
-.flexslider .slides { margin: 0; }
-.flexslider .slides > li {max-height: 600px;} /* Hide the slides before the JS is loaded. Avoids image jumping */
-.flexslider .slides img { position: relative; top: -170px; width: 100%; display: block; /*max-width: 1500px;*/ margin: 0 auto; z-index: 2; }
-.flexslider .slides img.blur { position: absolute; top: -170px; left: 0px; width: 100%; display: block; /*max-width: 1500px;*/ margin: 0 auto; z-index: 1;}
-
-
-
+.flexslider {
+  position: relative;
+}
+.flexslider .slides {
+  margin: 0;
+}
+.flexslider .slides > li {
+  max-height: 600px;
+}
+.flexslider .slides img {
+  position: relative;
+  top: -170px;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  z-index: 2;
+}
+.flexslider .slides img.blur {
+  position: absolute;
+  top: -170px;
+  left: 0px;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  z-index: 1;
+}
