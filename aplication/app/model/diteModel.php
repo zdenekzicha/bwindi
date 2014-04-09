@@ -35,9 +35,9 @@ class DiteModel extends Model
 
 	}
 
-	public function zobrazVsechnyDeti()
+	public function zobrazVsechnyDeti($order)
 	{
-    	return $this->getTable()->order("jmeno");
+    	return $this->getTable()->order($order);
 	}
 
 	public function zobrazDite($id)

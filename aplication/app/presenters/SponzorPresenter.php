@@ -75,7 +75,7 @@ class sponzorPresenter extends BasePresenter
 	protected function createComponentNovaAdopceForm()
 	{
  
-		$deti = $this->deti->zobrazVsechnyDeti();
+		$deti = $this->deti->zobrazVsechnyDeti("jmeno");
 		$detiSelect = array();
 
 		foreach ($deti as $key => $value) {
@@ -167,13 +167,6 @@ class sponzorPresenter extends BasePresenter
 
 	protected function createComponentNovySponzorForm()
 	{
- 
-		//$deti = $this->deti->zobrazVsechnyDeti();
-		//$detiSelect = array();
-
-		//foreach ($deti as $key => $value) {
-		//	$detiSelect[$value['idDite']] = $value['jmeno'];
-		//}
 		
 	    $form = new NAppForm;
 	    $form->addText('jmeno', 'Jméno:', 40, 255)->addRule(NAppForm::FILLED, 'Je nutné zadat jméno sponzora.');

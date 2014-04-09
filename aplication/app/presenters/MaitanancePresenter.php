@@ -15,7 +15,7 @@ class maitanancePresenter extends BasePresenter
 	}
 
 	public function actionUpdateProfilePhotoURL(){
-		$deti = $this->deti->zobrazVsechnyDeti();
+		$deti = $this->deti->zobrazVsechnyDeti("jmeno");
 
 		foreach ($deti as $item) {
 			$form['idDite'] = $item['idDite'];
@@ -31,7 +31,7 @@ class maitanancePresenter extends BasePresenter
 	}
 
 	public function actionUpdateTimelinePhotoURL(){
-		$deti = $this->deti->zobrazVsechnyDeti();
+		$deti = $this->deti->zobrazVsechnyDeti("jmeno");
 
 		foreach ($deti as $item) {
 			$timelineList = $this->deti->zobrazTimeline($item['idDite']);

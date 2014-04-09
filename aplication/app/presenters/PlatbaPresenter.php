@@ -101,7 +101,7 @@ class platbaPresenter extends BasePresenter
 	protected function createComponentNovaPlatbaForm()
 	{
  
-		$deti = $this->dite->zobrazVsechnyDeti();
+		$deti = $this->dite->zobrazVsechnyDeti("vsym");
 		$detiSelect = array();
 
 		foreach ($deti as $key => $value) {

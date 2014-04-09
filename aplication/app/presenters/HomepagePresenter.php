@@ -128,7 +128,7 @@ class homepagePresenter extends BasePresenter
 	protected function createComponentNovySourozenecForm()
 	{
  
-		$deti = $this->deti->zobrazVsechnyDeti();
+		$deti = $this->deti->zobrazVsechnyDeti("jmeno");
 		$detiSelect = array();
 
 		foreach ($deti as $key => $value) {
