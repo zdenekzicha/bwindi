@@ -314,8 +314,7 @@ class DiteModel extends Model
 
   	public function zobrazDetiKAdopci($search)
   	{
-  		return $this->db->fetchAll('SELECT * FROM dite as d LEFT JOIN relaceditesponzor as r ON r.diteIdDite = d.idDite WHERE d.aktivniZaznam = 1 AND d.vystavene = 1 AND (r.diteIdDite IS NULL OR r.aktivniZaznam = 0) ORDER BY d.jmeno');
-  	}
+  		return $this->db->fetchAll('SELECT * FROM dite as d LEFT JOIN relaceditesponzor as r ON r.diteIdDite = d.idDite WHERE d.idDite NOT IN (SELECT diteIdDite FROM relaceditesponzor WHERE aktivniZaznam = 1 ) AND d.aktivniZaznam = 1 AND d.vystavene = 1 '); }
 	
 	public function codeToMessage($code)
     {
