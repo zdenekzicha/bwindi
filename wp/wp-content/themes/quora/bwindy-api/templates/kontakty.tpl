@@ -21,7 +21,7 @@
 	</div>
 
 	<div class="teamMember">
-		<div class="bubble"><img alt="" src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/kontakty/moses.jpg" /></div>
+		<div class="bubble"><img alt="" src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/kontakty/ludmila.jpg" /></div>
 		<h3>Ludmila Tuzová</h3>
 		<div class="title">správní rada</div>
 		<a href="mailto:ludmila@bwindiorphans.org">ludmila@bwindiorphans.com</a>
