@@ -58,6 +58,22 @@ p {
     line-height: 1.5em;
     margin-top: 1.5em;
     margin-bottom: 1.5em;
+
+    img {
+        max-width: 100%;
+    }
+}
+
+img {
+    &.right {
+        float: right;
+        margin-left: 20px;
+    }
+
+    &.left {
+        float: left;
+        margin-right: 20px;
+    }
 }
 
 .fullsize { width: 100%; } 
@@ -80,6 +96,7 @@ li {
 p.perex {
     font-size: 1.5em;
 }
+
 #actions {
     text-align: center;
     padding: 20px;
