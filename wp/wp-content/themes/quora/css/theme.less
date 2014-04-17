@@ -30,7 +30,7 @@ h1 {
     color: #504342;
     font-weight: normal;
     line-height: 1em;
-    margin: 1em 0;
+    margin: 0.5em 0 1em;
 }
 h2 {
     font-size: 2.25em;
@@ -218,11 +218,11 @@ article.page {
 .main-navigation {
     position: relative;
     max-width: 1000px;
-    height: 120px;
     margin: 0 auto;
     .sf-menu {
         li {
             border-bottom: 1px dotted #ccc;
+            margin-right: -4px;
         }
     }
     .sub-menu {
@@ -232,7 +232,6 @@ article.page {
         top: 80px;
         width: 100%;
         margin: 0;
-        padding-bottom: 20px;
         border-bottom: 1px dotted #ccc;
         li {
             border-bottom: 0px;
@@ -263,8 +262,13 @@ article.page {
     padding: 20px 0;
     margin: 0;
     li {
-        display: inline;
+        display: inline-block;
         padding: 17px;
+
+        &.current-menu-item.menu-item-has-children,
+        &.current-menu-parent.menu-item-has-children {
+            margin-bottom: 60px;
+        }
     }
 }
 #bottom {
