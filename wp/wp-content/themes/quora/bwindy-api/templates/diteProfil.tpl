@@ -50,6 +50,12 @@
 					{/if}
 				{/if}
 			</p>
+			{if $dite.vs != ''}
+				<p>
+					Číslo účtu: 210764965/0300<br/>
+					Vs:{$dite.vs}
+				</p>
+			{/if}
 			<p>{$dite.bio|nl2br}</p>
 
 			<div id="timeline">
