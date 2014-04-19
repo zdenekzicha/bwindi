@@ -159,6 +159,11 @@ class DiteModel extends Model
 
     }
 
+    public function zobrazMaximalniVsym()
+    {
+        return $this->getTable()->max('vsym');
+    }
+
 	public function vytvorDite($form)
   	{			
   	

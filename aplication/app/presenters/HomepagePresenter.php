@@ -88,6 +88,8 @@ class homepagePresenter extends BasePresenter
 
      	$form->addHidden('idDite')->setValue($id);
 
+     	$this->template->maxVsym = $this->sponzori->zobrazMaximalniVsym();
+
 	    $form["create"]->caption = 'Editovat dítě';
 		$form->onSuccess = array(array($this, 'editDiteFormSubmitted')); // nové nastavení
 
@@ -95,6 +97,12 @@ class homepagePresenter extends BasePresenter
 		$this->setView('noveDite');
 
 
+	}
+
+	public function actionNoveDite(){
+		$form = $this->getComponent('noveDiteForm');
+		$this->template->maxVsym = $this->deti->zobrazMaximalniVsym();
+		$this->setView('noveDite');
 	}
 
 	public function actionSmazat($id)
