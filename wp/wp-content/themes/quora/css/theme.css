@@ -91,6 +91,27 @@ ul {
 li {
   line-height: 1.5em;
 }
+.entry-content .block {
+  clear: both;
+  margin-bottom: 3em;
+}
+.entry-content img {
+  max-width: 100%;
+}
+.entry-content img.left {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+.entry-content img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right: 0;
+}
+.entry-content p {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
 p.perex {
   font-size: 1.5em;
 }
@@ -818,27 +839,6 @@ article.page .entry-content {
 .category-aktuality .icon-user,
 .category-aktuality .comment {
   display: none;
-}
-.articleType1 {
-  text-align: left;
-}
-.articleType1 .block {
-  clear: both;
-  margin-bottom: 3em;
-}
-.articleType1 img {
-  float: left;
-  margin-right: 20px;
-  margin-bottom: 10px;
-}
-.articleType1 img.right {
-  float: right;
-  margin-left: 20px;
-  margin-right: 0;
-}
-.articleType1 p {
-  padding-left: 0px !important;
-  padding-right: 0px !important;
 }
 #post-9 {
   margin: -40px 0 0 0;
