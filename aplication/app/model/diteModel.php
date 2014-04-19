@@ -47,7 +47,7 @@ class DiteModel extends Model
 
 	public function existujeSponzor($id)
 	{
-		return $this->db->fetchAll('SELECT idRelaceDiteSponzor FROM  relaceditesponzor WHERE diteIdDite ='.$id.' and aktivniZaznam = 1');
+		return $this->db->fetchAll('SELECT idRelaceDiteSponzor, sponzorIdSponzor FROM  relaceditesponzor WHERE diteIdDite ='.$id.' and aktivniZaznam = 1');
 	}
 
 	public function zobrazDiteApi($id)

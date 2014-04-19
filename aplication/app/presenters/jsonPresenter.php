@@ -7,11 +7,13 @@ class jsonPresenter extends BasePresenter
 {
 
 	private $deti;
+	private $sponzor;
 
 	protected function startup()
 	{
 	    parent::startup();
 	    $this->deti = $this->context->diteModel;
+	    $this->sponzor = $this->context->sponzorModel;
 	}
 
 	/*
@@ -100,11 +102,15 @@ class jsonPresenter extends BasePresenter
     			
 		// zjistime zda mame sponzora
 		$sponsor = false;
-		$sponsorData = $this->deti->existujeSponzor($id);
-		if($sponsorData) {
+		$isSponzor = $this->deti->existujeSponzor($id);
+		if($isSponzor) {
 			$sponsor = true;
+			$sponsorData = $this->sponzor->zobrazSponzora($isSponzor[0]['sponzorIdSponzor']);
+			$ssym = $sponsorData[$isSponzor[0]['sponzorIdSponzor']]['ssym'];
+		}else{
+			$ssym = 0;
 		}
-
+		
 		$list = $this->deti->zobrazDiteApi($id);
 		foreach ($list as $item) {
 
@@ -126,6 +132,7 @@ class jsonPresenter extends BasePresenter
 				"sponzor" => $sponsor,
 				"rezervovane" => $item['rezervovane'],
 				"vs" => $item['vsym'],
+				"ss" => $ssym
 			);
 		
         }     

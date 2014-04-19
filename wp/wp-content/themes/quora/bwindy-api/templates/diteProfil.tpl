@@ -54,6 +54,11 @@
 				<p>
 					Číslo účtu: 210764965/0300<br/>
 					Vs:{$dite.vs}
+					
+					{if $dite.ss != 0}
+						<br/>Ss:{$dite.ss}
+					{/if}
+
 				</p>
 			{/if}
 			<p>{$dite.bio|nl2br}</p>
