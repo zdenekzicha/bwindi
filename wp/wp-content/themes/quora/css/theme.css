@@ -101,10 +101,10 @@ p.perex {
 }
 #actions a {
   margin: 0 10px;
-  padding: 20px 20px;
+  padding: 15px;
   background: #4CB63D;
   color: #fff;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 #actions a:hover {
   background: #997653;
@@ -186,6 +186,7 @@ article.page .entry-content {
 }
 .home .entry-content {
   width: auto;
+  padding: 0;
 }
 .home .perex {
   text-align: center;
@@ -196,6 +197,24 @@ article.page .entry-content {
 }
 .home .sf-menu li {
   font-size: 1.2em;
+}
+.home #childrensWrapper {
+  width: 700px;
+  margin: 0 auto;
+  padding-bottom: 3em;
+  text-align: center;
+}
+.home #childrensWrapper .children {
+  display: inline-block;
+  padding: 0 20px;
+}
+.home #childrensWrapper .children .bubble {
+  width: 150px;
+  height: 150px;
+  border-width: 4px;
+}
+.home #childrensWrapper .children span {
+  color: #4CB63D;
 }
 #masthead {
   border-top: 0px !important;
@@ -436,7 +455,7 @@ article.page .entry-content {
 }
 #profile #timeline .showMore {
   display: block;
-  width: 200px;
+  width: 145px;
   margin: 15px auto 30px;
   padding: 15px 0;
   background: #4CB63D;
@@ -603,6 +622,7 @@ article.page .entry-content {
   border: 1px dotted #ccc;
   text-align: center;
   height: 140px;
+  margin-top: 2em;
 }
 #sponsors div {
   padding: 20px 0 10px;
