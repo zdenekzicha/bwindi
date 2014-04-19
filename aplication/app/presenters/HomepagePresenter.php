@@ -88,7 +88,7 @@ class homepagePresenter extends BasePresenter
 
      	$form->addHidden('idDite')->setValue($id);
 
-     	$this->template->maxVsym = $this->sponzori->zobrazMaximalniVsym();
+     	$this->template->maxVsym = $this->deti->zobrazMaximalniVsym();
 
 	    $form["create"]->caption = 'Editovat dítě';
 		$form->onSuccess = array(array($this, 'editDiteFormSubmitted')); // nové nastavení
