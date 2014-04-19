@@ -63,7 +63,7 @@ class diteBenefitPresenter extends BasePresenter
 	protected function createComponentNovyDiteBenefitForm()
 	{
  
-		$deti = $this->dite->zobrazVsechnyDeti();
+		$deti = $this->dite->zobrazVsechnyDeti("jmeno");
 		$detiSelect = array();
 
 		foreach ($deti as $key => $value) {

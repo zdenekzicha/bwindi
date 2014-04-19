@@ -35,9 +35,9 @@ class DiteModel extends Model
 
 	}
 
-	public function zobrazVsechnyDeti()
+	public function zobrazVsechnyDeti($order)
 	{
-    	return $this->getTable()->order("jmeno");
+    	return $this->getTable()->order($order);
 	}
 
 	public function zobrazDite($id)
@@ -47,7 +47,7 @@ class DiteModel extends Model
 
 	public function existujeSponzor($id)
 	{
-		return $this->db->fetchAll('SELECT idRelaceDiteSponzor FROM  relaceditesponzor WHERE diteIdDite ='.$id.' and aktivniZaznam = 1');
+		return $this->db->fetchAll('SELECT idRelaceDiteSponzor, sponzorIdSponzor FROM  relaceditesponzor WHERE diteIdDite ='.$id.' and aktivniZaznam = 1');
 	}
 
 	public function zobrazDiteApi($id)
@@ -157,6 +157,11 @@ class DiteModel extends Model
 
       }
 
+    }
+
+    public function zobrazMaximalniVsym()
+    {
+        return $this->getTable()->max('vsym');
     }
 
 	public function vytvorDite($form)
@@ -314,8 +319,7 @@ class DiteModel extends Model
 
   	public function zobrazDetiKAdopci($search)
   	{
-  		return $this->db->fetchAll('SELECT * FROM dite as d LEFT JOIN relaceditesponzor as r ON r.diteIdDite = d.idDite WHERE d.aktivniZaznam = 1 AND d.vystavene = 1 AND (r.diteIdDite IS NULL OR r.aktivniZaznam = 0) ORDER BY d.jmeno');
-  	}
+  		return $this->db->fetchAll('SELECT * FROM dite as d LEFT JOIN relaceditesponzor as r ON r.diteIdDite = d.idDite WHERE d.idDite NOT IN (SELECT diteIdDite FROM relaceditesponzor WHERE aktivniZaznam = 1 ) AND d.aktivniZaznam = 1 AND d.vystavene = 1 '); }
 	
 	public function codeToMessage($code)
     {

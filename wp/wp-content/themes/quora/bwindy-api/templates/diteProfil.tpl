@@ -40,16 +40,27 @@
 				Jsem {if $dite.pohlavi == "F"}holka{else}kluk{/if} a je mi {$dite.vek} let. <br/>
 				{if $dite.skola != ''}
 					{if $dite.skolaTyp == 'z'}
-						Chodím do {if $dite.rocnik != ''}{$dite.rocnik}. třídy{/if} základní školy {$dite.skola}
+						Chodím do {if $dite.rocnik != ''}{$dite.rocnik}. třídy{/if} základní školy {$dite.skola}.
 					{elseif $dite.skolaTyp == 's'}
-						Studuji {if $dite.rocnik != ''}{$dite.rocnik}. ročník{/if} střední školu {$dite.skola}
+						Studuji {if $dite.rocnik != ''}{$dite.rocnik}. ročník{/if} střední školu {$dite.skola}.
 					{elseif $dite.skolaTyp == 'u'}
-						Jsem {if $dite.rocnik != ''}{$dite.rocnik}. ročníku{/if} na učilišti {$dite.skola}
+						Jsem {if $dite.rocnik != ''}{$dite.rocnik}. ročníku{/if} na učilišti {$dite.skola}.
 					{else}
-						{if $dite.skolaText}{$dite.skolaText}{/if}
+						{if $dite.skolaText}{$dite.skolaText}.{/if}
 					{/if}
 				{/if}
 			</p>
+			{if $dite.vs != ''}
+				<p>
+					Číslo účtu: 210764965/0300<br/>
+					Vs:{$dite.vs}
+					
+					{if $dite.ss != 0}
+						<br/>Ss:{$dite.ss}
+					{/if}
+
+				</p>
+			{/if}
 			<p>{$dite.bio|nl2br}</p>
 
 			<div id="timeline">

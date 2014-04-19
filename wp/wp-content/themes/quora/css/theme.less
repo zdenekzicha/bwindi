@@ -30,7 +30,7 @@ h1 {
     color: #504342;
     font-weight: normal;
     line-height: 1em;
-    margin: 1em 0;
+    margin: 0.5em 0 1em;
 }
 h2 {
     font-size: 2.25em;
@@ -58,7 +58,26 @@ p {
     line-height: 1.5em;
     margin-top: 1.5em;
     margin-bottom: 1.5em;
+
+    img {
+        max-width: 100%;
+    }
 }
+
+img {
+    &.right {
+        float: right;
+        margin-left: 20px;
+    }
+
+    &.left {
+        float: left;
+        margin-right: 20px;
+    }
+}
+
+.fullsize { width: 100%; } 
+
 a {
     color: #4CB63D;
 }
@@ -105,6 +124,7 @@ li {
 p.perex {
     font-size: 1.5em;
 }
+
 #actions {
     text-align: center;
     padding: 20px;
@@ -124,7 +144,6 @@ p.perex {
     display: none;
 }
 .cite {
-    font-size: 1.2em;
     line-height: 1.2em;
     font-family: georgia;
     font-style: italic;
@@ -140,13 +159,42 @@ p.perex {
         top: -16px;
         width: 100%;
     }
+
+    &.male {
+        border-color: #b2c1da;
+    }
+    &.female {
+        border-color: #e6b5b6;
+    }
 }
-.bubble.male {
-    border-color: #b2c1da;
+
+.photoChildrenArticle {
+    margin-bottom: 1.5em;
+
+    .photo {
+        float: left;
+        width: 170px;
+        height: 170px;
+        border-width: 4px !important;
+        margin: 0 20px;
+    }
+
+    h3 {
+        padding-top: 35px;
+        margin: 0;
+    }
+
+    p {
+        margin: 0 0 1.5em;
+    }
+
+    &.right {
+        .photo { float: right; }
+        h3 { text-align: right; }
+        p { text-align: right; }       
+    }
 }
-.bubble.female {
-    border-color: #e6b5b6;
-}
+
 #page {
     min-height: 100%;
     margin-bottom: -140px;
@@ -156,6 +204,7 @@ p.perex {
     display: block;
     height: 140px;
 }
+
 article.page {
     .entry-content {
         max-width: 700px;
@@ -269,11 +318,11 @@ article.page {
 .main-navigation {
     position: relative;
     max-width: 1000px;
-    height: 120px;
     margin: 0 auto;
     .sf-menu {
         li {
             border-bottom: 1px dotted #ccc;
+            margin-right: -4px;
         }
     }
     .sub-menu {
@@ -283,7 +332,6 @@ article.page {
         top: 80px;
         width: 100%;
         margin: 0;
-        padding-bottom: 20px;
         border-bottom: 1px dotted #ccc;
         li {
             border-bottom: 0px;
@@ -314,8 +362,13 @@ article.page {
     padding: 20px 0;
     margin: 0;
     li {
-        display: inline;
+        display: inline-block;
         padding: 17px;
+
+        &.current-menu-item.menu-item-has-children,
+        &.current-menu-parent.menu-item-has-children {
+            margin-bottom: 60px;
+        }
     }
 }
 #bottom {
@@ -398,9 +451,6 @@ article.page {
         width: 800px;
         margin: 0 auto;
     }
-    #main {
-        margin: -40px 0 0 0;
-    }
 }
 #thanksForAdoption {
     width: 500px;
@@ -424,7 +474,7 @@ article.page {
 }
 .twoColumnsLayout {
     font-family: Lato, sans-serif;
-    margin: -80px auto 0;
+    margin: 0 auto 0;
     width: 820px;
     padding: 20px 0 0;
     .perex {
@@ -564,7 +614,7 @@ article.page {
         text-align: center;
         h3 {
             display: block;
-            margin: 20px 0 10px;
+            margin: 20px 0 0px;
             padding-bottom: 3px;
             font-weight: normal;
             color: #504342;
@@ -814,9 +864,7 @@ article.page {
     }
 }
 .category-aktuality {
-    #main {
-        margin: -40px 0 0 0;
-    }
+
     p {
         max-width: 800px;
         margin-left: auto;

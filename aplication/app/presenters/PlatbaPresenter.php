@@ -101,7 +101,7 @@ class platbaPresenter extends BasePresenter
 	protected function createComponentNovaPlatbaForm()
 	{
  
-		$deti = $this->dite->zobrazVsechnyDeti();
+		$deti = $this->dite->zobrazVsechnyDeti("vsym");
 		$detiSelect = array();
 
 		foreach ($deti as $key => $value) {
@@ -124,7 +124,7 @@ class platbaPresenter extends BasePresenter
 		
 	    $form = new NAppForm;
 	    $form->addText('datum', 'Datum:', 40, 255);
-	    $form->addText('castka', 'Částka:', 5, 4);
+	    $form->addText('castka', 'Částka:');
 	    $form->addText('ucet', 'Účet:', 10, 255);
 	    $form->addText('poznamka', 'Poznamka:', 10, 255);
 	    $form->addText('rok', 'Rok:', 5, 4);
