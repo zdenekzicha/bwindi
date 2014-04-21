@@ -1,5 +1,4 @@
 <div id="contacts">
-	<h1>Kontakty</h1>
 	<p class="contactLink"><a href="#contactMap">Adreasa a bankovní spojení</a></p>
 	<div class="teamMember">
 		<div class="bubble"><img alt="" src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/kontakty/katka.jpg" /></div>
