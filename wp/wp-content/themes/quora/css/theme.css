@@ -79,6 +79,12 @@ p {
 p img {
   max-width: 100%;
 }
+.topAlign {
+  margin-top: 0.2em;
+}
+.bottomAlign {
+  margin-bottom: 0.2em;
+}
 img.right {
   float: right;
   margin-left: 20px;
@@ -129,16 +135,29 @@ li {
 p.perex {
   font-size: 1.5em;
 }
+.button {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 6px 35px;
+  background: #4CB63D;
+  color: #fff !important;
+  border-radius: 5px;
+  text-decoration: none !important;
+}
+.button:hover {
+  background: #997653;
+}
 #actions {
   text-align: center;
-  padding: 20px;
+  padding: 20px 0;
   margin: 0 auto 1.5em;
 }
 #actions a {
+  display: inline-block;
   margin: 0 10px;
-  padding: 15px;
+  padding: 10px 15px;
   background: #4CB63D;
-  color: #fff;
+  color: #fff !important;
   border-radius: 5px;
 }
 #actions a:hover {
@@ -151,6 +170,11 @@ p.perex {
   line-height: 1.2em;
   font-family: georgia;
   font-style: italic;
+}
+.commentTitle {
+  font-family: georgia;
+  font-style: italic;
+  text-align: center;
 }
 .bubble {
   border-radius: 50%;
@@ -212,16 +236,16 @@ article.page .entry-content {
 #actionButtons {
   clear: both;
   text-align: center;
-  padding: 20px;
+  padding: 10px 15px;
   margin: 0 auto 1.5em;
 }
 #actionButtons a {
   display: inline-block;
   margin: 0 10px;
-  padding: 20px 20px;
+  padding: 10px 15px;
   background: #4CB63D;
   color: #fff;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 #actionButtons a:hover {
   background: #997653;

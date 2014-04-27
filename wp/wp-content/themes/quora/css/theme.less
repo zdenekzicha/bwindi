@@ -64,6 +64,14 @@ p {
     }
 }
 
+&.topAlign {
+    margin-top: 0.2em;
+}
+
+&.bottomAlign {
+    margin-bottom: 0.2em;
+}
+
 img {
     &.right {
         float: right;
@@ -125,15 +133,30 @@ p.perex {
     font-size: 1.5em;
 }
 
+.button {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 6px 35px;
+    background: #4CB63D;
+    color: #fff !important;
+    border-radius: 5px;
+    text-decoration: none !important;
+    
+    &:hover {
+        background: #997653;
+    }
+}
+
 #actions {
     text-align: center;
-    padding: 20px;
+    padding: 20px 0;
     margin: 0 auto 1.5em;
     a {
+        display: inline-block;
         margin: 0 10px;
-        padding: 15px;
+        padding: 10px 15px;
         background: #4CB63D;
-        color: #fff;
+        color: #fff !important;
         border-radius: 5px;
     }
     a:hover {
@@ -148,6 +171,13 @@ p.perex {
     font-family: georgia;
     font-style: italic;
 }
+
+.commentTitle {
+    font-family: georgia;
+    font-style: italic;
+    text-align:  center;
+}
+
 .bubble {
     border-radius: 50%;
     border-width: 6px;
@@ -214,15 +244,15 @@ article.page {
 #actionButtons {
     clear: both;
     text-align: center;
-    padding: 20px;
+    padding: 10px 15px;
     margin: 0 auto 1.5em;
     a {
         display: inline-block;
         margin: 0 10px;
-        padding: 20px 20px;
+        padding: 10px 15px;
         background: #4CB63D;
         color: #fff;
-        border-radius: 10px;
+        border-radius: 5px;
     }
     a:hover {
         background: #997653;
