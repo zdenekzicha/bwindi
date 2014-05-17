@@ -39,7 +39,7 @@
 				<span>K - Lovis Muhwezi</span>
 			</div>
 		</div>
-		<div id="actions"><a href="?page_id=246">Co je vzdálená adopce</a><a href="?page_id=368">Chci pomoci</a></div>
+		<div id="actions"><a href="http://bwindiweb.petrsiller.cz/adopce/">Co je vzdálená adopce</a><a href="?page_id=368">Chci pomoci</a></div>
 	<?php endif; ?>
 	
 </div><!-- #page .hfeed .site -->
