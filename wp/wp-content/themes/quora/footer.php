@@ -45,10 +45,10 @@
 </div><!-- #page .hfeed .site -->
 <footer id="sponsors">
 	<div>
-		<a href="http://www.livingstone.cz/"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/livingstone1.png" /></a>
-		<a href="http://www.divokehusy.cz/"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/nadaceDivokeHusy1.png" /></a>
-		<a href="http://www.dobryden.cz/"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/agenturaPelhrimov1.png" /></a>
-		<a href="?page_id=845"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/bwindiCoffeBlack.jpg" /></a>
+		<a href="http://www.livingstone.cz/"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/livingstone1.png" width="140" class="sponsor1"/></a>
+		<a href="http://www.divokehusy.cz/"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/nadaceDivokeHusy1.png" width="140" /></a>
+		<a href="http://www.dobryden.cz/"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/agenturaPelhrimov1.png" height="80" /></a>
+		<a href="?page_id=845"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/sponzori/bwindiCoffeBlack.jpg" width="140" class="sponsor4" /></a>
 	</div>
 </footer>
 
