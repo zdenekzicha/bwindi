@@ -64,6 +64,14 @@ p {
     }
 }
 
+&.topAlign {
+    margin-top: 0.2em;
+}
+
+&.bottomAlign {
+    margin-bottom: 0.2em;
+}
+
 img {
     &.right {
         float: right;
@@ -93,20 +101,63 @@ ul {
 li {
     line-height: 1.5em;
 }
+
+.entry-content {
+    .block {
+        clear: both;
+        margin-bottom: 3em;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    img.left {
+        float: left;
+        margin-right: 20px;
+        margin-bottom: 10px;
+        
+    }
+    img.right {
+        float: right;
+        margin-left: 20px;
+        margin-right: 0;
+    }
+    p {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+}
+
 p.perex {
     font-size: 1.5em;
 }
 
+.button {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 6px 35px;
+    background: #4CB63D;
+    color: #fff !important;
+    border-radius: 5px;
+    text-decoration: none !important;
+    
+    &:hover {
+        background: #997653;
+    }
+}
+
 #actions {
     text-align: center;
-    padding: 20px;
+    padding: 20px 0;
     margin: 0 auto 1.5em;
     a {
+        display: inline-block;
         margin: 0 10px;
-        padding: 20px 20px;
+        padding: 10px 15px;
         background: #4CB63D;
-        color: #fff;
-        border-radius: 10px;
+        color: #fff !important;
+        border-radius: 5px;
     }
     a:hover {
         background: #997653;
@@ -120,6 +171,13 @@ p.perex {
     font-family: georgia;
     font-style: italic;
 }
+
+.commentTitle {
+    font-family: georgia;
+    font-style: italic;
+    text-align:  center;
+}
+
 .bubble {
     border-radius: 50%;
     border-width: 6px;
@@ -186,15 +244,15 @@ article.page {
 #actionButtons {
     clear: both;
     text-align: center;
-    padding: 20px;
+    padding: 10px 15px;
     margin: 0 auto 1.5em;
     a {
         display: inline-block;
         margin: 0 10px;
-        padding: 20px 20px;
+        padding: 10px 15px;
         background: #4CB63D;
         color: #fff;
-        border-radius: 10px;
+        border-radius: 5px;
     }
     a:hover {
         background: #997653;
@@ -221,6 +279,7 @@ article.page {
     }
     .entry-content {
         width: auto;
+        padding: 0;
     }
     .perex {
         text-align: center;
@@ -232,6 +291,28 @@ article.page {
     .sf-menu {
         li {
             font-size: 1.2em;
+        }
+    }
+
+    #childrensWrapper {
+        width: 700px;
+        margin: 0 auto;
+        padding-bottom: 3em;
+        text-align: center;
+
+        .children {
+            display: inline-block;
+            padding: 0 20px;
+
+            .bubble {
+                width: 150px;
+                height: 150px;
+                border-width: 4px;
+            }
+            
+            span {
+                color: #4CB63D;
+            }
         }
     }
 }
@@ -487,7 +568,7 @@ article.page {
         background: url(../images/timelineBorder.png) 50% 0 repeat-y;
         .showMore {
             display: block;
-            width: 200px;
+            width: 145px;
             margin: 15px auto 30px;
             padding: 15px 0;
             background: #4CB63D;
@@ -658,11 +739,20 @@ article.page {
     border: 1px dotted #ccc;
     text-align: center;
     height: 140px;
+    
     div {
         padding: 20px 0 10px;
     }
     img {
+        position: relative;
         padding: 0 10px;
+    
+        &.sponsor1 {
+            top: -15px;
+        }
+        &.sponsor4 {
+            top: -15px;
+        }
     }
 }
 #formAdoption {
@@ -782,7 +872,7 @@ article.page {
         margin: 10px;
         img {
             width: 200px;
-            min-height: 200px;
+            min-height: 216px;
         }
         .bubble {
             width: 200px;
@@ -833,7 +923,7 @@ article.page {
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            margin-bottom: 0.3em;
+            margin: 0 auto 0.3em;
         }
         a {
             display: block;
@@ -848,35 +938,16 @@ article.page {
         .post-date {
             display: block;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 10px;
             color: #818181;
+            font-size: 0.667em;
         }
     }
 }
 .category-aktuality .entry-meta,.category-aktuality .icon-user,.category-aktuality .comment {
     display: none;
 }
-.articleType1 {
-    text-align: left;
-    .block {
-        clear: both;
-        margin-bottom: 3em;
-    }
-    img {
-        float: left;
-        margin-right: 20px;
-        margin-bottom: 10px;
-    }
-    img.right {
-        float: right;
-        margin-left: 20px;
-        margin-right: 0;
-    }
-    p {
-        padding-left: 0px !important;
-        padding-right: 0px !important;
-    }
-}
+
 #post-9 {
     margin: -40px 0 0 0;
 }

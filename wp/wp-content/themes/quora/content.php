@@ -24,11 +24,11 @@
 
 	<header class="entry-header">
 		<a href="<?php the_permalink(); ?>" rel="bookmark">
+			<span class="post-date"><?php echo get_the_date(); ?></span>
 			<h2 class="entry-title">
 				<?php the_title(); ?>
 			</h2>
-			<span class="post-date"><?php echo get_the_date(); ?></span>
-			<span class="perex"><?php the_excerpt(); ?></span>
+			<div class="perex"><?php the_excerpt(); ?></div>
 		</a>
 
 		<?php if ( 'post' == get_post_type() ) : ?>
