@@ -13,7 +13,7 @@
 	$smarty->caching = false;
 	$smarty->cache_lifetime = 120;
 
-	$server = 'http://bwindi.petrsiller.cz';
+	$server = 'http://admin.bwindiorphans.org/';
 
 
 	if($_GET["s"] == "profil") { // zobrazi profil ditete
