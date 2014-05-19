@@ -41,8 +41,8 @@
 
 <?php wp_head(); ?>
 
-<script type='text/javascript' src='http://bwindiweb.petrsiller.cz/wp-includes/js/lightbox/lightbox.js'></script>
-<link rel='stylesheet' href='http://bwindiweb.petrsiller.cz/wp-includes/css/lightbox.css' type='text/css' media='all' />
+<script type='text/javascript' src='http://bwindiorphans.org/wp-includes/js/lightbox/lightbox.js'></script>
+<link rel='stylesheet' href='http://bwindiorphans.org/wp-includes/css/lightbox.css' type='text/css' media='all' />
 <script src="<?php echo get_template_directory_uri(); ?>/js/theme.js" type="text/javascript"></script>
 
 </head>
@@ -50,7 +50,7 @@
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
 	<div id="mainLogo">
-		<a href="/"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/logo1.png" alt="" /></a>
+		<a href="/"><img src="http://bwindiorphans.org/wp-content/themes/quora/images/logo1.png" alt="" /></a>
 	</div>
 	<header id="masthead" class="site-header cf" role="banner">
 	
@@ -69,8 +69,8 @@
 	<div id="wideslider" class="flexslider">
 		<ul class="slides">
 		    <li>
-		      <img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/mainPhoto1.jpg" alt="" id="headerPhoto"/>
-		      <img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/mainPhoto1Blur.jpg" alt="" class="blur" />
+		      <img src="http://bwindiorphans.org/wp-content/themes/quora/images/mainPhoto1.jpg" alt="" id="headerPhoto"/>
+		      <img src="http://bwindiorphans.orgz/wp-content/themes/quora/images/mainPhoto1Blur.jpg" alt="" class="blur" />
 		    </li>
   		</ul>
 	</div>

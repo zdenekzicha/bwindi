@@ -4,7 +4,7 @@
 			{foreach from=$value key=myId item=i}
   				<div class="children">
 					<div class="bubble">
-						<a href="?page_id=48&idDite={$i.id}&s=profil"><img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/portrait.jpg" alt="" />
+						<a href="?page_id=48&idDite={$i.id}&s=profil"><img src="http://bwindiorphans.org/wp-content/themes/quora/images/portrait.jpg" alt="" />
 					</div>
 					<span>{$i.jmeno}</span></a>
 				</div>

@@ -18,7 +18,7 @@
 
 	/*vrati obsah zpravy pro email ktery se posle bwindi */
 	function getMsgForBwindi($sponsor,$email,$phone,$note,$childName) {
-		$url = "http://bwindiweb.petrsiller.cz";
+		$url = "http://bwindiorphans.org";
 
 		$message = "<html><body  style='font-family: Arial, sans-serif;'>";
 		$message .= "<p style='padding: 10px 0; margin: 0 50px; border-bottom: 1px solid #ccc; text-align: center;'>
@@ -56,7 +56,7 @@
 
 	/*vrati obsah zpravy pro email ktery se posle zajmci o adopci */
 	function getMsgForSponsor($childId, $childName, $childPhoto) {
-		$url = "http://bwindiweb.petrsiller.cz";
+		$url = "http://bwindiorphans.org";
 
 		if($childPhoto == '') {
 			$childPhoto = $url.'/wp-content/themes/quora/images/portrait.jpg';

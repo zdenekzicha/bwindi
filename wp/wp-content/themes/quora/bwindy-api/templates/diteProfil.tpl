@@ -6,7 +6,7 @@
 		{if $dite.fotka}
 			<img src="{$dite.fotka}" alt="" />
 		{else}
-			<img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/portrait.jpg" alt="" />
+			<img src="http://bwindiorphans.org/wp-content/themes/quora/images/portrait.jpg" alt="" />
 		{/if}
 	</div>
 	{if $dite.rezervovane}

@@ -8,7 +8,7 @@
 						{if $i.fotka}
 							<img src="" alt="" data-src="{$i.fotka}" />
 						{else}
-							<img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/portrait.jpg" alt="" />
+							<img src="http://bwindiorphans.org/wp-content/themes/quora/images/portrait.jpg" alt="" />
 						{/if}
 					</a>
 				</div>

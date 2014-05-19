@@ -6,7 +6,7 @@
 			{if $item.fotka}
 				<img src="{$item.fotka}" alt="" />
 			{else}
-				<img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/portrait.jpg" alt="" />
+				<img src="http://bwindiorphans.org/wp-content/themes/quora/images/portrait.jpg" alt="" />
 			{/if}
 		</div>
 		<p>Moc vám děkujeme za snahu pomoci dětěm z Bwindi orphans. Během následujících dnů vás kontaktujeme přes email <span>{$item.email}</span> a zdělíme vám všechny informace potřebné k adopci.</p>

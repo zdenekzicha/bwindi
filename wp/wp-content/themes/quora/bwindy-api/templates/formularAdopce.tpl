@@ -7,13 +7,13 @@
 				{if $dite.fotka}
 					<img src="{$dite.fotka}" alt="" />
 				{else}
-					<img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/portrait.jpg" alt="" />
+					<img src="http://bwindiorphans.org/wp-content/themes/quora/images/portrait.jpg" alt="" />
 				{/if}
 			</div>
 			<h3>Jak adoptovat?</h3>
 			<p>Vyplňte prosím krátký formulář a na váš email vám pošleme číslo účtu a potřebné informace k provedení platby.</p>
 			<p>Pokud se rozdhodnete pro adopci předem děkujeme.</p>
-			<p><a href="http://bwindiweb.petrsiller.cz/?page_id=381">Postup adopce</a></p>
+			<p><a href="http://bwindiorphans.org/?page_id=381">Postup adopce</a></p>
 		</div>
 		<div id="right">
 			<form method="get" action="/">
