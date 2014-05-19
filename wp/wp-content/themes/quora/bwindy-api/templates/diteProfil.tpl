@@ -9,10 +9,10 @@
 			<img src="http://bwindiweb.petrsiller.cz/wp-content/themes/quora/images/portrait.jpg" alt="" />
 		{/if}
 	</div>
-	{if $dite.sponzor}
-		<div id="helpMe" class="disable">Už mám adoptivní rodiče</div>
-	{else if $dite.rezervovane}
+	{if $dite.rezervovane}
 		<div id="helpMe" class="disable">Má zájemce</div>
+	{else if $dite.sponzor}
+		<div id="helpMe" class="disable">Už mám adoptivní rodiče</div>
 	{else}
 		<a href="/?page_id=119&idDite={$dite.id}" id="helpMe">Pomůžeš mi?</a>
 	{/if}
@@ -44,7 +44,9 @@
 					{elseif $dite.skolaTyp == 's'}
 						Studuji {if $dite.rocnik != ''}{$dite.rocnik}. ročník{/if} střední školu {$dite.skola}.
 					{elseif $dite.skolaTyp == 'u'}
-						Jsem {if $dite.rocnik != ''}{$dite.rocnik}. ročníku{/if} na učilišti {$dite.skola}.
+						Chodím do {if $dite.rocnik != ''}{$dite.rocnik}. ročníku{/if} na učilišti {$dite.skola}.
+					{elseif $dite.skolaTyp == 'v'}
+						Chodím do {if $dite.rocnik != ''}{$dite.rocnik}. ročníku{/if} na {$dite.skola}.
 					{else}
 						{if $dite.skolaText}{$dite.skolaText}.{/if}
 					{/if}
