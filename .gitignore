@@ -2,3 +2,9 @@ aplication/temp/cache/*
 aplication\temp\cache\*
 
 wp/sftp-config.json
+wp/wp-content/themes/quora/bwindy-api/templates_c/02199f8435991d32a765e0b452ea381bc50ef5e3.file.dekujeme.tpl.php
+wp/wp-content/themes/quora/bwindy-api/templates_c/06f97d55c5f6ec8faeca31bd26f5cf57752d79e3.file.adoptovaneDeti.tpl.php
+wp/wp-content/themes/quora/bwindy-api/templates_c/41ac0c5967aeca31745f5a7a5b8e59447833dd74.file.kontakty.tpl.php
+wp/wp-content/themes/quora/bwindy-api/templates_c/a168cc254beda211068d14c8ae6a8e28eef9e120.file.formularAdopce.tpl.php
+wp/wp-content/themes/quora/bwindy-api/templates_c/b7f6aa04dd086bd56faf4c87df7f5d518695ae5c.file.diteProfil.tpl.php
+wp/wp-content/themes/quora/bwindy-api/templates_c/ee988c6950f1526f9d40f9acc12d614b54ce4ada.file.detiAdopce.tpl.php
