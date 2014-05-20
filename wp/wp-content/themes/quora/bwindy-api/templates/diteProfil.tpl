@@ -75,7 +75,7 @@
 				   				{/if}
 								<div class="note">
 									{if $item2.foto != ''}
-										<a href="{$item2.fotoBig}" data-lightbox="gallery" {if $item2.text != ''}title="{$item2.text|nl2br}"{/if} >
+										<a href="{$item2.fotoBig}" data-lightbox="gallery" {if $item2.text != ''}title="{$item2.text|nl2br|escape:'htmlall'}"{/if} >
 											<img src="" data-src="{$item2.foto}" />
 										</a>
 									{/if} 
