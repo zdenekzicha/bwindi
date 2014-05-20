@@ -12,7 +12,6 @@
 			</div>
 			<h3>Jak adoptovat?</h3>
 			<p>Vyplňte prosím krátký formulář a na váš email vám pošleme číslo účtu a potřebné informace k provedení platby.</p>
-			<p>Pokud se rozdhodnete pro adopci předem děkujeme.</p>
 			<p><a href="http://bwindiorphans.org/?page_id=381">Postup adopce</a></p>
 		</div>
 		<div id="right">
@@ -27,6 +26,18 @@
 						<label for="sponsorEmail">E-mail:</label>
 						<input type="text" name="email" id="sponsorEmail" class="text" /> <span class="require" title="nutné vyplnit">*</span>
 						<span class="errorMsg">Vyplňte prosím váš email, aby jsem vám mohli poslat podrobnější informace.</span>
+					</p>
+					<p>
+						<label for="sponsorStreet">Ulice a č.p.:</label>
+						<input type="text" name="street" id="sponsorStreet" class="text" />
+					</p>
+					<p>
+						<label for="sponsorCity">Město:</label>
+						<input type="text" name="city" id="sponsorCity" class="text" />
+					</p>
+					<p>
+						<label for="sponsorZipcode">PSČ:</label>
+						<input type="text" name="zipcode" id="sponsorZipcode" class="text" />
 					</p>
 					<p>
 						<label for="sponsorPhone">Telefon:</label>

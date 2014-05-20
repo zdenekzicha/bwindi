@@ -38,7 +38,7 @@
 		/* posleme email bwindi o novem sponzorovi */
 		$to      = 'petr.siller@gmail.com';
 		$subject = 'Bwindi Oprhans - Nový zájemce o adopci';
-		$message = getMsgForBwindi($_GET['sponsor'],$_GET["email"],$_GET["phone"],$_GET["note"],$data['data']['jmeno']);	
+		$message = getMsgForBwindi($id,$_GET['sponsor'],$_GET["email"],$_GET["phone"],$_GET["city"],$_GET["street"],$_GET["zipcode"],$_GET["note"],$data['data']['jmeno'],$data['data']['fotka']);	
 		$headers = "From: info@bwindiorphans.org\r\n";
 		$headers .= "Reply-To: info@bwindiorphans.org\r\n";
 		$headers .= "CC: katerina@bwindiorphans.org\r\n";
@@ -49,7 +49,7 @@
 		/* posleme email spnzorovi ze vime o jeho zajmu */
 		$to      = 'petr.siller@gmail.com';
 		$subject = 'Děkujeme za zájem o adopci, Bwindi Oprhans';
-		$message = getMsgForSponsor($data['data']['id'], $data['data']['jmeno'],$data['data']['fotka']);	
+		$message = getMsgForSponsor($id, $data['data']['jmeno'],$data['data']['fotka']);
 		$headers = "From: info@bwindiorphans.org\r\n";
 		$headers .= "Reply-To: info@bwindiorphans.org\r\n";
 		$headers .= "CC: katerina@bwindiorphans.org\r\n";

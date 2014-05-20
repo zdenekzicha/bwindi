@@ -3,46 +3,14 @@
 	<div class="teamMember">
 		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/katka.jpg" /></div>
 		<h3>Kateřina Andrlová</h3>
-		<div class="title">Koordinátorka projektu</div>
+		<div class="title">koordinátorka projektu</div>
 		<a href="mailto:katerina@bwindiorphans.org">katerina@bwindiorphans.org</a>
 	</div>
 	<div class="teamMember">
-		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/radek.jpg" /></div>
-		<h3>Radek Vykouřil</h3>
-		<div class="title">správní rada</div>
-		<a href="mailto:radek@bwindiorphans.org">radek@bwindiorphans.org</a>
-	</div>
-	<div class="teamMember">
-		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/hana.jpg" /></div>
-		<h3>Hana Vacková</h3>
-		<div class="title">správní rada</div>
-		<a href="mailto:hana@bwindiorphans.org">hana@bwindiorphans.org</a>
-	</div>
-
-	<div class="teamMember">
-		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/ludmila.jpg" /></div>
-		<h3>Ludmila Tuzová</h3>
-		<div class="title">správní rada</div>
-		<a href="mailto:ludmila@bwindiorphans.org">ludmila@bwindiorphans.com</a>
-	</div>
-	<div class="teamMember">
-		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/alena.jpg" /></div>
-		<h3>Alena Samková</h3>
-		<div class="title">akce v Praze, prodej výrobků</div>
-		<a href="mailto:samkova.mc@seznam.cz">samkova.mc@seznam.cz</a>
-	</div>	
-	<div class="teamMember">
-		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/liba.jpg" /></div>
-		<h3>Libuše Dostálová</h3>
-		<div class="title">akce na severní Moravě, prodej výrobků</div>
-		<a href="mailto:liba.dostalova@gmail.com">liba.dostalova@gmail.com</a>
-	</div>
-
-	<div class="teamMember">
-		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/michal.jpg" /></div>
-		<h3>Michal Příhoda</h3>
-		<div class="title">Fotografie, krátké filmy, grafika</div>
-		<a href="mailto:michal@bwindiorphans.org">michal@bwindiorphans.org</a>
+		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/herbert.jpg" /></div>
+		<h3>Herbert Niwagaba</h3>
+		<div class="title">asisten Bwindi a Soroti</div>
+		<a href="mailto:herbniwagaba@googlemail.com">herbniwagaba@googlemail.com</a>
 	</div>
 	<div class="teamMember">
 		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/medard.jpg" /></div>
@@ -51,11 +19,40 @@
 		<a href="mailto:mara@bwindiorphans.org">medardashaba@yahoo.com</a>
 	</div>
 	<div class="teamMember">
-		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/herbert.jpg" /></div>
-		<h3>Herbert Niwagaba</h3>
-		<div class="title">sponsorship coordinator Bwindi a Soroti</div>
-		<a href="mailto:herbniwagaba@googlemail.com">herbniwagaba@googlemail.com</a>
-	</div>	
+		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/hana.jpg" /></div>
+		<h3>Hana Vacková</h3>
+		<div class="title">správní rada</div>
+		<a href="mailto:hana@bwindiorphans.org">hana@bwindiorphans.org</a>
+	</div>
+	<div class="teamMember">
+		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/radek.jpg" /></div>
+		<h3>Radek Vykouřil</h3>
+		<div class="title">správní rada</div>
+		<a href="mailto:radek@bwindiorphans.org">radek@bwindiorphans.org</a>
+	</div>
+	<div class="teamMember">
+		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/ludmila.jpg" /></div>
+		<h3>Ludmila Tuzová</h3>
+		<div class="title">správní rada</div>
+	</div>
+	<div class="teamMember">
+		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/alena.jpg" /></div>
+		<h3>Alena Samková</h3>
+		<div class="title">akce v Praze, prodej výrobků</div>
+		<a href="mailto:samkova.mc@seznam.cz">samkova.mc@seznam.cz</a>
+	</div>
+	<div class="teamMember">
+		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/michal.jpg" /></div>
+		<h3>Michal Příhoda</h3>
+		<div class="title">fotografie, krátké filmy, grafika</div>
+		<a href="mailto:michal@bwindiorphans.org">michal@bwindiorphans.org</a>
+	</div>
+	<div class="teamMember">
+		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/liba.jpg" /></div>
+		<h3>Libuše Dostálová</h3>
+		<div class="title">akce na severní Moravě, prodej výrobků</div>
+		<a href="mailto:liba.dostalova@gmail.com">liba.dostalova@gmail.com</a>
+	</div>
 </div>
 <div id="contactMap">
 	<div class="content">
