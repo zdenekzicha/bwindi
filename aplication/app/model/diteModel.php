@@ -50,6 +50,11 @@ class DiteModel extends Model
 		return $this->db->fetchAll('SELECT idRelaceDiteSponzor, sponzorIdSponzor FROM  relaceditesponzor WHERE diteIdDite ='.$id.' and aktivniZaznam = 1');
 	}
 
+	public function jeSkolaPouzita($id)
+	{
+		return $this->db->fetchAll('SELECT COUNT(*) FROM dite WHERE skolaIdSkola ='.$id.'');
+	}
+
 	public function zobrazDiteApi($id)
 	{
 		return $this->db->fetchAll('SELECT d.*, s.jmeno AS jmenoSponzor, sk.nazev AS skolaNazev, sk.predpona AS skolaTyp, sk.nazevWeb AS skolaText, sk.idSkola AS skolaId, sk.castka AS castka FROM dite AS d LEFT JOIN (sponzor AS s, relaceditesponzor AS r) ON (d.idDite = r.diteIdDite AND r.sponzorIdSponzor = s.idSponzor) LEFT JOIN (skola as sk) ON (d.skolaIdSkola = idSkola) WHERE d.idDite = '.$id.' GROUP BY d.idDite ORDER BY d.jmeno ');
