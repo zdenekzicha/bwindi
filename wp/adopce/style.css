@@ -1,0 +1,360 @@
+body, html {
+  margin: 0;
+  overflow: hidden;
+  -webkit-transition: opacity 400ms;
+  -moz-transition: opacity 400ms;
+  transition: opacity 400ms;
+}
+
+body, .onepage-wrapper, html {
+  display: block;
+  position: static;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.onepage-wrapper {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  padding: 0;
+  -webkit-transform-style: preserve-3d;
+}
+
+.onepage-wrapper .ops-section {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.onepage-pagination {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  z-index: 5;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.onepage-pagination li {
+  padding: 0;
+  text-align: center;
+}
+.onepage-pagination li a{
+  padding: 10px;
+  width: 4px;
+  height: 4px;
+  display: block;
+  
+}
+.onepage-pagination li a:before{
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(256,256,256,0.85);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+
+.onepage-pagination li a.active:before{
+  width: 10px;
+  height: 10px;
+  background: none;
+  border: 1px solid #fff;
+  margin-top: -4px;
+  left: 8px;
+}
+
+.disabled-onepage-scroll, .disabled-onepage-scroll .wrapper {
+  overflow: auto;
+}
+
+.disabled-onepage-scroll .onepage-wrapper .ops-section {
+  position: relative !important;
+  top: auto !important;
+}
+.disabled-onepage-scroll .onepage-wrapper {
+  -webkit-transform: none !important;
+  -moz-transform: none !important;
+  transform: none !important;
+  -ms-transform: none !important;
+  min-height: 100%;
+}
+
+
+.disabled-onepage-scroll .onepage-pagination {
+  display: none;
+}
+
+body.disabled-onepage-scroll, .disabled-onepage-scroll .onepage-wrapper, html {
+  position: inherit;
+}
+
+
+html {
+  height: 100%;
+}
+body {
+  background: #f4ebd3;
+  padding: 0;
+  text-align: center;
+  font-family: 'Helvetica', 'open sans';
+  position: relative;
+  margin: 0;
+  height: 100%;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+#loading {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#imgContainer {
+  position: absolute;
+  top: -10px;
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.wrapper {
+  height: 100% !important;
+  height: 100%;
+  margin: 0 auto; 
+  overflow: hidden;
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: normal;
+  margin: 1em 0 0;
+  text-shadow: 1px 1px 9px #000;
+}
+
+p {
+  text-shadow: 1px 1px 9px #000;
+}
+
+.main section .page_container {
+  position: relative;
+  top: 25%;
+  margin: 0 auto 0;
+  max-width: 950px;
+  z-index: 3;
+}
+.main section  {
+  overflow: hidden;
+}
+
+
+.main section.page0 {
+  background-image: url(img/story0.jpg);
+  background-size: cover;
+}
+
+.main section.page0 h1{
+  font-size: 4em;
+}
+
+.main section.page0 .nextPage {
+  position: static;
+  display: inline-block;
+  margin-top: 2em;
+  bottom: 20% !important;
+}
+.page0 .text {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  -webkit-transition: opacity 2s, top 1s;
+  -moz-transition: opacity 2s, top 1s;
+  transition: opacity 2s, top 1s;
+}
+
+.main section.page1 {
+  background-image: url(img/story1.jpg);
+  background-size: cover;
+}
+
+.active .text {
+  opacity: 1;
+}
+
+.page1 .text {
+  top: 0;
+  position: absolute;
+  right: 40px;
+  width: 550px;
+  color: #fff;
+  text-align: left;
+  opacity: 0;
+  -webkit-transition: opacity 2s, top 1s;
+  -moz-transition: opacity 2s, top 1s;
+  transition: opacity 2s, top 1s;
+}
+
+.page1.active .text {
+  top: 70px;
+  opacity: 1;
+}
+
+.main section.page2 {
+  background-image: url(img/story2.jpg);
+  background-size: cover;
+}
+
+.page2 .text {
+  position: absolute;
+  bottom: 0px;
+  right: 40px;
+  width: 600px;
+  color: #fff;
+  text-align: left;
+  opacity: 0;
+  -webkit-transition: opacity 1.5s, bottom 1.5s;
+  -moz-transition: opacity 1.5s, bottom 1.5s;
+  transition: opacity 1.5s, bottom 1.5s;
+}
+
+.page2.active .text {
+  opacity: 1;
+  bottom: 70px;
+}
+
+.main section.page3 {
+  background-image: url(img/story3.jpg);
+  background-size: cover;
+}
+
+.page3 .text {
+  position: absolute;
+  bottom: 0px;
+  left: 40px;
+  width: 600px;
+  color: #fff;
+  text-align: left;
+  opacity: 0;
+  -webkit-transition: opacity 1.5s, bottom 1.5s;
+  -moz-transition: opacity 1.5s, bottom 1.5s;
+  transition: opacity 1.5s, bottom 1.5s;
+}
+
+.page3.active .text {
+  opacity: 1;
+  bottom: 70px;
+}
+
+.main section.page4 {
+  background-image: url(img/story4.jpg);
+  background-size: cover;
+}
+
+.page4 .text {
+  position: absolute;
+  bottom: 0px;
+  left: 40px;
+  width: 600px;
+  color: #fff;
+  text-align: left;
+  opacity: 0;
+  -webkit-transition: opacity 1.5s, bottom 1.5s;
+  -moz-transition: opacity 1.5s, bottom 1.5s;
+  transition: opacity 1.5s, bottom 1.5s;
+}
+
+.page4.active .text {
+  opacity: 1;
+  bottom: 70px;
+}
+
+.page5 .text {
+  top: 0;
+  position: absolute;
+  right: 40px;
+  width: 550px;
+  color: #fff;
+  text-align: left;
+  opacity: 0;
+  -webkit-transition: opacity 2s, top 1s;
+  -moz-transition: opacity 2s, top 1s;
+  transition: opacity 2s, top 1s;
+}
+
+.page5.active .text {
+  top: 70px;
+  opacity: 1;
+}
+
+.main section.page5 {
+  background-image: url(img/story5.jpg?v1);
+  background-size: cover;
+}
+
+.nextPage {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -35px;
+  width: 70px;
+  height: 70px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: url(img/arrow.png) 50% 22px no-repeat;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 10;
+  -webkit-transition: opacity 2s;
+  -moz-transition: opacity 2s;
+  -transition: opacity 2s;
+}
+
+.active .nextPage {
+  opacity: 1;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 70px;
+  height: 70px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: url(img/close.png) 50% 27px no-repeat;
+  color: #fff;
+  font-size: 20px;
+  z-index: 10;
+  opacity: 0;
+  -webkit-transition: opacity 2s;
+  -moz-transition: opacity 2s;
+  -transition: opacity 2s;
+}
+
+.active .close {
+  opacity: 1;
+}
+
+
+body.disabled-onepage-scroll .onepage-wrapper  section {
+  min-height: 100%;
+  height: auto;
+}

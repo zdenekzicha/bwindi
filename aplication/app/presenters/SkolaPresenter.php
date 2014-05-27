@@ -4,11 +4,13 @@ class skolaPresenter extends BasePresenter
 {
 
 	private $skoly;
+	private $deti;
 
 	protected function startup()
 	{
 	    parent::startup();
 	    $this->skoly = $this->context->skolaModel;
+	    $this->deti = $this->context->diteModel;
 	}
 
 	public function actionEdit($id)
@@ -42,13 +44,19 @@ class skolaPresenter extends BasePresenter
 
 	public function actionSmazat($id)
 	{	
-    	
-    	if($this->skoly->smazatSkolu($id)){
-    		$this->flashMessage('Smazali jste školu.', 'success');
-    		$this->redirect('Skola:default');
-    	}else{
+    	$jeSkolaPouzita = $this->deti->jeSkolaPouzita($id);
+
+    	if($jeSkolaPouzita[0][0] > 0){
     		$this->flashMessage('Tato škola je přiřazená k některému dítěti. Aby šla škola smazat, nesmí být přiřazena k žádnému dítěti.', 'fail');
     		$this->redirect('Skola:default');
+    	}else{
+    		if($this->skoly->smazatSkolu($id)){
+	    		$this->flashMessage('Smazali jste školu.', 'success');
+	    		$this->redirect('Skola:default');
+	    	}else{
+	    		$this->flashMessage('Nepodařilo se školu smazat. Zkuste to znovu.', 'fail');
+	    		$this->redirect('Skola:default');
+	    	}
     	}
 
 

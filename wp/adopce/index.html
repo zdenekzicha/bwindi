@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Bwindi Orphans - Adopce v našem podání</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="jquery.onepage-scroll.min.js"></script>
+	<link href='style.css' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
+</head>
+<body>
+	<div id="imgContainer">
+		<img src="img/story0.jpg" />
+		<img src="img/story1.jpg" />
+		<img src="img/story2.jpg" />
+		<img src="img/story3.jpg" />
+		<img src="img/story4.jpg" />
+		<img src="img/story5.jpg" />
+	</div>
+	<div id="loading"><img src="img/loader.gif" /></div>
+	<div class="wrapper">
+		<div class="main">
+			<section class="page0">
+				<div class="text">
+					<h1>Adopce v našem podání</h1>
+					<div class="nextPage"></div>
+				</div>
+				<a href="/" class="close"></a>
+			</section>
+			<section class="page1">
+				<div class="text">
+					<h1>Děti vybíráme sami</h1>
+					<p>
+						Do Ugandy jezdíme několikrát do roka a vždy se nám hlásí hodně dětí, jejichž rodiny jsou v nouzi. 
+						Vyslechneme jejich příběh, důkladně si ověříme, v jakých podmínkách rodina opravdu žije, vybereme ty,
+						které jsou na tom nejhůř a přidáme na naše stránky.
+					</p>
+				</div>
+				<div class="nextPage"></div>
+				<a href="/" class="close"></a>
+			</section>
+			<section class="page2">
+				<div class="text">
+					<h1>Vy rozhodnete<br /> komu pomoci</h1>
+					<p>
+						Vy si vyberete jedno z dětí, jehož příběh vás zaujme. Na náš účet poukážete roční příspěvěk, jehož 
+						výše se řídí dle toho, zda dítě chodí na základní (5.800,- Kč) nebo na střední (9.800,- Kč) školu. 
+						čtěte dál: Jak se moje peníze dostanou na místo?
+					</p>
+				</div>
+				<div class="nextPage"></div>
+				<a href="/" class="close"></a>
+			</section>
+			<section class="page3">
+				<div class="text">
+					<h1>Co za vaše<br /> peníze děti dostanou</h1>
+					<p>
+						Z peněz od adoptivních rodičů chodí děti do školy, každý den dostanou oběd, na školní rok všechny 
+						potřebné školní pomůcky, dvě uniformy a boty a mají předplacenou veškerou lékařskou péči. čtěte dál: 
+						V Ugandě se za školu platí?
+					</p>
+				</div>
+				<div class="nextPage"></div>
+				<a href="/" class="close"></a>
+			</section>
+			<section class="page4">
+				<div class="text">
+					<h1>Sledujte školní výsledky</h1>
+					<p>
+						Na stránkách vidíte, jak si děti v průběhu roku ve škole vedou a v prosinci dostanete vysvědčení se 
+						závěrečným hodnocením. Během roku vás také informujeme o všech významných změnách v rodině a pokud máte 
+						zájem, můžete se zapojit do řešení kritických situací.
+					</p>
+				</div>
+				<div class="nextPage"></div>
+				<a href="/" class="close"></a>
+			</section>
+			<section class="page5">
+				<div class="text">
+					<h1>Rozdáváme<br/> oblečení a boty</h1>
+					<p>V ČR dostaneme spoustu oblečení a bot. Přeprava do Ugandy je problematická, je s ní spousta práce a starostí, ale jen díky tomu od nás všechny děti v projektu dostanou něco na volný čas.</p>
+				</div>
+				<a href="/" class="close"></a>
+			</section>
+		</div>
+	</div>
+	<audio id="audio">
+		<source src="bwindiZpev.mp3" type="audio/mpeg">
+		Your browser does not support the audio tag.
+	</audio>
+
+	<script type="text/javascript">
+		// spusti scroll widget
+		function onePage() {
+			$('.wrapper').css('display','block');
+
+			$(".main").onepage_scroll({
+				sectionContainer: "section",
+				responsiveFallback: 600,
+				pagination: false,
+				loop: true
+			});
+
+			$(".nextPage").click(function() {
+				$(".main").moveDown();
+			});
+
+			document.getElementById('audio').play();
+		}
+
+		$(document).ready(function() {
+
+			// pockame az se nactou obrazky a pak je teprve zobrazime
+			var imgCount = 0;
+
+			$("#imgContainer img").load(function() {
+				imgCount++;
+				if($('#imgContainer img').length -1 == imgCount) {
+					onePage();
+				}
+			});
+		});
+	</script>
+</body>
+</html>

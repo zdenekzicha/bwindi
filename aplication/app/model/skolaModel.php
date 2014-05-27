@@ -21,7 +21,6 @@ class SkolaModel extends Model
 
   public function vytvorSkolu($form)
   	{
-      
       try{
         $this->getTable()->insert($form);
         return true;
