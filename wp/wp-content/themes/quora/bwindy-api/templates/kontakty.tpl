@@ -1,5 +1,5 @@
 <div id="contacts">
-	<p class="contactLink"><a href="#contactMap">Adreasa a bankovní spojení</a></p>
+	<p class="contactLink"><a href="#contactMap">Adresa a bankovní spojení</a></p>
 	<div class="teamMember">
 		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/katka.jpg" /></div>
 		<h3>Kateřina Andrlová</h3>
@@ -9,13 +9,13 @@
 	<div class="teamMember">
 		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/herbert.jpg" /></div>
 		<h3>Herbert Niwagaba</h3>
-		<div class="title">asisten Bwindi a Soroti</div>
+		<div class="title">spolupracovník</div>
 		<a href="mailto:herbniwagaba@googlemail.com">herbniwagaba@googlemail.com</a>
 	</div>
 	<div class="teamMember">
 		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/medard.jpg" /></div>
 		<h3>Medard Ashaba</h3>
-		<div class="title">asistent Bwindi</div>
+		<div class="title">spolupracovník</div>
 		<a href="mailto:mara@bwindiorphans.org">medardashaba@yahoo.com</a>
 	</div>
 	<div class="teamMember">
