@@ -221,7 +221,7 @@ p.perex {
     &.right {
         .photo { float: right; }
         h3 { text-align: right; }
-        p { text-align: right; }       
+        p { text-align: right; }
     }
 }
 
@@ -353,6 +353,22 @@ article.page {
         li {
             border-bottom: 1px dotted #ccc;
             margin-right: -4px;
+
+            &.current-menu-parent {
+                border-bottom: 1px solid #997653;
+
+                a {
+                    color: #997653;
+                }
+
+                .sub-menu a {
+                    color: #4cb63d;
+                }
+
+                .current-menu-item a {
+                    color: #997653;
+                }
+            }
         }
     }
     .sub-menu {
@@ -368,6 +384,8 @@ article.page {
         }
     }
     .current-menu-item {
+        border-bottom: 1px solid #997653 !important;
+
         .sub-menu {
             display: inline;
             display: inline;
@@ -384,6 +402,10 @@ article.page {
     .current-menu-ancestor {
         .sub-menu {
             display: inline;
+        }
+
+        .current-menu-item {
+            border-bottom: 0px !important;
         }
     }
 }
