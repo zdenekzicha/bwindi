@@ -1,8 +1,11 @@
 <?php
+
 	/*funkce pro prevod jsonu na pole*/
-	function jsonToArray($link,$id){
+	function jsonToArray($link,$id) {
+		$context = stream_context_create(array('http' => array('header'  => "Authorization: Basic " . base64_encode("bwindi:aPc8FGoP"))));
+
 		$json_string = $link.$id;
-		$jsondata = file_get_contents($json_string);
+		$jsondata = file_get_contents($json_string,false, $context);
 		return json_decode($jsondata, true);
 	}
 
