@@ -69,14 +69,15 @@
 	<div id="wideslider" class="flexslider">
 		<ul class="slides">
 		    <li>
-		      <img src="http://bwindiorphans.org/wp-content/themes/quora/images/mainPhoto1.jpg" alt="" id="headerPhoto"/>
-		      <img src="http://bwindiorphans.org/wp-content/themes/quora/images/mainPhoto1Blur.jpg" alt="" class="blur" />
+		      <img src="http://bwindiorphans.org/wp-content/themes/quora/images/mainPhoto2.jpg" alt="" id="headerPhoto"/>
 		    </li>
   		</ul>
 	</div>
 	<script type="text/javascript">
+		/*
 		var headerBlur = new headerBlur();
 		headerBlur.init();
+		*/
 	</script>
 	<?php endif; ?>
 
