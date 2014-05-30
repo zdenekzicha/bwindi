@@ -36,7 +36,7 @@
 						<img src="http://farm6.static.flickr.com/5516/12652873814_a81661e69e.jpg" alt="" data-src="http://farm6.static.flickr.com/5516/12652873814_a81661e69e.jpg">
 					</a>
 				</div>
-				<span>K - Lovis Muhwezi</span>
+				<span>Lovis Muhwezi</span>
 			</div>
 		</div>
 		<div id="actions"><a href="http://bwindiorphans.org/adopce/">Co je vzdálená adopce</a><a href="?page_id=368">Chci pomoci</a></div>
