@@ -14,6 +14,7 @@
 	$smarty->cache_lifetime = 120;
 
 	$server = 'http://admin.bwindiorphans.org';
+	$emailReceiver = "katerina@bwindiorphans.org";
 
 
 	if($_GET["s"] == "profil") { // zobrazi profil ditete
@@ -36,23 +37,23 @@
 		$data['data']['email'] = $_GET["email"];
 		
 		/* posleme email bwindi o novem sponzorovi */
-		$to      = 'petr.siller@gmail.com';
+		$to      = $emailReceiver;
 		$subject = 'Bwindi Oprhans - Nový zájemce o adopci';
 		$message = getMsgForBwindi($id,$_GET['sponsor'],$_GET["email"],$_GET["phone"],$_GET["city"],$_GET["street"],$_GET["zipcode"],$_GET["note"],$data['data']['jmeno'],$data['data']['fotka']);	
-		$headers = "From: info@bwindiorphans.org\r\n";
-		$headers .= "Reply-To: info@bwindiorphans.org\r\n";
-		$headers .= "CC: katerina@bwindiorphans.org\r\n";
+		$headers = "From:". $_GET["email"]."\r\n";
+		$headers .= "Reply-To:". $_GET["email"]."\r\n";
+		$headers .= "Cc: petr.siller@gmail.com\r\n";
 		$headers .= "MIME-Version: 1.0\r\n";
 		$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 		mail($to, $subject, $message, $headers);
 
 		/* posleme email spnzorovi ze vime o jeho zajmu */
-		$to      = 'petr.siller@gmail.com';
+		$to      = $_GET["email"];
 		$subject = 'Děkujeme za zájem o adopci, Bwindi Oprhans';
 		$message = getMsgForSponsor($id, $data['data']['jmeno'],$data['data']['fotka']);
-		$headers = "From: info@bwindiorphans.org\r\n";
-		$headers .= "Reply-To: info@bwindiorphans.org\r\n";
-		$headers .= "CC: katerina@bwindiorphans.org\r\n";
+		$headers = "From: ".$emailReceiver."\r\n";
+		$headers .= "Reply-To: ".$emailReceiver."\r\n";
+		$headers .= "Cc: petr.siller@gmail.com\r\n";
 		$headers .= "MIME-Version: 1.0\r\n";
 		$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 		mail($to, $subject, $message, $headers);
