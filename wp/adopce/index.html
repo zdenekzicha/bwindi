@@ -106,20 +106,26 @@
 				$(".main").moveDown();
 			});
 
-			document.getElementById('audio').play();
+			//document.getElementById('audio').play();
 		}
 
 		$(document).ready(function() {
 
 			// pockame az se nactou obrazky a pak je teprve zobrazime
-			var imgCount = 0;
-
-			$("#imgContainer img").load(function() {
-				imgCount++;
-				if($('#imgContainer img').length -1 == imgCount) {
-					onePage();
-				}
+			var numPics =$("#imgContainer img").length;
+			var picsLoaded = 0;
+			$('#imgContainer img').each(function(index) {
+				var img = $(this);
+				img.load(function(){
+					picsLoaded++;
+					if (picsLoaded == numPics){
+						onePage();
+					}
+				});
+				img.attr("src", img.attr("src"));
 			});
+			
+
 		});
 	</script>
 </body>
