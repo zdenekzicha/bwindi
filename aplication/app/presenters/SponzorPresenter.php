@@ -35,6 +35,8 @@ class sponzorPresenter extends BasePresenter
                 'mesto' => $data[$id]['mesto'],
                 'mail' => $data[$id]['mail'],
                 'telefon' => $data[$id]['telefon'],
+                'poznamka' => $data[$id]['poznamka'],
+                'posilatInfo' => $data[$id]['posilatInfo'],
                 'aktivniZaznam' => $data[$id]['aktivniZaznam']
      	));
 
@@ -139,7 +141,7 @@ class sponzorPresenter extends BasePresenter
 
 		$this->filtr = array();
 		if(isset($filtrText)) {
-			array_push($this->filtr, array($filtrSelect." LIKE ?" => "%".$filtrText.""));
+			array_push($this->filtr, array($filtrSelect." LIKE ?" => "%".$filtrText."%"));
 		}
 
 		if(isset($filtrActive)) {
@@ -176,7 +178,9 @@ class sponzorPresenter extends BasePresenter
 	    $form->addText('mesto', 'Město:', 40, 255);
 	    $form->addText('mail', 'E-mail:', 40, 255);
 	    $form->addText('telefon', 'Telefon:', 40, 255);
+	    $form->addTextArea('poznamka', 'Poznamka:');
 	    $form->addCheckbox('aktivniZaznam','Aktivní v projektu')->setValue(1);
+	    $form->addCheckbox('posilatInfo','Chce posílat infomaily')->setValue(1);
 	    $form->addHidden('datumVzniku')->setValue(date("Y-m-d H:i:s"));
 	    //$form->addSelect('idDite', 'Dítě:', $detiSelect)->setPrompt('Zvolte dítě');
 	    $form->addSubmit('create', 'Přidat sponzora');
