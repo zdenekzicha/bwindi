@@ -33,7 +33,7 @@
 				<th></th>
 			</tr>
 			{foreach $sponzori as $sponzor}
-				<tr>
+				<tr {if $sponzor->diteJmeno == ""}class="warning"{/if} >
 					<td>{$sponzor->ssym}</td>
 					<td><a n:href="Sponzor:edit id=>$sponzor->idSponzor">{$sponzor->jmeno}</a></td>
 					<td>{$sponzor->ulice}</td>
