@@ -14,8 +14,16 @@
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
 
 	<title>{block title|striptags|upper}Nette Application Skeleton{/block}</title>
+  
+  <!-- DataTables CSS -->
+  <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.3/css/jquery.dataTables.css">
+    
+  <!-- jQuery -->
+  <script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script> 
+    
+  <!-- DataTables -->
+  <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.3/js/jquery.dataTables.js"></script>
 
-	
 	<link rel="stylesheet" href="{$basePath}/css/bootstrap.css" />
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/userweb.css">
 	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
@@ -33,6 +41,7 @@
 			<a href="{link Homepage:}" class="btn btn-info btn-large">Děti</a>
 			<a href="{link Sponzor:}" class="btn btn-info btn-large">Sponzoři</a>
 			<a href="{link Platba:}" class="btn btn-info btn-large">Platby</a> 
+      <a href="{link Vypisy:}" class="btn btn-info btn-large">Výpisy</a>
 		</div>
 		<div class="btn-group">
 			<a href="{link Skola:}" class="btn btn-default btn-small">Školy</a>
