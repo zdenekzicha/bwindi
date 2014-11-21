@@ -15,27 +15,28 @@
 		}
 		else if ( get_the_ID() == 23 ) { // Homepage
 			
-			echo '<div class="mainPage-wrapper group">';
+			echo '<div class="mainPage-wrapper">';
 
 				// uvod - obsah stranky s id 23
-				echo '<div class="entry-content">';
+				echo '<div class="entry-content group">';
 					the_content();
-				echo '</div>';
 
-				// nejnovejsi zprava z blogu
-				echo '<div id="new-post">';
-					$args = array(
-						'numberposts' => 1,
-					);
-					$recent_posts = wp_get_recent_posts($args);
-					foreach( $recent_posts as $recent ){
-						echo '<h3><a href="' . get_permalink($recent["ID"]) . '">' .   $recent["post_title"].'</a> </h3> ';
-						$post_content = strip_tags($recent["post_content"]);
-						if(strlen($post_content) > 215) {
-							$post_content = substr($post_content, 0, 215) ."...";
+					// nejnovejsi zprava z blogu
+					echo '<div id="new-post">';
+						$args = array(
+							'numberposts' => 1,
+						);
+						$recent_posts = wp_get_recent_posts($args);
+						foreach( $recent_posts as $recent ){
+							echo '<h3><a href="' . get_permalink($recent["ID"]) . '">' .   $recent["post_title"].'</a> </h3> ';
+							$post_content = strip_tags($recent["post_content"]);
+							if(strlen($post_content) > 215) {
+								$post_content = substr($post_content, 0, 215) ."...";
+							}
+							echo '<p>' .$post_content.'</p>';
 						}
-						echo '<p>' .$post_content.'</p>';
-					}
+					echo '</div>';
+
 				echo '</div>';
 
 			echo '</div>';
