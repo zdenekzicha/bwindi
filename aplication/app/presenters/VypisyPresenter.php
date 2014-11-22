@@ -16,6 +16,12 @@ class vypisyPresenter extends BasePresenter
 		$this->template->vypisy = $this->vypisy->vsechnyDataOdDeti();
 		
 	}
+  
+  public function actionAktivniSponzori()
+	{
+		$this->template->aktivniSponzori = $this->vypisy->aktivniSponzori();
+		
+	}
 	
 }
 

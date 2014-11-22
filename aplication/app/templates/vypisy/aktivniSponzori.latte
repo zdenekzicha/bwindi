@@ -1,0 +1,8 @@
+{block title}Výpisy{/block}
+
+{block content}
+<center>
+  <textarea name="promenna" style="width: 1200px; height: 1000px;">
+	{foreach $aktivniSponzori as $radek}{$radek->mail};{/foreach}
+  </textarea>
+{/block}
