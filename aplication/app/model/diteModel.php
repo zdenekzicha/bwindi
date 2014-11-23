@@ -296,6 +296,23 @@ class DiteModel extends Model
 
   	}
 
+    public function vyraditDite($idDite)
+  	{
+        		try{
+			
+			$this->getDb()->query('UPDATE dite SET aktivniZaznam=0,datumZaniku=NOW() WHERE idDite='.$idDite);
+      $this->getDb()->query('UPDATE relaceDiteSponzor SET aktivniZaznam=0,datumZaniku=NOW() WHERE diteIdDite='.$idDite);
+			 
+	        return true;
+
+	    } catch (Exception $e) {
+	        
+	        return false;
+
+	    }
+
+  	}
+
   	public function smazatSourozence($id)
   	{
 

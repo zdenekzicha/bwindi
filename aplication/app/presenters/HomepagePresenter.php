@@ -85,8 +85,7 @@ class homepagePresenter extends BasePresenter
                 'aktivniZaznam' => $data[$id]['aktivniZaznam']
 
      	));
-
-     	$form->addHidden('idDite')->setValue($id);
+      $form->addHidden('idDite')->setValue($id);
 
      	$this->template->maxVsym = $this->deti->zobrazMaximalniVsym();
 
@@ -320,7 +319,7 @@ class homepagePresenter extends BasePresenter
 	    $form->addUpload('profilovasoubor', 'Nahraj novou fotku');
 	    $form->addCheckbox('vystavene','Vystavené na webu');
 	    $form->addCheckbox('rezervovane','Má zájemce o adopci');
-	    $form->addCheckbox('aktivniZaznam','Aktivní v projektu')->setValue(1);
+	    $form->addCheckbox('aktivniZaznam','Aktivní v projektu')->setValue(1)->setDisabled();
 	    $form->addHidden('datumVzniku')->setValue(date("Y-m-d H:i:s"));
 	    $form->addSelect('skolaIdSkola', 'Škola:', $skolySelect)->setPrompt('Zvolte školu');
 	    $form->addSubmit('create', 'Přidat dítě');
@@ -366,6 +365,18 @@ class homepagePresenter extends BasePresenter
     	}
 
 	}
+  public function actionVyraditDite($idDite)
+	{	
+    	
+    	if($this->deti->vyraditDite($idDite)){
+    		$this->flashMessage('Vyřadili jste dítě.', 'success');
+    		$this->redirect('Homepage:default', $idDite);
+    	}else{
+    		$this->flashMessage('Dítě se nepodařilo vyřadit.', 'fail');
+    		$this->redirect('Homepage:edit', $idDite);
+    	}
+	}
+  
 
 }
 
