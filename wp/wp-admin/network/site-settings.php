@@ -30,7 +30,7 @@ get_current_screen()->add_help_tab( array(
 get_current_screen()->set_help_sidebar(
 	'<p><strong>' . __('For more information:') . '</strong></p>' .
 	'<p>' . __('<a href="http://codex.wordpress.org/Network_Admin_Sites_Screen" target="_blank">Documentation on Site Management</a>') . '</p>' .
-	'<p>' . __('<a href="http://wordpress.org/support/forum/multisite/" target="_blank">Support Forums</a>') . '</p>'
+	'<p>' . __('<a href="https://wordpress.org/support/forum/multisite/" target="_blank">Support Forums</a>') . '</p>'
 );
 
 $id = isset( $_REQUEST['id'] ) ? intval( $_REQUEST['id'] ) : 0;
@@ -58,6 +58,11 @@ if ( isset($_REQUEST['action']) && 'update-site' == $_REQUEST['action'] && is_ar
 		update_option( $key, $val );
 	}
 
+/**
+ * Fires after the site options are updated.
+ *
+ * @since 3.0.0
+ */
 	do_action( 'wpmu_update_blog_options' );
 	restore_current_blog();
 	wp_redirect( add_query_arg( array( 'update' => 'updated', 'id' => $id ), 'site-settings.php') );
@@ -82,7 +87,6 @@ require( ABSPATH . 'wp-admin/admin-header.php' );
 ?>
 
 <div class="wrap">
-<?php screen_icon('ms-admin'); ?>
 <h2 id="edit-site"><?php echo $title_site_url_linked ?></h2>
 <h3 class="nav-tab-wrapper">
 <?php
@@ -109,7 +113,14 @@ if ( ! empty( $messages ) ) {
 	<table class="form-table">
 		<?php
 		$blog_prefix = $wpdb->get_blog_prefix( $id );
-		$options = $wpdb->get_results( "SELECT * FROM {$blog_prefix}options WHERE option_name NOT LIKE '\_%' AND option_name NOT LIKE '%user_roles'" );
+		$sql = "SELECT * FROM {$blog_prefix}options
+			WHERE option_name NOT LIKE %s
+			AND option_name NOT LIKE %s";
+		$query = $wpdb->prepare( $sql,
+			$wpdb->esc_like( '_' ) . '%',
+			'%' . $wpdb->esc_like( 'user_roles' )
+		);
+		$options = $wpdb->get_results( $query );
 		foreach ( $options as $option ) {
 			if ( $option->option_name == 'default_role' )
 				$editblog_default_role = $option->option_value;
@@ -144,6 +155,13 @@ if ( ! empty( $messages ) ) {
 			<?php
 			}
 		} // End foreach
+		/**
+		 * Fires at the end of the Edit Site form, before the submit button.
+		 *
+		 * @since 3.0.0
+		 *
+		 * @param int $id Site ID.
+		 */
 		do_action( 'wpmueditblogaction', $id );
 		?>
 	</table>

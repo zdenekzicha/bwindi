@@ -15,18 +15,21 @@
  * passing an array with one string prints that style,
  * and passing an array of strings prints those styles.
  *
- * @see do_action() Calls 'wp_print_styles' hook.
  * @global WP_Styles $wp_styles The WP_Styles object for printing styles.
  *
  * @since 2.6.0
  *
- * @param array|bool $handles Styles to be printed. Default 'false'.
+ * @param string|bool|array $handles Styles to be printed. Default 'false'.
  * @return array On success, a processed array of WP_Dependencies items; otherwise, an empty array.
  */
 function wp_print_styles( $handles = false ) {
 	if ( '' === $handles ) // for wp_head
 		$handles = false;
-
+	/**
+	 * Fires before styles in the $handles queue are printed.
+	 *
+	 * @since 2.6.0
+	 */
 	if ( ! $handles )
 		do_action( 'wp_print_styles' );
 
@@ -72,7 +75,7 @@ function wp_add_inline_style( $handle, $data ) {
 	}
 
 	if ( false !== stripos( $data, '</style>' ) ) {
-		_doing_it_wrong( __FUNCTION__, 'Do not pass style tags to wp_add_inline_style().', '3.7' );
+		_doing_it_wrong( __FUNCTION__, __( 'Do not pass style tags to wp_add_inline_style().' ), '3.7' );
 		$data = trim( preg_replace( '#<style[^>]*>(.*)</style>#is', '$1', $data ) );
 	}
 
@@ -233,7 +236,7 @@ function wp_style_is( $handle, $list = 'enqueued' ) {
  * @param string $handle Name of the stylesheet.
  * @param string $key    Name of data point for which we're storing a value.
  *                       Accepts 'conditional', 'rtl' and 'suffix', 'alt' and 'title'.
- * @param mixed  $data   String containing the CSS data to be added.
+ * @param mixed  $value  String containing the CSS data to be added.
  * @return bool True on success, false on failure.
  */
 function wp_style_add_data( $handle, $key, $value ) {

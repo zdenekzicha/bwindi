@@ -21,10 +21,15 @@
  *
  * @since 2.6.0
  *
- * @param array|bool $handles Optional. Scripts to be printed. Default 'false'.
+ * @param string|bool|array $handles Optional. Scripts to be printed. Default 'false'.
  * @return array On success, a processed array of WP_Dependencies items; otherwise, an empty array.
  */
 function wp_print_scripts( $handles = false ) {
+	/**
+	 * Fires before scripts in the $handles queue are printed.
+	 *
+	 * @since 2.1.0
+	 */
 	do_action( 'wp_print_scripts' );
 	if ( '' === $handles ) // for wp_head
 		$handles = false;
@@ -85,19 +90,21 @@ function wp_register_script( $handle, $src, $deps = array(), $ver = false, $in_f
  * Works only if the script has already been added.
  *
  * Accepts an associative array $l10n and creates a JavaScript object:
- * <code>
- * "$object_name" = {
- *       key: value,
- *       key: value,
- *       ...
- * }
- * </code>
+ *
+ *     "$object_name" = {
+ *         key: value,
+ *         key: value,
+ *         ...
+ *     }
+ *
  *
  * @see WP_Dependencies::localize()
- * @link http://core.trac.wordpress.org/ticket/11520
+ * @link https://core.trac.wordpress.org/ticket/11520
  * @global WP_Scripts $wp_scripts The WP_Scripts object for printing scripts.
  *
  * @since 2.6.0
+ *
+ * @todo Documentation cleanup
  *
  * @param string $handle      Script handle the data will be attached to.
  * @param string $object_name Name for the JavaScript object. Passed directly, so it should be qualified JS variable.

@@ -1,0 +1,271 @@
+/**
+ * Sucuri Security - SiteCheck Malware Scanner
+ * Copyright (C) 2010-2014 Sucuri Security - http://sucuri.net
+ * Released under the GPL - see LICENSE file for details.
+ */
+/* Generic Styles */
+.sucuriscan-wrap *, .sucuriscan-wrap *:before, .sucuriscan-wrap *:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+.sucuriscan-clearfix:before, .sucuriscan-clearfix:after{display:table;content:' '}
+.sucuriscan-clearfix:after{clear:both}
+.sucuriscan-visible{}
+.sucuriscan-hidden{display:none !important}
+.sucuriscan-monospace{font-family:Monospace, Courier}
+.sucuriscan-ellipsis{overflow:hidden;display:inline-block;white-space:nowrap;text-overflow:ellipsis}
+.sucuriscan-wraptext{word-break:break-all}
+.sucuriscan-pull-left{float:left}
+.sucuriscan-pull-right{float:right}
+.sucuriscan-list li{list-style:disc;margin:0 0 5px 15px}
+.sucuriscan-gradient, .sucuriscan-modal-header, .sucuriscan-maincontent .sucuriscan-table tr > th{background:#f1f1f1;background-image:-webkit-gradient(linear,left bottom,left top,from(#ececec),to(#f9f9f9));background-image:-webkit-linear-gradient(bottom,#ececec,#f9f9f9);background-image:-moz-linear-gradient(bottom,#ececec,#f9f9f9);background-image:-o-linear-gradient(bottom,#ececec,#f9f9f9);background-image:linear-gradient(to top,#ececec,#f9f9f9)}
+/* WordPress Extra Buttons (success) */
+.wp-core-ui .button-success.button-success{background:#74cc2e;border-color:#2da200;box-shadow:inset 0 1px 0 rgba(155, 230, 120, 0.6)}
+.wp-core-ui .button-success.focus, .wp-core-ui .button-success.hover, .wp-core-ui .button-success:focus, .wp-core-ui .button-success:hover{background:#4bbe1e}
+.wp-core-ui .button-success.focus, .wp-core-ui .button-success:focus{border-color:#23500e}
+.wp-core-ui .button-success.active, .wp-core-ui .button-success.active:focus, .wp-core-ui .button-success.active:hover, .wp-core-ui .button-success:active{background:#47a61b;border-color:#358400}
+.wp-core-ui .button-success-disabled, .wp-core-ui .button-success.disabled, .wp-core-ui .button-success:disabled, .wp-core-ui .button-success[disabled]{color:#b2e794 !important;background:#74ba29 !important;border-color:#3f7f1b !important}
+/* WordPress Extra Buttons (danger) */
+.wp-core-ui .button-danger.button-danger{background:#cc2e2e;border-color:#a20000;box-shadow:inset 0 1px 0 rgba(230, 120, 120, 0.6)}
+.wp-core-ui .button-danger.focus, .wp-core-ui .button-danger.hover, .wp-core-ui .button-danger:focus, .wp-core-ui .button-danger:hover{background:#be1e1e}
+.wp-core-ui .button-danger.focus, .wp-core-ui .button-danger:focus{border-color:#500e0e}
+.wp-core-ui .button-danger.active, .wp-core-ui .button-danger.active:focus, .wp-core-ui .button-danger.active:hover, .wp-core-ui .button-danger:active{background:#a61b1b;border-color:#840000}
+.wp-core-ui .button-danger-disabled, .wp-core-ui .button-danger.disabled, .wp-core-ui .button-danger:disabled, .wp-core-ui .button-danger[disabled]{color:#e79494 !important;background:#ba2929 !important;border-color:#7f1b1b !important}
+/* Modal Window */
+.sucuriscan-overlay{position:fixed;top:0;left:0;bottom:0;right:0;z-index:800;background:rgba(0, 0, 0, 0.5)}
+.sucuriscan-modal{position:fixed;top:100px;left:50%;z-index:900}
+.sucuriscan-modal-outside{position:relative;left:-50%;border:1px solid #ddd}
+.sucuriscan-modal-inside{background:#fff;padding:20px}
+.sucuriscan-modal-header{padding:10px 20px;border-bottom:1px solid #ddd}
+.sucuriscan-modal-header .sucuriscan-modal-title{min-height:18px;margin:0}
+.sucuriscan-modal-close{display:inline-block;position:absolute;top:0;right:0;font-size:16px;font-weight:bold;text-decoration:none;line-height:39px;padding:0 15px;border-left:1px solid #ddd}
+.sucuriscan-modal-inside p:first-child{margin-top:0}
+.sucuriscan-modal-inside p:last-child{margin-bottom:0}
+/* Label and Tags */
+.sucuriscan-label, .sucuriscan-label-default, .sucuriscan-label-unknown, .sucuriscan-label-primary, .sucuriscan-label-success, .sucuriscan-label-info, .sucuriscan-label-notice, .sucuriscan-label-warning, .sucuriscan-label-danger, .sucuriscan-label-error{display:inline;font-size:75%;font-weight:700;line-height:1;color:#fff;text-align:center;white-space:nowrap;vertical-align:baseline;padding:0.2em 0.6em 0.3em;border-radius:0.25em}
+.sucuriscan-label-default, .sucuriscan-label-unknown{background:#777}
+.sucuriscan-label-danger, .sucuriscan-label-error{background:#d9534f}
+.sucuriscan-label-info, .sucuriscan-label-notice{background:#5bc0de}
+.sucuriscan-label-warning{background:#f0ad4e}
+.sucuriscan-label-success{background:#5cb85c}
+.sucuriscan-label-primary{background:#428bca}
+/* Interface Wrapper */
+.sucuriscan-wrap{margin-top:20px}
+.sucuriscan-wrap .sucuriscan-maincontent{margin:20px 0}
+.sucuriscan-wrap .sucuriscan-leftside{width:73.5%;float:left}
+.sucuriscan-wrap .sucuriscan-sidebar{width:25%;float:right}
+.sucuriscan-wrap #warnings_hook{line-height:initial;padding:0}
+.sucuriscan-wrap .sucuriscan-navbar{padding-top:20px;padding-left:6px}
+.sucuriscan-wrap .sucuriscan-navbar .nav-tab{margin-right:0}
+.sucuriscan-header, .sucuriscan-footer{position:relative;min-width:255px;background:#333;margin:0;padding:10px;border-radius:4px}
+.sucuriscan-footer .sucuriscan-help{color:#fff;float:right;text-align:right}
+.sucuriscan-footer .sucuriscan-help p{line-height:38px;margin:0 10px 0 0;padding:0}
+.sucuriscan-wrap .sucuriscan-logo, .sucuriscan-wrap .sucuriscan-header h2, .sucuriscan-wrap .sucuriscan-footer h2{float:left;margin:0;padding:0}
+.sucuriscan-wrap .sucuriscan-logo{display:inline-block}
+.sucuriscan-wrap .sucuriscan-logo img{display:block}
+.sucuriscan-wrap .sucuriscan-header h2, .sucuriscan-wrap .sucuriscan-footer h2{color:#fff;line-height:38px;margin-left:10px;text-shadow:#000 0 1px 0}
+.sucuriscan-leftside #poststuff .postbox:last-child{margin-bottom:0}
+/* Page Setup Notice */
+.wrap div.sucuriscan-setup-notice{background:#bbe8f5;margin:0 0 20px 0;padding:0;border:1px solid #bbb;border-radius:3px;-webkit-box-shadow:none;box-shadow:none}
+.wrap div.sucuriscan-setup-notice .sucuriscan-setup-image, .wrap div.sucuriscan-setup-notice .sucuriscan-setup-image img{border-radius:3px 0 0 3px}
+.wrap div.sucuriscan-setup-notice .sucuriscan-setup-image{background:#333;margin:-1px 0 -1px -1px;padding:7px 10px;border-right:1px solid transparent}
+.wrap div.sucuriscan-setup-notice .sucuriscan-setup-form{padding:4px;padding-left:0}
+.wrap div.sucuriscan-setup-notice p{font-size:14px;line-height:20px;margin:0 0 0 10px;padding:7px 0}
+.wrap div.sucuriscan-setup-notice, .wrap div.sucuriscan-setup-notice .sucuriscan-setup-image{border-color:#4393ac}
+/* Table Styles */
+.sucuriscan-maincontent .sucuriscan-table{margin-top:12px}
+.sucuriscan-maincontent .sucuriscan-table tr > th{border-top:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5}
+.sucuriscan-maincontent .sucuriscan-table tr:first-child th{border-top:0}
+.sucuriscan-maincontent .sucuriscan-table td.check-column{padding:8px 10px}
+.sucuriscan-table-double-title tr:first-child th{border-bottom:0}
+.sucuriscan-table-triple-title tr:first-child th, .sucuriscan-table-triple-title tr:first-child + tr th{border-bottom:0}
+.sucuriscan-table-quad-title tr:first-child th, .sucuriscan-table-quad-title tr:first-child + tr th, .sucuriscan-table-quad-title tr:first-child + tr + tr th{border-bottom:0}
+.sucuriscan-table-description{border-left-width:1px !important;box-shadow:none}
+.sucuriscan-table-description .inside{border-bottom:0 !important}
+.sucuriscan-maincontent .sucuriscan-lastmodified td{font-family:Monospace, Courier, serif;font-weight:bold}
+.widefat td.td-with-button{text-align:right;padding:3px 10px}
+.widefat td.td-with-button button{min-width:90px}
+.widefat td.td-with-button select{height:initial;line-height:initial;vertical-align:top;margin:0;padding:2px 0 3px 0}
+.sucuriscan-list-as-table{background:#fff;border:1px solid #e5e5e5}
+.sucuriscan-list-as-table li{line-height:30px;margin:0;padding:0 10px}
+.sucuriscan-list-as-table li:nth-child(odd){background:#f5f5f5}
+.sucuriscan-list-as-table-scrollable{height:300px;overflow:hidden;overflow-y:scroll}
+/* Table Top-Right Buttons */
+.sucuriscan-maincontent .thead-with-button{padding:5px 5px 5px 10px}
+.sucuriscan-maincontent .thead-with-button > span{display:inline-block;line-height:28px}
+.sucuriscan-maincontent .thead-with-button .input-text{line-height:26px}
+.sucuriscan-maincontent .thead-with-button select{margin:0;padding:0}
+.sucuriscan-maincontent .thead-topright-action{display:inline-block;float:right}
+/* Sidebar Styles */
+.sucuriscan-sidebar .sucuriscan-ad{border:1px solid #ccc;margin:0 0 20px 0;padding:20px;border-radius:4px}
+.sucuriscan-sidebar .sucuriscan-ad h2{font-size:18px;line-height:normal;padding:0}
+.sucuriscan-sidebar .sucuriscan-ad p:last-child{margin-bottom:0}
+.sucuriscan-sidebar .sucuriscan-ad:nth-child(odd){background-color:#bbe8f5;border-color:#4393ac}
+.sucuriscan-sidebar .sucuriscan-ad:nth-child(even){background-color:#ececec;border-color:#999}
+.sucuriscan-scanner-video{width:100%;background:#fff;border:1px solid #ddd}
+/* WordPress Alerts */
+div.sucuriscan-alert{position:relative;margin:0 0 20px 0}
+div.sucuriscan-alert > a.close{position:absolute;top:10px;right:10px;font-size:18px;font-weight:bold;text-decoration:none}
+.sucuriscan-inline-alert, .sucuriscan-inline-alert-updated, .sucuriscan-inline-alert-error, .sucuriscan-inline-alert-warning, .sucuriscan-inline-alert-info{background:#fff;box-shadow:0 1px 1px 0 rgba(0,0,0,.1);padding:0;border-left:4px solid #ddd}
+.sucuriscan-inline-alert > p, .sucuriscan-inline-alert-updated > p, .sucuriscan-inline-alert-error > p, .sucuriscan-inline-alert-warning > p, .sucuriscan-inline-alert-info > p{margin:0;padding:8px 12px;border:1px solid #ddd;border-left:0}
+.sucuriscan-inline-alert-updated + div, .sucuriscan-inline-alert-warning + div, .sucuriscan-inline-alert-error + div, .sucuriscan-inline-alert-info + div{margin-top:10px}
+.sucuriscan-inline-alert-updated{border-left-color:#7ad03a}
+.sucuriscan-inline-alert-warning{border-left-color:#ffba00}
+.sucuriscan-inline-alert-error{border-left-color:#dd3d36}
+.sucuriscan-inline-alert-info{border-left-color:#2ea2cc}
+/* Tabulation Panels */
+.sucuriscan-tabs{}
+.sucuriscan-tabs > ul{margin:0}
+.sucuriscan-tabs > ul li, .sucuriscan-tabs > ul li > a{display:inline-block}
+.sucuriscan-tabs > ul li{margin-bottom:0}
+.sucuriscan-tabs > ul li > a{background:#e5e5e5;font-size:13px;font-weight:bold;color:#333;line-height:38px;text-decoration:none;padding:0 10px}
+.sucuriscan-tabs > ul li > a.sucuriscan-tab-active{background:#fff;border:1px solid #e1e1e1;border-bottom:0}
+.sucuriscan-tabs > ul li.sucuriscan-red-tab a{background:#ff8a83;color:#fff}
+.sucuriscan-tabs > ul li.sucuriscan-red-tab a.sucuriscan-tab-active{background:#dd3d36;border-color:#dd3d36}
+.sucuriscan-maincontent .sucuriscan-tab-containers > div > table{margin-top:0}
+.sucuriscan-maincontent .sucuriscan-tab-containers > div > #poststuff{margin-top:0}
+/* Get API Form */
+.sucuriscan-getapi-div{background:#fff;margin:0 0 20px 0;border:1px solid #e5e5e5;border-radius:3px}
+.sucuriscan-getapi-div p{margin:0;padding:10px}
+.sucuriscan-getapi-form{}
+.sucuriscan-getapi-form button.button-primary{width:100%;height:initial;line-height:30px;margin:0 0 -1px 0;padding:0;border-radius:0 0 3px 3px}
+/* Scanner Page */
+.sucuriscan-malwarescan-message{margin-bottom:20px !important}
+.sucuriscan-loading{background:#fff;text-align:center;padding:30px;padding-bottom:15px;border:1px solid #ddd;border-radius:4px}
+.sucuriscan-loading p, .sucuriscan-loading h3{margin:0;padding:0}
+.sucuriscan-loading .title{font-size:28px;margin-bottom:10px}
+.sucuriscan-loading .description{font-size:16px}
+.sucuriscan-sitelogo{width:190px;height:100px;background:url('http://sitecheck.sucuri.net/images/sucuri-sprite.png') no-repeat;margin:0 auto}
+.sucuriscan-sitecheck-form{margin:20px 0 0 0}
+.sucuriscan-sitecheck-form .button.button-hero{padding:0 46px}
+.sucuriscan-loading .sucuriscan-sitecheck-disclaimer{text-align:justify;padding-top:20px;border-top:1px solid #ddd}
+.sucuriscan-loading .sucuriscan-sitecheck-disclaimer p{font-size:10px}
+/* Scanner Results */
+.sucuriscan-maincontent .sucuriscan-border{border:0;border-left:4px solid #ddd}
+.sucuriscan-maincontent .sucuriscan-border > h3, .sucuriscan-maincontent .sucuriscan-border > .inside{border-top:1px solid #e5e5e5;border-right:1px solid #e5e5e5}
+.sucuriscan-maincontent .sucuriscan-border > h3{border-bottom:0}
+.sucuriscan-maincontent .sucuriscan-border > .inside{margin-top:0 !important;border-bottom:1px solid #ddd}
+.sucuriscan-maincontent .sucuriscan-border-good{border-left-color:#7ad03a}
+.sucuriscan-maincontent .sucuriscan-border-bad{border-left-color:#dd3d36}
+.sucuriscan-maincontent .sucuriscan-border-info{border-left-color:#2ea2cc}
+.sucuriscan-maincontent .sucuriscan-cleanup-btn{display:block;text-align:center;margin:20px 0 0 0}
+.sucuriscan-scanner-results .sucuriscan-scanner-details tr:nth-child(even),
+.sucuriscan-scanner-results .sucuriscan-scanner-links tr:nth-child(even){background:#f5f5f5}
+.sucuriscan-scanner-results td.sucuriscan-border-bad{border-left-width:4px;border-left-style:solid}
+/* Integrity Styles */
+.sucuriscan-status-type{display:inline-block;width:20px;background:#ddd;text-align:center;text-transform:uppercase;margin-right:10px;padding:0 3px;border:1px solid transparent;border-radius:3px}
+.sucuriscan-status-added{background:#dff0d8;color:#3c763d;border-color:#d6e9c6}
+.sucuriscan-status-modified{background:#fcf8e3;color:#8a6d3b;border-color:#faebcc}
+.sucuriscan-status-removed, td.sucuriscan-corefiles-warning > div{background:#f2dede;color:#a94442;border-color:#ebccd1}
+.sucuriscan-maincontent .sucuriscan-corefiles,
+.sucuriscan-maincontent .sucuriscan-integrity-message,
+.sucuriscan-maincontent .sucuriscan-wordpress-outdated,
+.sucuriscan-maincontent .sucuriscan-auditlogs{margin-top:0;margin-bottom:20px}
+.sucuriscan-corefiles-abbrs .sucuriscan-status-type{width:initial;font-size:12px;text-transform:capitalize;float:left;margin-top:4px;margin-right:5px}
+.sucuriscan-maincontent td.sucuriscan-corefiles-warning, .sucuriscan-maincontent td.sucuriscan-corefiles-warning p{margin:0;padding:0}
+.sucuriscan-maincontent td.sucuriscan-corefiles-warning div{padding:10px;border-width:1px;border-style:solid}
+.sucuriscan-maincontent td.sucuriscan-corefiles-warning code{font-size:12px;padding:0 5px}
+.sucuriscan-maincontent .sucuriscan-integrity-message{position:relative}
+.sucuriscan-maincontent .sucuriscan-integrity-message .sucuriscan-integrity-mark{position:absolute;top:1px;right:1px;background:#7ad03a;font-weight:bold;color:#fff;line-height:35px;padding:0 10px;border-left:1px solid #ddd}
+.sucuriscan-maincontent .sucuriscan-auditlogs{margin-bottom:0}
+.sucuriscan-maincontent .sucuriscan-auditlogs .sucuriscan-list-as-table{margin-bottom:0}
+.sucuriscan-maincontent .sucuriscan-auditlogs .sucuriscan-maxper-page{text-align:right}
+.sucuriscan-maincontent .sucuriscan-ignoredfiles{margin-top:0}
+.sucuriscan-maincontent .sucuriscan-modifiedfiles .sucuriscan-ellipsis{width:100px}
+/* Monitoring Styles */
+.sucuriscan-monitoring-settings{margin-bottom:20px}
+.sucuriscan-monitoring-settings td.td-with-button{text-align:left}
+.sucuriscan-monitoring-settings .sucuriscan-list-as-table{margin:0}
+.sucuriscan-monitoring-apikey-form .input-text{width:85%}
+.sucuriscan-monitoring-clear-cache-form{}
+.sucuriscan-monitoring-logs{}
+.sucuriscan-monitoring-logs .thead-with-button .button{width:65px}
+.sucuriscan-monitoring-logs .thead-with-button .input-text, .sucuriscan-monitoring-logs .thead-with-button select{width:250px}
+.sucuriscan-monitoring-logs .sucuriscan-monitoring-search-form{}
+.sucuriscan-monitoring-logs .sucuriscan-monitoring-denial-types-form{}
+.sucuriscan-monitoring-logs .sucuriscan-monitoring-date-form{}
+.sucuriscan-monitoring-logs .sucuriscan-monitoring-date-form select{width:70px}
+.sucuriscan-monitoring-logs .sucuriscan-monitoring-date-form select + select{width:112px}
+.sucuriscan-monitoring-logs .sucuriscan-monitoring-date-form select + select + select{width:60px}
+.sucuriscan-monitoring-logs .sucuriscan-target-date{font-size:12px;color:#999;margin-right:5px}
+.sucuriscan-monitoring-logs .sucuriscan-denial-type{font-size:14px}
+.sucuriscan-monitoring-logs .sucuriscan-denial-type-date{font-style:italic;color:#999}
+/* Monitoring AccessLog Styles */
+.sucuriscan-request-summary{margin:-15px;margin-top:-3px}
+.sucuriscan-request-summary td{font-size:14px}
+.sucuriscan-request-summary tr td:first-child{font-weight:bold}
+.sucuriscan-request-summary td+td{font-family:monospace;word-break:break-all}
+/* Hardening Status */
+.sucuriscan-hstatus{position:relative;margin:0 -12px;padding:10px 12px;border:1px solid transparent}
+.sucuriscan-hstatus-1{background-color:#dff0d8;color:#3c763d;border-color:#d6e9c6}
+.sucuriscan-hstatus-0{background-color:#f2dede;color:#a94442;border-color:#ebccd1}
+.sucuriscan-hstatus .button-primary, .sucuriscan-hstatus .button-secondary{position:absolute;top:5px;right:5px}
+/* Last Logins Styles */
+.sucuriscan-lastlogin-outof{font-style:italic;color:#999;margin-right:10px}
+.sucuriscan-admins-lastlogins .sucuriscan-ellipsis{width:170px}
+.sucuriscan-admins-lastlogins td{padding:4px 8px}
+.sucuriscan-lastlogins-failed{}
+/* About Page */
+.sucuriscan-about ul{margin-left:20px}
+.sucuriscan-about ul li{list-style:initial}
+.sucuriscan-about li label{font-weight:bold;vertical-align:initial}
+/* API Registered Modal */
+.sucuriscan-apikey-registered{}
+.sucuriscan-apikey-registered .sucuriscan-pull-right{width:400px;margin-left:20px}
+.sucuriscan-apikey-registered .sucuriscan-sitelogo{background-position:0 -17px;height:83px}
+/* Pagination Styles */
+.sucuriscan-pagination{display:inline-block;margin:0;padding:0;border-radius:4px}
+.sucuriscan-pagination>li{display:inline}
+.sucuriscan-pagination>li>a, .sucuriscan-pagination>li>span{position:relative;background:#fff;color:#428bca;line-height:1.42857143;text-decoration: none;float:left;margin-left:-1px;padding:6px 12px;border:1px solid #ddd}
+.sucuriscan-pagination>li:first-child>a, .sucuriscan-pagination>li:first-child>span{margin-left:0;border-radius:4px 0 0 4px}
+.sucuriscan-pagination>li:last-child>a, .sucuriscan-pagination>li:last-child>span{border-radius:0 4px 4px 0}
+.sucuriscan-pagination>li>a.sucuriscan-pagination-active, .sucuriscan-pagination>li>a:hover{background:#0074a2;color:#fff}
+/* Resetter Styles */
+.sucuriscan_wpconfig_keys_updated textarea{width:100%;height:250px;background:#f5f5f5;font-family:monospace;font-size:12px;resize:vertical;margin:20px 0 0 0}
+.sucuriscan-maincontent .sucuriscan-last-logins{margin-top:0}
+.sucuriscan-maincontent .sucuriscan-last-logins .sucuriscan-ellipsis{width:150px;line-height:inherit}
+.sucuriscan-maincontent .sucuriscan-full-textarea{width:100%;height:400px;line-height:normal;resize:vertical;padding:10px}
+.sucuriscan-maincontent .sucuriscan-settings{margin-top:0}
+.sucuriscan-maincontent .sucuriscan-settings form{display:inline-block}
+.sucuriscan-maincontent .sucuriscan-settings select, .sucuriscan-maincontent .sucuriscan-settings .input-text{width:220px}
+.sucuriscan-maincontent .sucuriscan-settings-notifications{margin-top:0}
+.sucuriscan-maincontent .sucuriscan-settings-ignorescanning{margin-top:0}
+.sucuriscan-maincontent .sucuriscan-settings-trustip{margin-top:0}
+.sucuriscan-maincontent .sucuriscan-settings-heartbeat{}
+.sucuriscan-maincontent .sucuriscan-wpcron-list{margin-top:0}
+.sucuriscan-maincontent .sucuriscan-infosys-htaccess .inside .sucuriscan-inline-alert-updated{margin-bottom:10px}
+.sucuriscan-maincontent .sucuriscan-errorlogs .inside .sucuriscan-inline-alert-error{margin-top:10px}
+.sucuriscan-maincontent .sucuriscan-errorlogs-list{}
+.sucuriscan-maincontent .sucuriscan-subject-formats{margin:0}
+.sucuriscan-maincontent .sucuriscan-subject-formats input[type=text]{width:40%;margin-left:10px}
+/* Parent Resetter: Midnight */
+.admin-color-blue .wrap div.sucuriscan-setup-notice, .admin-color-blue .sucuriscan-ad:nth-child(odd){background:#e5d1ae;border-color:#d39323}
+.admin-color-coffee .wrap div.sucuriscan-setup-notice, .admin-color-coffee .sucuriscan-ad:nth-child(odd){background:#e4cfbe;border-color:#b78a66}
+.admin-color-ectoplasm .wrap div.sucuriscan-setup-notice, .admin-color-ectoplasm .sucuriscan-ad:nth-child(odd){background:#ccd894;border-color:#a3b745}
+.admin-color-midnight .wrap div.sucuriscan-setup-notice, .admin-color-midnight .sucuriscan-ad:nth-child(odd){background:#f1b8b4;border-color:#d02a21}
+.admin-color-ocean .wrap div.sucuriscan-setup-notice, .admin-color-ocean .sucuriscan-ad:nth-child(odd){background:#c6e7c8;border-color:#719a74}
+.admin-color-sunrise .wrap div.sucuriscan-setup-notice, .admin-color-sunrise .sucuriscan-ad:nth-child(odd){background:#ecc2a2;border-color:#c36822}
+/* Responsive Styles */
+@media (max-width: 620px) {
+    .sucuriscan-tabs > ul li, .sucuriscan-tabs > ul li > a{display:block}
+    .sucuriscan-getapi-form button.button-primary{line-height:40px}
+}
+@media (max-width: 768px) {
+    .sucuriscan-wrap .sucuriscan-leftside,
+    .sucuriscan-wrap .sucuriscan-sidebar,
+    .sucuriscan-wrap .sucuriscan-footer .sucuriscan-logo,
+    .sucuriscan-wrap .sucuriscan-footer .sucuriscan-help{float:none}
+    .sucuriscan-wrap .sucuriscan-leftside, .sucuriscan-wrap .sucuriscan-sidebar{width:100%}
+    .sucuriscan-wrap .sucuriscan-sidebar{margin-top:20px}
+    .sucuriscan-wrap .sucuriscan-footer .sucuriscan-logo{display:table;margin:0 auto}
+}
+@media (max-width: 920px) {
+    .sucuriscan-wrap .sucuriscan-navbar{padding-left:0;padding-right:0}
+    .sucuriscan-wrap .sucuriscan-navbar .nav-tab{display:block}
+    .sucuriscan-wrap .sucuriscan-navbar .nav-tab:last-child{border-bottom:1px solid #ccc}
+}
+/* Old styles */
+.sucuriscan-maincontent #poststuff{min-width:initial;padding-top:0}
+.sucuriscan-maincontent .widefat tbody th.check-column{padding:6px 0 3px 0}
+.sucuriscan-maincontent .hardening-box .primary-secondary{margin:0 0 0 10px}
+.sucuriscan-maincontent .alternate{background:#f5f5f5}
+.sucuriscan-maincontent hr{border:none;border-top:1px solid #999}
+.sucuriscan-maincontent table td > table{background:#fff}
+.sucuriscan-maincontent table td > table th{padding:4px 8px}
