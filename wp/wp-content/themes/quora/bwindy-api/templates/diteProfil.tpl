@@ -19,20 +19,18 @@
 	{if $dite.skolne}
 		<p>Abych {if $dite.pohlavi == "F"}mohla{else}mohl{/if} letos chodit do školy potřebuji <strong>{$dite.skolne} Kč</strong></p>
 	{/if}
-	<!--
-		<h4>Co potřebuji</h4>
-		<table>
-		<tr><th>Školné</th><td>8 500 Kč</td></tr>
-		<tr><th>Boty</th><td>300 Kč</td></tr>
-		<tr><th>Koza</th><td>1 200 Kč</td></tr>
-		<tr><th>Lucerna</th><td>200 Kč</td></tr>
-		</table>
 
-		<h4>Co už mám</h4>
-		<table>
-		<tr><th>Matrace</th><td></td></tr>
-		</table>
-	-->
+	{if $dite.vs != ''}
+		<p style="font-size: 0.667em">
+			Číslo účtu: 210764965/0300<br/>
+			Vs:{$dite.vs}
+			
+			{if $dite.ss != 0}
+				<br/>Ss:{$dite.ss}
+			{/if}
+
+		</p>
+	{/if}
 	</div>
 		<div id="right">
 			<h1>{$dite.jmeno}</h1>
@@ -52,17 +50,6 @@
 					{/if}
 				{/if}
 			</p>
-			{if $dite.vs != ''}
-				<p>
-					Číslo účtu: 210764965/0300<br/>
-					Vs:{$dite.vs}
-					
-					{if $dite.ss != 0}
-						<br/>Ss:{$dite.ss}
-					{/if}
-
-				</p>
-			{/if}
 			<p>{$dite.bio|nl2br}</p>
 
 			<div id="timeline">
