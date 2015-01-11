@@ -19,23 +19,29 @@
 
 				// uvod - obsah stranky s id 23
 				echo '<div class="entry-content group">';
-					the_content();
 
 					// nejnovejsi zprava z blogu
 					echo '<div id="new-post">';
 						$args = array(
-							'numberposts' => 1,
+							'numberposts' => 2,
 						);
 						$recent_posts = wp_get_recent_posts($args);
+						$index = 0;
 						foreach( $recent_posts as $recent ){
-							echo '<h3><a href="' . get_permalink($recent["ID"]) . '">' .   $recent["post_title"].'</a> </h3> ';
+							$index ++;
+							$action = "_gaq.push(['_trackEvent', 'Novinky na hp', 'Proklik na detail', 'Pozice ". $index ."'])";
+
+							echo '<h3><a onClick="'.$action.'" href="' . get_permalink($recent["ID"]) . '">' .   $recent["post_title"].'</a> </h3> ';
+							echo '<span class="date">'. get_the_time("j.n. Y", $recent["ID"]) .'</span> ';
 							$post_content = strip_tags($recent["post_content"]);
-							if(strlen($post_content) > 215) {
-								$post_content = substr($post_content, 0, 215) ."...";
+							if(strlen($post_content) > 200) {
+								$post_content = substr($post_content, 0, 200) ."...";
 							}
 							echo '<p>' .$post_content.'</p>';
 						}
 					echo '</div>';
+
+					the_content();
 
 				echo '</div>';
 

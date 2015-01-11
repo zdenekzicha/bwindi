@@ -60,7 +60,7 @@
 			<h3>Kontakty:</h3>
 			<ul>
 				<li>Střelice 727, 664 47 Brno</li>
-				<li>E-mail: info@bwindirophans.org</li>
+				<li>E-mail: info@bwindiorphans.org</li>
 				<li>IČ: 270 37 576</li>
 			</ul>
 			<h3>Bankovní spojení:</h3>
