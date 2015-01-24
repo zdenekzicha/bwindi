@@ -222,7 +222,7 @@ class homepagePresenter extends BasePresenter
 
     	//$form->addHidden('foto')->setValue($data[$id]['foto']);
     	$form->addHidden('fotoUrlSerializovana')->setValue($data[$id]['fotoUrlSerializovana']);
-    	
+    	$form->addHidden('flickrId')->setValue($data[$id]['flickrId']);
     	$form->setDefaults(array(
     			'text' => $data[$id]['text'],
     			'rok' => $data[$id]['rok'],

@@ -131,7 +131,7 @@ class DiteModel extends Model
 
   	public function editujTimeline($form)
     {     
-    
+      require_once("../libs/flickr.php");
       try{
 
       		if(isset($form['fotoFile']) && $form['fotoFile']->getError()!=4){ //Provede se jen kdyz je nahrana fotka.
@@ -140,7 +140,7 @@ class DiteModel extends Model
 		          return false;
 		          }
 		        else{
-		          require_once("../libs/flickr.php");
+		          
 		          $flickrId = $flickr->sync_upload($form['fotoFile']->getTemporaryFile(), $form['jmeno'], '', 'Timeline, '.$form['jmeno'].', Bwindi Orphans'.$form["diteIdDite"], 0);
 		          $form['flickrId']=$flickrId;
 		          $fotoInfo = $flickr->photos_getInfo($flickrId);
@@ -151,7 +151,9 @@ class DiteModel extends Model
       		
       		unset($form['jmeno']);
       		unset($form['fotoFile']);
-
+          $fotoInfo = $flickr->photos_getInfo($form['flickrId']);
+		      $form['fotoUrlSerializovana'] = serialize($fotoInfo['photo']);
+		      $form['foto'] = $this->sestavUrlProfiloveFotky($fotoInfo['photo']);
       		$this->db->exec('UPDATE timeline SET ? WHERE id=?', $form, $form["id"]); 
        
           return true;
@@ -374,5 +376,6 @@ class DiteModel extends Model
         }
         return $message;
     } 
+    
 
 }
