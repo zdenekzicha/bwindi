@@ -193,7 +193,7 @@ class DiteModel extends Model
 		      }	
 		      /*  Flickr magic - konec*/ 
 		  		unset($form['profilovasoubor']); // Mazu docasnej soubor, aby proslo ulozeni do DB
-			
+			$form['aktivniZaznam'] = 1;
 			$this->getTable()->insert($form);
 			 
 	        return true;
