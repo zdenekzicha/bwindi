@@ -27,4 +27,11 @@ class VypisyModel extends Model
               ORDER BY sponzor.jmeno ';
     return $this->getDb()->query($dotaz);
 	}
+  
+  public function potvrzeniPlateb()
+	{
+		$dotaz = 'SELECT platba.sponzorIdSponzor as idSponzor, sponzor.jmeno as sponzorJmeno, year(platba.datum) as rok, SUM(platba.castka) as soucet, COUNT(platba.sponzorIdSponzor) as pocetPlateb FROM `platba`,`sponzor` WHERE platba.sponzorIdSponzor=sponzor.idSponzor
+group by platba.sponzorIdSponzor, year(platba.datum) ORDER by year(platba.datum) DESC, sponzor.jmeno ASC';
+    return $this->getDb()->query($dotaz);
+	}
 }

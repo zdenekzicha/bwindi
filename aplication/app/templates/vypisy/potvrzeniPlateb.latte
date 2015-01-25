@@ -1,0 +1,51 @@
+{block title}Výpisy{/block}
+
+{block content}
+
+	<section id="page">
+  <div>
+ 					Sloupce: <a class="toggle-vis" data-column="0" style="cursor: pointer;">Jméno sponzora</a> - <a class="toggle-vis" data-column=
+					"1" style="cursor: pointer;">Rok plateb</a> - <a class="toggle-vis" data-column="2" style="cursor: pointer;">Počet plateb</a> - <a class="toggle-vis"
+					data-column="3" style="cursor: pointer;">Součet</a>
+	</div>
+		<table id="dataDeti" class="display">
+			<thead>
+      <tr>
+				<th>Jméno sponzira</th>
+        <th>Rok plateb</th>
+        <th>Počet</th>
+        <th>Součet</th>
+			</tr>
+      </thead>
+      <tbody>
+			{foreach $potvrzeniPlateb as $radek}
+			<tr>
+				<td><a n:href="Platba:default filtrSelect => sponzorJmeno, filtrText => $radek->sponzorJmeno">{$radek->sponzorJmeno}</a></td>
+        <td>{$radek->rok}</td>
+        <td>{$radek->pocetPlateb}</td>
+        <td><b>{$radek->soucet}</b></td>
+			</tr>
+			{/foreach}
+      </tbody>
+		</table>
+    	
+	</section>
+<script>
+
+var table = $('#dataDeti').DataTable( {   
+        "paging": false,
+        "order": [[ 1, "desc" ]]
+    } );
+    $('a.toggle-vis').on( 'click', function (e) {
+        e.preventDefault();
+ 
+        // Get the column API object
+        var column = table.column( $(this).attr('data-column') );
+ 
+        // Toggle the visibility
+        column.visible( ! column.visible() );
+    } );
+    
+
+</script>
+{/block}

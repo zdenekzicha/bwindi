@@ -22,6 +22,12 @@ class vypisyPresenter extends BasePresenter
 		$this->template->aktivniSponzori = $this->vypisy->aktivniSponzori();
 		
 	}
+  
+  public function actionPotvrzeniPlateb()
+	{
+		$this->template->potvrzeniPlateb = $this->vypisy->potvrzeniPlateb();
+		
+	}
 	
 }
 
