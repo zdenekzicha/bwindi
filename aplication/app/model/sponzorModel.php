@@ -31,7 +31,8 @@ class sponzorModel extends Model
   	{			
   	
   		try{
-        	$this->getTable()->insert($form);
+        	$form["psc"]=preg_replace('/\s+/', '', $form["psc"]);
+          $this->getTable()->insert($form);
 	        return true;
 
 	      } catch (Exception $e) {
@@ -80,6 +81,7 @@ class sponzorModel extends Model
     {     
     
       try{
+          $form["psc"]=preg_replace('/\s+/', '', $form["psc"]);
           $this->getTable()->where('idSponzor', $form["idSponzor"])->update($form);   
        
           return true;

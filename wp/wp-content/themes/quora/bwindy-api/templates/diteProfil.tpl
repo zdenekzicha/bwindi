@@ -40,9 +40,11 @@
 					{if $dite.skolaTyp == 'z'}
 						Chodím do {if $dite.rocnik != ''}{$dite.rocnik}. třídy{/if} základní školy {$dite.skola}.
 					{elseif $dite.skolaTyp == 's'}
-						Studuji {if $dite.rocnik != ''}{$dite.rocnik}. ročník{/if} střední školu {$dite.skola}.
+						Studuji {if $dite.rocnik != ''}{$dite.rocnik}. ročník{/if} střední školy {$dite.skola}.
 					{elseif $dite.skolaTyp == 'u'}
 						Chodím do {if $dite.rocnik != ''}{$dite.rocnik}. ročníku{/if} na učilišti {$dite.skola}.
+          {elseif $dite.skolaTyp == 'o'}
+						Studuji {if $dite.rocnik != ''}{$dite.rocnik}. ročník{/if} odborné školy {$dite.skola}.
 					{elseif $dite.skolaTyp == 'v'}
 						Chodím do {if $dite.rocnik != ''}{$dite.rocnik}. ročníku{/if} na {$dite.skola}.
 					{else}

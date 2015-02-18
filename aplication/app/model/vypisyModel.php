@@ -30,7 +30,7 @@ class VypisyModel extends Model
   
   public function potvrzeniPlateb()
 	{
-		$dotaz = 'SELECT platba.sponzorIdSponzor as idSponzor, sponzor.jmeno as sponzorJmeno, year(platba.datum) as rok, SUM(platba.castka) as soucet, COUNT(platba.sponzorIdSponzor) as pocetPlateb FROM `platba`,`sponzor` WHERE platba.sponzorIdSponzor=sponzor.idSponzor
+		$dotaz = 'SELECT platba.sponzorIdSponzor as idSponzor, sponzor.jmeno as sponzorJmeno, sponzor.ulice as ulice, sponzor.psc as psc, sponzor.mesto as mesto, year(platba.datum) as rok,date(MAX(platba.datum)) as posledniDatum, SUM(platba.castka) as soucet, COUNT(platba.sponzorIdSponzor) as pocetPlateb FROM `platba`,`sponzor` WHERE platba.sponzorIdSponzor=sponzor.idSponzor
 group by platba.sponzorIdSponzor, year(platba.datum) ORDER by year(platba.datum) DESC, sponzor.jmeno ASC';
     return $this->getDb()->query($dotaz);
 	}
