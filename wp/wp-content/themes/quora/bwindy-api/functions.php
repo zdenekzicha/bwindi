@@ -68,9 +68,9 @@
 		$message .= "</div>";
 
 		$message .= "<div style='padding: 20px 0 10px; margin: 60px 50px 0; text-align: center; color: #997653; border-top: 1px solid #ccc;'>
-						<a href='http://www.bwindiorphans.org' style='color: #4CB63D'>www.bwindiOrphans.org</a> -
-						<a href='mailto:http://www.bwindiorphans.org' style='color: #4CB63D'>bwindiorphans@Bwindiorphans.org</a> - 
-						+420 607 659 125
+						<a href='http://www.bwo.cz/' style='color: #4CB63D'>http://www.bwo.cz/</a> -
+						<a href='mailto:info@bwindiorphans.org' style='color: #4CB63D'>info@bwindiorphans.org</a> - 
+						+420 602 595 073
 					</div>";
 		$message .= "</html></body>";
 		return $message;
@@ -103,9 +103,9 @@
 						<p style='color: #504342; font-size: 14px;'><i>S pozdravem tým Bwindi Orphans a ".$childName."</i></p>
 					</div>";
 		$message .= "<div style='padding: 20px 0 10px; margin: 60px 50px 0; text-align: center; color: #997653; border-top: 1px solid #ccc;'>
-						<a href='http://www.bwindiorphans.org' style='color: #4CB63D'>www.bwindiOrphans.org</a> -
-						<a href='mailto:http://www.bwindiorphans.org' style='color: #4CB63D'>bwindiorphans@Bwindiorphans.org</a> - 
-						+420 607 659 125
+						<a href='http://www.bwo.cz/' style='color: #4CB63D'>http://www.bwo.cz/</a> -
+						<a href='mailto:info@bwindiorphans.org' style='color: #4CB63D'>info@bwindiorphans.org</a> - 
+						+420 602 595 073
 					</div>";
 		$message .= "</html></body>";
 		return $message;
