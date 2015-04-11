@@ -11,21 +11,12 @@
 
 	</div>
 	<!-- #main .site-main -->
+
 	<?php if (is_front_page()) : ?>
-		<div id="childrensWrapper">
-			<h2>Děti k adopci</h2>
-			<div class="children">
-				<div class="bubble male">
-					<a href="?page_id=48&amp;idDite=102&amp;s=profil">
-						<img src="http://farm6.static.flickr.com/5472/11886557436_5bf957a88b.jpg" alt="" data-src="http://farm6.static.flickr.com/5472/11886557436_5bf957a88b.jpg">
-					</a>
-				</div>
-				<span>Richard Emeru</span>
-			</div>
-		</div>
+		<?php require('bwindy-api/kids.php'); ?>
 		<div id="actions"><a href="http://bwindiorphans.org/adopce/">Co je vzdálená adopce</a><a href="?page_id=368">Chci pomoci</a></div>
 	<?php endif; ?>
-	
+
 </div><!-- #page .hfeed .site -->
 <footer id="sponsors">
 	<div>

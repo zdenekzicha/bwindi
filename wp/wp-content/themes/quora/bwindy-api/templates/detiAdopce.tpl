@@ -12,7 +12,7 @@
 						{/if}
 					</a>
 				</div>
-				<span>{$i.jmeno}</span></a>
+				<span class="bubbleName">{$i.jmeno}</span></a>
 			</div>
 		{/foreach}
 

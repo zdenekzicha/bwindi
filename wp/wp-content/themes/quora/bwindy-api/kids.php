@@ -71,6 +71,11 @@
 	else if ($_GET["page_id"] == "11") { // zobrazi kontakty
 		$smarty->display('kontakty.tpl');
 	}
+
+	else if (is_front_page()) { // na hp zobrazi prvnich x deti k adopci
+		$smarty->assign("data",jsonToArray($server.'/?presenter=Json&action=detiAdopce', null));
+		$smarty->display('detiAdopceNaHp.tpl');
+	}
 	else { // zobrazi vypis deti k adopci
 		$smarty->assign("data",jsonToArray($server.'/?presenter=Json&action=detiAdopce', null));
 		$smarty->display('detiAdopce.tpl');
