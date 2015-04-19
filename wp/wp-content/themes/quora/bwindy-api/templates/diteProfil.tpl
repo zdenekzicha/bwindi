@@ -9,15 +9,19 @@
 			<img src="http://bwindiorphans.org/wp-content/themes/quora/images/portrait.jpg" alt="" />
 		{/if}
 	</div>
-	{if $dite.rezervovane}
-		<div id="helpMe" class="disable">Má zájemce</div>
-	{else if $dite.sponzor}
-		<div id="helpMe" class="disable">Už mám adoptivní rodiče</div>
+	{if $dite.skolaTyp == 'q'}
+		<div id="helpMe" class="disable">{$dite.skolaText}.</div>
 	{else}
-		<a href="/?page_id=119&idDite={$dite.id}" id="helpMe">Pomůžeš mi?</a>
-	{/if}
-	{if $dite.skolne}
-		<p>Abych {if $dite.pohlavi == "F"}mohla{else}mohl{/if} letos chodit do školy potřebuji <strong>{$dite.skolne} Kč</strong></p>
+		{if $dite.rezervovane}
+			<div id="helpMe" class="disable">Má zájemce</div>
+		{else if $dite.sponzor}
+			<div id="helpMe" class="disable">Už mám adoptivní rodiče</div>
+		{else}
+			<a href="/?page_id=119&idDite={$dite.id}" id="helpMe">Pomůžeš mi?</a>
+		{/if}
+		{if $dite.skolne}
+			<p>Abych {if $dite.pohlavi == "F"}mohla{else}mohl{/if} letos chodit do školy potřebuji <strong>{$dite.skolne} Kč</strong></p>
+		{/if}
 	{/if}
 
 	{if $dite.vs != ''}
@@ -36,7 +40,7 @@
 			<h1>{$dite.jmeno}</h1>
 			<p class="perex">
 				Jsem {if $dite.pohlavi == "F"}holka{else}kluk{/if} a je mi {$dite.vek} let. <br/>
-				{if $dite.skola != ''}
+				{if $dite.skola != '' && $dite.skolaTyp != 'q'}
 					{if $dite.skolaTyp == 'z'}
 						Chodím do {if $dite.rocnik != ''}{$dite.rocnik}. třídy{/if} základní školy {$dite.skola}.
 					{elseif $dite.skolaTyp == 's'}
