@@ -69,6 +69,7 @@ class homepagePresenter extends BasePresenter
       
       	$this->template->profilovaFotka = $data[$id]['profilovaFotka'];
       	$this->template->idDite = $data[$id]['idDite'];
+        $this->template->aktivniVProjektu = $data[$id]['aktivniZaznam']; 
 
     	$form = $this->getComponent('noveDiteForm');
 
@@ -373,6 +374,17 @@ class homepagePresenter extends BasePresenter
     		$this->redirect('Homepage:default', $idDite);
     	}else{
     		$this->flashMessage('Dítě se nepodařilo vyřadit.', 'fail');
+    		$this->redirect('Homepage:edit', $idDite);
+    	}
+	}
+  public function actionZaraditDite($idDite)
+	{	
+    	
+    	if($this->deti->zaraditDite($idDite)){
+    		$this->flashMessage('Zařadili jste dítě zpět do projektu. Staré vazby na případné původní sponzory se ale znova neobnoví', 'success');
+    		$this->redirect('Homepage:edit', $idDite);
+    	}else{
+    		$this->flashMessage('Dítě se zařadit zpět.', 'fail');
     		$this->redirect('Homepage:edit', $idDite);
     	}
 	}

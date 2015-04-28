@@ -37,9 +37,13 @@
 	        		{label vystavene class=>"inline" /} {input vystavene}
 	        	</div>
 	        	<div class="checkbox">
-	        		{label aktivniZaznam /} {input aktivniZaznam} 
+	        		{label aktivniZaznam /} {input aktivniZaznam}
+              {if $aktivniVProjektu}
               <a class="btn" data-href="?idDite={$idDite}&action=vyraditDite&presenter=homepage" data-toggle="confirmation" data-placement="right" data-title="Opravdu chcete vyřadit dítě z projektu?">Vyřadit dítě z projektu</a>
-	        	</div>
+              {else}
+              <a class="btn" data-href="?idDite={$idDite}&action=zaraditDite&presenter=homepage" data-toggle="confirmation" data-placement="right" data-title="Opravdu chcete zařadit dítě zpět do projektu?">Zařadit dítě zpět do projektu</a>
+	        	  {/if}
+            </div>
 	        	<br/>
 	        	{ifset $action}
 	        		<img src={$profilovaFotka} width="220" />

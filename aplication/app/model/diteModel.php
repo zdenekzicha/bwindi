@@ -314,6 +314,22 @@ class DiteModel extends Model
 	    }
 
   	}
+    
+    public function zaraditDite($idDite)
+  	{
+        		try{
+			
+			$this->getDb()->query('UPDATE dite SET aktivniZaznam=1,datumZaniku=NULL WHERE idDite='.$idDite);
+      			 
+	        return true;
+
+	    } catch (Exception $e) {
+	        
+	        return false;
+
+	    }
+
+  	}
 
   	public function smazatSourozence($id)
   	{
