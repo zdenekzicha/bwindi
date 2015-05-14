@@ -384,7 +384,7 @@ class homepagePresenter extends BasePresenter
     		$this->flashMessage('Zařadili jste dítě zpět do projektu. Staré vazby na případné původní sponzory se ale znova neobnoví', 'success');
     		$this->redirect('Homepage:edit', $idDite);
     	}else{
-    		$this->flashMessage('Dítě se zařadit zpět.', 'fail');
+    		$this->flashMessage('Dítě se nepodařilo zařadit zpět.', 'fail');
     		$this->redirect('Homepage:edit', $idDite);
     	}
 	}

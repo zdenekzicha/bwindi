@@ -222,6 +222,29 @@ class sponzorPresenter extends BasePresenter
     		$this->flashMessage('Nepodařilo se editovat sponzora.', 'fail');
     	}
 	}
+  
+  public function actionVyraditSponzora($idSponzor)
+	{	
+    	
+    	if($this->deti->vyraditSponzora($idSponzor)){
+    		$this->flashMessage('Vyřadili jste sponzora.', 'success');
+    		$this->redirect('Sponzor:default', $idSponzor);
+    	}else{
+    		$this->flashMessage('Sponzora se nepodařilo vyřadit.', 'fail');
+    		$this->redirect('Sponzor:edit', $idSponzor);
+    	}
+	}
+  public function actionZaraditSponzora($idSponzor)
+	{	
+    	
+    	if($this->deti->zaraditSponzora($idSponzor)){
+    		$this->flashMessage('Zařadili jste sponzora zpět do projektu. Staré vazby na případné původní děti se ale znova neobnoví', 'success');
+    		$this->redirect('Sponzor:edit', $idSponzor);
+    	}else{
+    		$this->flashMessage('Sponzora se nepodařilo zařadit zpět.', 'fail');
+    		$this->redirect('Sponzor:edit', $idSponzor);
+    	}
+	}
 
 }
 

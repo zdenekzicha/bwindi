@@ -145,6 +145,39 @@ class sponzorModel extends Model
       
 
     }
+    
+    public function vyraditSponzora($idSponzor)
+  	{
+        		try{
+			
+			$this->getDb()->query('UPDATE sponzor SET aktivniZaznam=0,datumZaniku=NOW() WHERE idSponzor='.$idSponzor);
+      $this->getDb()->query('UPDATE relaceDiteSponzor SET aktivniZaznam=0,datumZaniku=NOW() WHERE sponzoraIdSponzor='.$idDite);
+			 
+	        return true;
+
+	    } catch (Exception $e) {
+	        
+	        return false;
+
+	    }
+
+  	}
+    
+     public function zaraditSponzora($idSponzor)
+  	{
+        		try{
+			
+			$this->getDb()->query('UPDATE sponzor SET aktivniZaznam=1,datumZaniku=NULL WHERE idSponzor='.$idSponzor);
+      			 
+	        return true;
+
+	    } catch (Exception $e) {
+	        
+	        return false;
+
+	    }
+
+  	}
 
 
 }
