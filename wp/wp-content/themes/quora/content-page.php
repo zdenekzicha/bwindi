@@ -24,6 +24,7 @@
 					echo '<div id="new-post">';
 						$args = array(
 							'numberposts' => 2,
+              'post_status' => 'publish'
 						);
 						$recent_posts = wp_get_recent_posts($args);
 						$index = 0;
