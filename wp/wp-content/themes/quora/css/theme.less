@@ -708,12 +708,27 @@ article.page {
     }
 }
 #contacts {
-    margin: 0px auto 0;
+    margin: 0px auto 2em;
     max-width: 900px;
     .contactLink {
         font-size: 1.2em;
         text-align: center;
     }
+
+    #main-contacts {
+        width: 640px;
+        margin: 0 0 1.5em 242px;
+
+        ul {
+            float: left;
+            display: block;
+
+            &:last-child {
+                margin-left: 50px;
+            }
+        }
+    }
+
     .teamMember {
         float: left;
         width: 280px;
@@ -744,37 +759,7 @@ article.page {
         }
     }
 }
-#contactMap {
-    clear: both;
-    height: 585px;
-    background: url(../images/map.jpg) center 0 no-repeat;
-    border-top: 1px dotted #ccc;
-    .content {
-        position:relative;
-        max-width: 900px;
-        margin: 0 auto;
-        div {
-            position: relative;
-            top: 150px;
-            left: -120px;
-            width: 500px;
-            margin: 0 auto;
-            padding: 0 0 25px 0.1em;
-            background: #50c6d0;
-            ul {
-                padding: 0 20px;
-                color: #fff;
-                margin: 0;
-            }
-        }
-    }
-    h3 {
-        padding: 1em 20px 0;
-        color: #fff;
-        font-weight: normal;
-        margin: 0;
-    }
-}
+
 .entry-content {
     padding-bottom: 40px;
     ul {

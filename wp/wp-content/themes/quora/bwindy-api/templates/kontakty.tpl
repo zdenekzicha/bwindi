@@ -1,8 +1,25 @@
-<div id="contacts">
-	<p class="contactLink"><a href="#contactMap">Adresa a bankovní spojení</a></p>
+<div id="contacts" class="group">
+	<div id="main-contacts" class="group">
+		<ul>
+			<li><strong>Kontakt</strong></li>
+			<li>Bwindi Orphans o.p.s.</li>
+			<li><a href="http://mapy.cz/zakladni?x=16.4909720&y=49.1590692&z=15&source=addr&id=11100165">Střelice 727, 664 47</a></li>
+			<li><a href="mailto:info@bwindiorphans.org">info@bwindiorphans.org</a></li>
+			<li>Tel: 602 595 073</li>
+		</ul>
+
+		<ul>
+			<li><strong>Bankovní spojení</strong></li>
+			<li>Československá obchodní banka, a.s.</li>
+			<li>č.ú.: 210764965/0300</li>
+			<li>IČ: 270 37 576</li>
+			<li>IBAN: CZ82 0300 0000 0002 1076 4965</li>
+			<li>SWIFT: CEKOCZPP</li>
+		</ul>
+	</div>
 	<div class="teamMember">
 		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/katka.jpg" /></div>
-		<h3>Kateřina Andrlová</h3>
+		<h3>Kateřina Chauveau (Andrlová)</h3>
 		<div class="title">koordinátorka projektu</div>
 		<a href="mailto:katerina@bwindiorphans.org">katerina@bwindiorphans.org</a>
 	</div>
@@ -38,8 +55,8 @@
 	<div class="teamMember">
 		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/alena.jpg" /></div>
 		<h3>Alena Samková</h3>
-		<div class="title">akce v Praze, prodej výrobků</div>
-		<a href="mailto:samkova.mc@seznam.cz">samkova.mc@seznam.cz</a>
+		<div class="title">akce v Praze, evidence plateb</div>
+		<a href="mailto:alena@bwindiorphans.org">alena@bwindiorphans.org</a>
 	</div>
 	<div class="teamMember">
 		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/michal.jpg" /></div>
@@ -50,26 +67,7 @@
 	<div class="teamMember">
 		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/liba.jpg" /></div>
 		<h3>Libuše Dostálová</h3>
-		<div class="title">akce na severní Moravě, prodej výrobků</div>
-		<a href="mailto:liba.dostalova@gmail.com">liba.dostalova@gmail.com</a>
-	</div>
-</div>
-<div id="contactMap">
-	<div class="content">
-		<div>
-			<h3>Kontakty:</h3>
-			<ul>
-				<li>Střelice 727, 664 47 Brno</li>
-				<li>E-mail: info@bwindiorphans.org</li>
-				<li>IČ: 270 37 576</li>
-			</ul>
-			<h3>Bankovní spojení:</h3>
-			<ul>
-				<li>banka: Československá obchodní banka, a.s.</li>
-				<li>č.ú.: 210764965/0300</li>
-				<li>SWIFT: CEKOCZPP</li>
-				<li>IBAN: CZ82 0300 0000 0002 1076 4965</li>
-			</ul>
-		</div>
+		<div class="title">akce na severní Moravě, prodej&nbsp;výrobků</div>
+		<a href="mailto:liba@bwindiorphans.org">liba@bwindiorphans.org</a>
 	</div>
 </div>
