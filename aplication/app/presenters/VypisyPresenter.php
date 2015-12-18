@@ -28,6 +28,11 @@ class vypisyPresenter extends BasePresenter
 		$this->template->potvrzeniPlateb = $this->vypisy->potvrzeniPlateb();
 		
 	}
+  public function actionDetiSProfilovkou()
+	{
+		$this->template->vypisy = $this->vypisy->vsechnyDataOdDeti();
+		
+	}
 	
 }
 
