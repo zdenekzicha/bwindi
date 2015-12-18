@@ -20,7 +20,13 @@
 			<a href="/?page_id=119&idDite={$dite.id}" id="helpMe">Pomůžeš mi?</a>
 		{/if}
 		{if $dite.skolne}
-			<p>Abych {if $dite.pohlavi == "F"}mohla{else}mohl{/if} letos chodit do školy potřebuji <strong>{$dite.skolne} Kč</strong></p>
+			<p>
+				{if $dite.skolneZaplaceno == "ano" }
+					Na letošní rok mám již školné zaplaceno
+				{else}
+					Abych {if $dite.pohlavi == "F"}mohla{else}mohl{/if} letos chodit do školy potřebuji <strong>{$dite.skolne} Kč</strong>
+				{/if}
+			</p>
 		{/if}
 	{/if}
 
