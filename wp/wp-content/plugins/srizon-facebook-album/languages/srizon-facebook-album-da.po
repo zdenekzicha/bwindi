@@ -1,0 +1,740 @@
+#
+# Translators:
+# Tom <tom@lystlund-steenberg.dk>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: Srizon Facebook Album\n"
+"POT-Creation-Date: 2015-11-12 19:34+0600\n"
+"PO-Revision-Date: 2015-12-01 12:55+0600\n"
+"Last-Translator: Tom <tom@lystlund-steenberg.dk>\n"
+"Language-Team: Danish (http://www.transifex.com/srizon/srizon-facebook-album/language/da/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-Basepath: srizon-facebook-album\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/forms/album-option-form.php:2
+msgid "Album Title"
+msgstr "Album title"
+
+#: admin/forms/album-option-form.php:23 admin/forms/album-option-form.php:37 admin/forms/album-option-form.php:52 admin/forms/common-option-form.php:8 admin/forms/gallery-option-form.php:22 admin/forms/gallery-option-form.php:36
+#: admin/forms/gallery-option-form.php:51
+msgid "FB App setup and Token Seem Valid. Renew the token every month for regular sync."
+msgstr "FB App opsætning og \"token\" er gyldig. Forny \"token\" hver måned for normal synkronisering."
+
+#: admin/forms/album-option-form.php:25 admin/forms/gallery-option-form.php:24
+msgid "App ID and Secret seems Valid but User Access Token is invalid/expired. Check the Common Options page"
+msgstr "App-id og Secret synes gyldig men \"User Access Token\" er ugyldig eller udløbet. Tjek option siden."
+
+#: admin/forms/album-option-form.php:28 admin/forms/gallery-option-form.php:27
+msgid "App ID and Secret seems Valid but User Access Token was not provided/invalid. Get a token in Common Options page."
+msgstr "App-id og Secret er gyldig men \"User Access Token\" blev ikke leveret eller ugyldig. Få en token på fælles option siden."
+
+#: admin/forms/album-option-form.php:31 admin/forms/album-option-form.php:45 admin/forms/album-option-form.php:60 admin/forms/common-option-form.php:16 admin/forms/gallery-option-form.php:30 admin/forms/gallery-option-form.php:44
+#: admin/forms/gallery-option-form.php:59
+msgid "Can't get valid data from facebook. Either App ID/Secret is wrong or your server has connectivity problem"
+msgstr "Kan ikke få valide data fra facebook. Enten er \"App ID\" eller \"Secret\" forkert eller så har din server har tilslutningsproblemer "
+
+#: admin/forms/album-option-form.php:39 admin/forms/gallery-option-form.php:38
+msgid "App ID and Secret seems Valid but User Access Token is invalid/expired. Check App settings below"
+msgstr "App-id og Secret synes gyldig men \"User Access Token\" er ugyldig eller udløbet. Tjek App indstillingerne nedenfor"
+
+#: admin/forms/album-option-form.php:42 admin/forms/gallery-option-form.php:41
+msgid "App ID and Secret seems Valid but User Access Token was not provided/invalid. Get a token under App Settings Below"
+msgstr "App-id og Secret synes gyldig men \"User Access Token\" blev ikke leveret eller er ugyldig. Få en \"token\" under App nedenunder "
+
+#: admin/forms/album-option-form.php:54 admin/forms/common-option-form.php:10 admin/forms/gallery-option-form.php:53
+msgid "App ID and Secret seems Valid but User Access Token is invalid/expired. The app will only be able to work with public/unrestricted &quot;FB Pages&quot;. Get a token and give the app more power."
+msgstr "App-id og Secret synes gyldig men \"User Access Token\" er ugyldig eller udløbet. Den app vil kun være i stand til at arbejde med offentlig og ubegrænset & quot; FB sider & quot ;. Få en token og få det til at virke korrekt."
+
+#: admin/forms/album-option-form.php:57 admin/forms/common-option-form.php:13 admin/forms/gallery-option-form.php:56
+msgid "App ID and Secret seems Valid but User Access Token was not provided/invalid. The app will only be able to work with public/unrestricted &quot;FB Pages&quot;. Get a token and give the app more power."
+msgstr "App-id og Secret synes gyldig men \"User Access Token\" blev ikke leveret eller ugyldig. Den app vil kun være i stand til at arbejde med offentlig og ubegrænset & quot; FB sider & quot ;. Få en token og få det til at virke korrekt."
+
+#: admin/forms/album-option-form.php:68
+msgid "Album Source"
+msgstr "Album kilde"
+
+#: admin/forms/album-option-form.php:73 admin/forms/gallery-option-form.php:72
+msgid "Source Type"
+msgstr "Kilde type"
+
+#: admin/forms/album-option-form.php:77 admin/forms/gallery-option-form.php:76
+msgid "A Facebook Page"
+msgstr "En facebook side "
+
+#: admin/forms/album-option-form.php:78
+msgid "(App ID/secret will be used from"
+msgstr "(App-id /secret vil blive brugt fra"
+
+#: admin/forms/album-option-form.php:80 admin/forms/album-option-form.php:95 admin/forms/gallery-option-form.php:79 admin/forms/gallery-option-form.php:94
+msgid "Common Settings"
+msgstr "Fælles indstillinger"
+
+#: admin/forms/album-option-form.php:83 admin/forms/gallery-option-form.php:82
+msgid "My Facebook Profile"
+msgstr "Min Facebook profile "
+
+#: admin/forms/album-option-form.php:84 admin/forms/gallery-option-form.php:83
+msgid "My = The person who authenticates the token on settings page or below (under New App settings)"
+msgstr "My = Den person, der godkender \"Token\" på siden indstillinger eller under (New App-indstillinger)"
+
+#: admin/forms/album-option-form.php:88 admin/forms/gallery-option-form.php:87
+msgid "App settings"
+msgstr "App indstillinger"
+
+#: admin/forms/album-option-form.php:89 admin/forms/gallery-option-form.php:88
+msgid "(ID/Secret/Token)"
+msgstr "(ID/Secret/Token)"
+
+#: admin/forms/album-option-form.php:94
+msgid "Use from"
+msgstr "Brug fra"
+
+#: admin/forms/album-option-form.php:96 admin/forms/gallery-option-form.php:95
+msgid "Make sure you generated a User Access Token"
+msgstr "Sørg for at du genererede en \"User Access Token\""
+
+#: admin/forms/album-option-form.php:99 admin/forms/gallery-option-form.php:98
+msgid "New App settings"
+msgstr "Ny App indstilling"
+
+#: admin/forms/album-option-form.php:104 admin/forms/common-option-form.php:71 admin/forms/gallery-option-form.php:103
+msgid "App ID"
+msgstr "App ID"
+
+#: admin/forms/album-option-form.php:110 admin/forms/gallery-option-form.php:109
+msgid "Enter your App ID. FB App should be set-up properly with the domain of this website."
+msgstr "Indtast dit App-id. FB App skal indstilles med det korrekte domænenavn på dette website."
+
+#: admin/forms/album-option-form.php:112 admin/forms/album-option-form.php:127 admin/forms/album-option-form.php:147 admin/forms/common-option-form.php:80 admin/forms/common-option-form.php:95 admin/forms/common-option-form.php:113
+#: admin/forms/gallery-option-form.php:111 admin/forms/gallery-option-form.php:126 admin/forms/gallery-option-form.php:144
+msgid "How-to video"
+msgstr "How-to video"
+
+#: admin/forms/album-option-form.php:118 admin/forms/common-option-form.php:86 admin/forms/gallery-option-form.php:117
+msgid "App Secret"
+msgstr "App Secret"
+
+#: admin/forms/album-option-form.php:124 admin/forms/gallery-option-form.php:123
+msgid "Enter your App Secret. FB App should be set-up properly with the domain of this website."
+msgstr "Indtast din App Secret. FB App skal indstilles med det korrekte domænenavn på dette website."
+
+#: admin/forms/album-option-form.php:135 admin/forms/common-option-form.php:101 admin/forms/gallery-option-form.php:132
+msgid "User Access Token"
+msgstr "User Access Token"
+
+#: admin/forms/album-option-form.php:136 admin/forms/common-option-form.php:102 admin/forms/gallery-option-form.php:133
+msgid "(Renew every month)"
+msgstr "(Forny hver måned)"
+
+#: admin/forms/album-option-form.php:140 admin/forms/common-option-form.php:106 admin/forms/gallery-option-form.php:137
+msgid "Loading FB Scripts..."
+msgstr "Henter FB Scripts..."
+
+#: admin/forms/album-option-form.php:145 admin/forms/common-option-form.php:111 admin/forms/gallery-option-form.php:142
+msgid "In order to get user access token your FB App should be set-up properly with the domain of this website. Default App ID and Secret will not work as they are not set-up for your domain. Create your own app for your domain."
+msgstr "For at få \"user access token\" til virke med dit FB App skal det indstilles med korrekte domænenavn på dette website. Standard App id og hemmelige vil ikke fungere, da de ikke er sat op til dit domæne. Opret din eget App til dit domæne."
+
+#: admin/forms/album-option-form.php:151
+msgid "Album ID(s)"
+msgstr "Album ID(er)"
+
+#: admin/forms/album-option-form.php:156 admin/forms/gallery-option-form.php:190
+msgid "If the album link(URL) is"
+msgstr "Hvis albummet linket (URL) er"
+
+#: admin/forms/album-option-form.php:160 admin/forms/gallery-option-form.php:156 admin/forms/gallery-option-form.php:193
+msgid "then the ID is"
+msgstr "så ID er"
+
+#: admin/forms/album-option-form.php:161
+msgid "which should be put in this field"
+msgstr "der bør sættes på dette sted"
+
+#: admin/forms/album-option-form.php:164
+msgid "Separate multiple IDs with newline or whitespace (They will be merged into a single album)"
+msgstr "Adskil flere ID'er med ny linie eller mellemrum (De vil blive samlet i et enkelt album)"
+
+#: admin/forms/album-option-form.php:166 admin/srizon-fb-album-back.php:73
+msgid "For showing multiple album with different cover photo, add a"
+msgstr "For at vise flere album med forskellige forsidefoto, tilføj album"
+
+#: admin/forms/album-option-form.php:168 admin/srizon-fb-album-back.php:73
+msgid "Gallery"
+msgstr "galleri"
+
+#: admin/forms/album-option-form.php:169 admin/srizon-fb-album-back.php:73
+msgid "instead"
+msgstr "i stedet"
+
+#: admin/forms/album-option-form.php:179 admin/forms/gallery-option-form.php:220
+msgid "Layout Related"
+msgstr "Layout relateret"
+
+#: admin/forms/album-option-form.php:186
+msgid "Layout"
+msgstr "Layout"
+
+#: admin/forms/album-option-form.php:192
+msgid "1. Collage - Thumb"
+msgstr "1. Kollage - Thumb"
+
+#: admin/forms/album-option-form.php:196
+msgid "2. Collage - Full"
+msgstr "2. Kollage - Fuldstørrelse"
+
+#: admin/forms/album-option-form.php:200
+msgid "3. Slider - Lightbox"
+msgstr "3. Slider - Lightbox"
+
+#: admin/forms/album-option-form.php:204
+msgid "4. Slider - Image Above"
+msgstr "4. Slider - Billedet ovenfor"
+
+#: admin/forms/album-option-form.php:208
+msgid "5. Slider - Image Below"
+msgstr "5. Slider - Billedet nedenunder"
+
+#: admin/forms/album-option-form.php:212
+msgid "6. Single Image"
+msgstr "6. Enkelt billede"
+
+#: admin/forms/album-option-form.php:216
+msgid "7. Image Card"
+msgstr "7. Billede kort"
+
+#: admin/forms/album-option-form.php:225 admin/forms/gallery-option-form.php:226
+msgid "Target Thumb Height"
+msgstr "Target Thumb højde"
+
+#: admin/forms/album-option-form.php:232
+msgid "This may not be the exact height but closer to this"
+msgstr "Dette kan ikke være den nøjagtige højde, men tæt på"
+
+#: admin/forms/album-option-form.php:237 admin/forms/gallery-option-form.php:239
+msgid "Collage - Padding"
+msgstr "Collage - Padding"
+
+#: admin/forms/album-option-form.php:244
+msgid "Padding size around each image"
+msgstr "Padding størrelse omkring hvert billede"
+
+#: admin/forms/album-option-form.php:250 admin/forms/gallery-option-form.php:251
+msgid "Collage - Fill Last Row"
+msgstr "Kollage - Fyld sidste række"
+
+#: admin/forms/album-option-form.php:259 admin/forms/album-option-form.php:285 admin/forms/album-option-form.php:330 admin/forms/common-option-form.php:53 admin/forms/gallery-option-form.php:260 admin/forms/gallery-option-form.php:310
+#: admin/forms/gallery-option-form.php:354 admin/forms/gallery-option-form.php:373
+msgid "No"
+msgstr "Nej"
+
+#: admin/forms/album-option-form.php:263 admin/forms/album-option-form.php:281 admin/forms/album-option-form.php:326 admin/forms/common-option-form.php:56 admin/forms/gallery-option-form.php:264 admin/forms/gallery-option-form.php:306
+#: admin/forms/gallery-option-form.php:350 admin/forms/gallery-option-form.php:369
+msgid "Yes"
+msgstr "Ja"
+
+#: admin/forms/album-option-form.php:267
+msgid "Stretch the image of the last row to fill the space"
+msgstr "Stræk billedet af den sidste række for at udfylde "
+
+#: admin/forms/album-option-form.php:274
+msgid "Mouse-over Caption"
+msgstr "Mouse-over billedtekst"
+
+#: admin/forms/album-option-form.php:294
+msgid "Caption Behavior"
+msgstr "Billedtekst opførsel"
+
+#: admin/forms/album-option-form.php:300 admin/forms/gallery-option-form.php:280 admin/forms/gallery-option-form.php:324
+msgid "Show On Hover - Hide On Leave"
+msgstr "Vis på \"Hover\" - Skjul på fjernelse"
+
+#: admin/forms/album-option-form.php:304 admin/forms/gallery-option-form.php:284 admin/forms/gallery-option-form.php:328
+msgid "Hide On Hover - Show On Leave"
+msgstr "Skjul på \"Hover\" - Vis på fjernelse"
+
+#: admin/forms/album-option-form.php:308 admin/forms/gallery-option-form.php:288 admin/forms/gallery-option-form.php:332
+msgid "Always Show"
+msgstr "Vis altid"
+
+#: admin/forms/album-option-form.php:317 admin/forms/gallery-option-form.php:361
+msgid "Animate Thumb on Hover"
+msgstr "Animeret thumb på \"Hover\""
+
+#: admin/forms/album-option-form.php:340
+msgid "Animation Time in MilliSecs"
+msgstr "Animations tid i mSek"
+
+#: admin/forms/album-option-form.php:353
+msgid "AutoSlide Interval in Seconds."
+msgstr "Autoslide interval i sekunder."
+
+#: admin/forms/album-option-form.php:361
+msgid "Put 0 for disabling autoSlide"
+msgstr "Sæt til 0 for deaktivering af Autoslide"
+
+#: admin/forms/album-option-form.php:367
+msgid "Maximum height of the full image"
+msgstr "Maksimal højde på det fulde billede"
+
+#: admin/forms/album-option-form.php:379 admin/forms/gallery-option-form.php:384
+msgid "Options"
+msgstr "Indstillinger"
+
+#: admin/forms/album-option-form.php:385 admin/forms/gallery-option-form.php:390
+msgid "Sync After Every # minutes"
+msgstr "Sync efter hver # minutter"
+
+#: admin/forms/album-option-form.php:395
+msgid "Images Sorting"
+msgstr "Billede sorting"
+
+#: admin/forms/album-option-form.php:401 admin/forms/gallery-option-form.php:404 admin/forms/gallery-option-form.php:434
+msgid "Default (As given by FB API)"
+msgstr "Default  (som du har fået af FB API)"
+
+#: admin/forms/album-option-form.php:405 admin/forms/gallery-option-form.php:407 admin/forms/gallery-option-form.php:437
+msgid "Default Reversed"
+msgstr "Default tilbageført"
+
+#: admin/forms/album-option-form.php:409 admin/forms/gallery-option-form.php:410 admin/forms/gallery-option-form.php:440
+msgid "Modification Time"
+msgstr "Ændrings tid"
+
+#: admin/forms/album-option-form.php:413 admin/forms/gallery-option-form.php:413 admin/forms/gallery-option-form.php:443
+msgid "Modification Time Reversed"
+msgstr "Ændringstid tilbageført"
+
+#: admin/forms/album-option-form.php:417 admin/forms/gallery-option-form.php:416 admin/forms/gallery-option-form.php:446
+msgid "Creation Time"
+msgstr "Oprettelses tidspunkt"
+
+#: admin/forms/album-option-form.php:421 admin/forms/gallery-option-form.php:419 admin/forms/gallery-option-form.php:449
+msgid "Creation Time Reversed"
+msgstr "Oprettelses tidspunkt tilbageført"
+
+#: admin/forms/album-option-form.php:425 admin/forms/gallery-option-form.php:422 admin/forms/gallery-option-form.php:452
+msgid "Shuffle on each load"
+msgstr "Shuffle på hver hentning"
+
+#: admin/forms/album-option-form.php:434 admin/forms/gallery-option-form.php:460
+msgid "Total Number of Images"
+msgstr "Samlet antal billeder"
+
+#: admin/forms/album-option-form.php:444
+msgid "Paginate After # Thumbs"
+msgstr "Sideinddele efter # Thumbs"
+
+#: admin/forms/album-option-form.php:460
+msgid "Save Album"
+msgstr "Gem album"
+
+#: admin/forms/common-option-form.php:2 admin/srizon-fb-common-back.php:12
+msgid "Common Options"
+msgstr "Fælles indstillinger"
+
+#: admin/forms/common-option-form.php:23
+msgid "Lightbox Selection:"
+msgstr "Lightbox udvalg:"
+
+#: admin/forms/common-option-form.php:29
+msgid "Built in Responsive Lightbox"
+msgstr "Opbyg med responsive Lightbox"
+
+#: admin/forms/common-option-form.php:33
+msgid "Other Lightbox"
+msgstr "Anden Lightbox"
+
+#: admin/forms/common-option-form.php:38
+msgid "Lightbox Link Attribute"
+msgstr "Lightbox Link Attribute"
+
+#: admin/forms/common-option-form.php:44
+msgid "(Might be required for Other Lightbox)"
+msgstr "(Kan være påkrævet til anden Lightbox)"
+
+#: admin/forms/common-option-form.php:48
+msgid "Scroll to target"
+msgstr "Rul til målet"
+
+#: admin/forms/common-option-form.php:57
+msgid "Scroll to album area when an album/pagination link is clicked?"
+msgstr "Rul til album område, når et album/sideinddeling link er klikket?"
+
+#: admin/forms/common-option-form.php:63
+msgid "Default App ID - App Secret - User Token"
+msgstr "Default App ID - App Secret - User Token"
+
+#: admin/forms/common-option-form.php:65
+msgid "You can also fetch a User Token which is needed for fetching personal albums/gallery"
+msgstr "Du kan også hente en \"User Token\", som er nødvendig for at hente personlige album/galleri"
+
+#: admin/forms/common-option-form.php:77
+msgid "Put the default App ID."
+msgstr "Indtast default App ID'et."
+
+#: admin/forms/common-option-form.php:92
+msgid "Put the default App Secret."
+msgstr "Indtast default App Secret"
+
+#: admin/forms/common-option-form.php:123
+msgid "Save Options"
+msgstr "Gem indstillingerne"
+
+#: admin/forms/common-option-form.php:131
+msgid "How to setup other lightbox: (An example showing setup instructions for FancyBox)"
+msgstr "Sådan opsættes anden Lightbox: (Et eksempel, der viser instruktionerne for FancyBox)"
+
+#: admin/forms/common-option-form.php:137
+msgid "Select \"Other Lightbox\" above"
+msgstr "Vælg \"anden Lightbox\" ovenover"
+
+#: admin/forms/common-option-form.php:138
+msgid "Put rel=\"something\" on the next field (should be already there by default) and save"
+msgstr "Put rel=\"something\" på det næste felt (bør være der allerede som standard) og gemme"
+
+#: admin/forms/common-option-form.php:139
+msgid "Install"
+msgstr "Installere"
+
+#: admin/forms/common-option-form.php:141
+msgid "for Wordpress"
+msgstr "til Wordpress"
+
+#: admin/forms/common-option-form.php:142
+msgid "After installation and activation of FancyBox plugin go to it's settings panel"
+msgstr "Efter installation og aktivering af FancyBox plugin gå til dennes indstillinger side"
+
+#: admin/forms/common-option-form.php:143
+msgid "Select \"Extra Calls\" Tab"
+msgstr "Vælg \"Extra Calls\" fanen"
+
+#: admin/forms/common-option-form.php:144
+msgid "Check (activate) \"Additional FancyBox Calls\""
+msgstr "Kontroller (aktivere) \"Yderligere FancyBox kald\""
+
+#: admin/forms/common-option-form.php:145
+msgid "A textbox will expand. Put the following code there"
+msgstr "En tekstboks vil udvide. Indsæt følgende kode her"
+
+#: admin/forms/common-option-form.php:155
+msgid "Save Changes and reload the album on frontend"
+msgstr "Gem ændringer og genindlæse albummet på frontend"
+
+#: admin/forms/common-option-form.php:156
+msgid "Now you should see the images of this plugin loading in fancybox"
+msgstr "Nu skulle du se billeder af dette plugin blive hentet i fancybox"
+
+#: admin/forms/gallery-option-form.php:2
+msgid "Gallery Title"
+msgstr "Galleri titel"
+
+#: admin/forms/gallery-option-form.php:67
+msgid "Gallery Source"
+msgstr "Galleri kilde"
+
+#: admin/forms/gallery-option-form.php:77
+msgid "App ID/secret will be used from"
+msgstr "App-id /secret vil blive brugt fra"
+
+#: admin/forms/gallery-option-form.php:148
+msgid "Page ID"
+msgstr "Side ID"
+
+#: admin/forms/gallery-option-form.php:153 admin/forms/gallery-option-form.php:161
+msgid "If the Page link(URL) is"
+msgstr "Hvis side linket (URL) er"
+
+#: admin/forms/gallery-option-form.php:157 admin/forms/gallery-option-form.php:165 admin/forms/gallery-option-form.php:194
+msgid "which should be put in this field."
+msgstr "der bør sættes på dette sted"
+
+#: admin/forms/gallery-option-form.php:164
+msgid "then the ID is the"
+msgstr "så er ID'en"
+
+#: admin/forms/gallery-option-form.php:174
+msgid "Include or Exclude Albums"
+msgstr "Medtage eller udelade album"
+
+#: admin/forms/gallery-option-form.php:180
+msgid "Album IDs"
+msgstr "Album ID'er"
+
+#: admin/forms/gallery-option-form.php:181
+msgid "For Excluding/Including"
+msgstr "for at medtage eller udelade"
+
+#: admin/forms/gallery-option-form.php:198
+msgid "Separate multiple IDs with newline or whitespace"
+msgstr "Adskil flere ID'er med ny linie eller mellemrum "
+
+#: admin/forms/gallery-option-form.php:203
+msgid "What to do with these?"
+msgstr "Hvad gør man med disse?"
+
+#: admin/forms/gallery-option-form.php:209
+msgid "Exclude These Albums"
+msgstr "Udeluk disse albummer"
+
+#: admin/forms/gallery-option-form.php:213
+msgid "Show Only These Albums"
+msgstr "Vis kun disse albummer"
+
+#: admin/forms/gallery-option-form.php:234
+msgid "This may not be the exact height but closer to this."
+msgstr "Dette kan ikke være den nøjagtige højde, men tæt på."
+
+#: admin/forms/gallery-option-form.php:273
+msgid "Caption Behavior (Cover Photos)"
+msgstr "Billedtekst adfærd (Forsidefotos)"
+
+#: admin/forms/gallery-option-form.php:297
+msgid "Mouse Over Caption (Album Photos)"
+msgstr "Mouse Over billedtekst (Album billeder)"
+
+#: admin/forms/gallery-option-form.php:317
+msgid "Caption Behavior (Album Photos)"
+msgstr "Billedtekst adfærd (Album billeder)"
+
+#: admin/forms/gallery-option-form.php:341
+msgid "Show Image Count On Album Cover"
+msgstr "Vis billede tæller på album cover"
+
+#: admin/forms/gallery-option-form.php:399
+msgid "Album (Cover) Sorting"
+msgstr "Album (Cover) sorteret"
+
+#: admin/forms/gallery-option-form.php:429
+msgid "Images Sorting (Inside each Album)"
+msgstr "Billeder sorteret (Indeni hvert album)"
+
+#: admin/forms/gallery-option-form.php:469
+msgid "Paginate After # Images"
+msgstr "Sideinddel efter # billeder"
+
+#: admin/forms/gallery-option-form.php:486
+msgid "Save Gallery"
+msgstr "Gem galleri"
+
+#: admin/srizon-fb-album-back.php:28 admin/srizon-fb-gallery-back.php:28
+msgid "Add New"
+msgstr "TIlføj ny"
+
+#: admin/srizon-fb-album-back.php:39
+msgid "Edit Album"
+msgstr "Ændre album"
+
+#: admin/srizon-fb-album-back.php:42
+msgid "Add New Album"
+msgstr "Tilføj nyt album"
+
+#: admin/srizon-fb-album-back.php:70
+msgid "About Single Album"
+msgstr "Om enkelt album"
+
+#: admin/srizon-fb-album-back.php:71
+msgid "It creates a single album using one or more Facebook album IDs."
+msgstr "Det skaber en enkelt album ved hjælp af en eller flere Facebook album ID'er."
+
+#: admin/srizon-fb-album-back.php:72
+msgid "If multiple IDs are used, they will be merged into a single album."
+msgstr "Hvis der anvendes flere ID'er, vil de blive slået sammen til et enkelt album."
+
+#: admin/srizon-fb-album-back.php:88
+msgid "New Album Created! Now copy the shortcode and use it in your post/page"
+msgstr "Nyt album oprettet! Kopiere nu \"shortcode\" og bruge det i dit indlæg eller side"
+
+#: admin/srizon-fb-album-back.php:91
+msgid "Album Saved!"
+msgstr "Album gemt"
+
+#: admin/srizon-fb-album-back.php:99
+msgid "Album Deleted!"
+msgstr "Album slettet"
+
+#: admin/srizon-fb-album-back.php:106
+msgid "Cached data deleted for this album! It will be synced on the next load!"
+msgstr "Cached data slettet for dette album! Den vil blive synkroniseret næste gang den hentes!"
+
+#: admin/srizon-fb-common-back.php:5
+msgid "FB Album"
+msgstr "FB album"
+
+#: admin/srizon-fb-common-back.php:6 admin/srizon-fb-common-back.php:35
+msgid "Albums"
+msgstr "Albummer"
+
+#: admin/srizon-fb-common-back.php:7 admin/srizon-fb-common-back.php:35 admin/srizon-fb-gallery-back.php:28
+msgid "Galleries"
+msgstr "Gallerier"
+
+#: admin/srizon-fb-common-back.php:30
+msgid "Srizon FB Album Option Page"
+msgstr "Srizon FB Album indstillinger"
+
+#: admin/srizon-fb-common-back.php:33
+msgid "About This Plugin"
+msgstr "Omkring dette Plugin"
+
+#: admin/srizon-fb-common-back.php:34
+msgid "This Plugin will show your Facebook album(s) into your WordPress site."
+msgstr "Dette plugin vil vise din Facebook album(mer) i din WordPress websted."
+
+#: admin/srizon-fb-common-back.php:35
+msgid "Select"
+msgstr "Vælg"
+
+#: admin/srizon-fb-common-back.php:35
+msgid "or"
+msgstr "eller"
+
+#: admin/srizon-fb-common-back.php:35
+msgid "from sub-menu and add a new album or gallery"
+msgstr "fra undermenuen, og tilføj et nyt album eller galleri"
+
+#: admin/srizon-fb-common-back.php:36
+msgid "Use the generated shortcode on your post/page to display the album/gallery"
+msgstr "Brug den genererede shortcode på dit indlæg eller side for at vise albummet eller galleri"
+
+#: admin/srizon-fb-common-back.php:38
+msgid "What to do:"
+msgstr "Hvad gør man:"
+
+#: admin/srizon-fb-common-back.php:40
+msgid "Setup the options on this page"
+msgstr "Opsætning valgmulighederne er på denne side"
+
+#: admin/srizon-fb-common-back.php:41
+msgid "Click on the Albums or Galleries sub-menu"
+msgstr "Klik på Album eller Gallerier undermenu"
+
+#: admin/srizon-fb-common-back.php:42
+msgid "Click \"Add New\" button to add a new album or gallery. (or click on an existing album title to edit that)"
+msgstr "Klik på \"Tilføj Ny\" knappen for at tilføje et nyt album eller galleri. (eller klikke på et eksisterende album titel at redigere det)"
+
+#: admin/srizon-fb-common-back.php:43
+msgid "Fill-up or modify the form and save that"
+msgstr "Udfyld eller ændre formen og gem den"
+
+#: admin/srizon-fb-common-back.php:44
+msgid "Your albums or galleries will be listed along with the shortcodes. Use the shortcodes into your page/post to show the photo album or gallery"
+msgstr "Dine albummer eller gallerier vil blive listet sammen med shortcodes. Brug shortcodes på din side eller indlæg at vise fotoalbum eller galleri"
+
+#: admin/srizon-fb-common-back.php:45
+msgid "Try out different options/layouts"
+msgstr "Afprøve forskellige muligheder eller layouts"
+
+#: admin/srizon-fb-gallery-back.php:38
+msgid "Edit Gallery"
+msgstr "Ændre galleri"
+
+#: admin/srizon-fb-gallery-back.php:41
+msgid "Add New Gallery"
+msgstr "Tilføj nyt galleri"
+
+#: admin/srizon-fb-gallery-back.php:69
+msgid "About Gallery"
+msgstr "Omkring galleri"
+
+#: admin/srizon-fb-gallery-back.php:70
+msgid "Gallery is a 2 level view of your Facebook albums"
+msgstr "Galleri er et 2-niveau visning af dine Facebook albummer"
+
+#: admin/srizon-fb-gallery-back.php:70
+msgid "First level shows the album covers. Clicking on the cover of an album will take you to the second level listing the thumbs of that album"
+msgstr "Første niveau viser album cover. Ved at klikke på forsiden af et album vil tage dig til det andet niveau af listen over de thumbs af denne album"
+
+#: admin/srizon-fb-gallery-back.php:71
+msgid "You can exclude/remove some albums by using their album IDs on the exclusion list"
+msgstr "Du kan udelukke og fjerne album ved hjælp af album ID'et på listen over udelukket albummer"
+
+#: admin/srizon-fb-gallery-back.php:86
+msgid "New Gallery Created! Now copy the shortcode and use it in your post/page"
+msgstr "Nyt galleri oprettet! Kopiere nu \"shortcode\" og bruge det i dit indlæg eller side"
+
+#: admin/srizon-fb-gallery-back.php:89
+msgid "Gallery Saved!"
+msgstr "Galleriet er gemt!"
+
+#: admin/srizon-fb-gallery-back.php:97
+msgid "Gallery Deleted!"
+msgstr "Galleriet er slettet!"
+
+#: admin/srizon-fb-gallery-back.php:104
+msgid "Cached data deleted for this gallery! It will be synced on the next load!"
+msgstr "Cached data slettet for dette galleri! Den vil blive synkroniseret næste gang den hentes!"
+
+#: admin/tables/album-table.php:4 admin/tables/album-table.php:38 admin/tables/gallery-table.php:4 admin/tables/gallery-table.php:37
+msgid "Title"
+msgstr "Titel"
+
+#: admin/tables/album-table.php:5 admin/tables/album-table.php:39 admin/tables/gallery-table.php:5 admin/tables/gallery-table.php:38
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: admin/tables/album-table.php:6 admin/tables/album-table.php:40 admin/tables/gallery-table.php:6 admin/tables/gallery-table.php:39
+msgid "Action"
+msgstr "Aktion"
+
+#: admin/tables/album-table.php:13
+msgid "No Albums Found"
+msgstr "Intet album fundet"
+
+#: admin/tables/album-table.php:17 admin/tables/gallery-table.php:17
+msgid "Empty"
+msgstr "Tomt"
+
+#: admin/tables/album-table.php:28 admin/tables/gallery-table.php:28
+msgid "Delete"
+msgstr "Slet"
+
+#: admin/tables/album-table.php:30 admin/tables/gallery-table.php:30
+msgid "ReSync"
+msgstr "Gensynk"
+
+#: admin/tables/gallery-table.php:13
+msgid "No Galleries Found"
+msgstr "Intet gallerier fundet"
+
+#: lib/srizon_fb_album.php:229 lib/srizon_fb_album.php:247
+msgid "Response from Facebook:"
+msgstr "Svar fra Facebook: "
+
+#: lib/srizon_pagination.php:34 lib/srizon_pagination.php:36 lib/srizon_pagination.php:88 lib/srizon_pagination.php:90
+msgid "Prev"
+msgstr "Forrige"
+
+#: lib/srizon_pagination.php:56 lib/srizon_pagination.php:69
+msgid "1"
+msgstr "1"
+
+#: lib/srizon_pagination.php:57 lib/srizon_pagination.php:70
+msgid "2"
+msgstr "2"
+
+#: lib/srizon_pagination.php:81 lib/srizon_pagination.php:83 lib/srizon_pagination.php:92 lib/srizon_pagination.php:94
+msgid "Next"
+msgstr "Næste"
+
+#: site/srizon-fb-gallery-front.php:4
+msgid "Invalid shortcode... ID missing"
+msgstr "Invalid shortcode... ID mangler"
+
+#: site/srizon-fb-gallery-front.php:10
+msgid "Page Not Found"
+msgstr "Siden ikke fundet"
+
+#: tmpl/gallery.php:34
+msgid "Album: "
+msgstr "Album: "
+
+#: tmpl/gallery.php:36
+msgid " Photos"
+msgstr "Billeder"

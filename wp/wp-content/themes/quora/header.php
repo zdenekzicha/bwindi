@@ -62,6 +62,15 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<div id="google_translate_element" style="position:absolute; top:0; right:0; z-index:1000;"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'cs', includedLanguages: 'cs,de,en,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
 <div id="page" class="hfeed site">
 	<div id="mainLogo">
 		<a href="/"><img src="http://bwindiorphans.org/wp-content/themes/quora/images/logo1.png" alt="" /></a>
