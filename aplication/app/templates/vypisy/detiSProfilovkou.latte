@@ -1,0 +1,54 @@
+{block title}Výpisy{/block}
+
+{block content}
+
+	<section id="page">
+  <div>
+ 					Sloupce: <a class="toggle-vis" data-column="0" style="cursor: pointer;">Jméno</a> - <a class="toggle-vis" data-column=
+					"1" style="cursor: pointer;">Škola</a> - <a class="toggle-vis" data-column="2" style="cursor: pointer;">VSYM</a> - <a class="toggle-vis"
+					data-column="3" style="cursor: pointer;">Poznámka</a> - <a class="toggle-vis" data-column="4" style="cursor: pointer;">Sponzor</a>
+	</div>
+		<table id="dataDeti" class="display">
+			<thead>
+      <tr>
+				<th>Profilovka</th>
+        <th>Dítě</th>
+        <th>Škola</th>
+        <th>VSYM</th>
+        <th>Poznámka</th>
+        <th>Sponzor</th>
+			</tr>
+      </thead>
+      <tbody>
+			{foreach $vypisy as $radek}
+			<tr>
+				<td><img src="{$radek->diteProfilovaFotka}"/></td>
+        <td>{$radek->diteJmeno}</td>
+        <td>{$radek->diteSkola}</td>
+        <td>{$radek->diteVsym}</td>
+        <td>{$radek->ditePoznamka}</td>
+        <td>{$radek->sponzorJmeno}</td>
+			</tr>
+			{/foreach}
+      </tbody>
+		</table>
+    	
+	</section>
+<script>
+
+var table = $('#dataDeti').DataTable( {   
+        "paging": false
+    } );
+    $('a.toggle-vis').on( 'click', function (e) {
+        e.preventDefault();
+ 
+        // Get the column API object
+        var column = table.column( $(this).attr('data-column') );
+ 
+        // Toggle the visibility
+        column.visible( ! column.visible() );
+    } );
+    
+
+</script>
+{/block}
