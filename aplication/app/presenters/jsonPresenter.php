@@ -8,12 +8,14 @@ class jsonPresenter extends BasePresenter
 
 	private $deti;
 	private $sponzor;
+	private $platby;
 
 	protected function startup()
 	{
 	    parent::startup();
 	    $this->deti = $this->context->diteModel;
 	    $this->sponzor = $this->context->sponzorModel;
+	    $this->platby = $this->context->platbaModel;
 	}
 
 	/*
@@ -115,6 +117,13 @@ class jsonPresenter extends BasePresenter
 		foreach ($list as $item) {
 
 			$profilePhoto = $item['profilovaFotka'];
+			$platba = $this->platby->skolneNaKonkretniRok($item['idDite'], date("Y"));
+
+			if($item['castka'] <= $platba[0]['rocniSoucet'] ){
+				$skolneZaplaceno = 'ano';
+			}else{
+				$skolneZaplaceno = 'ne';
+			}
 
 			$this->payload->data = array(
 				"id" => $item['idDite'], 
@@ -128,6 +137,8 @@ class jsonPresenter extends BasePresenter
 				"skolaText" => $item['skolaText'],
 				"skolaTyp" => $item['skolaTyp'],
 				"skolne" => $item['castka'],
+				"zaplaceneSkolne" => $platba[0]['rocniSoucet'],
+				"skolneZaplaceno" => $skolneZaplaceno,
 				"fotka" => $profilePhoto,
 				"sponzor" => $sponsor,
 				"rezervovane" => $item['rezervovane'],
