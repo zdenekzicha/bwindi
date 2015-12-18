@@ -57,7 +57,7 @@ ORDER by rok DESC
     
     public function penizeSkolne($diteIdDite)
   	{
-    return $this->getDb()->query("SELECT sum(castka) as rocniSoucet, count(castka) as pocetPlateb FROM platba
+    return $this->getDb()->query("SELECT *, sum(castka) as rocniSoucet, count(castka) as pocetPlateb FROM platba
 WHERE benefitIdBenefit = 1 AND diteIdDite = $diteIdDite
 GROUP BY rok
 ORDER by rok DESC
