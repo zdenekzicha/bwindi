@@ -1,0 +1,72 @@
+.srz-admin-subtext{
+    color: #aaa;
+    font-style: italic;
+    margin: 0;
+    padding-top: .5em;
+}
+table.srzfb-admin-common tr td{
+    vertical-align: top;
+    padding: 10px;
+}
+table.srzfb-admin-album tr td{
+    vertical-align: top;
+    padding: 10px;
+}
+table.srzfb-admin-album tr td input{
+    margin-bottom: 5px;
+}
+table.srzfb-admin-album tr td input[type="radio"]{
+    margin-top: 3px;
+}
+table.srzfb-admin-gallery tr td{
+    vertical-align: top;
+    padding: 10px;
+}
+.postbox .handlediv:before{
+    right: 12px;
+    font: 400 20px/1 dashicons;
+    speak: none;
+    display: inline-block;
+    padding: 8px 10px;
+    top: 0;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: none!important;
+    content: '\f142';
+}
+
+.postbox.closed .handlediv:before{
+    content: '\f140';
+}
+
+h3.hndle2{
+    cursor: pointer;
+    border-bottom: 1px solid #eeeeee;
+}
+h3.hndle2 span{
+    padding: 10px;
+    /*color: grey;*/
+}
+
+#box-what-to-do h3{
+    background-color: #f4d32c;
+}
+
+table.srzfbalbumtable tr td{
+    padding: 20px;
+    border-bottom: 1px solid #efefef;
+}
+table.srzfbalbumtable tr th{
+    padding: 20px;
+    font-weight: bold;
+    font-size: 120%;
+    color: grey;
+}
+
+th.last-table-head, td.last-table-head{
+    text-align: right;
+}
+a.button.delete{
+    color: #ff4648;
+}
