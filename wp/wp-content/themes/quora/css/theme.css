@@ -280,6 +280,10 @@ article.page .entry-content {
 .home #mainLogo img {
   width: 200px;
 }
+.home .hp-title {
+  margin: 0.5em 0;
+  text-align: center;
+}
 .home .entry-content {
   width: auto;
   padding: 0;
@@ -292,7 +296,7 @@ article.page .entry-content {
   margin: 0 auto 0;
 }
 .home .sf-menu li {
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 .home #forAdoption {
   width: 700px;
@@ -330,7 +334,7 @@ article.page .entry-content {
 }
 @media (min-width: 1600px) {
   #wideslider ul li {
-    max-height: 500px;
+    max-height: 400px;
   }
   .slides img {
     top: -100px !important;
@@ -339,7 +343,6 @@ article.page .entry-content {
 /* -------- Navigace -------- */
 .main-navigation {
   position: relative;
-  max-width: 1000px;
   margin: 0 auto;
 }
 .main-navigation .sf-menu li {
@@ -365,7 +368,6 @@ article.page .entry-content {
   top: 60px;
   width: 100%;
   margin: 0;
-  border-bottom: 1px dotted #ccc;
 }
 .main-navigation .sub-menu li {
   border-bottom: 0px;
@@ -473,10 +475,6 @@ article.page .entry-content {
 }
 .mainPage-wrapper .entry-content #mainPage p {
   font-size: 1.47em;
-}
-.home .hp-title {
-  margin: 0.5em 0;
-  text-align: center;
 }
 #mainPage {
   width: 500px;
@@ -757,12 +755,6 @@ article.page .entry-content {
 #sponsors img {
   position: relative;
   padding: 0 10px;
-}
-#sponsors img.sponsor1 {
-  top: -15px;
-}
-#sponsors img.sponsor4 {
-  top: -15px;
 }
 #formAdoption {
   width: 750px;
