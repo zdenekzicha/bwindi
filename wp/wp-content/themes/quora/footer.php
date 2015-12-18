@@ -10,12 +10,13 @@
 ?>
 
 	</div>
-	<!-- #main .site-main -->
+	<!-- #main .site-main 
 
 	<?php if (is_front_page()) : ?>
 		<?php require('bwindy-api/kids.php'); ?>
 		<div id="actions"><a href="http://bwindiorphans.org/adopce/">Co je vzdálená adopce</a><a href="?page_id=368">Chci pomoci</a></div>
 	<?php endif; ?>
+	-->
 
 </div><!-- #page .hfeed .site -->
 <footer id="sponsors">

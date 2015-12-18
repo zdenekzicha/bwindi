@@ -472,7 +472,11 @@ article.page .entry-content {
   text-align: left !important;
 }
 .mainPage-wrapper .entry-content #mainPage p {
-  font-size: 1.147em;
+  font-size: 1.47em;
+}
+.home .hp-title {
+  margin: 0.5em 0;
+  text-align: center;
 }
 #mainPage {
   width: 500px;
@@ -489,11 +493,12 @@ article.page .entry-content {
 #new-post {
   position: relative;
   top: -5px;
+  margin-bottom: 2em;
   float: right;
   width: 300px;
 }
 #new-post h3 {
-  margin: 1em 0 0;
+  margin: 1.6em 0 0;
 }
 #new-post span.date {
   position: relative;

@@ -95,6 +95,9 @@
 	</script>
 	<?php endif; ?>
 
+	<?php if (is_front_page()) : ?>
+		<h1 class="hp-title">Férový start dětem v Ugandě</h1>
+	<?php endif; ?>
 	<nav role="navigation" class="site-navigation main-navigation">
 			<?php wp_nav_menu( array( 'container_id' => 'submenu', 'theme_location' => 'primary','menu_id'=>'web2feel' ,'menu_class'=>'sf-menu','fallback_cb'=> 'fallbackmenu' ) ); ?>
 	</nav><!-- .site-navigation .main-navigation -->
