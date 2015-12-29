@@ -83,6 +83,7 @@ class homepagePresenter extends BasePresenter
                 'rocnik' => $data[$id]['rocnik'],
                 'vystavene' => $data[$id]['vystavene'],
                 'skolaIdSkola' => $data[$id]['skolaIdSkola'],
+                'skolaIdSkolaNext' => $data[$id]['skolaIdSkolaNext'],
                 'aktivniZaznam' => $data[$id]['aktivniZaznam']
 
      	));
@@ -323,6 +324,7 @@ class homepagePresenter extends BasePresenter
 	    $form->addCheckbox('aktivniZaznam','Aktivní v projektu')->setValue(1)->setDisabled();
 	    $form->addHidden('datumVzniku')->setValue(date("Y-m-d H:i:s"));
 	    $form->addSelect('skolaIdSkola', 'Škola:', $skolySelect)->setPrompt('Zvolte školu');
+	    $form->addSelect('skolaIdSkolaNext', 'Budoucí škola:', $skolySelect)->setPrompt('Zvolte školu');
 	    $form->addSubmit('create', 'Přidat dítě');
 	    $form->onSuccess[] = array($this, 'noveDiteFormSubmitted');
 	    return $form;
