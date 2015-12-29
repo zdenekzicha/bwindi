@@ -46,6 +46,18 @@ class platbaPresenter extends BasePresenter
 
 	public function actionNovaPlatba($idDite,$idSponzor)
 	{	
+    	if ($idDite) {
+    		//zjisti sponzora
+    		$sponzor = $this->dite->existujeSponzor($idDite);
+    		$idSponzor = $sponzor[0]['sponzorIdSponzor'];
+    	}
+
+    	if ($idSponzor) {
+    		//zjisti dite
+    		$dite = $this->sponzori->zobrazAdopce($idSponzor);
+    		$idDite = $dite[0]['idDite'];
+    	}
+
     	$form = $this->getComponent('novaPlatbaForm');
 
     	$form->setDefaults(array(
