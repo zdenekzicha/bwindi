@@ -187,6 +187,7 @@ class jsonPresenter extends BasePresenter
 				//skola
 				"rocnik" => $item['rocnik'],
 				"skola" => $item['skolaNazev'],
+				"skolaId" => $item['skolaIdSkola'],
 				"skolaText" => $item['skolaText'],
 				"skolaTyp" => $item['skolaTyp'],
 				"jePosledniRocnik" => $posledniRocnik,
