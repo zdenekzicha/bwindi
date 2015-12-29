@@ -9,6 +9,7 @@ class jsonPresenter extends BasePresenter
 	private $deti;
 	private $sponzor;
 	private $platby;
+	private $skola;
 
 	protected function startup()
 	{
@@ -16,10 +17,11 @@ class jsonPresenter extends BasePresenter
 	    $this->deti = $this->context->diteModel;
 	    $this->sponzor = $this->context->sponzorModel;
 	    $this->platby = $this->context->platbaModel;
+	    $this->skola = $this->context->skolaModel;
 	}
 
 	/*
-	 * Vypise deti k adobci	
+	 * Vypise deti k adopci	
 	*/
 	public function actionDetiAdopce()
 	{
@@ -99,6 +101,9 @@ class jsonPresenter extends BasePresenter
 
 	}
 
+	/*
+	 * Detail ditete
+	*/
 	public function actionProfil($id)
 	{	
     			
@@ -113,38 +118,79 @@ class jsonPresenter extends BasePresenter
 			$ssym = 0;
 		}
 		
+		// vyber dite
 		$list = $this->deti->zobrazDiteApi($id);
 		foreach ($list as $item) {
 
+			// vypis profilovku
 			$profilePhoto = $item['profilovaFotka'];
-			$platba = $this->platby->skolneNaKonkretniRok($item['idDite'], date("Y"));
 
-			if($item['castka'] <= $platba[0]['rocniSoucet'] ){
-				$skolneZaplaceno = 'ano';
+			// platby letos
+			$platbaLetos = $this->platby->skolneNaKonkretniRok($item['idDite'], date("Y"));
+
+			$platbaLetosRozdil = $item['castka'] - $platbaLetos[0]['rocniSoucet'];
+
+			if($item['castka'] <= $platbaLetos[0]['rocniSoucet'] ){
+				$skolneLetosZaplaceno = true;
 			}else{
-				$skolneZaplaceno = 'ne';
+				$skolneLetosZaplaceno = false;
 			}
+			// --
 
+			// platby nextYear
+			$platbaPristiRok = $this->platby->skolneNaKonkretniRok($item['idDite'], date("Y") + 1);
+
+			if($item['castka'] <= $platbaPristiRok[0]['rocniSoucet'] ){
+				$skolnePristiRokZaplaceno = true;
+			}else{
+				$skolnePristiRokZaplaceno = false;
+			}
+			// --
+
+			// skola
+			$skola = $this->skola->zobrazSkolu($item['skolaId']); 
+
+			if($item['rocnik'] == $skola[0]['moxRok']){
+				$posledniRocnik = false;
+				$skolnePristiRok = null;
+				$platbaPristiRokRozdil = null;
+			}else{
+				$posledniRocnik = true;
+				$skolnePristiRok = $item['castka'];
+				$platbaPristiRokRozdil = $item['castka'] - $platbaPristiRok[0]['rocniSoucet'];
+			}
+			// --
+
+			// data do sablony
 			$this->payload->data = array(
+				//dite
 				"id" => $item['idDite'], 
 				"jmeno" => $item['jmeno'],
 				"bio" => $item['bio'],
-				"rocnik" => $item['rocnik'],
 				"vek" => $this->deti->vratVek($item['datumNarozeni']),
 				"narozeni" => $item['datumNarozeni'],
 				"pohlavi" => $item['pohlavi'],
-				"skola" => $item['skolaNazev'],
-				"skolaText" => $item['skolaText'],
-				"skolaTyp" => $item['skolaTyp'],
-				"skolne" => $item['castka'],
-				"zaplaceneSkolne" => $platba[0]['rocniSoucet'],
-				"skolneRozdil" => $item['castka'] - $platba[0]['rocniSoucet'],
-				"skolneZaplaceno" => $skolneZaplaceno,
 				"fotka" => $profilePhoto,
 				"sponzor" => $sponsor,
 				"rezervovane" => $item['rezervovane'],
 				"vs" => $item['vsym'],
-				"ss" => $ssym
+				"ss" => $ssym,
+				//skola
+				"rocnik" => $item['rocnik'],
+				"skola" => $item['skolaNazev'],
+				"skolaText" => $item['skolaText'],
+				"skolaTyp" => $item['skolaTyp'],
+				"jePosledniRocnik" => $posledniRocnik,
+				//platby letos
+				"skolneLetos" => $item['castka'],
+				"skolneLetosZaplaceno" => $platbaLetos[0]['rocniSoucet'],
+				"skolneLetosRozdil" => $platbaLetosRozdil,
+				"jeSkolneLetosZaplaceno" => $skolneLetosZaplaceno,
+				//patby pristi rok
+				"skolnePristiRok" => $skolnePristiRok,
+				"skolePristiRokZaplaceno" => $platbaPristiRok[0]['rocniSoucet'],
+				"skolnePristiRokRozdil" => $platbaPristiRokRozdil,
+				"jeSkolneNaPristiRokZaplaceno" => $skolnePristiRokZaplaceno,
 			);
 		
         }     
@@ -153,7 +199,10 @@ class jsonPresenter extends BasePresenter
         $this->terminate(); // ukončí presenter
 
 	}
-
+	
+	/*
+	 * Vypis timeline v detailu ditete
+	*/
 	public function actionTimeline($id)
 	{	
 		$list = $this->deti->zobrazTimeline($id);
