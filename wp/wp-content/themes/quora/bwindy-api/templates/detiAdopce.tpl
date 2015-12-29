@@ -1,5 +1,5 @@
-<h1>Děti k adopci</h1>
 <div id="childrens" class="group">
+<h1>Děti k adopci</h1>
 	{foreach from=$data key=myId item=value}
 		{foreach from=$value key=myId item=i name=kids}
 				<div class="children noShow">
