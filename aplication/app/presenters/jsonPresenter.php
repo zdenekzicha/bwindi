@@ -138,6 +138,7 @@ class jsonPresenter extends BasePresenter
 				"skolaTyp" => $item['skolaTyp'],
 				"skolne" => $item['castka'],
 				"zaplaceneSkolne" => $platba[0]['rocniSoucet'],
+				"skolneRozdil" => $item['castka'] - $platba[0]['rocniSoucet'],
 				"skolneZaplaceno" => $skolneZaplaceno,
 				"fotka" => $profilePhoto,
 				"sponzor" => $sponsor,
