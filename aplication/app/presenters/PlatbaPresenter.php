@@ -12,6 +12,7 @@ class platbaPresenter extends BasePresenter
 	public $filtrSelect;
 	public $filtrText;
 	public $filtrRok;
+	public $idDite;
 
 	protected function startup()
 	{
@@ -22,8 +23,8 @@ class platbaPresenter extends BasePresenter
 	    $this->benefity = $this->context->benefitModel;
 	}
 
-	public function actionDefault($filtrSelect,$filtrText,$filtrRok) {
-
+	public function actionDefault($filtrSelect,$filtrText,$filtrRok,$idDite) {
+		
 		$this->filtr = array();
 		if(isset($filtrText)) {
 			array_push($this->filtr, array($filtrSelect." LIKE ?" => "%".$filtrText."%"));
@@ -38,6 +39,20 @@ class platbaPresenter extends BasePresenter
 		$this->filtrSelect = $filtrSelect;
 		$this->filtrText = $filtrText;
 		$this->filtrRok = $filtrRok;
+		$this->idDite = $idDite;
+	}
+
+	public function actionNovaPlatba($idDite)
+	{	
+    	$form = $this->getComponent('novaPlatbaForm');
+
+    	$form->setDefaults(array(
+        	'diteIdDite' => $idDite,
+     	));
+
+		$form->onSuccess = array(array($this, 'novaPlatbaFormSubmitted')); // nové nastavení
+
+		$this->setView('novaPlatba');
 	}
 
 		public function actionEdit($id)
@@ -94,6 +109,7 @@ class platbaPresenter extends BasePresenter
 		$this->template->filtrSelect = $this->filtrSelect;
 		$this->template->filtrText = $this->filtrText;
 		$this->template->filtrRok = $this->filtrRok;
+		$this->template->idDite = $this->idDite;
 	
 	}
 
@@ -133,7 +149,6 @@ class platbaPresenter extends BasePresenter
 		$form->addSelect('benefitIdBenefit', 'Benefit:', $benefitySelect)->setPrompt('Zvolte benefit')->addRule(NAppForm::FILLED, 'Je nutné zadat benefit.');
 	    $form->addSubmit('create', 'Přidat platbu');
 	    $form->onSuccess[] = $this->NovaPlatbaFormSubmitted;
-
 
 	    $form['datum']->setValue(date("j.n.Y"));
 	    $form['rok']->setValue(date("Y"));
