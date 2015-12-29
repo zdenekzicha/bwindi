@@ -13,6 +13,7 @@ class platbaPresenter extends BasePresenter
 	public $filtrText;
 	public $filtrRok;
 	public $idDite;
+	public $idSponzor;
 
 	protected function startup()
 	{
@@ -23,7 +24,7 @@ class platbaPresenter extends BasePresenter
 	    $this->benefity = $this->context->benefitModel;
 	}
 
-	public function actionDefault($filtrSelect,$filtrText,$filtrRok,$idDite) {
+	public function actionDefault($filtrSelect,$filtrText,$filtrRok,$idDite,$idSponzor) {
 		
 		$this->filtr = array();
 		if(isset($filtrText)) {
@@ -40,14 +41,16 @@ class platbaPresenter extends BasePresenter
 		$this->filtrText = $filtrText;
 		$this->filtrRok = $filtrRok;
 		$this->idDite = $idDite;
+		$this->idSponzor = $idSponzor;
 	}
 
-	public function actionNovaPlatba($idDite)
+	public function actionNovaPlatba($idDite,$idSponzor)
 	{	
     	$form = $this->getComponent('novaPlatbaForm');
 
     	$form->setDefaults(array(
         	'diteIdDite' => $idDite,
+        	'sponzorIdSponzor' => $idSponzor,
      	));
 
 		$form->onSuccess = array(array($this, 'novaPlatbaFormSubmitted')); // nové nastavení
@@ -110,6 +113,7 @@ class platbaPresenter extends BasePresenter
 		$this->template->filtrText = $this->filtrText;
 		$this->template->filtrRok = $this->filtrRok;
 		$this->template->idDite = $this->idDite;
+		$this->template->idSponzor = $this->idSponzor;
 	
 	}
 

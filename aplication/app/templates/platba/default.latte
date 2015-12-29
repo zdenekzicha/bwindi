@@ -3,9 +3,9 @@
 {block content}
 	<section id="page">
 		<h1>
-			Platby{if $idDite} {$filtrText} {/if}
+			Platby{if $idDite || $idSponzor} {$filtrText} {/if}
 		</h1>
-		<a n:href="Platba:novaPlatba idDite=>$idDite" class="btn btn-success btn-offset"><i class="glyphicon glyphicon-plus icon-offset"></i>Přidat platbu</a>
+		<a n:href="Platba:novaPlatba idDite=>$idDite, idSponzor=>$idSponzor" class="btn btn-success btn-offset"><i class="glyphicon glyphicon-plus icon-offset"></i>Přidat platbu</a>
 		<form class="form-search group">
 			<p>
 				<select name="filtrSelect">
