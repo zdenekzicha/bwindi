@@ -155,6 +155,7 @@ class jsonPresenter extends BasePresenter
 				$skolnePristiRok = null;
 				$platbaPristiRokRozdil = null;
 
+				// ma nastaveno budouci skolu
 				if(!is_null($item['skolaIdSkolaNext'])){
 					$skolaNext = $this->skola->zobrazSkolu($item['skolaIdSkola']);
 					$posledniRocnik = false;
