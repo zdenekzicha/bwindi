@@ -13,7 +13,6 @@
 
   //FlexSlider: Object Instance
   $.flexslider = function(el, options) {
-    alert('test');
     var slider = $(el),
         vars = $.extend({}, $.flexslider.defaults, options),
         namespace = vars.namespace,

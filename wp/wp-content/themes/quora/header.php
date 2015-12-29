@@ -92,7 +92,13 @@ function googleTranslateElementInit() {
 	<div id="wideslider" class="flexslider">
 		<ul class="slides">
 		    <li>
-		      <img src="http://bwindiorphans.org/wp-content/themes/quora/images/mainPhoto2.jpg" alt="" id="headerPhoto"/>
+		      <img src="http://bwindiorphans.org/wp-content/themes/quora/images/main-photo/mainPhoto2.jpg" alt="" id="headerPhoto"/>
+		    </li>
+		    <li>
+		      <img src="http://bwindiorphans.org/wp-content/themes/quora/images/main-photo/mainPhoto3.jpg" alt="" id="headerPhoto"/>
+		    </li>
+		    <li>
+		      <img src="http://bwindiorphans.org/wp-content/themes/quora/images/main-photo/mainPhoto4.jpg" alt="" id="headerPhoto"/>
 		    </li>
   		</ul>
 	</div>

@@ -19,15 +19,34 @@
 		{else}
 			<a href="/?page_id=119&idDite={$dite.id}" id="helpMe">Pomůžeš mi?</a>
 		{/if}
-		{if $dite.skolne}
-			<p>
-				{if $dite.skolneZaplaceno == "ano" }
-					Na letošní rok mám již školné zaplaceno
+
+		{strip}
+		{if $dite.rezervovane || $dite.sponzor}
+			<h4 style="text-align: center;">Školné</h4>
+			<p style="text-align: center; margin-top: 0.5em">
+				{if $dite.jeSkolneLetosZaplaceno}
+					{'Y'|date}: mám již zaplaceno
 				{else}
-					Abych {if $dite.pohlavi == "F"}mohla{else}mohl{/if} letos chodit do školy potřebuji <strong>{$dite.skolne} Kč</strong>
+					{'Y'|date}:&nbsp;{if $dite.skolneLetosRozdil != $dite.skolneLetos}{$dite.skolneLetos}&nbsp;Kč,{/if}
+					{if $dite.skolneLetosRozdil > 0} zbývá&nbsp;zaplatit&nbsp;<strong>{$dite.skolneLetosRozdil}</strong>&nbsp;Kč{/if}
+				{/if}
+				{if !$dite.jePosledniRocnik}
+					{if $dite.jeSkolneNaPristiRokZaplaceno}
+						<br />{"+1 year"|date_format:'%Y'}:&nbsp;mám&nbsp;již&nbsp;zaplaceno
+					{else}
+						<br />{"+1 year"|date_format:'%Y'}:&nbsp;{if $dite.skolnePristiRokRozdil != $dite.skolnePristiRok}{$dite.skolnePristiRok}&nbsp;Kč,{/if}
+						{if $dite.skolnePristiRokRozdil > 0} zbývá zaplatit&nbsp;<strong>{$dite.skolnePristiRokRozdil}</strong>&nbsp;Kč{/if}
+					{/if}
 				{/if}
 			</p>
+		{else}
+			{if !$dite.jeSkolneLetosZaplaceno}
+				<p style="text-align: center; margin-top: 0.5em">
+					<br />Na&nbsp;tento&nbsp;rok&nbsp;potřebuji&nbsp;<strong>{$dite.skolneLetos}&nbsp;Kč</strong>
+				</p>
+			{/if}
 		{/if}
+		{/strip}
 	{/if}
 
 	{if $dite.vs != ''}

@@ -11,7 +11,8 @@ jQuery(document).ready(function() {
 /* Flexslider */
 
   jQuery('#wideslider').flexslider({
-    animation: "slide"
+    animation: "fade",
+    slideshowSpeed: 3000
   });
 
 	 
