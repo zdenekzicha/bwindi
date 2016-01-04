@@ -133,7 +133,6 @@ class DiteModel extends Model
     {     
       require_once("../libs/flickr.php");
       try{
-
       		if(isset($form['fotoFile']) && $form['fotoFile']->getError()!=4){ //Provede se jen kdyz je nahrana fotka.
 		      if ($form['fotoFile']->getError() > 0){
 		          echo "Chyba při nahrávání fotky fotky: ".$this->codeToMessage($form['foto']->getError())."<br>";
@@ -151,18 +150,16 @@ class DiteModel extends Model
       		
       		unset($form['jmeno']);
       		unset($form['fotoFile']);
-          $fotoInfo = $flickr->photos_getInfo($form['flickrId']);
-		      $form['fotoUrlSerializovana'] = serialize($fotoInfo['photo']);
-		      $form['foto'] = $this->sestavUrlProfiloveFotky($fotoInfo['photo']);
+
       		$this->db->exec('UPDATE timeline SET ? WHERE id=?', $form, $form["id"]); 
        
           return true;
 
-      } catch (Exception $e) {
+     } catch (Exception $e) {
           
           return false;
 
-      }
+    	}
 
     }
 
