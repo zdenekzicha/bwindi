@@ -56,7 +56,7 @@
 				<th>Číslo účtu</th>
 				<th>Poznámka</th>
 				<th></th>
-				<!--<th></th>-->
+				<th></th>
 			</tr>
 			{foreach $platby as $platba}
 				<tr>
@@ -71,7 +71,7 @@
 					<td>{$platba->ucet}</td>
 					<td>{$platba->poznamka}</td>
 					<td><a n:href="Platba:edit id=>$platba->idPlatba" title="detail" class="btn btn-warning"><i class="icon-pencil"></i></a></td>
-					<!--<td><a n:href="Platba:smazat id=>$platba->idPlatba" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat údaje o platbě od {$platba->sponzorJmeno}?'))return false;"><i class="icon-trash"></i></a></td>-->
+					<td><a n:href="Platba:smazat id=>$platba->idPlatba" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat údaje o platbě od {$platba->sponzorJmeno}?'))return false;"><i class="icon-trash"></i></a></td>
 				</tr>
 			{/foreach}
 		</table>
