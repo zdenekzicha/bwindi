@@ -36,23 +36,6 @@
 		<a href="mailto:mara@bwindiorphans.org">medardashaba@yahoo.com</a>
 	</div>
 	<div class="teamMember">
-		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/hana.jpg" /></div>
-		<h3>Hana Vacková</h3>
-		<div class="title">správní rada</div>
-		<a href="mailto:hana@bwindiorphans.org">hana@bwindiorphans.org</a>
-	</div>
-	<div class="teamMember">
-		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/radek.jpg" /></div>
-		<h3>Radek Vykouřil</h3>
-		<div class="title">správní rada</div>
-		<a href="mailto:radek@bwindiorphans.org">radek@bwindiorphans.org</a>
-	</div>
-	<div class="teamMember">
-		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/ludmila.jpg" /></div>
-		<h3>Ludmila Tuzová</h3>
-		<div class="title">správní rada</div>
-	</div>
-	<div class="teamMember">
 		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/alena.jpg" /></div>
 		<h3>Alena Samková</h3>
 		<div class="title">akce v Praze, evidence plateb</div>
@@ -69,5 +52,22 @@
 		<h3>Libuše Dostálová</h3>
 		<div class="title">akce na severní Moravě, prodej&nbsp;výrobků</div>
 		<a href="mailto:liba@bwindiorphans.org">liba@bwindiorphans.org</a>
+	</div>
+	<div class="teamMember">
+		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/hana.jpg" /></div>
+		<h3>Hana Vacková</h3>
+		<div class="title">správní rada</div>
+		<a href="mailto:hana@bwindiorphans.org">hana@bwindiorphans.org</a>
+	</div>
+	<div class="teamMember">
+		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/radek.jpg" /></div>
+		<h3>Radek Vykouřil</h3>
+		<div class="title">správní rada</div>
+		<a href="mailto:radek@bwindiorphans.org">radek@bwindiorphans.org</a>
+	</div>
+	<div class="teamMember">
+		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/ludmila.jpg" /></div>
+		<h3>Ludmila Tuzová</h3>
+		<div class="title">správní rada</div>
 	</div>
 </div>
