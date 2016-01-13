@@ -1,6 +1,12 @@
 
 {foreach from=$data key=myId item=dite}
 	<div id="profile" class="twoColumnsLayout group">
+		{if $dite.predchoziDite}
+			<div class="prev profile-navigation"><a href="?page_id=48&idDite={$dite.predchoziDite}&s=profil" onclick="_gaq.push(['_trackEvent', 'Profil ditete', 'Predchozi profil', 'prev'])">Předchozí profil</a></div>
+		{/if}
+		{if $dite.dalsiDite}
+			<div class="next profile-navigation"><a href="?page_id=48&idDite={$dite.dalsiDite}&s=profil" onclick="_gaq.push(['_trackEvent', 'Profil ditete', 'Dalsi profil', 'next'])">Další profil</a></div>
+		{/if}
 		<div id="left">
 	<div class="photo bubble {if $dite.pohlavi == 'F'}female{else}male{/if}">
 		{if $dite.fotka}

@@ -53,7 +53,7 @@ h2 {
   font-size: 2.25em;
   color: #504342;
   font-weight: normal;
-  line-height: 1.1em;
+  line-height: 1em;
   margin: 1em 0;
 }
 h3 {
@@ -581,6 +581,22 @@ article.page .entry-content {
 .twoColumnsLayout #left tr:last-child th,
 .twoColumnsLayout #left #profile #left tr:last-child td {
   border: none;
+}
+#profile .profile-navigation {
+  position: fixed;
+  top: 50%;
+  padding: 10px 8px;
+  background: #fff;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+#profile .profile-navigation.prev {
+  left: 0px;
+  border-radius: 0 5px 5px 0;
+}
+#profile .profile-navigation.next {
+  right: 0px;
+  border-radius: 5px 0 0 5px;
 }
 #profile #left p {
   text-align: center;
