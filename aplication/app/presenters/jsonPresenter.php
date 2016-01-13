@@ -106,7 +106,7 @@ class jsonPresenter extends BasePresenter
 	*/
 	public function actionProfil($id)
 	{	
-    			
+
 		// zjistime zda mame sponzora
 		$sponsor = false;
 		$isSponzor = $this->deti->existujeSponzor($id);
@@ -116,6 +116,20 @@ class jsonPresenter extends BasePresenter
 			$ssym = $sponsorData[$isSponzor[0]['sponzorIdSponzor']]['ssym'];
 		}else{
 			$ssym = 0;
+		}
+
+		// najdi dalsi a predchozi dite
+		if($sponsor){
+			$listDeti = $this->deti->zobrazAdoptovaneDeti('');
+		}else{
+			$listDeti = $this->deti->zobrazDetiKAdopci('');
+		}
+		
+		foreach ($listDeti as $key => $value) {
+			if($value['idDite'] == $id){
+				$next = $listDeti[$key + 1]['idDite'];
+				$prev = $listDeti[$key - 1]['idDite'];
+			}
 		}
 		
 		// vyber dite
@@ -184,6 +198,8 @@ class jsonPresenter extends BasePresenter
 				"rezervovane" => $item['rezervovane'],
 				"vs" => $item['vsym'],
 				"ss" => $ssym,
+				"dalsiDite" => $next,
+				"predchoziDite" => $prev,
 				//skola
 				"rocnik" => $item['rocnik'],
 				"skola" => $item['skolaNazev'],
