@@ -631,6 +631,26 @@ article.page {
     border: none;
 }
 #profile {
+
+    .profile-navigation {
+        position: fixed;
+        top: 50%;
+        padding: 10px 8px;
+        background: #fff;
+        font-size: 11px;
+        text-transform: uppercase;
+    
+        &.prev {
+            left: 0px;
+            border-radius: 0 5px 5px 0;
+        }
+    
+        &.next {
+            right: 0px;
+            border-radius: 5px 0 0 5px;
+        }
+    }
+
     #left {
         p {
             text-align: center;
