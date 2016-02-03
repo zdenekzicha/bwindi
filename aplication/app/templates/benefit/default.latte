@@ -9,6 +9,7 @@
 				<th>Id</th>
 				<th>Název účelu</th>
 				<th>Cena</th>
+				<th>Variabilní symbol</th>
 				<th></th>
 				<!--<th></th>-->
 			</tr>
@@ -17,6 +18,7 @@
 				<td>{$benefit->idBenefit}</td>
 				<td>{$benefit->nazev}</td>
 				<td>{$benefit->castka}</td>
+				<td>{$benefit->vsym}</td>
 				<td><a n:href="Benefit:edit id=>$benefit->idBenefit" title="detail"><i class="icon-pencil"></i></a></td>
 				<!--<td><a n:href="Benefit:smazat id=>$benefit->idBenefit" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat údaje o {$benefit->nazev}?'))return false;" ><i class="icon-trash"></i></a></td>-->
 			</tr>

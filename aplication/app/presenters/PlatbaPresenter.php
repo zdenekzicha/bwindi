@@ -151,7 +151,7 @@ class platbaPresenter extends BasePresenter
 		$benefitySelect = array();
 
 		foreach ($benefity as $key => $value) {
-			$benefitySelect[$value['idBenefit']] = $value['nazev'];
+			$benefitySelect[$value['idBenefit']] = ($value['vsym']? $value['vsym']." - ":"").$value['nazev'];
 		}
 		
 	    $form = new NAppForm;

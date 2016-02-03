@@ -23,7 +23,8 @@ class benefitPresenter extends BasePresenter
     	$form->setDefaults(array(
     			'nazev' => $data[$id]['nazev'],
                 'castka' => $data[$id]['castka'],
-                'aktivniZaznam' => $data[$id]['aktivniZaznam']
+                'aktivniZaznam' => $data[$id]['aktivniZaznam'],
+                'vsym' => $data[$id]['vsym']
 
      	));
 
@@ -64,6 +65,7 @@ class benefitPresenter extends BasePresenter
 	    $form = new NAppForm;
 	    $form->addText('nazev', 'Název:', 40, 100)->addRule(NAppForm::FILLED, 'Je nutné zadat název účelu.');
 	    $form->addText('castka', 'Částka:', 40, 100)->addRule(NAppForm::FILLED, 'Je nutné zadat částku.');
+	    $form->addText('vsym', 'Variabilní symbol:', 40, 100);
 	    $form->addHidden('aktivniZaznam')->setValue('1');
 	    $form->addSubmit('create', 'Přidat účel');
 	    $form->onSuccess[] = $this->novaNovyBenefitSubmitted;

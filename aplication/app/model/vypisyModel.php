@@ -29,9 +29,23 @@ class VypisyModel extends Model
 	}
   
   public function potvrzeniPlateb()
-	{
-		$dotaz = 'SELECT platba.sponzorIdSponzor as idSponzor, sponzor.jmeno as sponzorJmeno, sponzor.ulice as ulice, sponzor.psc as psc, sponzor.mesto as mesto, year(platba.datum) as rok,date(MAX(platba.datum)) as posledniDatum, SUM(platba.castka) as soucet, COUNT(platba.sponzorIdSponzor) as pocetPlateb FROM `platba`,`sponzor` WHERE platba.sponzorIdSponzor=sponzor.idSponzor
+  {
+    $dotaz = 'SELECT platba.sponzorIdSponzor as idSponzor, sponzor.jmeno as sponzorJmeno, sponzor.ulice as ulice, sponzor.psc as psc, sponzor.mesto as mesto, year(platba.datum) as rok,date(MAX(platba.datum)) as posledniDatum, SUM(platba.castka) as soucet, COUNT(platba.sponzorIdSponzor) as pocetPlateb FROM `platba`,`sponzor` WHERE platba.sponzorIdSponzor=sponzor.idSponzor
 group by platba.sponzorIdSponzor, year(platba.datum) ORDER by year(platba.datum) DESC, sponzor.jmeno ASC';
     return $this->getDb()->query($dotaz);
-	}
+  }
+
+  public function sumPlatbyBenefity($rok)
+  {
+    $dotaz = 'SELECT SUM(p.castka) AS castka, b.nazev AS nazev, b.vsym AS vsym
+
+    FROM platba AS p, benefit AS b
+
+    WHERE p.benefitIdBenefit = b.idBenefit AND rok = "'. $rok .'"
+
+    GROUP BY benefitIdBenefit
+
+    ';
+    return $this->getDb()->query($dotaz);
+  }
 }

@@ -1,0 +1,36 @@
+{block title}Výpisy{/block}
+
+{block content}
+	<section id="page">
+		<h1>Součet benefitů</h1>
+		<form class="form-search group">
+	  		<div class="left">
+	  			<select name="filtrRok" class="span2">
+	  				<option>Rok</option>
+	  				{foreach $roky as $rok}
+	  					<option value="{$rok->roky}" {if $filtrRok == $rok->roky}selected="selected"{/if}>{$rok->roky}</option>
+	  				{/foreach}
+				</select>
+				<input type="hidden" name="presenter" value="vypisy" />
+				<input type="hidden" name="action" value="SumPlatbyBenefity" />
+	  			<button type="submit" class="btn btn-inverse">Vyhledat</button>
+	  		</div>
+		</form>
+		<table class="table table-striped">
+			<thead>
+	      		<tr>
+					<th>Benefit</th>
+	        		<th>Částka</th>
+				</tr>
+      		</thead>
+      		<tbody>
+				{foreach $vypisy as $radek}
+					<tr>
+						<td>{$radek->vsym} {$radek->nazev}</td>
+	        			<td class="nowrap">{$radek->castka |number:0:',':' '} Kč</td>
+					</tr>
+				{/foreach}
+      		</tbody>
+		</table>
+	</section>
+{/block}
