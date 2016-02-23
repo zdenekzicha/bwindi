@@ -25,14 +25,14 @@ class platbaPresenter extends BasePresenter
 	}
 
 	public function actionDefault($filtrSelect,$filtrText,$filtrRok,$idDite,$idSponzor) {
-		
+
 		$this->filtr = array();
 		if(isset($filtrText)) {
 			array_push($this->filtr, array($filtrSelect." LIKE ?" => "%".$filtrText."%"));
 		}
 
 		// jako defaultni hodnota filteru se bere aktualni rok
-		
+
 		if(isset($filtrRok) && $filtrRok != 'Rok') {
 			array_push($this->filtr, array('rok' => $filtrRok));
 		}
@@ -45,7 +45,7 @@ class platbaPresenter extends BasePresenter
 	}
 
 	public function actionNovaPlatba($idDite,$idSponzor)
-	{	
+	{
     	if ($idDite) {
     		//zjisti sponzora
     		$sponzor = $this->dite->existujeSponzor($idDite);
@@ -71,8 +71,8 @@ class platbaPresenter extends BasePresenter
 	}
 
 		public function actionEdit($id)
-	{	
-    	
+	{
+
     	$data = $this->platby->zobrazPlatbu($id);
 
     	$form = $this->getComponent('novaPlatbaForm');
@@ -103,8 +103,8 @@ class platbaPresenter extends BasePresenter
 	}
 
 	public function actionSmazat($id)
-	{	
-    	
+	{
+
     	if($this->platby->smazatPlatbu($id)){
     		$this->flashMessage('Smazali jste platbu', 'success');
     		$this->redirect('Platba:default');
@@ -126,14 +126,14 @@ class platbaPresenter extends BasePresenter
 		$this->template->filtrRok = $this->filtrRok;
 		$this->template->idDite = $this->idDite;
 		$this->template->idSponzor = $this->idSponzor;
-	
+
 	}
 
 	// vytvori formular pro pridani platby
 	protected function createComponentNovaPlatbaForm()
 	{
- 
-		$deti = $this->dite->zobrazVsechnyDeti("vsym");
+
+		$deti = $this->dite->zobrazVsechnyAktivniDeti("vsym");
 		$detiSelect = array();
 
 		foreach ($deti as $key => $value) {
@@ -153,7 +153,7 @@ class platbaPresenter extends BasePresenter
 		foreach ($benefity as $key => $value) {
 			$benefitySelect[$value['idBenefit']] = ($value['vsym']? $value['vsym']." - ":"").$value['nazev'];
 		}
-		
+
 	    $form = new NAppForm;
 	    $form->addText('datum', 'Datum:', 40, 255);
 	    $form->addText('castka', 'Částka:');
@@ -174,11 +174,11 @@ class platbaPresenter extends BasePresenter
 
 	// ulozi do databaze nove platby
 	public function NovaPlatbaFormSubmitted(NAppForm $form)
-	{	
+	{
 		$values = $form->getValues();
 		$date = new DateTime($values['datum']);
 	    $form['datum']->setValue($date->format('Y-m-d'));
-		
+
     	if($this->platby->vytvorPlatbu($form->values)){
     		$this->flashMessage('Přidali jste novou platbu.', 'success');
     		$this->redirect('Platba:default');
@@ -188,7 +188,7 @@ class platbaPresenter extends BasePresenter
 	}
 
 	public function editPlatbaFormSubmitted(NAppForm $form)
-	{	
+	{
 		$values = $form->getValues();
 		$date = new DateTime($values['datum']);
 	    $form['datum']->setValue($date->format('Y-m-d'));

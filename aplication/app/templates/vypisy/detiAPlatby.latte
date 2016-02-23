@@ -1,0 +1,61 @@
+{block title}Výpisy{/block}
+
+{block content}
+
+	<section id="page">
+<H2>Platby na {$letosni_rok}</H2>
+		<table id="dataDeti" class="display">
+			<thead>
+      <tr>
+				<th>Jméno dítěte</th>
+				<th>Jméno sponzora</th>
+				<th>Školné</th>
+				<th>Zaplaceno</th>
+				<th>Zbývá zaplatit</th>
+
+			</tr>
+      </thead>
+      <tbody>
+			{foreach $detiAPlatby as $radek}
+			<tr>
+				<td><a n:href="Homepage:default filtrSelect => jmeno, filtrText => $radek->jmeno">{$radek->jmeno}</a></td>
+
+				<td>
+					{var $oddelovac=0}
+					{foreach $sponzori as $sponzor}
+						{if $sponzor->diteIdDite == $radek->idDite}
+							{if $oddelovac > 0}&nbsp;|&nbsp;{/if}
+							<a n:href="Sponzor:default filtrSelect => jmeno, filtrText => $sponzor->jmeno">{$sponzor->jmeno}</a>
+							{var $oddelovac++}
+						{/if}
+					{/foreach}
+							</td>
+				<td>{$radek->skolne}</td>
+				<td>{$radek->letos_zaplaceno}</td>
+				<td>{$radek->zbyva_zaplatit}</td>
+
+			</tr>
+			{/foreach}
+      </tbody>
+		</table>
+
+	</section>
+<script>
+
+var table = $('#dataDeti').DataTable( {
+        "paging": false,
+        "order": [[ 4, "desc" ]]
+    } );
+    $('a.toggle-vis').on( 'click', function (e) {
+        e.preventDefault();
+
+        // Get the column API object
+        var column = table.column( $(this).attr('data-column') );
+
+        // Toggle the visibility
+        column.visible( ! column.visible() );
+    } );
+
+
+</script>
+{/block}

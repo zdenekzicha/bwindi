@@ -10,15 +10,15 @@ class DiteModel extends Model
 	{
 		/*
 		$query = 'CREATE VIEW detiPohled AS SELECT view1.*, sponzor.jmeno AS sponzor
-			FROM (SELECT view.*, skola.nazev AS skolaNazev 
+			FROM (SELECT view.*, skola.nazev AS skolaNazev
 			FROM (SELECT dite.* , relaceditesponzor.idRelaceDiteSponzor, relaceditesponzor.sponzorIdSponzor AS relaceIdSponzor FROM dite LEFT JOIN relaceditesponzor ON dite.idDite = relaceditesponzor.diteIdDite) AS view
-			LEFT JOIN skola ON view.skolaIdSkola = skola.idSkola) AS view1 
+			LEFT JOIN skola ON view.skolaIdSkola = skola.idSkola) AS view1
 			LEFT JOIN sponzor ON view1.relaceIdSponzor=sponzor.idSponzor';
-		
+
 
 		$this->getDb()->query('DROP VIEW if exists view, view1, detiPohled');
 		$this->getDb()->query('CREATE VIEW view AS SELECT dite.* , relaceditesponzor.idRelaceDiteSponzor, relaceditesponzor.sponzorIdSponzor AS relaceIdSponzor FROM dite LEFT JOIN relaceditesponzor ON dite.idDite = relaceditesponzor.diteIdDite');
-		$this->getDb()->query('CREATE VIEW view1 AS SELECT view.*, skola.nazev as skolaNazev from view LEFT JOIN skola ON view.skolaIdSkola = skola.idSkola'); 
+		$this->getDb()->query('CREATE VIEW view1 AS SELECT view.*, skola.nazev as skolaNazev from view LEFT JOIN skola ON view.skolaIdSkola = skola.idSkola');
 		$this->getDb()->query('CREATE VIEW detiPohled as SELECT view1.*, sponzor.jmeno as jmenoSponzor from view1 LEFT JOIN sponzor ON view1.relaceIdSponzor=sponzor.idSponzor');
 
 		*/
@@ -38,6 +38,11 @@ class DiteModel extends Model
 	public function zobrazVsechnyDeti($order)
 	{
     	return $this->getTable()->order($order);
+	}
+
+	public function zobrazVsechnyAktivniDeti($order)
+	{
+    	return $this->db->fetchAll('SELECT * FROM  dite WHERE aktivniZaznam = 1 ORDER BY '.$order);
 	}
 
 	public function zobrazDite($id)
@@ -72,7 +77,7 @@ class DiteModel extends Model
 
     public function maxTimelineItemOrder($id){
     	//return $this->db->table('timeline')->max('poradi')->where("id", $id);
-    	return $this->db->fetchAll('SELECT MAX(poradi) AS max FROM timeline WHERE id='.$id); 
+    	return $this->db->fetchAll('SELECT MAX(poradi) AS max FROM timeline WHERE id='.$id);
     }
 
     public function zobrazTimelineItem($id){
@@ -81,11 +86,11 @@ class DiteModel extends Model
 
     public function vytvorTimeline($form)
   	{
-		
 
-		
+
+
 	try{
-	  	
+
 	  		/*  Flickr magic*/
 	  	if($form['fotoFile']->getError()!=4){ //Provede se jen kdyz je nahrana fotka.
 	      if ($form['fotoFile']->getError() > 0){
@@ -100,15 +105,15 @@ class DiteModel extends Model
 	          $form['fotoUrlSerializovana'] = serialize($fotoInfo['photo']);
 	          $form['foto'] = $this->sestavUrlProfiloveFotky($fotoInfo['photo']);
 	          }
-	      }	
-      		/*  Flickr magic - konec*/ 
+	      }
+      		/*  Flickr magic - konec*/
   			unset($form['jmeno']);
   			unset($form['fotoFile']);
-			$this->db->table('timeline')->insert($form);	
+			$this->db->table('timeline')->insert($form);
 	        return true;
 
 	    } catch (Exception $e) {
-	        
+
 	        return false;
 	    }
   	}
@@ -116,13 +121,13 @@ class DiteModel extends Model
   	public function smazatTimeline($id)
   	{
         		try{
-			
+
 			$this->db->table('timeline')->where('id', $id)->delete();
-			 
+
 	        return true;
 
 	    } catch (Exception $e) {
-	        
+
 	        return false;
 
 	    }
@@ -130,7 +135,7 @@ class DiteModel extends Model
   	}
 
   	public function editujTimeline($form)
-    {     
+    {
       require_once("../libs/flickr.php");
       try{
       		if(isset($form['fotoFile']) && $form['fotoFile']->getError()!=4){ //Provede se jen kdyz je nahrana fotka.
@@ -139,7 +144,7 @@ class DiteModel extends Model
 		          return false;
 		          }
 		        else{
-		          
+
 		          $flickrId = $flickr->sync_upload($form['fotoFile']->getTemporaryFile(), $form['jmeno'], '', 'Timeline, '.$form['jmeno'].', Bwindi Orphans'.$form["diteIdDite"], 0);
 		          $form['flickrId']=$flickrId;
 		          $fotoInfo = $flickr->photos_getInfo($flickrId);
@@ -147,16 +152,16 @@ class DiteModel extends Model
 		          $form['foto'] = $this->sestavUrlProfiloveFotky($fotoInfo['photo']);
 		          }
 		      }
-      		
+
       		unset($form['jmeno']);
       		unset($form['fotoFile']);
 
-      		$this->db->exec('UPDATE timeline SET ? WHERE id=?', $form, $form["id"]); 
-       
+      		$this->db->exec('UPDATE timeline SET ? WHERE id=?', $form, $form["id"]);
+
           return true;
 
      } catch (Exception $e) {
-          
+
           return false;
 
     	}
@@ -169,8 +174,8 @@ class DiteModel extends Model
     }
 
 	public function vytvorDite($form)
-  	{			
-  	
+  	{
+
   		try{
 
   			if($form['profilovasoubor']->getError()!=4){ //Provede se jen kdyz je nahrana fotka.
@@ -179,7 +184,7 @@ class DiteModel extends Model
 		          return false;
 		          }
 		        else{
-		          
+
 		          require_once('../libs/flickr.php');
 		          $flickrId = $flickr->sync_upload($form['profilovasoubor']->getTemporaryFile(), $form['jmeno'], '', 'Profilova fotka, '.$form['jmeno'].', Bwindi Orphans', 0);
 		          $form['flickrId']=$flickrId;
@@ -187,16 +192,16 @@ class DiteModel extends Model
 		          $form['profilovaUrlSerializovana'] = serialize($fotoInfo['photo']);
 		          $form['profilovaFotka'] = $this->sestavUrlProfiloveFotky($fotoInfo['photo']);
 		          }
-		      }	
-		      /*  Flickr magic - konec*/ 
+		      }
+		      /*  Flickr magic - konec*/
 		  		unset($form['profilovasoubor']); // Mazu docasnej soubor, aby proslo ulozeni do DB
 			$form['aktivniZaznam'] = 1;
 			$this->getTable()->insert($form);
-			 
+
 	        return true;
 
 	    } catch (Exception $e) {
-	        
+
 	        return false;
 
 	    }
@@ -204,13 +209,13 @@ class DiteModel extends Model
   	}
 
   	public function vytvorSourozence($form)
-  	{			
+  	{
   		try{
         	$this->db->table('sourozenzi')->insert($form);
 	        return true;
 
 	      } catch (Exception $e) {
-	          
+
 	          return false;
 
 	      }
@@ -218,19 +223,19 @@ class DiteModel extends Model
   	}
 
   	public function editovatDite($form)
-  	{	
-      
-  	  
-      	  
+  	{
+
+
+
   		try{
-  		/*  Flickr magic*/     
+  		/*  Flickr magic*/
       if(isset($form['profilovasoubor']) && $form['profilovasoubor']->getError()!=4){ //Provede se jen kdyz je nahrana fotka.
         if ($form['profilovasoubor']->getError() > 0){
           echo "Chyba při nahrávání fotky fotky: ".$this->codeToMessage($form['profilovasoubor']->getError())."<br>";
           return false;
           }
         else{
-          
+
           require_once('../libs/flickr.php');
           $flickrId = $flickr->sync_upload($form['profilovasoubor']->getTemporaryFile(), $form['jmeno'], '', 'Profilova fotka, '.$form['jmeno'].', Bwindi Orphans'.$form["idDite"], 0);
           $form['flickrId']=$flickrId;
@@ -238,20 +243,20 @@ class DiteModel extends Model
           $form['profilovaUrlSerializovana'] = serialize($fotoInfo['photo']);
           $form['profilovaFotka'] = $this->sestavUrlProfiloveFotky($fotoInfo['photo']);
           }
-      }	
-      /*  Flickr magic - konec*/ 
+      }
+      /*  Flickr magic - konec*/
   		unset($form['profilovasoubor']); // Mazu docasnej soubor, aby proslo ulozeni do DB
-			$this->getTable()->where('idDite', $form["idDite"])->update($form);		
+			$this->getTable()->where('idDite', $form["idDite"])->update($form);
 	        return true;
 
 	    } catch (Exception $e) {
-	        
+
 	        return false;
 
 	    }
 
   	}
-  	
+
   	public function sestavUrlProfiloveFotky ($photo, $size = "Medium") {
 			//receives an array (can use the individual photo data returned
 			//from an API call) and returns a URL (doesn't mean that the
@@ -265,12 +270,12 @@ class DiteModel extends Model
 				"large" => "_b",
 				"original" => "_o"
 			);
-			
+
 			$size = strtolower($size);
 			if (!array_key_exists($size, $sizes)) {
 				$size = "medium";
 			}
-			
+
 			if ($size == "original") {
 				$url = "http://farm" . $photo['farm'] . ".static.flickr.com/" . $photo['server'] . "/" . $photo['id'] . "_" . $photo['originalsecret'] . "_o" . "." . $photo['originalformat'];
 			} else {
@@ -282,13 +287,13 @@ class DiteModel extends Model
   	public function smazatDite($id)
   	{
         		try{
-			
+
 			$this->getTable()->where('idDite', $id)->delete();
-			 
+
 	        return true;
 
 	    } catch (Exception $e) {
-	        
+
 	        return false;
 
 	    }
@@ -298,30 +303,30 @@ class DiteModel extends Model
     public function vyraditDite($idDite)
   	{
         		try{
-			
+
 			$this->getDb()->query('UPDATE dite SET aktivniZaznam=0,datumZaniku=NOW() WHERE idDite='.$idDite);
       $this->getDb()->query('UPDATE relaceDiteSponzor SET aktivniZaznam=0,datumZaniku=NOW() WHERE diteIdDite='.$idDite);
-			 
+
 	        return true;
 
 	    } catch (Exception $e) {
-	        
+
 	        return false;
 
 	    }
 
   	}
-    
+
     public function zaraditDite($idDite)
   	{
         		try{
-			
+
 			$this->getDb()->query('UPDATE dite SET aktivniZaznam=1,datumZaniku=NULL WHERE idDite='.$idDite);
-      			 
+
 	        return true;
 
 	    } catch (Exception $e) {
-	        
+
 	        return false;
 
 	    }
@@ -332,16 +337,16 @@ class DiteModel extends Model
   	{
 
   		try{
-			
+
 			$this->db->table('sourozenzi')->where('idSourozenzi', $id)->delete();
-			 
+
 	        return true;
 
 	    } catch (Exception $e) {
-	        
+
 	        return false;
 
-	    }	    
+	    }
 	}
 
 	public function vratVek($narozeni){
@@ -357,7 +362,7 @@ class DiteModel extends Model
   	public function zobrazDetiKAdopci($search)
   	{
   		return $this->db->fetchAll('SELECT * FROM dite as d LEFT JOIN relaceditesponzor as r ON r.diteIdDite = d.idDite WHERE d.idDite NOT IN (SELECT diteIdDite FROM relaceditesponzor WHERE aktivniZaznam = 1) AND d.aktivniZaznam = 1 AND d.vystavene = 1 GROUP BY d.idDite '); }
-	
+
 	public function codeToMessage($code)
     {
         switch ($code) {
@@ -388,7 +393,7 @@ class DiteModel extends Model
                 break;
         }
         return $message;
-    } 
-    
+    }
+
 
 }
