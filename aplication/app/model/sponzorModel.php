@@ -10,7 +10,7 @@ class sponzorModel extends Model
 	{
 
 		$this->getDb()->query('DROP VIEW if exists sponzoriPohled');
-		$this->getDb()->query('CREATE VIEW sponzoriPohled as SELECT s.*, d.jmeno AS diteJmeno FROM sponzor AS s LEFT JOIN (dite AS d, relaceditesponzor AS r) ON (s.idSponzor = r.sponzorIdSponzor AND r.diteIdDite = d.idDite AND r.aktivniZaznam = 1) GROUP BY s.idSponzor ORDER BY s.jmeno');
+		$this->getDb()->query('CREATE VIEW sponzoriPohled as SELECT s.*, d.jmeno AS diteJmeno FROM sponzor AS s LEFT JOIN (dite AS d, relaceditesponzor AS r) ON (s.idSponzor = r.sponzorIdSponzor AND r.diteIdDite = d.idDite AND r.aktivniZaznam = 1 ) GROUP BY s.idSponzor ORDER BY s.jmeno');
 
 		return $this->getDb()->table('sponzoriPohled')->where($filtr);
 
@@ -23,20 +23,20 @@ class sponzorModel extends Model
 
 	public function zobrazVsechnySponzory()
 	{
-    	return $this->db->fetchAll('SELECT * FROM sponzor ORDER BY ssym, jmeno ');
+    	return $this->db->fetchAll('SELECT * FROM sponzor WHERE aktivniZaznam = 1 ORDER BY ssym, jmeno ');
 	}
 
 
 	public function vytvorSponzora($form)
-  	{			
-  	
+  	{
+
   		try{
         	$form["psc"]=preg_replace('/\s+/', '', $form["psc"]);
           $this->getTable()->insert($form);
 	        return true;
 
 	      } catch (Exception $e) {
-	          
+
 	          return false;
 
 	      }
@@ -44,13 +44,13 @@ class sponzorModel extends Model
   	}
 
   	public function vytvorAdopci($form)
-  	{			
+  	{
   		try{
         	$this->db->table('relaceditesponzor')->insert($form);
 	        return true;
 
 	      } catch (Exception $e) {
-	          
+
 	          return false;
 
 	      }
@@ -78,16 +78,16 @@ class sponzorModel extends Model
     }
 
   	  public function editovatSponzora($form)
-    {     
-    
+    {
+
       try{
           $form["psc"]=preg_replace('/\s+/', '', $form["psc"]);
-          $this->getTable()->where('idSponzor', $form["idSponzor"])->update($form);   
-       
+          $this->getTable()->where('idSponzor', $form["idSponzor"])->update($form);
+
           return true;
 
       } catch (Exception $e) {
-          
+
           return false;
 
       }
@@ -98,13 +98,13 @@ class sponzorModel extends Model
     {
 
       try{
-      
+
           $this->getTable()->where('idSponzor', $id)->delete();
-       
+
           return true;
 
       } catch (Exception $e) {
-          
+
           return false;
 
       }
@@ -114,17 +114,17 @@ class sponzorModel extends Model
     {
 
       try{
-      
+
           $this->getDb()->query('UPDATE relaceditesponzor SET aktivniZaznam = 0, datumZaniku = NOW() WHERE idRelaceDiteSponzor = '.$id.'');
-       
+
           return true;
 
       } catch (Exception $e) {
-          
+
           return false;
 
       }
-      
+
 
     }
 
@@ -132,47 +132,47 @@ class sponzorModel extends Model
     {
 
       try{
-      
+
           $this->getDb()->query('UPDATE relaceditesponzor SET aktivniZaznam = 1, datumZaniku = null, datumVzniku = NOW() WHERE idRelaceDiteSponzor = '.$id.'');
-       
+
           return true;
 
       } catch (Exception $e) {
-          
+
           return false;
 
       }
-      
+
 
     }
-    
+
     public function vyraditSponzora($idSponzor)
   	{
         		try{
-			
+
 			$this->getDb()->query('UPDATE sponzor SET aktivniZaznam=0,datumZaniku=NOW() WHERE idSponzor='.$idSponzor);
       $this->getDb()->query('UPDATE relaceDiteSponzor SET aktivniZaznam=0,datumZaniku=NOW() WHERE sponzoraIdSponzor='.$idDite);
-			 
+
 	        return true;
 
 	    } catch (Exception $e) {
-	        
+
 	        return false;
 
 	    }
 
   	}
-    
+
      public function zaraditSponzora($idSponzor)
   	{
         		try{
-			
+
 			$this->getDb()->query('UPDATE sponzor SET aktivniZaznam=1,datumZaniku=NULL WHERE idSponzor='.$idSponzor);
-      			 
+
 	        return true;
 
 	    } catch (Exception $e) {
-	        
+
 	        return false;
 
 	    }
