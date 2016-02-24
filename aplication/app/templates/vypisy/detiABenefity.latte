@@ -19,7 +19,7 @@
 					{var $oddelovac=0}
 					{foreach $radek->benefity as $benefit}
 							{if $oddelovac > 0}<BR/>{/if}
-							{$benefit->benefitNazev} = {$benefit->castka}
+							{$benefit->benefitNazev} {$benefit->castka}Kč{if $benefit->poznamka}, {$benefit->poznamka} {/if}
 							{var $oddelovac++}
 					{/foreach}
 				</td>
