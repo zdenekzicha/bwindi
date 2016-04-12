@@ -21,6 +21,7 @@ class VypisyModel extends Model
 		$dotaz = 'SELECT sponzor.mail FROM `sponzor`, dite, relaceditesponzor WHERE 
               sponzor.idSponzor = relaceditesponzor.sponzorIdSponzor AND
               dite.idDite = relaceditesponzor.diteIdDite AND 
+              sponzor.aktivniZaznam = 1 AND
               dite.aktivniZaznam = 1 AND
               relaceditesponzor.aktivniZaznam = 1
               GROUP BY sponzor.mail

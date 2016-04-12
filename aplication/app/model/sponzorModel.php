@@ -18,7 +18,7 @@ class sponzorModel extends Model
 	//metoda, ktera zobrazuje sponzory, kteri maji adoptovane dite
 	public function zobrazAktivniSponzory()
 	{
-    	return $this->db->fetchAll('SELECT * FROM relaceditesponzor AS r , sponzor AS s WHERE r.aktivniZaznam = 1 AND r.sponzoridsponzor = s.idsponzor');
+    	return $this->db->fetchAll('SELECT * FROM relaceditesponzor AS r , sponzor AS s WHERE s.aktivniZaznam = 1 AND r.aktivniZaznam = 1 AND r.sponzoridsponzor = s.idsponzor');
 	}
 
 	public function zobrazVsechnySponzory()
