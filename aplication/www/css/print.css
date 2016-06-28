@@ -10,3 +10,25 @@ a img { border: none; }
 #ajax-spinner {
 	display: none;
 }
+
+#mainNavigation {
+	display: none;
+}
+
+form.form-search {
+	display: none;
+}
+
+.btn {
+	display: none;
+}
+
+.no-print {
+	display: none;
+}
+/* zakaze zobrazeni url u odkazu */
+@media print {
+  a[href]:after {
+    content: none !important;
+  }
+}

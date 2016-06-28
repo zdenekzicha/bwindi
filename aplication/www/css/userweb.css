@@ -3,10 +3,10 @@
 *:first-child+html .group		{ min-height: 1px; }
 
 		
-#page 							{ width: 1200px; margin: 0 auto; padding: 20px; }
+#page 							{ min-width: 1200px; max-width: 1500px; margin: 0 auto; padding: 20px; }
 .left							{ float:left; margin-right: 10px; }
 
-header							{ width: 1200px; margin: 0 auto; padding: 10px 0 10px; }
+header							{ min-width: 1200px; max-width: 1500px; margin: 0 auto; padding: 10px 20px 10px; }
 form							{ padding: 0px 0 0; }
 
 textarea						{ width: 400px; height: 200px; }

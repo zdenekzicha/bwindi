@@ -12,11 +12,12 @@
 		<ul>
 			<li><strong>Bankovní spojení</strong></li>
 			<li>Fio banka a.s.</li>
-			<li>SWIFT: FIOBCZPPXXX</li>
-			<li>č.ú.: 2600990422/2010 CZK</li>
+			<li>č.ú. CZK: 2600990422/2010</li>
 			<li>IBAN: CZ09 2010 0000 0026 0099 0422</li>
-			<li>č.ú.: 2800990427/2010 USD</li>
+			<li>&nbsp;</li>
+			<li>č.ú. USD: 2800990427/2010</li>
 			<li>IBAN: CZ59 2010 0000 0028 0099 0427</li>
+			<li>SWIFT: FIOBCZPPXXX</li>
 		</ul>
 	</div>
 	<div class="teamMember">
