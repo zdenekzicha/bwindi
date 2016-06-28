@@ -76,6 +76,7 @@ class homepagePresenter extends BasePresenter
     	$form->setDefaults(array(
     			'jmeno' => $data[$id]['jmeno'],
     			'bio' => $data[$id]['bio'],
+    			'poznamka' => $data[$id]['poznamka'],
                 'pohlavi' => $data[$id]['pohlavi'],
                 'datumNarozeni' => $data[$id]['datumNarozeni'],
                 'rezervovane' => $data[$id]['rezervovane'],
@@ -325,6 +326,7 @@ class homepagePresenter extends BasePresenter
 	    $form->addHidden('datumVzniku')->setValue(date("Y-m-d H:i:s"));
 	    $form->addSelect('skolaIdSkola', 'Škola:', $skolySelect)->setPrompt('Zvolte školu');
 	    $form->addSelect('skolaIdSkolaNext', 'Budoucí škola:', $skolySelect)->setPrompt('Zvolte školu');
+	    $form->addTextArea('poznamka', 'Poznamka', 80, 7);
 	    $form->addSubmit('create', 'Přidat dítě');
 	    $form->onSuccess[] = array($this, 'noveDiteFormSubmitted');
 	    return $form;
