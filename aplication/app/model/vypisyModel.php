@@ -7,28 +7,50 @@ class VypisyModel extends Model
 {
   public function vsechnyDataOdDeti()
 	{
-		$dotaz = 'SELECT dite.jmeno as diteJmeno, skola.nazev as diteSkola, dite.vsym as diteVsym, dite.poznamka as ditePoznamka, sponzor.jmeno as sponzorJmeno, dite.profilovaFotka as diteProfilovaFotka  
-    FROM skola,dite, relaceditesponzor, sponzor 
-    WHERE relaceditesponzor.diteIdDite = dite.idDite AND 
-    relaceditesponzor.sponzorIdSponzor = sponzor.idSponzor AND 
-    skola.idSkola = dite.skolaIdSkola 
+		$dotaz = 'SELECT dite.jmeno as diteJmeno, skola.nazev as diteSkola, dite.vsym as diteVsym, dite.poznamka as ditePoznamka, sponzor.jmeno as sponzorJmeno, dite.profilovaFotka as diteProfilovaFotka
+    FROM skola,dite, relaceditesponzor, sponzor
+    WHERE relaceditesponzor.diteIdDite = dite.idDite AND
+    relaceditesponzor.sponzorIdSponzor = sponzor.idSponzor AND
+    relaceditesponzor.aktivniZaznam = 1 AND
+    sponzor.aktivniZaznam = 1 AND
+    skola.idSkola = dite.skolaIdSkola AND
+    dite.aktivniZaznam = 1
+    GROUP BY dite.idDite
     ORDER BY dite.jmeno';
+
     return $this->getDb()->query($dotaz);
 	}
-  
-  public function aktivniSponzori()
+
+  public function sponzoriRozesilkaSDetmi()
 	{
-		$dotaz = 'SELECT sponzor.mail FROM `sponzor`, dite, relaceditesponzor WHERE 
+		$dotaz = 'SELECT sponzor.mail FROM `sponzor`, dite, relaceditesponzor WHERE
               sponzor.idSponzor = relaceditesponzor.sponzorIdSponzor AND
-              dite.idDite = relaceditesponzor.diteIdDite AND 
-              sponzor.aktivniZaznam = 1 AND
+              dite.idDite = relaceditesponzor.diteIdDite AND
               dite.aktivniZaznam = 1 AND
-              relaceditesponzor.aktivniZaznam = 1
+              relaceditesponzor.aktivniZaznam = 1 AND
+              sponzor.posilatInfo = 1
               GROUP BY sponzor.mail
               ORDER BY sponzor.jmeno ';
     return $this->getDb()->query($dotaz);
 	}
-  
+
+  public function sponzoriRozesilkaBezDeti()
+  {
+    $dotaz = 'SELECT sponzor.mail FROM `sponzor` WHERE
+              sponzor.posilatInfo = 1 AND
+              sponzor.idSponzor NOT IN
+              (
+                SELECT sponzor.idSponzor FROM `sponzor`, dite, relaceditesponzor WHERE
+              sponzor.idSponzor = relaceditesponzor.sponzorIdSponzor AND
+              dite.idDite = relaceditesponzor.diteIdDite AND
+              dite.aktivniZaznam = 1 AND
+              relaceditesponzor.aktivniZaznam = 1
+              )
+              GROUP BY sponzor.mail
+              ORDER BY sponzor.jmeno';
+    return $this->getDb()->query($dotaz);
+  }
+
   public function potvrzeniPlateb()
   {
     $dotaz = 'SELECT platba.sponzorIdSponzor as idSponzor, sponzor.jmeno as sponzorJmeno, sponzor.ulice as ulice, sponzor.psc as psc, sponzor.mesto as mesto, year(platba.datum) as rok,date(MAX(platba.datum)) as posledniDatum, SUM(platba.castka) as soucet, COUNT(platba.sponzorIdSponzor) as pocetPlateb FROM `platba`,`sponzor` WHERE platba.sponzorIdSponzor=sponzor.idSponzor

@@ -173,7 +173,7 @@ class sponzorPresenter extends BasePresenter
 	    $form = new NAppForm;
 	    $form->addText('jmeno', 'Jméno:', 40, 255)->addRule(NAppForm::FILLED, 'Je nutné zadat jméno sponzora.');
 	    $form->addText('ulice', 'Adresa:', 40, 255);
-	    $form->addText('psc', 'PSČ:', 6, 5)->addRule(NAppForm::PATTERN, 'PSČ musí mít 5 číslic.', '([0-9]\s*){5}');
+	    $form->addText('psc', 'PSČ:', 6, 5);
 	    $form->addText('ssym', 'Specifický symbol:', 10, 10)->addRule(NAppForm::INTEGER, 'Specifický symbol musí být číslo.');
 	    $form->addText('mesto', 'Město:', 40, 255);
 	    $form->addText('mail', 'E-mail:', 40, 255);
