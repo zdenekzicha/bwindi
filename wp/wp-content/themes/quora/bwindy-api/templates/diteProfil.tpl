@@ -18,41 +18,45 @@
 	{if $dite.skolaTyp == 'q'}
 		<div id="helpMe" class="disable">{$dite.skolaText}.</div>
 	{else}
-		{if $dite.rezervovane}
-			<div id="helpMe" class="disable">Má zájemce</div>
-		{else if $dite.sponzor}
-			<div id="helpMe" class="disable">Už mám adoptivní rodiče</div>
-		{else}
-			<a href="/?page_id=119&idDite={$dite.id}" id="helpMe">Pomůžeš mi?</a>
-		{/if}
-
-		{strip}
-		{if $dite.rezervovane || $dite.sponzor}
-			<h4 style="text-align: center;">Školné</h4>
-			<p style="text-align: center; margin-top: 0.5em">
-				{if $dite.jeSkolneLetosZaplaceno}
-					{'Y'|date}: mám již zaplaceno
-				{else}
-					{'Y'|date}:&nbsp;{if $dite.skolneLetosRozdil != $dite.skolneLetos}{$dite.skolneLetos}&nbsp;Kč,{/if}
-					{if $dite.skolneLetosRozdil > 0} zbývá&nbsp;zaplatit&nbsp;<strong>{$dite.skolneLetosRozdil}</strong>&nbsp;Kč{/if}
-				{/if}
-				{if !$dite.jePosledniRocnik}
-					{if $dite.jeSkolneNaPristiRokZaplaceno}
-						<br />{"+1 year"|date_format:'%Y'}:&nbsp;mám&nbsp;již&nbsp;zaplaceno
-					{else}
-						<br />{"+1 year"|date_format:'%Y'}:&nbsp;{if $dite.skolnePristiRokRozdil != $dite.skolnePristiRok}{$dite.skolnePristiRok}&nbsp;Kč,{/if}
-						{if $dite.skolnePristiRokRozdil > 0} zbývá zaplatit&nbsp;<strong>{$dite.skolnePristiRokRozdil}</strong>&nbsp;Kč{/if}
-					{/if}
-				{/if}
-			</p>
-		{else}
-			{if !$dite.jeSkolneLetosZaplaceno}
-				<p style="text-align: center; margin-top: 0.5em">
-					<br />Na&nbsp;tento&nbsp;rok&nbsp;potřebuji&nbsp;<strong>{$dite.skolneLetos}&nbsp;Kč</strong>
-				</p>
+		{if $dite.skolaId != 94 } {* Pokud je jiz ukoncene vzdelani, nevypisujeme *}
+			{if $dite.rezervovane}
+				<div id="helpMe" class="disable">Má zájemce</div>
+			{else if $dite.sponzor}
+				<div id="helpMe" class="disable">Už mám adoptivní rodiče</div>
+			{else}
+				<a href="/?page_id=119&idDite={$dite.id}" id="helpMe">Pomůžeš mi?</a>
 			{/if}
 		{/if}
-		{/strip}
+
+		{if $dite.skolaId != 94 } {* Pokud je jiz ukoncene vzdelani, nevypisujeme *}
+			{strip}
+				{if $dite.rezervovane || $dite.sponzor}
+					<h4 style="text-align: center;">Školné</h4>
+					<p style="text-align: center; margin-top: 0.5em">
+						{if $dite.jeSkolneLetosZaplaceno}
+							{'Y'|date}: mám již zaplaceno
+						{else}
+							{'Y'|date}:&nbsp;{if $dite.skolneLetosRozdil != $dite.skolneLetos}{$dite.skolneLetos}&nbsp;Kč,{/if}
+							{if $dite.skolneLetosRozdil > 0} zbývá&nbsp;zaplatit&nbsp;<strong>{$dite.skolneLetosRozdil}</strong>&nbsp;Kč{/if}
+						{/if}
+						{if !$dite.jePosledniRocnik}
+							{if $dite.jeSkolneNaPristiRokZaplaceno}
+								<br />{"+1 year"|date_format:'%Y'}:&nbsp;mám&nbsp;již&nbsp;zaplaceno
+							{else}
+								<br />{"+1 year"|date_format:'%Y'}:&nbsp;{if $dite.skolnePristiRokRozdil != $dite.skolnePristiRok}{$dite.skolnePristiRok}&nbsp;Kč,{/if}
+								{if $dite.skolnePristiRokRozdil > 0} zbývá zaplatit&nbsp;<strong>{$dite.skolnePristiRokRozdil}</strong>&nbsp;Kč{/if}
+							{/if}
+						{/if}
+					</p>
+				{else}
+					{if !$dite.jeSkolneLetosZaplaceno}
+						<p style="text-align: center; margin-top: 0.5em">
+							<br />Na&nbsp;tento&nbsp;rok&nbsp;potřebuji&nbsp;<strong>{$dite.skolneLetos}&nbsp;Kč</strong>
+						</p>
+					{/if}
+				{/if}
+			{/strip}
+		{/if}
 	{/if}
 
 	{if $dite.vs != ''}
@@ -72,16 +76,20 @@
 			<p class="perex">
 				Jsem {if $dite.pohlavi == "F"}holka{else}kluk{/if} a je mi {$dite.vek} let. <br/>
 				{if $dite.skola != '' && $dite.skolaTyp != 'q'}
-					{if $dite.skolaTyp == 'z'}
+					{if $dite.skolaText}
+						{$dite.skolaText}.
+					{else if $dite.skolaTyp == 'z'}
 						Chodím do {if $dite.rocnik != ''}{$dite.rocnik}. třídy{/if} základní školy {$dite.skola}.
 					{elseif $dite.skolaTyp == 's'}
 						Studuji {if $dite.rocnik != ''}{$dite.rocnik}. ročník{/if} střední školy {$dite.skola}.
 					{elseif $dite.skolaTyp == 'u'}
-						Chodím do {if $dite.rocnik != ''}{$dite.rocnik}. ročníku{/if} na učilišti {$dite.skola}.
-          {elseif $dite.skolaTyp == 'o'}
+						Chodím do {if $dite.rocnik != ''}{$dite.rocnik}. ročníku{/if} na učiliště {$dite.skola}.
+					{elseif $dite.skolaTyp == 'o'}
 						Studuji {if $dite.rocnik != ''}{$dite.rocnik}. ročník{/if} odborné školy {$dite.skola}.
 					{elseif $dite.skolaTyp == 'v'}
-						Chodím do {if $dite.rocnik != ''}{$dite.rocnik}. ročníku{/if} na {$dite.skola}.
+						Chodím do {if $dite.rocnik != ''}{$dite.rocnik}. ročníku{/if} {$dite.skola}.
+					{elseif $dite.skolaTyp == 'p'}
+						Chodím do {if $dite.rocnik != ''}{$dite.rocnik}. předškolního ročníku{/if} {$dite.skola}.
 					{else}
 						{if $dite.skolaText}{$dite.skolaText}.{/if}
 					{/if}
