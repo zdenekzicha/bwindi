@@ -1,8 +1,14 @@
 {block title}Výpisy{/block}
 
 {block content}
+Pokud cheš někoho z tohoto seznamu vyřadit, zruš u něj zatržení "Chce posílat infomaily"
 <center>
+Sponzoři, kteří mají adoptované děti:<BR/>
   <textarea name="promenna" style="width: 1200px; height: 600px;">
-	{foreach $aktivniSponzori as $radek}{$radek->mail};{/foreach}
-  </textarea>
+	{foreach $sponzoriRozesilkaSDetmi as $radek}{$radek->mail};{/foreach}
+  </textarea><BR/><BR/>
+Sponzoři, kteří nemají adoptované děti:<BR/>
+    <textarea name="promenna" style="width: 1200px; height: 600px;">
+  	{foreach $sponzoriRozesilkaBezDeti as $radek}{$radek->mail};{/foreach}
+    </textarea>
 {/block}

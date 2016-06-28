@@ -29,7 +29,8 @@ class vypisyPresenter extends BasePresenter
 
   public function actionAktivniSponzori()
 	{
-		$this->template->aktivniSponzori = $this->vypisy->aktivniSponzori();
+		$this->template->sponzoriRozesilkaSDetmi = $this->vypisy->sponzoriRozesilkaSDetmi();
+    $this->template->sponzoriRozesilkaBezDeti = $this->vypisy->sponzoriRozesilkaBezDeti();
 	}
 
   public function actionPotvrzeniPlateb()
