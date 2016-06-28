@@ -4,6 +4,7 @@
 	<section id="page">
 		<h1>Děti</h1>
 		<a n:href="Homepage:noveDite" class="btn btn-success btn-offset"><i class="glyphicon glyphicon-plus icon-offset"></i>Přidat dítě</a>
+		 <a href="javascript:void(0)" onclick="window.print()" class="btn btn-default pull-right">Print</a>
 		<form action="" method="get" class="form-search">
 			<p>
 				<select name="filtrSelect">
@@ -56,18 +57,20 @@
 		{if count($deti)}
 			<table class="table table-striped">
 				<tr>
-					<th>Fotka</th>
+					<th class="no-print">Fotka</th>
 					<th>VS</th>
 					<th>Jméno</th>
 					<th>Pohlaví</th>				
 					<th>Škola</th>
-					<th>Na webu</th>
+					<th>Ročník</th>
+					<th class="no-print">Na webu</th>
 					<th>Sponzor</th>
+					<th>Poznámka</th>
 					<th></th>
 				</tr>
 				{foreach $deti as $dite}
 					<tr>
-						<td><img src="{$dite->profilovaFotka}" width=150 title="{$dite->jmeno}"/></td>
+						<td class="no-print"><img src="{$dite->profilovaFotka}" width=150 title="{$dite->jmeno}"/></td>
 						<td>{$dite->vsym}</td>
 						<td><a n:href="Homepage:edit id=>$dite->idDite">{$dite->jmeno}</a></td>
 						{if $dite->pohlavi == M}
@@ -76,10 +79,11 @@
 							<td>žena</td>
 						{/if}				
 						<td><a n:href="Skola:edit id=>$dite->skolaId">{$dite->skolaNazev}</a></td>
+						<td>{$dite->rocnik}</td>
 						{if $dite->vystavene}
-							<td>zobrazené</td>
+							<td class="no-print">zobrazené</td>
 						{else}
-							<td></td>
+							<td class="no-print"></td>
 						{/if}
 						<td>
 							{var $oddelovac=0}
@@ -91,14 +95,21 @@
 								{/if}
 							{/foreach}
           				</td>
+						<td>{$dite->poznamka}</td>
 						<td>
-							<div class="btn-group">
-								<a n:href="Skolne:default idDite => $dite->idDite, jmenoDite => $dite->jmeno" class="btn btn-default">školné</a>
-								<a n:href="Homepage:sourozenci id=>$dite->idDite" title="detail" class="btn btn-default">sourozenci</a>
-								<a n:href="Homepage:timeline id=>$dite->idDite" title="detail" class="btn btn-default">timeline</a>
-								<a n:href="Platba:default filtrSelect => diteJmeno, filtrText => $dite->jmeno, idDite=>$dite->idDite" class="btn btn-default">platby</a>
-								<a n:href="diteBenefit:default filtrSelect => idDite, filtrText => $dite->idDite, diteJmeno => $dite->jmeno" class="btn btn-default">benefity</a>
-								<a n:href="Homepage:edit id=>$dite->idDite" title="detail" class="btn btn-warning"><i class="icon-pencil"></i></a>
+						<div class="dropdown">
+							<button class="btn btn-warning" type="button" data-toggle="dropdown" aria-haspopup="true">
+									<i class="icon-pencil"></i>
+							  </button>
+								<ul class="dropdown-menu pull right" aria-labelledby="dLabel">
+							    	<li><a n:href="Homepage:edit id=>$dite->idDite" title="detail">edit</a></li>
+							    	<li role="separator" class="divider"></li>
+							    	<li><a n:href="Skolne:default idDite => $dite->idDite, jmenoDite => $dite->jmeno">školné</a></li>
+							    	<li><a n:href="Homepage:sourozenci id=>$dite->idDite" title="detail">sourozenci</a></li>
+							    	<li><a n:href="Homepage:timeline id=>$dite->idDite" title="detail">timeline</a></li>
+							    	<li><a n:href="Platba:default filtrSelect => diteJmeno, filtrText => $dite->jmeno, idDite=>$dite->idDite" title="detail">platby</a></li>
+							    	<li><a n:href="diteBenefit:default filtrSelect => idDite, filtrText => $dite->idDite, diteJmeno => $dite->jmeno" title="detail">benefity</a></li>
+								</ul>
 							</div>
 						</td>	
 						<!--<td><a n:href="Homepage:smazat id=>$dite->idDite" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat údaje o {$dite->jmeno}?'))return false;"><i class="icon-trash"></i></a></td>-->					

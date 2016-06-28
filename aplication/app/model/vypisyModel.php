@@ -11,9 +11,13 @@ class VypisyModel extends Model
     FROM skola,dite, relaceditesponzor, sponzor
     WHERE relaceditesponzor.diteIdDite = dite.idDite AND
     relaceditesponzor.sponzorIdSponzor = sponzor.idSponzor AND
+    relaceditesponzor.aktivniZaznam = 1 AND
+    sponzor.aktivniZaznam = 1 AND
     skola.idSkola = dite.skolaIdSkola AND
     dite.aktivniZaznam = 1
+    GROUP BY dite.idDite
     ORDER BY dite.jmeno';
+
     return $this->getDb()->query($dotaz);
 	}
 

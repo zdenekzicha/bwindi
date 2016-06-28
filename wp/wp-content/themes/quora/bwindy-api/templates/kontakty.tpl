@@ -3,18 +3,21 @@
 		<ul>
 			<li><strong>Kontakt</strong></li>
 			<li>Bwindi Orphans o.p.s.</li>
-			<li><a href="http://mapy.cz/zakladni?x=16.4909720&y=49.1590692&z=15&source=addr&id=11100165">Střelice 727, 664 47</a></li>
+			<li>Střelice 727, 664 47 (<a href="http://mapy.cz/zakladni?x=16.4909720&y=49.1590692&z=15&source=addr&id=11100165">mapa</a>)</li>
 			<li><a href="mailto:info@bwindiorphans.org">info@bwindiorphans.org</a></li>
 			<li>Tel: 602 595 073</li>
+			<li>IČ: 270 37 576</li>
 		</ul>
 
 		<ul>
 			<li><strong>Bankovní spojení</strong></li>
-			<li>Československá obchodní banka, a.s.</li>
-			<li>č.ú.: 210764965/0300</li>
-			<li>IČ: 270 37 576</li>
-			<li>IBAN: CZ82 0300 0000 0002 1076 4965</li>
-			<li>SWIFT: CEKOCZPP</li>
+			<li>Fio banka a.s.</li>
+			<li>č.ú. CZK: 2600990422/2010</li>
+			<li>IBAN: CZ09 2010 0000 0026 0099 0422</li>
+			<li>&nbsp;</li>
+			<li>č.ú. USD: 2800990427/2010</li>
+			<li>IBAN: CZ59 2010 0000 0028 0099 0427</li>
+			<li>SWIFT: FIOBCZPPXXX</li>
 		</ul>
 	</div>
 	<div class="teamMember">
