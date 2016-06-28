@@ -19,7 +19,7 @@
 				<td>{$skola->nazevWeb}</td>
 				<td>{$skola->predpona}</td>
 				<td class="nowrap">{$skola->castka |number:0:',':' '}</td>
-				<td><a n:href="Skola:edit id=>$skola->idSkola" title="detail" class="btn btn-warning"><i class="icon-pencil"></i></a></td>
+				<td><a n:href="Homepage:default filtrSkola=>$skola->idSkola" title="detail" class="btn btn-default">Deti ve škole</a> <a n:href="Skola:edit id=>$skola->idSkola" title="detail" class="btn btn-warning"><i class="icon-pencil"></i></a></td>
 				<td><a n:href="Skola:smazat id=>$skola->idSkola" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat údaje o {$skola->nazev}?'))return false;"><i class="icon-trash"></i></a></td>
 			</tr>
 			{/foreach}
