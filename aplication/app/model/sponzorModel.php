@@ -10,7 +10,7 @@ class sponzorModel extends Model
 	{
 
 		$this->getDb()->query('DROP VIEW if exists sponzoriPohled');
-		$this->getDb()->query('CREATE VIEW sponzoriPohled as SELECT s.*, d.jmeno AS diteJmeno FROM sponzor AS s LEFT JOIN (dite AS d, relaceditesponzor AS r) ON (s.idSponzor = r.sponzorIdSponzor AND r.diteIdDite = d.idDite AND r.aktivniZaznam = 1 ) GROUP BY s.idSponzor ORDER BY s.jmeno');
+		$this->getDb()->query('CREATE VIEW sponzoriPohled as SELECT s.*, d.jmeno AS diteJmeno,d.idDite AS idDite FROM sponzor AS s LEFT JOIN (dite AS d, relaceditesponzor AS r) ON (s.idSponzor = r.sponzorIdSponzor AND r.diteIdDite = d.idDite AND r.aktivniZaznam = 1 ) GROUP BY s.idSponzor ORDER BY s.jmeno');
 
 		return $this->getDb()->table('sponzoriPohled')->where($filtr);
 

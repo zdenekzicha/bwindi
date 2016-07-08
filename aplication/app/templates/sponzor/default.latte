@@ -25,6 +25,7 @@
 			<tr>
 				<th>SS</th>
 				<th>Jméno</th>
+				<th>Dítě</th>
 				<th>Ulice a č.p.:</th>
 				<th>PSČ</th>
 				<th>Město</th>			
@@ -36,6 +37,7 @@
 				<tr {if $sponzor->diteJmeno == ""}class="warning"{/if} >
 					<td>{$sponzor->ssym}</td>
 					<td><a n:href="Sponzor:edit id=>$sponzor->idSponzor">{$sponzor->jmeno}</a></td>
+					<td><a n:href="Homepage:edit id=>$sponzor->idDite">{$sponzor->diteJmeno}</a></td>
 					<td>{$sponzor->ulice}</td>
 					<td>{$sponzor->psc}</td>
 					<td>{$sponzor->mesto}</td>	
