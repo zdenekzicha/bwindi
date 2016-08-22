@@ -61,7 +61,7 @@
 
 	{if $dite.vs != ''}
 		<p style="font-size: 0.667em">
-			Číslo účtu: 210764965/0300<br/>
+			Číslo účtu: 2600990422/2010<br/>
 			Vs:{$dite.vs}
 			
 			{if $dite.ss != 0}
