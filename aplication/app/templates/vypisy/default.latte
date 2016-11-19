@@ -5,14 +5,15 @@
 	<section id="page">
   <div>
  					Sloupce: <a class="toggle-vis" data-column="0" style="cursor: pointer;">Jméno</a> - <a class="toggle-vis" data-column=
-					"1" style="cursor: pointer;">Škola</a> - <a class="toggle-vis" data-column="2" style="cursor: pointer;">VSYM</a> - <a class="toggle-vis"
-					data-column="3" style="cursor: pointer;">Poznámka</a> - <a class="toggle-vis" data-column="4" style="cursor: pointer;">Sponzor</a>
+					"1" style="cursor: pointer;">Škola</a> - <a class="toggle-vis" data-column="2" style="cursor: pointer;">Rocnik</a> - <a class="toggle-vis" data-column="3" style="cursor: pointer;">VSYM</a> - <a class="toggle-vis"
+					data-column="4" style="cursor: pointer;">Poznámka</a> - <a class="toggle-vis" data-column="5" style="cursor: pointer;">Sponzor</a>
 	</div>
 		<table id="dataDeti" class="display">
 			<thead>
       <tr>
 				<th>Dítě</th>
         <th>Škola</th>
+        <th>Ročník</th>
         <th>VSYM</th>
         <th>Poznámka</th>
         <th>Sponzor</th>
@@ -23,6 +24,7 @@
 			<tr>
 				<td>{$radek->diteJmeno}</td>
         <td>{$radek->diteSkola}</td>
+        <td>{$radek->diteRocnik}</td>
         <td>{$radek->diteVsym}</td>
         <td>{$radek->ditePoznamka}</td>
         <td>{$radek->sponzorJmeno}</td>
