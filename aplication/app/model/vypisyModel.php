@@ -7,7 +7,7 @@ class VypisyModel extends Model
 {
   public function vsechnyDataOdDeti()
 	{
-		$dotaz = 'SELECT dite.jmeno as diteJmeno, skola.nazev as diteSkola, dite.vsym as diteVsym, dite.poznamka as ditePoznamka, sponzor.jmeno as sponzorJmeno, dite.profilovaFotka as diteProfilovaFotka
+		$dotaz = 'SELECT dite.jmeno as diteJmeno, skola.nazev as diteSkola, dite.rocnik as diteRocnik, dite.vsym as diteVsym, dite.poznamka as ditePoznamka, sponzor.jmeno as sponzorJmeno, dite.profilovaFotka as diteProfilovaFotka
     FROM skola,dite, relaceditesponzor, sponzor
     WHERE relaceditesponzor.diteIdDite = dite.idDite AND
     relaceditesponzor.sponzorIdSponzor = sponzor.idSponzor AND
