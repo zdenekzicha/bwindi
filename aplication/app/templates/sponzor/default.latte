@@ -26,11 +26,10 @@
 				<th>SS</th>
 				<th>Jméno</th>
 				<th>Dítě</th>
-				<th>Ulice a č.p.:</th>
 				<th>PSČ</th>
 				<th>Město</th>			
 				<th>Email</th>
-				<th>Telefon</th>
+				<th>Poznámka</th>
 				<th></th>
 			</tr>
 			{foreach $sponzori as $sponzor}
@@ -38,11 +37,10 @@
 					<td>{$sponzor->ssym}</td>
 					<td><a n:href="Sponzor:edit id=>$sponzor->idSponzor">{$sponzor->jmeno}</a></td>
 					<td><a n:href="Homepage:edit id=>$sponzor->idDite">{$sponzor->diteJmeno}</a></td>
-					<td>{$sponzor->ulice}</td>
 					<td>{$sponzor->psc}</td>
 					<td>{$sponzor->mesto}</td>	
 					<td>{$sponzor->mail}</td>		
-					<td>{$sponzor->telefon}</td>
+					<td>{$sponzor->poznamka}</td>
 					<td>
 						<div class="btn-group">
 							<a n:href="Sponzor:adopce id=>$sponzor->idSponzor" title="adoptované děti" class="btn btn-default">sponzorovane děti</a>
