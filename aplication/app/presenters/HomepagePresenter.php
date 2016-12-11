@@ -152,10 +152,12 @@ class homepagePresenter extends BasePresenter
 	    return $form;
 	}
 
-	public function actionSmazatSourozence($idDite)
+	public function actionSmazatSourozence($idDite1, $idDite2)
 	{	
     	
-    	if($this->deti->smazatSourozence($idDite)){
+    	$idDite = $idDite1;
+
+    	if($this->deti->smazatSourozence($idDite1, $idDite2)){
     		$this->flashMessage('Smazali jste dítě.', 'success');
     		$this->redirect('Homepage:sourozenci', $idDite);
     	}else{

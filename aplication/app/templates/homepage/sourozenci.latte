@@ -11,7 +11,7 @@
 					<a n:href="Homepage:edit id=>$sourozenec->idDite" class="big-name">{$sourozenec->jmeno}</a>
 				</td>
 				<td>
-					<a n:href="Homepage:smazatSourozence id=>$sourozenec->idSourozenzi, idDite=>$idDite" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat {$sourozenec->jmeno}?'))return false;" class="btn btn-warning"><i class="icon-trash"></i></a><br/>
+					<a n:href="Homepage:smazatSourozence id=>$sourozenec->idSourozenzi, idDite1=>$idDite, idDite2=>$sourozenec->idDite" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat {$sourozenec->jmeno}?'))return false;" class="btn btn-warning"><i class="icon-trash"></i></a><br/>
 				</td>
 			</tr>
 		{/foreach}
