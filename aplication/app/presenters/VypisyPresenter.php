@@ -6,9 +6,17 @@ class vypisyPresenter extends BasePresenter
 	private $vypisy;
 	private $platby;
 	private $deti;
+	private $skola;
 	private $sponzori;
 	private $benefity;
 	private $jsonPresenter;
+	private $filter;
+	private $psc;
+
+	public $filtrSkola;
+	public $filtrSelect;
+	public $filtrText;
+	public $filtrAdoptovane;
 
 	protected function startup()
 	{
@@ -19,6 +27,7 @@ class vypisyPresenter extends BasePresenter
 	    $this->jsonPresenter = $this->presenter->jsonPresenter;
 			$this->sponzori = $this->context->sponzorModel;
 			$this->benefity = $this->context->benefitModel;
+			$this->skola = $this->context->skolaModel;
 	}
 
   public function renderDefault()
@@ -28,10 +37,22 @@ class vypisyPresenter extends BasePresenter
 
 	}
 
-  public function actionAktivniSponzori()
+  public function actionAktivniSponzori($filtrSkola,$filtrSelect,$filtrText,$filtrAdoptovane)
 	{
-		$this->template->sponzoriRozesilkaSDetmi = $this->vypisy->sponzoriRozesilkaSDetmi();
+		$this->filter = '';
+		if(isset($filtrSelect)&&$filtrText!='') {
+			$this->filter = $this->filter.' AND '.$filtrSelect.' LIKE \''.$filtrText.'%\'';
+		}
+		if(isset($filtrSkola)&&$filtrSkola!=0) {
+			$this->filter = $this->filter.' AND dite.skolaIdSkola ='.$filtrSkola;
+		}
+		$this->template->sponzoriRozesilka = $this->vypisy->sponzoriRozesilka($this->filter);
     $this->template->sponzoriRozesilkaBezDeti = $this->vypisy->sponzoriRozesilkaBezDeti();
+		$this->template->skoly = $this->skola->findAll();
+		$this->template->filtrSkola = $filtrSkola;
+		$this->template->filtrSelect = $filtrSelect;
+		$this->template->filtrText = $filtrText;
+		$this->template->filtrAdoptovane = $filtrAdoptovane;
 	}
 
   public function actionPotvrzeniPlateb()

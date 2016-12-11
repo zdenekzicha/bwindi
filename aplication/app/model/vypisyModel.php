@@ -17,21 +17,21 @@ class VypisyModel extends Model
     dite.aktivniZaznam = 1
     GROUP BY dite.idDite
     ORDER BY dite.jmeno';
-
     return $this->getDb()->query($dotaz);
 	}
 
-  public function sponzoriRozesilkaSDetmi()
+  public function sponzoriRozesilka($filter)
 	{
+
 		$dotaz = 'SELECT sponzor.mail FROM `sponzor`, dite, relaceditesponzor WHERE
               sponzor.idSponzor = relaceditesponzor.sponzorIdSponzor AND
               dite.idDite = relaceditesponzor.diteIdDite AND
               dite.aktivniZaznam = 1 AND
               relaceditesponzor.aktivniZaznam = 1 AND
-              sponzor.posilatInfo = 1
+              sponzor.posilatInfo = 1 '.$filter.'
               GROUP BY sponzor.mail
               ORDER BY sponzor.jmeno ';
-    return $this->getDb()->query($dotaz);
+    return $this->getDb()->query($dotaz, $filter);
 	}
 
   public function sponzoriRozesilkaBezDeti()
@@ -44,7 +44,7 @@ class VypisyModel extends Model
               sponzor.idSponzor = relaceditesponzor.sponzorIdSponzor AND
               dite.idDite = relaceditesponzor.diteIdDite AND
               dite.aktivniZaznam = 1 AND
-              relaceditesponzor.aktivniZaznam = 1
+              relaceditesponzor.aktivniZaznam = 1'.$filter.'
               )
               GROUP BY sponzor.mail
               ORDER BY sponzor.jmeno';

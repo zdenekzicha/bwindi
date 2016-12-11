@@ -1,14 +1,47 @@
 {block title}Výpisy{/block}
 
 {block content}
+<form action="" method="get" class="form-search">
+  <p>
+    <select name="filtrSelect">
+        <option value="psc" {if $filtrSelect == 'psc'}selected="selected"{/if}>PSČ začíná na</option>
+    </select>
+      <input type="text" name="filtrText" class="input-xlarge" value="{$filtrText}" />
+
+    </p>
+    <div class="group">
+      <div class="left">
+        <select class="span2" name="filtrSkola">
+          <option value="0">škola</option>
+          {foreach $skoly as $skola}
+            <option value="{$skola->idSkola}" {if $filtrSkola == $skola->idSkola}selected="selected"{/if} >{$skola->nazev}</option>
+          {/foreach}
+      </select>
+      </div>
+      <div class="left">
+        <select name="filtrAdoptovane">
+            <option value="vsichni" {if $filtrAdoptovane == 'vsichni'}selected="selected"{/if}>Všichni</option>
+            <option value="adoptovane" {if $filtrAdoptovane == 'adoptovane'}selected="selected"{/if}>S adoptovaným dítětem</option>
+            <option value="neadoptovane" {if $filtrAdoptovane == 'neadoptovane'}selected="selected"{/if}>Bez adoptovaných dětí</option>
+        </select>
+      </div>
+      <input type="hidden" name="presenter" value="vypisy" />
+      <input type="hidden" name="action" value="aktivniSponzori" />
+      <button type="submit" class="btn btn-inverse">Vyhledat</button>
+    </div>
+</form>
 Pokud cheš někoho z tohoto seznamu vyřadit, zruš u něj zatržení "Chce posílat infomaily"
 <center>
-Sponzoři, kteří mají adoptované děti:<BR/>
-  <textarea name="promenna" style="width: 1200px; height: 600px;">
-	{foreach $sponzoriRozesilkaSDetmi as $radek}{$radek->mail};{/foreach}
-  </textarea><BR/><BR/>
+{if $filtrAdoptovane == 'vsichni' || $filtrAdoptovane =='adoptovane' || !isset($filtrAdoptovane)}
+  Sponzoři, kteří mají adoptované děti:<BR/>
+    <textarea name="promenna" style="width: 1200px; height: 600px;">
+  	{foreach $sponzoriRozesilka as $radek}{$radek->mail};{/foreach}
+    </textarea><BR/><BR/>
+{/if}
+{if $filtrAdoptovane == 'vsichni' || $filtrAdoptovane =='neadoptovane' || !isset($filtrAdoptovane)}
 Sponzoři, kteří nemají adoptované děti:<BR/>
     <textarea name="promenna" style="width: 1200px; height: 600px;">
   	{foreach $sponzoriRozesilkaBezDeti as $radek}{$radek->mail};{/foreach}
     </textarea>
+{/if}
 {/block}

@@ -9,7 +9,7 @@
 			<p>
 				<select name="filtrSelect">
 	  				<option value="jmeno" {if $filtrSelect == 'jmeno'}selected="selected"{/if}>Jméno</option>
-	  				<option value="vsym" {if $filtrSelect == 'vsym'}selected="selected"{/if}>Vs</option>	 
+	  				<option value="vsym" {if $filtrSelect == 'vsym'}selected="selected"{/if}>Vs</option>
 	 				<option value="jmenoSponzor" {if $filtrSelect == 'jmenoSponzor'}selected="selected"{/if}>Sponzor</option>
 				</select>
 	  			<input type="text" name="filtrText" class="input-xlarge" value="{$filtrText}" />
@@ -21,6 +21,7 @@
 		  				<option value="0">škola</option>
 		  				{foreach $skoly as $skola}
 		  					<option value="{$skola->idSkola}" {if $filtrSkola == $skola->idSkola}selected="selected"{/if} >{$skola->nazev}</option>
+								
 		  				{/foreach}
 					</select>
 		  		</div>
@@ -53,14 +54,14 @@
 		  		-->
 		  	</div>
 		</form>
-		
+
 		{if count($deti)}
 			<table class="table table-striped">
 				<tr>
 					<th class="no-print">Fotka</th>
 					<th>VS</th>
 					<th>Jméno</th>
-					<th>Pohlaví</th>				
+					<th>Pohlaví</th>
 					<th>Škola</th>
 					<th>Ročník</th>
 					<th class="no-print">Na webu</th>
@@ -77,7 +78,7 @@
 							<td>muž</td>
 						{else}
 							<td>žena</td>
-						{/if}				
+						{/if}
 						<td><a n:href="Skola:edit id=>$dite->skolaId">{$dite->skolaNazev}</a></td>
 						<td>{$dite->rocnik}</td>
 						{if $dite->vystavene}
@@ -111,8 +112,8 @@
 							    	<li><a n:href="diteBenefit:default filtrSelect => idDite, filtrText => $dite->idDite, diteJmeno => $dite->jmeno" title="detail">benefity</a></li>
 								</ul>
 							</div>
-						</td>	
-						<!--<td><a n:href="Homepage:smazat id=>$dite->idDite" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat údaje o {$dite->jmeno}?'))return false;"><i class="icon-trash"></i></a></td>-->					
+						</td>
+						<!--<td><a n:href="Homepage:smazat id=>$dite->idDite" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat údaje o {$dite->jmeno}?'))return false;"><i class="icon-trash"></i></a></td>-->
 					</tr>
 				{/foreach}
 			</table>
