@@ -24,6 +24,7 @@ class vypisyPresenter extends BasePresenter
   public function renderDefault()
 	{
 		$this->template->vypisy = $this->vypisy->vsechnyDataOdDeti();
+		$this->template->sponzori = $this->sponzori->zobrazAktivniSponzory();
 
 	}
 
@@ -82,6 +83,7 @@ class vypisyPresenter extends BasePresenter
   public function actionDetiSProfilovkou()
 	{
 		$this->template->vypisy = $this->vypisy->vsechnyDataOdDeti();
+		$this->template->sponzori = $this->sponzori->zobrazAktivniSponzory();
 
 	}
 

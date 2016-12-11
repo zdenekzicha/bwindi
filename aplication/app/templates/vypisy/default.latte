@@ -27,28 +27,35 @@
         <td>{$radek->diteRocnik}</td>
         <td>{$radek->diteVsym}</td>
         <td>{$radek->ditePoznamka}</td>
-        <td>{$radek->sponzorJmeno}</td>
+        <td>{var $oddelovac=0}
+				{foreach $sponzori as $sponzor}
+					{if $sponzor->diteIdDite == $radek->idDite}
+						{if $oddelovac > 0}&nbsp;|&nbsp;{/if}
+						<a n:href="Sponzor:default filtrSelect => jmeno, filtrText => $sponzor->jmeno">{$sponzor->jmeno}</a>
+						{var $oddelovac++}
+					{/if}
+				{/foreach}</td>
 			</tr>
 			{/foreach}
       </tbody>
 		</table>
-    	
+
 	</section>
 <script>
 
-var table = $('#dataDeti').DataTable( {   
+var table = $('#dataDeti').DataTable( {
         "paging": false
     } );
     $('a.toggle-vis').on( 'click', function (e) {
         e.preventDefault();
- 
+
         // Get the column API object
         var column = table.column( $(this).attr('data-column') );
- 
+
         // Toggle the visibility
         column.visible( ! column.visible() );
     } );
-    
+
 
 </script>
 {/block}
