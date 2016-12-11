@@ -47,7 +47,6 @@ class DiteModel extends Model
 	{
     	return $this->db->fetchAll('SELECT * FROM dite AS d WHERE d.skolaIdSkola = 94');
 
-
 	}
 
 	public function zobrazVsechnyDeti($order)
@@ -315,6 +314,16 @@ class DiteModel extends Model
 
   	}
 
+  	public function zvysitRocnik($listDiteId)
+  	{
+		try{
+			$this->getDb()->query("UPDATE dite SET rocnik = rocnik + 1 where idDite in (". $listDiteId . ")");
+			return true;
+		} catch (Exception $e) {
+			return false;
+		}
+	}
+
     public function vyraditDite($idDite)
   	{
         		try{
@@ -348,12 +357,15 @@ class DiteModel extends Model
 
   	}
 
-  	public function smazatSourozence($idDite)
+  	public function smazatSourozence($idDite1, $idDite2)
   	{
 
   		try{
 
-			$this->getDb()->query('DELETE FROM sourozenzi WHERE diteIdDite1 = '.$idDite.' OR diteIdDite2 = '.$idDite);
+			//$this->getDb()->query('DELETE FROM sourozenzi WHERE diteIdDite1 = '.$idDite.' OR diteIdDite2 = '.$idDite);
+			echo 'DELETE FROM sourozenzi WHERE (diteIdDite1 = '.$idDite1.' AND diteIdDite2 = '.$idDite2.') OR (diteIdDite1 = '.$idDite2.' AND diteIdDite2 = '.$idDite1.')';
+
+			$this->getDb()->query('DELETE FROM sourozenzi WHERE (diteIdDite1 = '.$idDite1.' AND diteIdDite2 = '.$idDite2.') OR (diteIdDite1 = '.$idDite2.' AND diteIdDite2 = '.$idDite1.')');
 
 	        return true;
 

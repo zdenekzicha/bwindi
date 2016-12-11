@@ -29,7 +29,7 @@ class homepagePresenter extends BasePresenter
 
 	public function actionDefault($id,$filtrPohlavi,$filtrSelect,$filtrText,$filtrWeb,$filtrActive,$filtrSkola)
 	{	
-    	$this->filter = array();
+		$this->filter = array();
 		if(isset($filtrPohlavi)) {
 			array_push($this->filter, array('pohlavi' => $filtrPohlavi));
 		}
@@ -107,6 +107,22 @@ class homepagePresenter extends BasePresenter
 		$this->setView('noveDite');
 	}
 
+	public function actionZvysitRocnik($listDiteId){
+		//$this->flashMessage("UPDATE dite SET rocnik = rocnik + 1 where idDite in (". $listDiteId . ")", 'success');
+		
+		if($this->deti->zvysitRocnik($listDiteId)){
+
+			$this->flashMessage('Zvýšili jste ročník u vybraných dětí', 'success');
+		}
+		else {
+			$this->flashMessage('Bohužel se nepovedlo zvýšit ročník u vybraných dětí', 'fail');
+		}
+		
+		
+		$this->redirect('Homepage:default');
+
+	}
+
 	public function actionSmazat($id)
 	{	
     	
@@ -152,10 +168,12 @@ class homepagePresenter extends BasePresenter
 	    return $form;
 	}
 
-	public function actionSmazatSourozence($idDite)
+	public function actionSmazatSourozence($idDite1, $idDite2)
 	{	
     	
-    	if($this->deti->smazatSourozence($idDite)){
+    	$idDite = $idDite1;
+
+    	if($this->deti->smazatSourozence($idDite1, $idDite2)){
     		$this->flashMessage('Smazali jste dítě.', 'success');
     		$this->redirect('Homepage:sourozenci', $idDite);
     	}else{
