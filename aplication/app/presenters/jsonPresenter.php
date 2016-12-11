@@ -161,7 +161,7 @@ class jsonPresenter extends BasePresenter
 
 		// najdi dalsi a predchozi dite
 		if($sponsor){
-			$listDeti = $this->deti->zobrazAdoptovaneDeti('');
+			$listDeti = $this->deti->zobrazAdoptovaneDetiNaWebu('');
 		}else{
 			$listDeti = $this->deti->zobrazDetiKAdopci('');
 		}
