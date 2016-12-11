@@ -35,6 +35,21 @@ class DiteModel extends Model
 
 	}
 
+	//metoda, ktera zobrazuje adoptovane deti na webu
+	public function zobrazAdoptovaneDetiNaWebu($search)
+	{
+    	return $this->db->fetchAll('SELECT * FROM relaceditesponzor AS r , dite AS d WHERE d.aktivniZaznam = 1 AND r.aktivniZaznam = 1 AND d.vystavene = 1 AND r.diteIdDite = d.idDite AND d.skolaIdSkola != 94 AND d.jmeno LIKE ("%'.$search.'%") GROUP BY d.idDite ORDER BY d.jmeno');
+
+	}
+
+	//metoda, ktera zobrazuje deti mimo program
+	public function zobrazDetiMimoProgram()
+	{
+    	return $this->db->fetchAll('SELECT * FROM dite AS d WHERE d.skolaIdSkola = 94');
+
+
+	}
+
 	public function zobrazVsechnyDeti($order)
 	{
     	return $this->getTable()->order($order);

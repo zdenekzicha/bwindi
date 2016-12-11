@@ -68,6 +68,17 @@
 
 		$smarty->display('adoptovaneDeti.tpl');
 	}
+	else if ($_GET["page_id"] == "94") { // zobrazi vypis adoptovanych deti
+		$search = checkString($_GET["search"]);
+		$smarty->assign("search", $search);
+		$smarty->assign("data",jsonToArray($server.'/?presenter=Json&action=adoptovaneDeti&search='.$search, null));
+
+		$smarty->display('adoptovaneDeti.tpl');
+	}
+	else if ($_GET["page_id"] == "2882") { // zobrazi vypis deti mimo program
+		$smarty->assign("data",jsonToArray($server.'/?presenter=Json&action=detiMimoProgram&search='.$search, null));
+		$smarty->display('detiMimoProgram.tpl');
+	}
 	else if ($_GET["page_id"] == "11") { // zobrazi kontakty
 		$smarty->display('kontakty.tpl');
 	}

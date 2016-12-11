@@ -68,7 +68,7 @@ class jsonPresenter extends BasePresenter
 	{
 
 		$this->payload->data = array();
-		$list = $this->deti->zobrazAdoptovaneDeti($search);
+		$list = $this->deti->zobrazAdoptovaneDetiNaWebu($search);
 		$i = 0;		
 
 		foreach ($list as $item) {
@@ -100,6 +100,47 @@ class jsonPresenter extends BasePresenter
         $this->terminate(); // ukončí presenter
 
 	}
+
+	/*
+	 * Vypise deti mimo program - vystudovane
+	*/
+	public function actionDetiMimoProgram()
+	{
+
+		$this->payload->data = array();
+		$list = $this->deti->zobrazDetiMimoProgram();
+		$i = 0;		
+
+		foreach ($list as $item) {
+
+			// dostaneme url na profilovou fotku
+			$profilePhoto = $profilePhoto = $item['profilovaFotka'];
+
+			if($item['pohlavi'] == 'M') {
+				$pohlavi = 'male';
+			}
+			else {
+				$pohlavi = 'female';
+			}
+
+			$data = array(
+				"id" => $item['idDite'],
+				"vystavene" => $item['vystavene'], 
+				"jmeno" => $item['jmeno'],
+				"pohlavi" => $pohlavi,
+				"fotka" => $profilePhoto
+			);
+			
+            $this->payload->data[$i] = $data;
+            $i++;
+        }
+     
+
+        $this->sendPayload();
+        $this->terminate(); // ukončí presenter
+
+	}
+
 
 	/*
 	 * Detail ditete
