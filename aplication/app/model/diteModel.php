@@ -315,6 +315,16 @@ class DiteModel extends Model
 
   	}
 
+  	public function zvysitRocnik($listDiteId)
+  	{
+		try{
+			$this->getDb()->query("UPDATE dite SET rocnik = rocnik + 1 where idDite in (". $listDiteId . ")");
+			return true;
+		} catch (Exception $e) {
+			return false;
+		}
+	}
+
     public function vyraditDite($idDite)
   	{
         		try{

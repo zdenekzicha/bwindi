@@ -4,6 +4,7 @@
 	<section id="page">
 		<h1>Děti</h1>
 		<a n:href="Homepage:noveDite" class="btn btn-success btn-offset"><i class="glyphicon glyphicon-plus icon-offset"></i>Přidat dítě</a>
+
 		 <a href="javascript:void(0)" onclick="window.print()" class="btn btn-default pull-right">Print</a>
 		<form action="" method="get" class="form-search">
 			<p>
@@ -54,71 +55,92 @@
 		  	</div>
 		</form>
 		
-		{if count($deti)}
-			<table class="table table-striped">
-				<tr>
-					<th class="no-print">Fotka</th>
-					<th>VS</th>
-					<th>Jméno</th>
-					<th>Pohlaví</th>				
-					<th>Škola</th>
-					<th>Ročník</th>
-					<th class="no-print">Na webu</th>
-					<th>Sponzor</th>
-					<th>Poznámka</th>
-					<th></th>
-				</tr>
-				{foreach $deti as $dite}
+		<form action="" method="get">
+			<button type="submit" class="btn btn-inverse" name="action" value="zvysitRocnik" id="zvysitRocnikButton">Zvýšit ročník</button>
+			<input type="hidden" value="" name="listDiteId" id="listDiteId" />
+			{if count($deti)}
+				<table class="table table-striped">
 					<tr>
-						<td class="no-print"><img src="{$dite->profilovaFotka}" width=150 title="{$dite->jmeno}"/></td>
-						<td>{$dite->vsym}</td>
-						<td><a n:href="Homepage:edit id=>$dite->idDite">{$dite->jmeno}</a></td>
-						{if $dite->pohlavi == M}
-							<td>muž</td>
-						{else}
-							<td>žena</td>
-						{/if}				
-						<td><a n:href="Skola:edit id=>$dite->skolaId">{$dite->skolaNazev}</a></td>
-						<td>{$dite->rocnik}</td>
-						{if $dite->vystavene}
-							<td class="no-print">zobrazené</td>
-						{else}
-							<td class="no-print"></td>
-						{/if}
-						<td>
-							{var $oddelovac=0}
-							{foreach $sponzori as $sponzor}
-								{if $sponzor->diteIdDite == $dite->idDite}
-									{if $oddelovac > 0}&nbsp;|&nbsp;{/if}
-									<a n:href="Sponzor:default filtrSelect => jmeno, filtrText => $sponzor->jmeno">{$sponzor->jmeno}</a>
-									{var $oddelovac++}
-								{/if}
-							{/foreach}
-          				</td>
-						<td>{$dite->poznamka}</td>
-						<td>
-						<div class="dropdown">
-							<button class="btn btn-warning" type="button" data-toggle="dropdown" aria-haspopup="true">
-									<i class="icon-pencil"></i>
-							  </button>
-								<ul class="dropdown-menu pull right" aria-labelledby="dLabel">
-							    	<li><a n:href="Homepage:edit id=>$dite->idDite" title="detail">edit</a></li>
-							    	<li role="separator" class="divider"></li>
-							    	<li><a n:href="Skolne:default idDite => $dite->idDite, jmenoDite => $dite->jmeno">školné</a></li>
-							    	<li><a n:href="Homepage:sourozenci id=>$dite->idDite" title="detail">sourozenci</a></li>
-							    	<li><a n:href="Homepage:timeline id=>$dite->idDite" title="detail">timeline</a></li>
-							    	<li><a n:href="Platba:default filtrSelect => diteJmeno, filtrText => $dite->jmeno, idDite=>$dite->idDite" title="detail">platby</a></li>
-							    	<li><a n:href="diteBenefit:default filtrSelect => idDite, filtrText => $dite->idDite, diteJmeno => $dite->jmeno" title="detail">benefity</a></li>
-								</ul>
-							</div>
-						</td>	
-						<!--<td><a n:href="Homepage:smazat id=>$dite->idDite" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat údaje o {$dite->jmeno}?'))return false;"><i class="icon-trash"></i></a></td>-->					
+						<th class="no-print">Fotka</th>
+						<th>VS</th>
+						<th>Jméno</th>
+						<th>Pohlaví</th>
+						<th>Škola</th>
+						<th>Ročník</th>
+						<th class="no-print">Na webu</th>
+						<th>Sponzor</th>
+						<th>Poznámka</th>
+						<th></th>
 					</tr>
-				{/foreach}
-			</table>
-		{else}
-			<div id="noResults"><strong>Bohužel, nic jsme nenašli</strong></div>
-		{/if}
+					{foreach $deti as $dite}
+						<tr>
+							<td class="no-print">
+								<input type="checkbox" value="{$dite->idDite}" name="idDite[]">
+								<img src="{$dite->profilovaFotka}" width=150 title="{$dite->jmeno}"/></td>
+							<td>{$dite->vsym}</td>
+							<td><a n:href="Homepage:edit id=>$dite->idDite">{$dite->jmeno}</a></td>
+							{if $dite->pohlavi == M}
+								<td>muž</td>
+							{else}
+								<td>žena</td>
+							{/if}				
+							<td><a n:href="Skola:edit id=>$dite->skolaId">{$dite->skolaNazev}</a></td>
+							<td>{$dite->rocnik}</td>
+							{if $dite->vystavene}
+								<td class="no-print">zobrazené</td>
+							{else}
+								<td class="no-print"></td>
+							{/if}
+							<td>
+								{var $oddelovac=0}
+								{foreach $sponzori as $sponzor}
+									{if $sponzor->diteIdDite == $dite->idDite}
+										{if $oddelovac > 0}&nbsp;|&nbsp;{/if}
+										<a n:href="Sponzor:default filtrSelect => jmeno, filtrText => $sponzor->jmeno">{$sponzor->jmeno}</a>
+										{var $oddelovac++}
+									{/if}
+								{/foreach}
+	          				</td>
+							<td>{$dite->poznamka}</td>
+							<td>
+							<div class="dropdown">
+								<button class="btn btn-warning" type="button" data-toggle="dropdown" aria-haspopup="true">
+										<i class="icon-pencil"></i>
+								  </button>
+									<ul class="dropdown-menu pull right" aria-labelledby="dLabel">
+								    	<li><a n:href="Homepage:edit id=>$dite->idDite" title="detail">edit</a></li>
+								    	<li role="separator" class="divider"></li>
+								    	<li><a n:href="Skolne:default idDite => $dite->idDite, jmenoDite => $dite->jmeno">školné</a></li>
+								    	<li><a n:href="Homepage:sourozenci id=>$dite->idDite" title="detail">sourozenci</a></li>
+								    	<li><a n:href="Homepage:timeline id=>$dite->idDite" title="detail">timeline</a></li>
+								    	<li><a n:href="Platba:default filtrSelect => diteJmeno, filtrText => $dite->jmeno, idDite=>$dite->idDite" title="detail">platby</a></li>
+								    	<li><a n:href="diteBenefit:default filtrSelect => idDite, filtrText => $dite->idDite, diteJmeno => $dite->jmeno" title="detail">benefity</a></li>
+									</ul>
+								</div>
+							</td>	
+							<!--<td><a n:href="Homepage:smazat id=>$dite->idDite" title="smazat" onclick="if(!confirm('Opravdu si přejete smazat údaje o {$dite->jmeno}?'))return false;"><i class="icon-trash"></i></a></td>-->					
+						</tr>
+					{/foreach}
+				</table>
+			{else}
+				<div id="noResults"><strong>Bohužel, nic jsme nenašli</strong></div>
+			{/if}
+		</form>
 	</section>
+	<script type="text/javascript">
+		
+		$(document).ready(function() {
+			var listDiteId = $('#listDiteId');
+			$( "form input:checkbox" ).click(function() {
+				var idList = '';
+				$.each( $( "form input:checked" ), function() {
+					idList += $(this).val() + ',';
+				});
+				idList = idList.substring(0, idList.length - 1);
+				listDiteId.val(idList);
+			});
+		});
+
+	</script>
 
 {/block}

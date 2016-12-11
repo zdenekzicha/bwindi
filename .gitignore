@@ -1,6 +1,8 @@
 aplication/temp/cache/*
 aplication\temp\cache\*
 
+.DS_Store
+aplication/sftp-config.json
 wp/sftp-config.json
 wp/wp-content/themes/quora/bwindy-api/templates_c/02199f8435991d32a765e0b452ea381bc50ef5e3.file.dekujeme.tpl.php
 wp/wp-content/themes/quora/bwindy-api/templates_c/06f97d55c5f6ec8faeca31bd26f5cf57752d79e3.file.adoptovaneDeti.tpl.php
