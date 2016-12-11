@@ -15,8 +15,11 @@
 </script>
 		<h1>{ifset $action}Editovat údaje o dítěti{else}Přidat nové dítě{/ifset}</h1>
 		{ifset $action}
-    		<div class="btn-wrap"><a n:href="Homepage:timeline id=>$idDite" class="btn btn">Přejít do timeline dítěte</a></div>
-    {/ifset}
+    		<div class="btn-wrap">
+    			<a n:href="Homepage:timeline id=>$idDite" class="btn btn">Přejít do timeline dítěte</a>
+    			<a n:href="Homepage:sourozenci id=>$idDite" title="detail" class="btn btn">sourozenci</a>
+    		</div>
+    	{/ifset}
 		{form noveDiteForm}
 	        <div class="skola-form">
 				{control $form errors}

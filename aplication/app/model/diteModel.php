@@ -47,7 +47,6 @@ class DiteModel extends Model
 	{
     	return $this->db->fetchAll('SELECT * FROM dite AS d WHERE d.skolaIdSkola = 94');
 
-
 	}
 
 	public function zobrazVsechnyDeti($order)
@@ -358,12 +357,15 @@ class DiteModel extends Model
 
   	}
 
-  	public function smazatSourozence($id)
+  	public function smazatSourozence($idDite1, $idDite2)
   	{
 
   		try{
 
-			$this->db->table('sourozenzi')->where('idSourozenzi', $id)->delete();
+			//$this->getDb()->query('DELETE FROM sourozenzi WHERE diteIdDite1 = '.$idDite.' OR diteIdDite2 = '.$idDite);
+			echo 'DELETE FROM sourozenzi WHERE (diteIdDite1 = '.$idDite1.' AND diteIdDite2 = '.$idDite2.') OR (diteIdDite1 = '.$idDite2.' AND diteIdDite2 = '.$idDite1.')';
+
+			$this->getDb()->query('DELETE FROM sourozenzi WHERE (diteIdDite1 = '.$idDite1.' AND diteIdDite2 = '.$idDite2.') OR (diteIdDite1 = '.$idDite2.' AND diteIdDite2 = '.$idDite1.')');
 
 	        return true;
 

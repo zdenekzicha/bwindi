@@ -168,10 +168,12 @@ class homepagePresenter extends BasePresenter
 	    return $form;
 	}
 
-	public function actionSmazatSourozence($id, $idDite)
+	public function actionSmazatSourozence($idDite1, $idDite2)
 	{	
     	
-    	if($this->deti->smazatSourozence($id)){
+    	$idDite = $idDite1;
+
+    	if($this->deti->smazatSourozence($idDite1, $idDite2)){
     		$this->flashMessage('Smazali jste dítě.', 'success');
     		$this->redirect('Homepage:sourozenci', $idDite);
     	}else{
@@ -363,8 +365,14 @@ class homepagePresenter extends BasePresenter
 	public function novySourozenecFormSubmitted(NAppForm $form)
 	{	
 		$values = $form->getValues();
+
+
+		$formSourozenec2 = new NAppForm;
+
+		$formSourozenec2->addHidden('diteIdDite1')->setValue($values["diteIdDite2"]);
+		$formSourozenec2->addHidden('diteIdDite2')->setValue($values["diteIdDite1"]);
     
-    	if($this->deti->vytvorSourozence($form->values)){
+    	if($this->deti->vytvorSourozence($form->values) AND $this->deti->vytvorSourozence($formSourozenec2->values)){
     		$this->flashMessage('Přidali jste sourozence k tomuto dítěti.', 'success');
     		$this->redirect('Homepage:sourozenci', $values["diteIdDite1"]);
     	}else{
