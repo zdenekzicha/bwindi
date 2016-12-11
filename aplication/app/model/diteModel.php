@@ -348,12 +348,12 @@ class DiteModel extends Model
 
   	}
 
-  	public function smazatSourozence($id)
+  	public function smazatSourozence($idDite)
   	{
 
   		try{
 
-			$this->db->table('sourozenzi')->where('idSourozenzi', $id)->delete();
+			$this->getDb()->query('DELETE FROM sourozenzi WHERE diteIdDite1 = '.$idDite.' OR diteIdDite2 = '.$idDite);
 
 	        return true;
 
