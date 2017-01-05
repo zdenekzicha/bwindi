@@ -16,12 +16,9 @@ common:
 			errorPresenter: Error
 
 		database:
-			#dsn: 'mysql:host=127.0.0.1;dbname=bwindiorphansorg'
-			#user: 'bwindiorphans001'
-			#password: 'mEdarD2013'
-			dsn: 'mysql:host=localhost;dbname=bwindiorphansorg'
-			user: 'root'
-			password: 'root'	
+			dsn: 'mysql:host=127.0.0.1;dbname=bwindiorphansorg'
+			user: 'bwindiorphans001'
+			password: 'mEdarD2013'
 
 	services:
 		authenticator: Authenticator
