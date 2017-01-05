@@ -26,6 +26,7 @@ class skolaPresenter extends BasePresenter
     			'nazev' => $data[$id]['nazev'],
     			'nazevWeb' => $data[$id]['nazevWeb'],
                 'castka' => $data[$id]['castka'],
+                'castkaPristiRok' => $data[$id]['castkaPristiRok'],
                 'maxRok' => $data[$id]['maxRok'],
                 'predpona' => $data[$id]['predpona']
 
@@ -74,6 +75,7 @@ class skolaPresenter extends BasePresenter
 	    $form->addText('nazev', 'Název:', 40, 100)->addRule(NAppForm::FILLED, 'Je nutné zadat název školy.');
 	    $form->addText('nazevWeb', 'Název na web:', 40, 255);
 	    $form->addText('castka', 'Školné:', 40, 100)->addRule(NAppForm::FILLED, 'Je nutné zadat školné.');
+	    $form->addText('castkaPristiRok', 'Školné na příští rok:', 40, 100)->addRule(NAppForm::FILLED, 'Je nutné zadat školné.');
 	    $form->addText('maxRok', 'Počet ročníku:', 40, 100)->addRule(NAppForm::FILLED, 'Je nutné zadat počet ročníků.');
 	    $form->addText('predpona', 'Typ školy:', 40, 100)->addRule(NAppForm::FILLED, 'Je nutné zadat typ školy (např. základní, střední).');
 	    $form->addSubmit('create', 'Přidat školu');

@@ -195,7 +195,7 @@ class jsonPresenter extends BasePresenter
 			// platby nextYear
 			$platbaPristiRok = $this->platby->skolneNaKonkretniRok($item['idDite'], date("Y") + 1);
 
-			if($item['castka'] <= $platbaPristiRok[0]['rocniSoucet'] ){
+			if($item['castkaPristiRok'] <= $platbaPristiRok[0]['rocniSoucet'] ){
 				$skolnePristiRokZaplaceno = true;
 			}else{
 				$skolnePristiRokZaplaceno = false;
@@ -214,13 +214,13 @@ class jsonPresenter extends BasePresenter
 				if(!is_null($item['skolaIdSkolaNext'])){
 					$skolaNext = $this->skola->zobrazSkolu($item['skolaIdSkola']);
 					$posledniRocnik = false;
-					$skolnePristiRok = $skolaNext[0]["castka"];
+					$skolnePristiRok = $skolaNext[0]["castkaPristiRok"];
 					$platbaPristiRokRozdil = $skolnePristiRok - $platbaPristiRok[0]['rocniSoucet'];
 				}
 
 			}else{
 				$posledniRocnik = false;
-				$skolnePristiRok = $item['castka'];
+				$skolnePristiRok = $item['castkaPristiRok'];
 				$platbaPristiRokRozdil = $skolnePristiRok - $platbaPristiRok[0]['rocniSoucet'];
 			}
 			// --

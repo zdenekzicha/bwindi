@@ -76,7 +76,7 @@ class DiteModel extends Model
 
 	public function zobrazDiteApi($id)
 	{
-		return $this->db->fetchAll('SELECT d.*, s.jmeno AS jmenoSponzor, sk.nazev AS skolaNazev, sk.predpona AS skolaTyp, sk.nazevWeb AS skolaText, sk.idSkola AS skolaId, sk.castka AS castka FROM dite AS d LEFT JOIN (sponzor AS s, relaceditesponzor AS r) ON (d.idDite = r.diteIdDite AND r.sponzorIdSponzor = s.idSponzor) LEFT JOIN (skola as sk) ON (d.skolaIdSkola = idSkola) WHERE d.idDite = '.$id.' GROUP BY d.idDite ORDER BY d.jmeno ');
+		return $this->db->fetchAll('SELECT d.*, s.jmeno AS jmenoSponzor, sk.nazev AS skolaNazev, sk.predpona AS skolaTyp, sk.nazevWeb AS skolaText, sk.idSkola AS skolaId, sk.castka AS castka, sk.castkaPristiRok AS castkaPristiRok FROM dite AS d LEFT JOIN (sponzor AS s, relaceditesponzor AS r) ON (d.idDite = r.diteIdDite AND r.sponzorIdSponzor = s.idSponzor) LEFT JOIN (skola as sk) ON (d.skolaIdSkola = idSkola) WHERE d.idDite = '.$id.' GROUP BY d.idDite ORDER BY d.jmeno ');
 		//return $this->getDb()->table('detiPohled')->where("idDite", $id);
 	}
 
