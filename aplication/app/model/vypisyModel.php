@@ -28,6 +28,7 @@ class VypisyModel extends Model
               dite.idDite = relaceditesponzor.diteIdDite AND
               dite.aktivniZaznam = 1 AND
               relaceditesponzor.aktivniZaznam = 1 AND
+              sponzor.aktivniZaznam = 1 AND
               sponzor.posilatInfo = 1 '.$filter.'
               GROUP BY sponzor.mail
               ORDER BY sponzor.jmeno ';
