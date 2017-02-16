@@ -20,15 +20,15 @@ class BenefitModel extends Model
       return $this->findAll()->where("idBenefit", $id);
   }
 
-	public function zobrazBenefityNaRok($diteId, $rok)
-	{
-    	return $this->db->fetchAll('SELECT sum(platba.castka) as castka, benefit.nazev as benefitNazev, platba.poznamka as poznamka FROM  benefit, platba
-					WHERE NOT benefit.idBenefit = 1
-					    AND benefit.idBenefit = platba.benefitIdBenefit
-					    AND platba.diteIdDite = '.$diteId.'
-					    AND platba.rok = '.$rok.'
-					GROUP BY platba.benefitIdBenefit');
-	}
+  public function zobrazBenefityNaRok($diteId, $rok)
+  {
+      return $this->db->fetchAll('SELECT sum(platba.castka) as castka, benefit.nazev as benefitNazev, GROUP_CONCAT(platba.poznamka SEPARATOR ", ") AS poznamka FROM  benefit, platba
+          WHERE NOT benefit.idBenefit = 1
+              AND benefit.idBenefit = platba.benefitIdBenefit
+              AND platba.diteIdDite = '.$diteId.'
+              AND platba.rok = '.$rok.'
+          GROUP BY platba.benefitIdBenefit');
+  }
 
 	public function vytvorBenefit($form)
   	{
