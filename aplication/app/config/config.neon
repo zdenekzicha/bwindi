@@ -29,6 +29,7 @@ common:
 		platbaModel: PlatbaModel
 		benefitModel: BenefitModel
 		relaceDiteBenefitModel: RelaceDiteBenefitModel
+		vypisyModel: VypisyModel
 		routerFactory: RouterFactory
 		router: @routerFactory::createRouter
 
