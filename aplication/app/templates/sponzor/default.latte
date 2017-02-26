@@ -7,7 +7,7 @@
 		<form action="" method="get" class="form-search">
 			<p>
 				<select name="filtrSelect">
-	  				<option value="ssym" {if $filtrSelect == 'ssym'}selected="selected"{/if}>Ss</option> 
+	  				<option value="ssym" {if $filtrSelect == 'ssym'}selected="selected"{/if}>Ss</option>
 	 				<option value="jmeno" {if $filtrSelect == 'jmeno'}selected="selected"{/if}>Sponzor</option>
 	 				<option value="mail" {if $filtrSelect == 'mail'}selected="selected"{/if}>Email</option>
 				</select>
@@ -26,8 +26,9 @@
 				<th>SS</th>
 				<th>Jméno</th>
 				<th>Dítě</th>
+				<th>Ulice</th>
 				<th>PSČ</th>
-				<th>Město</th>			
+				<th>Město</th>
 				<th>Email</th>
 				<th>Poznámka</th>
 				<th></th>
@@ -37,9 +38,10 @@
 					<td>{$sponzor->ssym}</td>
 					<td><a n:href="Sponzor:edit id=>$sponzor->idSponzor">{$sponzor->jmeno}</a></td>
 					<td><a n:href="Homepage:edit id=>$sponzor->idDite">{$sponzor->diteJmeno}</a></td>
+					<td>{$sponzor->ulice}</td>
 					<td>{$sponzor->psc}</td>
-					<td>{$sponzor->mesto}</td>	
-					<td>{$sponzor->mail}</td>		
+					<td>{$sponzor->mesto}</td>
+					<td>{$sponzor->mail}</td>
 					<td>{$sponzor->poznamka}</td>
 					<td>
 						<div class="btn-group">
@@ -51,6 +53,6 @@
 				</tr>
 			{/foreach}
 		</table>
-		
+
 	</section>
 {/block}
