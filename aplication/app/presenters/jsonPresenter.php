@@ -225,11 +225,14 @@ class jsonPresenter extends BasePresenter
 			}
 			// --
 
+			$name = explode(" ",$item['jmeno']);
+			
 			// data do sablony
 			$this->payload->data = array(
 				//dite
 				"id" => $item['idDite'], 
-				"jmeno" => $item['jmeno'],
+				"jmeno" => $name[0],
+				"prijmeni" =>  $name[1],
 				"prekladJmena" => $item['prekladJmena'],
 				"bio" => $item['bio'],
 				"vek" => $this->deti->vratVek($item['datumNarozeni']),

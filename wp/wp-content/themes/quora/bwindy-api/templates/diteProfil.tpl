@@ -73,9 +73,11 @@
 
 	</div>
 		<div id="right">
-			<h1 {if $dite.prekladJmena}title="{$dite.prekladJmena}"{/if} >{$dite.jmeno}</h1>
-			
-
+			{if $dite.prekladJmena}
+				<h1>{$dite.jmeno} <span class="tooltip" title="{$dite.prekladJmena}">{$dite.prijmeni}</span></h1>
+			{else}
+				<h1>{$dite.jmeno} {$dite.prijmeni}</h1>
+			{/if}
 			<p class="perex">
 				Jsem {if $dite.pohlavi == "F"}holka{else}kluk{/if} a je mi {$dite.vek} let. <br/>
 				{if $dite.skola != '' && $dite.skolaTyp != 'q'}
