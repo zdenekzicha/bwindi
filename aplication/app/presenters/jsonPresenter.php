@@ -230,6 +230,7 @@ class jsonPresenter extends BasePresenter
 				//dite
 				"id" => $item['idDite'], 
 				"jmeno" => $item['jmeno'],
+				"prekladJmena" => $item['prekladJmena'],
 				"bio" => $item['bio'],
 				"vek" => $this->deti->vratVek($item['datumNarozeni']),
 				"narozeni" => $item['datumNarozeni'],
@@ -303,6 +304,36 @@ class jsonPresenter extends BasePresenter
 			}
 		
         }   
+
+        if(!empty($container)) {
+        	$this->payload->data[] = $container;
+        }
+
+        $this->sendPayload();
+        $this->terminate(); // ukončí presenter
+
+	}
+
+	/*
+	 * Zobrazi seznam sourozencu
+	*/
+	public function actionSourozenec($id)
+	{	
+
+		$list = $this->deti->zobrazSourozence($id);
+
+		$container = array();
+		for ($i = 0; $i < count($list); $i++) {
+			$note = array(
+				"idDite" => $list[$i]['idDite'], 
+				"jmeno" => $list[$i]['jmeno'],
+				"profilovaFotka" => $list[$i]['profilovaFotka'],
+				"pohlavi" => $list[$i]['pohlavi']
+			);
+			array_push($container, $note);
+				
+        } 
+  
 
         if(!empty($container)) {
         	$this->payload->data[] = $container;

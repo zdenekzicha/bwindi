@@ -70,13 +70,16 @@ class homepagePresenter extends BasePresenter
       	$this->template->profilovaFotka = $data[$id]['profilovaFotka'];
       	$this->template->idDite = $data[$id]['idDite'];
         $this->template->aktivniVProjektu = $data[$id]['aktivniZaznam']; 
+        $this->template->test = $data[$id]['historie']; 
 
     	$form = $this->getComponent('noveDiteForm');
 
     	$form->setDefaults(array(
     			'jmeno' => $data[$id]['jmeno'],
+    			'prekladJmena' => $data[$id]['prekladJmena'],
     			'bio' => $data[$id]['bio'],
     			'poznamka' => $data[$id]['poznamka'],
+    			'historie' => $data[$id]['historie'],
                 'pohlavi' => $data[$id]['pohlavi'],
                 'datumNarozeni' => $data[$id]['datumNarozeni'],
                 'rezervovane' => $data[$id]['rezervovane'],
@@ -332,6 +335,7 @@ class homepagePresenter extends BasePresenter
 		
 	    $form = new NAppForm;
 	    $form->addText('jmeno', 'Jméno:', 40, 255)->addRule(NAppForm::FILLED, 'Je nutné zadat jméno dítěte.');
+	    $form->addText('prekladJmena', 'Překlad jména:', 40, 255);
 	    $form->addSelect('pohlavi', 'Pohlaví:', array('M' => 'muž', 'F' => 'žena'))->setPrompt('Zvolte pohlaví')->addRule(NAppForm::FILLED, 'Je nutné zadat pohlaví dítěte.');
 	    $form->addText('datumNarozeni', 'Datum narození:', 5, 4);
 	    $form->addTextArea('bio', 'Bio', 80, 7);
@@ -345,6 +349,7 @@ class homepagePresenter extends BasePresenter
 	    $form->addSelect('skolaIdSkola', 'Škola:', $skolySelect)->setPrompt('Zvolte školu');
 	    $form->addSelect('skolaIdSkolaNext', 'Budoucí škola:', $skolySelect)->setPrompt('Zvolte školu');
 	    $form->addTextArea('poznamka', 'Poznamka', 80, 7);
+	    $form->addTextArea('historie', 'Historie poznámek', 80, 7);
 	    $form->addSubmit('create', 'Přidat dítě');
 	    $form->onSuccess[] = array($this, 'noveDiteFormSubmitted');
 	    return $form;

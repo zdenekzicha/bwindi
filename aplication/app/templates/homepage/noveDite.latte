@@ -11,7 +11,16 @@
     
   })
 
-}(window.jQuery)
+}(window.jQuery);
+
+
+
+$( document ).ready(function() {
+	tinymce.init({ selector:'textarea#frmnoveDiteForm-historie', height : 600 });
+});
+
+
+
 </script>
 		<h1>{ifset $action}Editovat údaje o dítěti{else}Přidat nové dítě{/ifset}</h1>
 		{ifset $action}
@@ -22,45 +31,53 @@
     	{/ifset}
 		{form noveDiteForm}
 	        <div class="skola-form">
-				{control $form errors}
-	            {label jmeno /}{input jmeno}
-	            {label pohlavi /} {input pohlavi}
-	            {label datumNarozeni /} {input datumNarozeni}
-	            {label bio /} {input bio}
-	            {label poznamka /} {input poznamka}
-	            <div class="nearText">
-	            	{label vsym /} {input vsym} 
-	            	<p class="muted">Poslední vsymbol je: <strong>{$maxVsym}</strong></p>
-	        	</div>
-	            {label skolaIdSkola /} {input skolaIdSkola}
-	            
-	            {label skolaIdSkolaNext /} {input skolaIdSkolaNext}
+	        	<div style="width: 30%; float: left;">
+					{control $form errors}
+		            {label jmeno /}{input jmeno}
+		            {label prekladJmena /}{input prekladJmena}
+		            {label pohlavi /} {input pohlavi}
+		            {label datumNarozeni /} {input datumNarozeni}
+		            {label bio /} {input bio}
+		            {label poznamka /} {input poznamka}
+		            <div class="nearText">
+		            	{label vsym /} {input vsym} 
+		            	<p class="muted">Poslední vsymbol je: <strong>{$maxVsym}</strong></p>
+		        	</div>
+		            {label skolaIdSkola /} {input skolaIdSkola}
+		            
+		            {label skolaIdSkolaNext /} {input skolaIdSkolaNext}
 
-	        	{label rocnik /} {input rocnik}
-	        	<div class="checkbox">
-	        		{label rezervovane /} {input rezervovane}
-	        	</div>
-	        	<div class="checkbox">
-	        		{label vystavene class=>"inline" /} {input vystavene}
-	        	</div>
-	        	<div class="checkbox">
-	        		{label aktivniZaznam /} {input aktivniZaznam}
-              {if $aktivniVProjektu}
-              <a class="btn" data-href="?idDite={$idDite}&action=vyraditDite&presenter=homepage" data-toggle="confirmation" data-placement="right" data-title="Opravdu chcete vyřadit dítě z projektu?">Vyřadit dítě z projektu</a>
-              {else}
-              <a class="btn" data-href="?idDite={$idDite}&action=zaraditDite&presenter=homepage" data-toggle="confirmation" data-placement="right" data-title="Opravdu chcete zařadit dítě zpět do projektu?">Zařadit dítě zpět do projektu</a>
-	        	  {/if}
-            </div>
-	        	<br/>
-	        	{ifset $action}
-	        		<img src={$profilovaFotka} width="220" />
-	        	{/ifset}
-	        	{input profilovasoubor}
-	        	
-	        	{input datumVzniku}
-	        	<br/>
-	            {input create class=>"btn btn-primary btn-offset"}
-	        </div>
+		        	{label rocnik /} {input rocnik}
+		        	<div class="checkbox">
+		        		{label rezervovane /} {input rezervovane}
+		        	</div>
+		        	<div class="checkbox">
+		        		{label vystavene class=>"inline" /} {input vystavene}
+		        	</div>
+		        	<div class="checkbox">
+		        		{label aktivniZaznam /} {input aktivniZaznam}
+	              {if $aktivniVProjektu}
+	              <a class="btn" data-href="?idDite={$idDite}&action=vyraditDite&presenter=homepage" data-toggle="confirmation" data-placement="right" data-title="Opravdu chcete vyřadit dítě z projektu?">Vyřadit dítě z projektu</a>
+	              {else}
+	              <a class="btn" data-href="?idDite={$idDite}&action=zaraditDite&presenter=homepage" data-toggle="confirmation" data-placement="right" data-title="Opravdu chcete zařadit dítě zpět do projektu?">Zařadit dítě zpět do projektu</a>
+		        	  {/if}
+	            </div>
+		        	<br/>
+		        	{ifset $action}
+		        		<img src={$profilovaFotka} width="220" />
+		        	{/ifset}
+
+		        	{$test}
+		        	{input profilovasoubor}
+		        	
+		        	{input datumVzniku}
+		        	<br/>
+		            {input create class=>"btn btn-primary btn-offset"}
+		        </div>
+		        <div style="width: 65%; float: right;">
+		        	{label historie /} {input historie}
+		        </div>
+		     </div>
 		{/form}
 	</section>
   

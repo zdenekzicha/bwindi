@@ -21,6 +21,7 @@
 		$id = checkNumber($_GET["idDite"]);
 		$smarty->assign("data",jsonToArray($server.'/?presenter=Json&action=profil&id='.$id, null));
 		$smarty->assign("timeline",jsonToArray($server.'/?presenter=Json&action=timeline&id='.$id, null));
+		$smarty->assign("sourozenec",jsonToArray($server.'/?presenter=Json&action=sourozenec&id='.$id, null));
 		$smarty->display('diteProfil.tpl');
 
 	} 

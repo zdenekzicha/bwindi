@@ -70,9 +70,12 @@
 
 		</p>
 	{/if}
+
 	</div>
 		<div id="right">
-			<h1>{$dite.jmeno}</h1>
+			<h1 {if $dite.prekladJmena}title="{$dite.prekladJmena}"{/if} >{$dite.jmeno}</h1>
+			
+
 			<p class="perex">
 				Jsem {if $dite.pohlavi == "F"}holka{else}kluk{/if} a je mi {$dite.vek} let. <br/>
 				{if $dite.skola != '' && $dite.skolaTyp != 'q'}
@@ -96,6 +99,24 @@
 				{/if}
 			</p>
 			<p>{$dite.bio|nl2br}</p>
+
+			{foreach from=$sourozenec key=key item=item name=item}
+				<div id="siblings">
+					<h4>Sourozenci</h4>
+					{foreach from=$item key=key1 item=item1 name=item1}
+						{foreach from=$item1 key=key2 item=item2 name=item2}
+							
+							<a href="/?page_id=48&idDite={$item2.idDite}&s=profil" class="sibling">
+								 <div class="photo bubble {if $item2.pohlavi == 'F'}female{else}male{/if}">
+									<img src="{$item2.profilovaFotka}" alt="">
+								</div>
+								{$item2.jmeno}
+							</a>
+						{/foreach}
+					{/foreach}	
+				</div>	
+			{/foreach}
+
 
 			<div id="timeline">
 				{foreach from=$timeline key=key item=item name=item}

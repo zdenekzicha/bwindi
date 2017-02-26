@@ -82,7 +82,7 @@ class DiteModel extends Model
 
 	 public function zobrazSourozence($id)
     {
-        return $this->db->fetchAll('SELECT d.jmeno, d.idDite, r.idSourozenzi FROM sourozenzi AS r, dite AS d WHERE r.diteIdDite2 = d.idDite AND r.diteIdDite1 = '. $id .'');
+        return $this->db->fetchAll('SELECT d.jmeno, d.idDite, d.profilovaFotka, d.pohlavi, r.idSourozenzi FROM sourozenzi AS r, dite AS d WHERE r.diteIdDite2 = d.idDite AND r.diteIdDite1 = '. $id .'');
     }
 
     public function zobrazTimeline($id){
