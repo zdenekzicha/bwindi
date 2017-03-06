@@ -37,6 +37,7 @@ class sponzorPresenter extends BasePresenter
                 'telefon' => $data[$id]['telefon'],
                 'poznamka' => $data[$id]['poznamka'],
                 'posilatInfo' => $data[$id]['posilatInfo'],
+                'zobrazitSponzora' => $data[$id]['zobrazitSponzora'],
                 'aktivniZaznam' => $data[$id]['aktivniZaznam']
      	));
 
@@ -182,6 +183,7 @@ class sponzorPresenter extends BasePresenter
 	    $form->addTextArea('poznamka', 'Poznamka:');
 	    $form->addCheckbox('aktivniZaznam','Aktivní v projektu')->setValue(1);
 	    $form->addCheckbox('posilatInfo','Chce posílat infomaily')->setValue(1);
+	    $form->addCheckbox('zobrazitSponzora','Zobrazit sponzora u profilu dítěte');
 	    $form->addHidden('datumVzniku')->setValue(date("Y-m-d H:i:s"));
 	    //$form->addSelect('idDite', 'Dítě:', $detiSelect)->setPrompt('Zvolte dítě');
 	    $form->addSubmit('create', 'Přidat sponzora');

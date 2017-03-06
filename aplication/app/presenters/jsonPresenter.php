@@ -154,6 +154,13 @@ class jsonPresenter extends BasePresenter
 		if($isSponzor) {
 			$sponsor = true;
 			$sponsorData = $this->sponzor->zobrazSponzora($isSponzor[0]['sponzorIdSponzor']);
+			$sponsorName = $sponsorData[$isSponzor[0]['sponzorIdSponzor']]['jmeno'];
+			
+			$sponsorShow = false;
+			if($sponsorData[$isSponzor[0]['sponzorIdSponzor']]['zobrazitSponzora']) {
+				$sponsorShow = true;
+			}
+
 			$ssym = $sponsorData[$isSponzor[0]['sponzorIdSponzor']]['ssym'];
 		}else{
 			$ssym = 0;
@@ -240,6 +247,8 @@ class jsonPresenter extends BasePresenter
 				"pohlavi" => $item['pohlavi'],
 				"fotka" => $profilePhoto,
 				"sponzor" => $sponsor,
+				'sponzorJmeno' => $sponsorName,
+				'zobrazitSponzora' => $sponsorShow,
 				"rezervovane" => $item['rezervovane'],
 				"vs" => $item['vsym'],
 				"ss" => $ssym,
