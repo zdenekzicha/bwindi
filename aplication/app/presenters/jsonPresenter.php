@@ -219,9 +219,9 @@ class jsonPresenter extends BasePresenter
 
 				// ma nastaveno budouci skolu
 				if(!is_null($item['skolaIdSkolaNext'])){
-					$skolaNext = $this->skola->zobrazSkolu($item['skolaIdSkola']);
+					$skolaNext = $this->skola->zobrazSkolu($item['skolaIdSkolaNext']);
 					$posledniRocnik = false;
-					$skolnePristiRok = $skolaNext[0]["castkaPristiRok"];
+					$skolnePristiRok = $skolaNext[$item['skolaIdSkolaNext']]["castkaPristiRok"];
 					$platbaPristiRokRozdil = $skolnePristiRok - $platbaPristiRok[0]['rocniSoucet'];
 				}
 
@@ -258,6 +258,7 @@ class jsonPresenter extends BasePresenter
 				"rocnik" => $item['rocnik'],
 				"skola" => $item['skolaNazev'],
 				"skolaId" => $item['skolaIdSkola'],
+				"skolaIdNext" => $item['skolaIdSkolaNext'],
 				"skolaText" => $item['skolaText'],
 				"skolaTyp" => $item['skolaTyp'],
 				"jePosledniRocnik" => $posledniRocnik,
