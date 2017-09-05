@@ -27,12 +27,6 @@
 		<a href="mailto:katerina@bwindiorphans.org">katerina@bwindiorphans.org</a>
 	</div>
 	<div class="teamMember">
-		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/herbert.jpg" /></div>
-		<h3>Herbert Niwagaba</h3>
-		<div class="title">spolupracovník</div>
-		<a href="mailto:herbniwagaba@googlemail.com">herbniwagaba@googlemail.com</a>
-	</div>
-	<div class="teamMember">
 		<div class="bubble"><img alt="" src="http://bwindiorphans.org/wp-content/themes/quora/images/kontakty/medard.jpg" /></div>
 		<h3>Medard Ashaba</h3>
 		<div class="title">spolupracovník</div>
