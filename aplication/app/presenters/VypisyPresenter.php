@@ -17,6 +17,7 @@ class vypisyPresenter extends BasePresenter
 	public $filtrSelect;
 	public $filtrText;
 	public $filtrAdoptovane;
+	public $filtrRok;
 
 	protected function startup()
 	{
@@ -61,8 +62,13 @@ class vypisyPresenter extends BasePresenter
 
 	}
 
-	public function actionDetiAPlatby()
+	public function actionDetiAPlatby($filtrRok)
 	{
+		
+		if(!isset($filtrRok)) {
+			$filtrRok = date('Y'); 
+		}
+
 		$this->template->detiAPlatby = array();
 		$vsechny_deti = $this->deti->zobrazVsechnyAktivniDeti("jmeno");
 		foreach ($vsechny_deti as $dite)
@@ -70,7 +76,7 @@ class vypisyPresenter extends BasePresenter
 				$skolne_tohoto_ditete = 0;
 				$letos_zaplaceno = 0;
 				$zbyva_zaplatit = 0;
-				$platbaLetos = $this->platby->skolneNaKonkretniRok($dite['idDite'], date("Y"));
+				$platbaLetos = $this->platby->skolneNaKonkretniRok($dite['idDite'], $filtrRok);
 				$udaje_k_diteti = $this->deti->zobrazDiteApi($dite['idDite']);
 				if($udaje_k_diteti) $skolne_tohoto_ditete = $udaje_k_diteti[0]['castka'];
 				if($platbaLetos) {
@@ -86,7 +92,7 @@ class vypisyPresenter extends BasePresenter
 				array_push($this->template->detiAPlatby, $dite);
 		  }
 			$this->template->sponzori = $this->sponzori->zobrazAktivniSponzory();
-			$this->template->letosni_rok = date("Y");
+			$this->template->letosni_rok = $filtrRok;
 	}
 
 	public function actionDetiABenefity()

@@ -3,7 +3,18 @@
 {block content}
 
 	<section id="page">
-<H2>Platby na {$letosni_rok}</H2>
+		<H2>Platby a děti</H2>
+		<form action="" method="get" class="form-search">
+			<p>
+				<label for="filterRok">Rok:</label>
+	  			<input type="text" name="filtrRok" name="filtrRok" class="input-xlarge" value="{$letosni_rok}" />
+	  			<input type="hidden" name="presenter" value="vypisy" />
+	  			<input type="hidden" name="action" value="detiAPlatby" />
+	  			<button type="submit" class="btn btn-inverse">Vyhledat</button>
+	  		</p>
+		</form>
+		
+
 		<table id="dataDeti" class="display">
 			<thead>
       <tr>
