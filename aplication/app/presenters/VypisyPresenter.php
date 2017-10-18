@@ -78,7 +78,14 @@ class vypisyPresenter extends BasePresenter
 				$zbyva_zaplatit = 0;
 				$platbaLetos = $this->platby->skolneNaKonkretniRok($dite['idDite'], $filtrRok);
 				$udaje_k_diteti = $this->deti->zobrazDiteApi($dite['idDite']);
-				if($udaje_k_diteti) $skolne_tohoto_ditete = $udaje_k_diteti[0]['castka'];
+				
+				if($udaje_k_diteti) {
+					if ($filtrRok == (date('Y') + 1)) {
+						$skolne_tohoto_ditete = $udaje_k_diteti[0]['castkaPristiRok'];
+					}else{
+						$skolne_tohoto_ditete = $udaje_k_diteti[0]['castka'];
+					}
+				}
 				if($platbaLetos) {
 					$zbyva_zaplatit = $skolne_tohoto_ditete - $platbaLetos[0]['rocniSoucet'];
 					$letos_zaplaceno = $platbaLetos[0]['rocniSoucet'];
