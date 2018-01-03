@@ -12,6 +12,7 @@ class vypisyPresenter extends BasePresenter
 	private $jsonPresenter;
 	private $filter;
 	private $psc;
+	private $year;
 
 	public $filtrSkola;
 	public $filtrSelect;
@@ -64,9 +65,9 @@ class vypisyPresenter extends BasePresenter
 
 	public function actionDetiAPlatby($filtrRok)
 	{
-		
+
 		if(!isset($filtrRok)) {
-			$filtrRok = date('Y'); 
+			$filtrRok = date('Y');
 		}
 
 		$this->template->detiAPlatby = array();
@@ -78,7 +79,7 @@ class vypisyPresenter extends BasePresenter
 				$zbyva_zaplatit = 0;
 				$platbaLetos = $this->platby->skolneNaKonkretniRok($dite['idDite'], $filtrRok);
 				$udaje_k_diteti = $this->deti->zobrazDiteApi($dite['idDite']);
-				
+
 				if($udaje_k_diteti) {
 					if ($filtrRok == (date('Y') + 1)) {
 						$skolne_tohoto_ditete = $udaje_k_diteti[0]['castkaPristiRok'];
@@ -104,14 +105,15 @@ class vypisyPresenter extends BasePresenter
 
 	public function actionDetiABenefity()
 	{
+		$year='2017';
 		$this->template->detiABenefity = array();
   	$vsechny_deti = $this->deti->zobrazVsechnyAktivniDeti("jmeno");
 		foreach ($vsechny_deti as $dite)
 			{
-				$dite['benefity'] = $this->benefity->zobrazBenefityNaRok($dite['idDite'], date("Y"));
+				$dite['benefity'] = $this->benefity->zobrazBenefityNaRok($dite['idDite'], $year);
 				array_push($this->template->detiABenefity, $dite);
 		  }
-			$this->template->letosni_rok = date("Y");
+			$this->template->letosni_rok = $year;
 	}
 
   public function actionDetiSProfilovkou()
