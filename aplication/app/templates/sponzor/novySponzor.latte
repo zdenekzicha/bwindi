@@ -25,9 +25,9 @@
 	          <div class="checkbox">
 	        		{label aktivniZaznam /} {input aktivniZaznam}
               {if $aktivniVProjektu}
-              <a class="btn" data-href="?idSponzor={$idSponzor}&action=vyraditSponzora&presenter=sponzor" data-toggle="confirmation" data-placement="right" data-title="Opravdu chcete vyřadit sponzora z projektu?">Vyřadit sponzora z projektu</a>
+              <a n:href="Sponzor:vyraditSponzora id=>$adopt->idRelaceDiteSponzor, idSponzor=>$idSponzor" title="Vyřadit sponzora" onclick="if(!confirm('Opravdu chcete vyřadit sponzora z projektu?'))return false;" class="btn">Vyřadit sponzora z projektu</a>
               {else}
-              <a class="btn" data-href="?idSponzor={$idSponzor}&action=zaraditSponzora&presenter=sponzor" data-toggle="confirmation" data-placement="right" data-title="Opravdu chcete zařadit sponzora zpět do projektu?">Zařadit sponzora zpět do projektu</a>
+              <a n:href="Sponzor:zaraditSponzora id=>$adopt->idRelaceDiteSponzor, idSponzor=>$idSponzor" title="Aktivovat sponzora" onclick="if(!confirm('Opravdu chcete zařadit sponzora zpět do projektu?'))return false;" class="btn">Zařadit sponzora zpět do projektu</a>
 	        	  {/if}
 	        	</div>
 	        	{input datumVzniku}

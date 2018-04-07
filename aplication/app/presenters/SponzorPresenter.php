@@ -48,6 +48,7 @@ class sponzorPresenter extends BasePresenter
 
 		$this->template->maxSsym = $this->sponzori->zobrazMaximalniSsym();
 		$this->template->aktivniVProjektu = $data[$id]['aktivniZaznam'];
+		$this->template->idSponzor = $id;
 
 		$this->template->action = "edit";
 		$this->setView('novySponzor');
@@ -229,7 +230,7 @@ class sponzorPresenter extends BasePresenter
   public function actionVyraditSponzora($idSponzor)
 	{	
     	
-    	if($this->deti->vyraditSponzora($idSponzor)){
+    	if($this->sponzori->vyraditSponzora($idSponzor)){
     		$this->flashMessage('Vyřadili jste sponzora.', 'success');
     		$this->redirect('Sponzor:default', $idSponzor);
     	}else{
@@ -240,7 +241,7 @@ class sponzorPresenter extends BasePresenter
   public function actionZaraditSponzora($idSponzor)
 	{	
     	
-    	if($this->deti->zaraditSponzora($idSponzor)){
+    	if($this->sponzori->zaraditSponzora($idSponzor)){
     		$this->flashMessage('Zařadili jste sponzora zpět do projektu. Staré vazby na případné původní děti se ale znova neobnoví', 'success');
     		$this->redirect('Sponzor:edit', $idSponzor);
     	}else{

@@ -151,7 +151,7 @@ class sponzorModel extends Model
         		try{
 
 			$this->getDb()->query('UPDATE sponzor SET aktivniZaznam=0,datumZaniku=NOW() WHERE idSponzor='.$idSponzor);
-      $this->getDb()->query('UPDATE relaceDiteSponzor SET aktivniZaznam=0,datumZaniku=NOW() WHERE sponzoraIdSponzor='.$idDite);
+      $this->getDb()->query('UPDATE relaceDiteSponzor SET aktivniZaznam=0,datumZaniku=NOW() WHERE sponzoraIdSponzor='.$idSponzor);
 
 	        return true;
 
