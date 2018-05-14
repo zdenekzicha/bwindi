@@ -192,21 +192,16 @@ class jsonPresenter extends BasePresenter
 
 			$platbaLetosRozdil = $item['castka'] - $platbaLetos[0]['rocniSoucet'];
 
-			if($item['castka'] <= $platbaLetos[0]['rocniSoucet'] ){
-				$skolneLetosZaplaceno = true;
-			}else{
+			if($platbaLetosRozdil > 0){
 				$skolneLetosZaplaceno = false;
+			}else{
+				$skolneLetosZaplaceno = true;
 			}
 			// --
 
 			// platby nextYear
 			$platbaPristiRok = $this->platby->skolneNaKonkretniRok($item['idDite'], date("Y") + 1);
 
-			if($item['castkaPristiRok'] <= $platbaPristiRok[0]['rocniSoucet'] ){
-				$skolnePristiRokZaplaceno = true;
-			}else{
-				$skolnePristiRokZaplaceno = false;
-			}
 			// --
 
 			// skola
@@ -229,6 +224,12 @@ class jsonPresenter extends BasePresenter
 				$posledniRocnik = false;
 				$skolnePristiRok = $item['castkaPristiRok'];
 				$platbaPristiRokRozdil = $skolnePristiRok - $platbaPristiRok[0]['rocniSoucet'];
+			}
+
+			if($platbaPristiRokRozdil > 0){
+				$skolnePristiRokZaplaceno = false;
+			}else{
+				$skolnePristiRokZaplaceno = true;
 			}
 			// --
 
