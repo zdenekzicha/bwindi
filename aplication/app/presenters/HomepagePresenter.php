@@ -81,6 +81,7 @@ class homepagePresenter extends BasePresenter
     			'poznamka' => $data[$id]['poznamka'],
     			'historie' => $data[$id]['historie'],
     			'internat' => $data[$id]['internat'],
+    			'opakuji_rocnik' => $data[$id]['opakuji_rocnik'],
                 'pohlavi' => $data[$id]['pohlavi'],
                 'datumNarozeni' => $data[$id]['datumNarozeni'],
                 'rezervovane' => $data[$id]['rezervovane'],
@@ -352,6 +353,7 @@ class homepagePresenter extends BasePresenter
 	    $form->addTextArea('poznamka', 'Poznamka', 80, 7);
 	    $form->addTextArea('historie', 'Historie poznámek', 80, 7);
 	    $form->addCheckbox('internat','Na internatu');
+	    $form->addCheckbox('opakuji_rocnik','Opakuji ročník');
 	    $form->addSubmit('create', 'Přidat dítě');
 	    $form->onSuccess[] = array($this, 'noveDiteFormSubmitted');
 	    return $form;
