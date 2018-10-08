@@ -18,7 +18,7 @@ class PlatbaModel extends Model
 	//metoda, ktera zobrazuje vsechny roky v platbach
 	public function zobrazVsechnyRoky()
 	{
-    	return $this->db->fetchAll('SELECT DATE_FORMAT(datum,"%Y") AS roky FROM platba GROUP BY roky ORDER BY roky');
+    	return $this->db->fetchAll('SELECT rok AS roky FROM platba GROUP BY roky ORDER BY roky');
 	}
 
 	public function zobrazPlatbu($id)
