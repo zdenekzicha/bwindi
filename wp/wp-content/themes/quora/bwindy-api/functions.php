@@ -16,7 +16,8 @@
 
 	/* osetreni vstupu a je to string */
 	function checkString($value){
-		return $id = mysql_real_escape_string(trim($value));
+		//return $id = mysql_real_escape_string(trim($value));
+		return $id = trim($value);
 	}
 
 	/*vrati obsah zpravy pro email ktery se posle bwindi */
@@ -32,7 +33,7 @@
 						<p style='font-size: 14px; color: #997653;'>".$sponsor." by chtěl(a) adoptovat</p>";
 		if($childPhoto != '') {
 			$message .= "<p>
-							<div style='position: relative; margin: 0 auto; height: 150px; width: 150px; overflow: hidden; border-radius: 50%; border: 3px solid #e9e2cb;'>	
+							<div style='position: relative; margin: 0 auto; height: 150px; width: 150px; overflow: hidden; border-radius: 50%; border: 3px solid #e9e2cb;'>
 								<img src='".$childPhoto."' alt='' style='width: 100%;' />
 							</div>
 							<a href='".$url."/?page_id=48&idDite=".$childId."&s=profil' style='color: #4CB63D; font-size: 14px;'>".$childName."</a>
@@ -41,13 +42,13 @@
 		else {
 			$message .= "<p><a href='".$url."/?page_id=48&idDite=".$childId."&s=profil' style='color: #4CB63D; font-size: 14px;'>".$childName."</a>";
 		}
-						
+
 		$message .= "<p style='padding-top: 20px; margin: 0; font-size: 14px; color: #997653;'>".$sponsor." píše:</p>";
-		
+
 		if($note != "") {
-			$message .= "<p style='color: #504342; font-size: 14px;'>".$note."</p>";	
+			$message .= "<p style='color: #504342; font-size: 14px;'>".$note."</p>";
 		}
-						
+
 		$message .= "<p style='padding-top: 20px; margin: 0; font-size: 14px; color: #997653;'>Kontaktujte ho prosím:</p>
 					<h3 style='padding: 10px; margin: 0; font-size: 20px; font-weight: normal; color: #504342;'>
 						<a href='mailto:.".$email."' style='font-size: 20px; color: #504342;'>".$email."</a>
@@ -69,7 +70,7 @@
 
 		$message .= "<div style='padding: 20px 0 10px; margin: 60px 50px 0; text-align: center; color: #997653; border-top: 1px solid #ccc;'>
 						<a href='http://www.bwo.cz/' style='color: #4CB63D'>http://www.bwo.cz/</a> -
-						<a href='mailto:info@bwindiorphans.org' style='color: #4CB63D'>info@bwindiorphans.org</a> - 
+						<a href='mailto:info@bwindiorphans.org' style='color: #4CB63D'>info@bwindiorphans.org</a> -
 						+420 602 595 073
 					</div>";
 		$message .= "</html></body>";
@@ -89,7 +90,7 @@
 						<p style='font-size: 14px; color: #997653;'>V nejbližší době vám pošleme číslo účtu a potřebné informace k provedení platby pro adoptování:</p>";
 		if($childPhoto != '') {
 			$message .= "<p>
-							<div style='position: relative; margin: 0 auto; height: 150px; width: 150px; overflow: hidden; border-radius: 50%; border: 3px solid #e9e2cb;'>	
+							<div style='position: relative; margin: 0 auto; height: 150px; width: 150px; overflow: hidden; border-radius: 50%; border: 3px solid #e9e2cb;'>
 								<img src='".$childPhoto."' alt='' style='width: 100%;' />
 							</div>
 							<a href='".$url."/?page_id=48&idDite=".$childId."&s=profil' style='color: #4CB63D; font-size: 14px;'>".$childName."</a>
@@ -104,7 +105,7 @@
 					</div>";
 		$message .= "<div style='padding: 20px 0 10px; margin: 60px 50px 0; text-align: center; color: #997653; border-top: 1px solid #ccc;'>
 						<a href='http://www.bwo.cz/' style='color: #4CB63D'>http://www.bwo.cz/</a> -
-						<a href='mailto:info@bwindiorphans.org' style='color: #4CB63D'>info@bwindiorphans.org</a> - 
+						<a href='mailto:info@bwindiorphans.org' style='color: #4CB63D'>info@bwindiorphans.org</a> -
 						+420 602 595 073
 					</div>";
 		$message .= "</html></body>";
